@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ViewController: UIViewController {
 
@@ -19,10 +20,25 @@ class ViewController: UIViewController {
     var index = 0
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var backButton: UIButton!
-    
+    let speechSynthesizer = AVSpeechSynthesizer()
     var words = VocabWords().words
+    @IBOutlet weak var speechButton: UIButton!
   
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        let tapGesture = UITapGestureRecognizer(target: self, action: "cardTapped")
+        wordView.addGestureRecognizer(tapGesture)
+        view.addSubview(wordView)
+        speechButton.enabled = false
+        speechButton.alpha = 0.0
+        vocabWordLabel.text = ""
+        nextButton.alpha = 0.0
+        nextButton.enabled = false
+        backButton.alpha = 0.0
+        backButton.enabled = true
+    }
+
     
     
     @IBAction func gameStarted(sender: UIButton) {
@@ -36,6 +52,8 @@ class ViewController: UIViewController {
         nextButton.alpha = 1.0
         backButton.enabled = true
         backButton.alpha = 1.0
+        speechButton.enabled = true
+        speechButton.alpha = 1.0
         
     }
     
@@ -63,37 +81,24 @@ class ViewController: UIViewController {
             
         }
     }
-    @IBAction func cardPanned(sender: UIPanGestureRecognizer) {
-//        switch sender.state {
-//        case .Began:
-//            fallthrough
-//        case .Changed:
-//            let translation = sender.translationInView(view)
-//            wordView.frame.origin.x += translation.x
-//            wordView.frame.origin.y += translation.y
-//            sender.setTranslation(CGPointZero, inView: view)
-//        default: break
-//        }
+
+    @IBAction func speak(sender: UIButton) {
+        let speechUtterance = AVSpeechUtterance(string: word!)
+        speechSynthesizer.speakUtterance(speechUtterance)
     }
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        let tapGesture = UITapGestureRecognizer(target: self, action: "cardTapped")
-        wordView.addGestureRecognizer(tapGesture)
-        view.addSubview(wordView)
-        vocabWordLabel.text = ""
-        nextButton.alpha = 0.0
-        nextButton.enabled = false
-        backButton.alpha = 0.0
-        backButton.enabled = true
-    }
+ 
     
     func cardTapped() {
         if showingWord == true {
+            speechButton.enabled = false
+            speechButton.alpha = 0.0
             vocabWordLabel.font = vocabWordLabel.font.fontWithSize(20)
             vocabWordLabel.text = wordDefinition
             wordView.flip()
             showingWord = false
         } else {
+            speechButton.enabled = true
+            speechButton.alpha = 1.0
             vocabWordLabel.font = vocabWordLabel.font.fontWithSize(30)
             vocabWordLabel.text = word
             wordView.flip()
