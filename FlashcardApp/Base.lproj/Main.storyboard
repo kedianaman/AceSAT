@@ -90,7 +90,7 @@
                                 <rect key="frame" x="50" y="94" width="500" height="476"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5kn-n0-5x7">
-                                        <rect key="frame" x="215" y="214" width="70.5" height="48"/>
+                                        <rect key="frame" x="215.5" y="214" width="70.5" height="48"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <state key="normal" title="Start"/>
                                         <connections>
@@ -98,14 +98,14 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Word" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ruz-vl-7lL">
-                                        <rect key="frame" x="215" y="214" width="70.5" height="48"/>
+                                        <rect key="frame" x="215.5" y="214" width="70.5" height="48"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="71" id="2Xn-SS-g8q"/>
                                             <constraint firstAttribute="width" constant="73" id="SCS-20-7Gq"/>
                                             <constraint firstAttribute="height" constant="21" id="SH0-1F-jSk"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                         <variation key="default">
                                             <mask key="constraints">
@@ -130,7 +130,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="epX-5K-idD">
-                                        <rect key="frame" x="226" y="277" width="49.5" height="39"/>
+                                        <rect key="frame" x="226" y="277" width="50" height="39"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="49.5" id="0f6-bE-fK2"/>
                                             <constraint firstAttribute="height" constant="39" id="763-Sf-ubh"/>
@@ -140,13 +140,29 @@
                                             <action selector="speak:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SKl-68-UkT"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zbR-pu-tWT">
+                                        <rect key="frame" x="229" y="30" width="42" height="20.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="CRQ-vn-FQ4"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="CRQ-vn-FQ4"/>
+                                            </mask>
+                                        </variation>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
                                 <constraints>
+                                    <constraint firstItem="zbR-pu-tWT" firstAttribute="centerX" secondItem="Ruz-vl-7lL" secondAttribute="centerX" id="1X5-15-y1h"/>
                                     <constraint firstItem="5kn-n0-5x7" firstAttribute="width" secondItem="Ruz-vl-7lL" secondAttribute="width" id="2hI-13-j7X"/>
                                     <constraint firstItem="Ruz-vl-7lL" firstAttribute="leading" secondItem="epX-5K-idD" secondAttribute="trailing" constant="40" id="5cD-pG-8Ug"/>
                                     <constraint firstItem="zE2-BC-Xvm" firstAttribute="leading" secondItem="crX-nz-J9D" secondAttribute="leadingMargin" id="6cv-ag-RBJ"/>
+                                    <constraint firstItem="Ruz-vl-7lL" firstAttribute="top" secondItem="zbR-pu-tWT" secondAttribute="bottom" constant="77" id="Fp0-Hi-vdy"/>
                                     <constraint firstItem="epX-5K-idD" firstAttribute="top" secondItem="Ruz-vl-7lL" secondAttribute="bottom" constant="15" id="ITi-cl-Lzu"/>
                                     <constraint firstItem="5kn-n0-5x7" firstAttribute="centerX" secondItem="crX-nz-J9D" secondAttribute="centerX" id="MGW-LC-yLn"/>
                                     <constraint firstItem="epX-5K-idD" firstAttribute="top" secondItem="Ruz-vl-7lL" secondAttribute="bottom" constant="-39" id="NlH-1w-BMK"/>
@@ -159,6 +175,7 @@
                                     <constraint firstItem="Ruz-vl-7lL" firstAttribute="centerY" secondItem="crX-nz-J9D" secondAttribute="centerY" id="bed-ol-98C"/>
                                     <constraint firstItem="Ruz-vl-7lL" firstAttribute="leading" secondItem="crX-nz-J9D" secondAttribute="leading" constant="229" id="c2S-8V-RcR"/>
                                     <constraint firstItem="epX-5K-idD" firstAttribute="centerX" secondItem="Ruz-vl-7lL" secondAttribute="centerX" id="e9l-KS-1Uz"/>
+                                    <constraint firstItem="zbR-pu-tWT" firstAttribute="top" secondItem="crX-nz-J9D" secondAttribute="top" constant="30" id="g1b-yP-hLH"/>
                                     <constraint firstItem="bVB-rl-E09" firstAttribute="centerY" secondItem="Ruz-vl-7lL" secondAttribute="centerY" id="hvN-g2-BVM"/>
                                     <constraint firstItem="Ruz-vl-7lL" firstAttribute="centerX" secondItem="crX-nz-J9D" secondAttribute="centerX" id="lxl-qW-OCm"/>
                                     <constraint firstItem="zE2-BC-Xvm" firstAttribute="centerY" secondItem="Ruz-vl-7lL" secondAttribute="centerY" id="p04-y2-Pt9"/>
@@ -169,6 +186,7 @@
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="5cD-pG-8Ug"/>
+                                        <exclude reference="Fp0-Hi-vdy"/>
                                         <exclude reference="WkP-ye-O3P"/>
                                         <exclude reference="bed-ol-98C"/>
                                         <exclude reference="c2S-8V-RcR"/>
@@ -177,10 +195,6 @@
                                         <exclude reference="Tqh-YS-QQD"/>
                                     </mask>
                                 </variation>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="VJc-t3-09J" appends="YES" id="vHT-Ba-UBh"/>
-                                    <outletCollection property="gestureRecognizers" destination="qjA-wX-OGj" appends="YES" id="HDr-Fw-opQ"/>
-                                </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.35294117650000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -218,6 +232,7 @@
                     </view>
                     <connections>
                         <outlet property="backButton" destination="zE2-BC-Xvm" id="lDF-h3-aqd"/>
+                        <outlet property="indexWordLabel" destination="zbR-pu-tWT" id="FKz-4Q-I3v"/>
                         <outlet property="nextButton" destination="bVB-rl-E09" id="Tos-U5-IaE"/>
                         <outlet property="speechButton" destination="epX-5K-idD" id="mWB-JJ-Vr1"/>
                         <outlet property="vocabWordLabel" destination="Ruz-vl-7lL" id="LEB-un-G1y"/>
@@ -225,16 +240,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="VJc-t3-09J">
-                    <connections>
-                        <action selector="cardPanned:" destination="BYZ-38-t0r" id="4M9-cv-5eI"/>
-                    </connections>
-                </panGestureRecognizer>
-                <swipeGestureRecognizer direction="right" id="qjA-wX-OGj">
-                    <connections>
-                        <action selector="cardSwiped:" destination="BYZ-38-t0r" id="28G-0p-qom"/>
-                    </connections>
-                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="238" y="486"/>
         </scene>
@@ -247,7 +252,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="vocabWordCell" textLabel="JB3-ZX-iTO" detailTextLabel="JiC-8h-zcx" style="IBUITableViewCellStyleSubtitle" id="1YZ-v5-H7f">
+                            <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="vocabWordCell" textLabel="JB3-ZX-iTO" detailTextLabel="JiC-8h-zcx" style="IBUITableViewCellStyleSubtitle" id="1YZ-v5-H7f">
                                 <rect key="frame" x="0.0" y="86" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1YZ-v5-H7f" id="hZ8-nF-XoO">
@@ -258,14 +263,14 @@
                                             <rect key="frame" x="15" y="5" width="31.5" height="19.5"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="JiC-8h-zcx">
                                             <rect key="frame" x="15" y="24.5" width="44" height="14.5"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>

@@ -17,9 +17,13 @@ class FlashcardView: UIView {
         
     }
     func next(yes: Bool) {
-        UIView.transitionWithView(self, duration: 0.3, options: yes ? UIViewAnimationOptions.TransitionCurlDown : UIViewAnimationOptions.TransitionCurlUp, animations: { () -> Void in
+        UIView.transitionWithView(self, duration: 0.3, options: yes ? UIViewAnimationOptions.TransitionCurlUp : UIViewAnimationOptions.TransitionCurlDown, animations: { () -> Void in
             print("next")
             }, completion: nil)
+    }
+    
+    override func awakeFromNib() {
+        self.layer.cornerRadius = 10
     }
  
 

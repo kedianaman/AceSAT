@@ -23,7 +23,7 @@ class ViewController: UIViewController {
     let speechSynthesizer = AVSpeechSynthesizer()
     var words = VocabWords().words
     @IBOutlet weak var speechButton: UIButton!
-  
+    @IBOutlet weak var indexWordLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,11 +37,28 @@ class ViewController: UIViewController {
         nextButton.enabled = false
         backButton.alpha = 0.0
         backButton.enabled = true
+        indexWordLabel.text = ""
+        indexWordLabel.alpha = 0.6
     }
 
     
+    @IBAction func cardSwiped(gesture: UISwipeGestureRecognizer) {
+        if gesture.direction == UISwipeGestureRecognizerDirection.Left {
+            next()
+        } else if gesture.direction == UISwipeGestureRecognizerDirection.Right {
+            back()
+        }
+        
+    }
     
     @IBAction func gameStarted(sender: UIButton) {
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: "cardSwiped:")
+        swipeRight.direction = UISwipeGestureRecognizerDirection.Right
+        self.view.addGestureRecognizer(swipeRight)
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: "cardSwiped:")
+        swipeLeft.direction = UISwipeGestureRecognizerDirection.Left
+        self.view.addGestureRecognizer(swipeLeft)
+
         sender.enabled = false
         sender.removeFromSuperview()
         word = words.keys.array[index]
@@ -54,15 +71,17 @@ class ViewController: UIViewController {
         backButton.alpha = 1.0
         speechButton.enabled = true
         speechButton.alpha = 1.0
-        
+         indexWordLabel.text = "\(index + 1) of \(words.count)"
     }
     
     @IBAction func next() {
         wordView.next(true)
         index++
+        print(index)
         if index > words.count - 1 {
             index = 0
         }
+        indexWordLabel.text = "\(index + 1) of \(words.count)"
         word = words.keys.array[index]
         wordDefinition = words[word!]
         vocabWordLabel.text = word
@@ -71,6 +90,7 @@ class ViewController: UIViewController {
     }
     @IBAction func back() {
         index--
+        indexWordLabel.text = "\(index + 1) of \(words.count)"
         if index >= 0 {
             wordView.next(false)
             word = words.keys.array[index]
@@ -78,6 +98,7 @@ class ViewController: UIViewController {
             vocabWordLabel.text = word
             showingWord = true
         } else {
+            index = 0
             
         }
     }
