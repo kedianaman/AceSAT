@@ -8,19 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		ED1C89C51B5985EF00DCF0EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1C89C41B5985EF00DCF0EB /* AppDelegate.swift */; };
-		ED1C89C71B5985EF00DCF0EB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1C89C61B5985EF00DCF0EB /* ViewController.swift */; };
+		ED1C89C71B5985EF00DCF0EB /* PracticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1C89C61B5985EF00DCF0EB /* PracticeViewController.swift */; };
 		ED1C89CA1B5985EF00DCF0EB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED1C89C81B5985EF00DCF0EB /* Main.storyboard */; };
 		ED1C89CC1B5985EF00DCF0EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED1C89CB1B5985EF00DCF0EB /* Assets.xcassets */; };
 		ED1C89CF1B5985EF00DCF0EB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED1C89CD1B5985EF00DCF0EB /* LaunchScreen.storyboard */; };
 		ED1C89D71B59FC9300DCF0EB /* FlashcardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1C89D61B59FC9300DCF0EB /* FlashcardView.swift */; };
 		ED3322521B61711700E3F624 /* VocabWords.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3322511B61711700E3F624 /* VocabWords.swift */; };
 		ED3322541B61B99000E3F624 /* ReviewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3322531B61B99000E3F624 /* ReviewTableViewController.swift */; };
+		EDF48E361B64507A0090C6F3 /* Wordlist.json in Resources */ = {isa = PBXBuildFile; fileRef = EDF48E351B64507A0090C6F3 /* Wordlist.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		ED1C89C11B5985EF00DCF0EB /* FlashcardApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlashcardApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED1C89C41B5985EF00DCF0EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		ED1C89C61B5985EF00DCF0EB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		ED1C89C61B5985EF00DCF0EB /* PracticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeViewController.swift; sourceTree = "<group>"; };
 		ED1C89C91B5985EF00DCF0EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		ED1C89CB1B5985EF00DCF0EB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ED1C89CE1B5985EF00DCF0EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -28,6 +29,7 @@
 		ED1C89D61B59FC9300DCF0EB /* FlashcardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlashcardView.swift; sourceTree = "<group>"; };
 		ED3322511B61711700E3F624 /* VocabWords.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VocabWords.swift; sourceTree = "<group>"; };
 		ED3322531B61B99000E3F624 /* ReviewTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewTableViewController.swift; sourceTree = "<group>"; };
+		EDF48E351B64507A0090C6F3 /* Wordlist.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Wordlist.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,7 +63,7 @@
 			isa = PBXGroup;
 			children = (
 				ED1C89C41B5985EF00DCF0EB /* AppDelegate.swift */,
-				ED1C89C61B5985EF00DCF0EB /* ViewController.swift */,
+				ED1C89C61B5985EF00DCF0EB /* PracticeViewController.swift */,
 				ED3322511B61711700E3F624 /* VocabWords.swift */,
 				ED1C89D61B59FC9300DCF0EB /* FlashcardView.swift */,
 				ED1C89C81B5985EF00DCF0EB /* Main.storyboard */,
@@ -69,6 +71,7 @@
 				ED1C89CB1B5985EF00DCF0EB /* Assets.xcassets */,
 				ED1C89CD1B5985EF00DCF0EB /* LaunchScreen.storyboard */,
 				ED1C89D01B5985EF00DCF0EB /* Info.plist */,
+				EDF48E351B64507A0090C6F3 /* Wordlist.json */,
 			);
 			path = FlashcardApp;
 			sourceTree = "<group>";
@@ -132,6 +135,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED1C89CF1B5985EF00DCF0EB /* LaunchScreen.storyboard in Resources */,
+				EDF48E361B64507A0090C6F3 /* Wordlist.json in Resources */,
 				ED1C89CC1B5985EF00DCF0EB /* Assets.xcassets in Resources */,
 				ED1C89CA1B5985EF00DCF0EB /* Main.storyboard in Resources */,
 			);
@@ -144,7 +148,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ED1C89C71B5985EF00DCF0EB /* ViewController.swift in Sources */,
+				ED1C89C71B5985EF00DCF0EB /* PracticeViewController.swift in Sources */,
 				ED3322521B61711700E3F624 /* VocabWords.swift in Sources */,
 				ED3322541B61B99000E3F624 /* ReviewTableViewController.swift in Sources */,
 				ED1C89D71B59FC9300DCF0EB /* FlashcardView.swift in Sources */,

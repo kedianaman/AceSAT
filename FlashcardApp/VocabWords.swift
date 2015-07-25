@@ -10,4 +10,21 @@ import Foundation
 
 class VocabWords {
     var words = ["Abhor" : "hate", "Bigot" : "narrow-minded person", "Counterfeit": "fake",   "Enfranchise" : "give voting rights",  "Hamper" : "hinder; obstruct", "Kindle": "to start a fire", "Noxious": "harmful; poisonous; lethal", "Placid": "calm; peaceful", "Remuneration": "payment for work done", "Talisman": "lucky charm", "Abrasive": "rough; coarse; harsh", "Bilk": "cheat; defraud", "Covert": "hidden; undercover", "Engender": "cause", "Hangar": "storage area (like garage) for a plane", "Knotty" : "complex; difficult to solve", "Nuance": "something subtle; a fine shade of meaning","Plagiarism": "taking credit for someone else's writing or ideas", "Renown": "fame", "Tangent": "going off the main subject"]
+    
+    
+    let path = NSBundle.mainBundle().pathForResource("Wordlist", ofType: "json")!
+    var wordList: [[String: String]]?
+    
+    func getWordsAtIndex(index: Int) -> Dictionary<String, String>? {
+        let jsonData = NSData(contentsOfFile: path)
+        do {
+            wordList = try NSJSONSerialization.JSONObjectWithData(jsonData!, options: NSJSONReadingOptions.AllowFragments) as! [[String: String]]
+            return wordList![index]
+            
+        } catch {
+            print("couldn't get wordlist")
+        }
+        return nil
+
+    }
 }

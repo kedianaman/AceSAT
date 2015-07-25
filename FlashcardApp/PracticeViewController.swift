@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  PracticeViewController.swift
 //  FlashcardApp
 //
 //  Created by Naman Kedia on 7/17/15.
@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-class ViewController: UIViewController {
+class PracticeViewController: UIViewController {
 
 
     @IBOutlet weak var wordView: FlashcardView!
@@ -18,8 +18,6 @@ class ViewController: UIViewController {
     var word: String?
     var wordDefinition: String?
     var index = 0
-    @IBOutlet weak var nextButton: UIButton!
-    @IBOutlet weak var backButton: UIButton!
     let speechSynthesizer = AVSpeechSynthesizer()
     var words = VocabWords().words
     @IBOutlet weak var speechButton: UIButton!
@@ -33,12 +31,13 @@ class ViewController: UIViewController {
         speechButton.enabled = false
         speechButton.alpha = 0.0
         vocabWordLabel.text = ""
-        nextButton.alpha = 0.0
-        nextButton.enabled = false
-        backButton.alpha = 0.0
-        backButton.enabled = true
         indexWordLabel.text = ""
         indexWordLabel.alpha = 0.6
+        
+        let test = VocabWords().getWordsAtIndex(0)
+        print(test
+        )
+        
     }
 
     
@@ -65,10 +64,6 @@ class ViewController: UIViewController {
         wordDefinition = words[word!]
         vocabWordLabel.text = word
         showingWord = true
-        nextButton.enabled = true
-        nextButton.alpha = 1.0
-        backButton.enabled = true
-        backButton.alpha = 1.0
         speechButton.enabled = true
         speechButton.alpha = 1.0
          indexWordLabel.text = "\(index + 1) of \(words.count)"
