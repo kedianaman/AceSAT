@@ -16,14 +16,22 @@ class FlashcardView: UIView {
             }, completion: nil)
         
     }
-    func next(yes: Bool) {
+    func next(yes: Bool, shadowOffSet: CGFloat) {
         UIView.transitionWithView(self, duration: 0.3, options: yes ? UIViewAnimationOptions.TransitionCurlUp : UIViewAnimationOptions.TransitionCurlDown, animations: { () -> Void in
-            print("next")
+            self.layer.shadowOffset = CGSizeMake(shadowOffSet, shadowOffSet)
             }, completion: nil)
     }
+//    var shadowOffSet: CGFloat? {
+//        didSet {
+//            self.layer.shadowOffset = CGSizeMake(shadowOffSet!, shadowOffSet!)
+//	        }
+//    }
     
     override func awakeFromNib() {
         self.layer.cornerRadius = 10
+        self.layer.shadowColor = UIColor.blackColor().CGColor
+        self.layer.shadowOffset = CGSizeMake(0, 0)
+        self.layer.shadowOpacity = 0.3
     }
  
 

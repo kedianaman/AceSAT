@@ -75,32 +75,33 @@ class ViewController: UIViewController {
     }
     
     @IBAction func next() {
-        wordView.next(true)
         index++
         print(index)
         if index > words.count - 1 {
             index = 0
         }
+        wordView.next(true, shadowOffSet: CGFloat(index))
         indexWordLabel.text = "\(index + 1) of \(words.count)"
         word = words.keys.array[index]
         wordDefinition = words[word!]
         vocabWordLabel.text = word
         showingWord = true
-        
+        vocabWordLabel.font = vocabWordLabel.font.fontWithSize(30)
+//        wordView.shadowOffSet = CGFloat(index)
+
     }
     @IBAction func back() {
         index--
-        indexWordLabel.text = "\(index + 1) of \(words.count)"
-        if index >= 0 {
-            wordView.next(false)
-            word = words.keys.array[index]
-            wordDefinition = words[word!]
-            vocabWordLabel.text = word
-            showingWord = true
-        } else {
-            index = 0
-            
+        if index < 0 {
+            index = words.count - 1
         }
+        word = words.keys.array[index]
+        wordDefinition = words[word!]
+        vocabWordLabel.text = word
+        showingWord = true
+        indexWordLabel.text = "\(index + 1) of \(words.count)"
+        wordView.next(false, shadowOffSet: CGFloat(index))
+//        wordView.shadowOffSet = CGFloat(index)
     }
 
     @IBAction func speak(sender: UIButton) {
