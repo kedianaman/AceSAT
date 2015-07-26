@@ -21,6 +21,7 @@ class ReviewTableViewController: UITableViewController {
         tableView.estimatedRowHeight = 96
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.separatorColor = UIColor(white: 1.0, alpha: 0.3)
+        navigationController?.view.window?.tintColor = UIColor(red:0.51, green:0.98, blue:0.43, alpha:1.0)
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

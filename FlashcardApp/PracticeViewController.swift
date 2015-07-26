@@ -25,6 +25,7 @@ class PracticeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.view.window?.tintColor = UIColor(red:0.10, green:0.82, blue:0.99, alpha:1.0)
         let tapGesture = UITapGestureRecognizer(target: self, action: "cardTapped")
         wordView.addGestureRecognizer(tapGesture)
         view.addSubview(wordView)
