@@ -78,7 +78,7 @@ class PracticeViewController: UIViewController {
         wordDefinition = words[word!]
         vocabWordLabel.text = word
         showingWord = true
-        vocabWordLabel.font = vocabWordLabel.font.fontWithSize(100)
+        vocabWordLabel.font = vocabWordLabel.font.fontWithSize(80)
     }
     
     @IBAction func back() {

@@ -112,7 +112,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="crX-nz-J9D" customClass="FlashcardView" customModule="FlashcardApp" customModuleProvider="target">
                                 <rect key="frame" x="50" y="50" width="500" height="520"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5kn-n0-5x7">
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5kn-n0-5x7">
                                         <rect key="frame" x="143" y="200" width="214.5" height="119.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <state key="normal" title="Start"/>
@@ -120,8 +120,8 @@
                                             <action selector="gameStarted:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AUa-Gi-rUh"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Word" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ruz-vl-7lL">
-                                        <rect key="frame" x="143" y="200" width="214.5" height="119.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Word" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ruz-vl-7lL">
+                                        <rect key="frame" x="0.0" y="200" width="500" height="119.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="71" id="2Xn-SS-g8q"/>
                                             <constraint firstAttribute="width" constant="73" id="SCS-20-7Gq"/>
@@ -160,19 +160,25 @@
                                     <constraint firstItem="5kn-n0-5x7" firstAttribute="width" secondItem="Ruz-vl-7lL" secondAttribute="width" id="2hI-13-j7X"/>
                                     <constraint firstItem="Ruz-vl-7lL" firstAttribute="top" secondItem="zbR-pu-tWT" secondAttribute="bottom" constant="77" id="Fp0-Hi-vdy"/>
                                     <constraint firstItem="5kn-n0-5x7" firstAttribute="centerX" secondItem="crX-nz-J9D" secondAttribute="centerX" id="MGW-LC-yLn"/>
+                                    <constraint firstItem="Ruz-vl-7lL" firstAttribute="leading" secondItem="crX-nz-J9D" secondAttribute="leading" id="SIq-jn-IY6"/>
+                                    <constraint firstItem="Ruz-vl-7lL" firstAttribute="leading" secondItem="crX-nz-J9D" secondAttribute="leading" id="VVq-4j-kP0"/>
                                     <constraint firstItem="5kn-n0-5x7" firstAttribute="centerY" secondItem="crX-nz-J9D" secondAttribute="centerY" id="Yt1-W2-2aV"/>
                                     <constraint firstItem="Ruz-vl-7lL" firstAttribute="centerY" secondItem="crX-nz-J9D" secondAttribute="centerY" id="b5p-58-J2X"/>
                                     <constraint firstItem="Ruz-vl-7lL" firstAttribute="centerY" secondItem="crX-nz-J9D" secondAttribute="centerY" id="bed-ol-98C"/>
                                     <constraint firstItem="Ruz-vl-7lL" firstAttribute="leading" secondItem="crX-nz-J9D" secondAttribute="leading" constant="229" id="c2S-8V-RcR"/>
                                     <constraint firstItem="zbR-pu-tWT" firstAttribute="top" secondItem="crX-nz-J9D" secondAttribute="top" constant="30" id="g1b-yP-hLH"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ruz-vl-7lL" secondAttribute="trailing" id="hay-Vi-07j"/>
                                     <constraint firstItem="Ruz-vl-7lL" firstAttribute="centerX" secondItem="crX-nz-J9D" secondAttribute="centerX" id="lxl-qW-OCm"/>
                                     <constraint firstItem="5kn-n0-5x7" firstAttribute="height" secondItem="Ruz-vl-7lL" secondAttribute="height" id="pNC-ed-aSs"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="Fp0-Hi-vdy"/>
+                                        <exclude reference="VVq-4j-kP0"/>
                                         <exclude reference="bed-ol-98C"/>
                                         <exclude reference="c2S-8V-RcR"/>
+                                        <exclude reference="2hI-13-j7X"/>
+                                        <exclude reference="pNC-ed-aSs"/>
                                     </mask>
                                 </variation>
                             </view>
@@ -184,7 +190,9 @@
                             <constraint firstItem="crX-nz-J9D" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="30" id="CCn-Rx-bRX"/>
                             <constraint firstItem="crX-nz-J9D" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="CWA-hT-x1x"/>
                             <constraint firstItem="crX-nz-J9D" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="30" id="Cok-bX-jXW"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Ruz-vl-7lL" secondAttribute="trailing" id="JRN-mq-8nG"/>
                             <constraint firstItem="crX-nz-J9D" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="JZY-WY-fAT"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Ruz-vl-7lL" secondAttribute="trailing" id="MXd-W3-07P"/>
                             <constraint firstAttribute="trailingMargin" secondItem="crX-nz-J9D" secondAttribute="trailing" constant="30" id="VLX-ge-Ohs"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="crX-nz-J9D" secondAttribute="bottom" constant="30" id="fS8-SK-9Cf"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="crX-nz-J9D" secondAttribute="bottom" constant="60" id="gw0-ik-CrB"/>
@@ -205,6 +213,8 @@
                                 <exclude reference="sQV-kg-iCA"/>
                                 <exclude reference="tWT-PQ-UF2"/>
                                 <exclude reference="uZU-At-bJ2"/>
+                                <exclude reference="JRN-mq-8nG"/>
+                                <exclude reference="MXd-W3-07P"/>
                                 <exclude reference="7gA-Qt-A0q"/>
                                 <exclude reference="gw0-ik-CrB"/>
                             </mask>
