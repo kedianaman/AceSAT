@@ -1,5 +1,5 @@
 //
-//  PracticeViewController.swift
+//  ViewController.swift
 //  FlashcardApp
 //
 //  Created by Naman Kedia on 7/17/15.
@@ -19,7 +19,7 @@ class PracticeViewController: UIViewController {
     var wordDefinition: String?
     var index = 0
     let speechSynthesizer = AVSpeechSynthesizer()
-    var words = VocabWords().words
+    var words = VocabWords().getWordsAtIndex(5)!
     @IBOutlet weak var speechButton: UIButton!
     @IBOutlet weak var indexWordLabel: UILabel!
     
@@ -35,8 +35,7 @@ class PracticeViewController: UIViewController {
         indexWordLabel.alpha = 0.6
         
         let test = VocabWords().getWordsAtIndex(0)
-        print(test
-        )
+        print(test)
         
     }
 

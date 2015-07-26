@@ -10,7 +10,7 @@ import UIKit
 
 class ReviewTableViewController: UITableViewController {
 
-    let vocabWords = VocabWords().words
+    let vocabWords = VocabWords().getWordsAtIndex(5)!
     
    
     // MARK: - Table view data source
