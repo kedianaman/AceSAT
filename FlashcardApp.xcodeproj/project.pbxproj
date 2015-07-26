@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ED1BA4B81B659B2D0095BF34 /* PracticeFlashcardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1BA4B71B659B2D0095BF34 /* PracticeFlashcardViewController.swift */; };
 		ED1C89C51B5985EF00DCF0EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1C89C41B5985EF00DCF0EB /* AppDelegate.swift */; };
 		ED1C89C71B5985EF00DCF0EB /* PracticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1C89C61B5985EF00DCF0EB /* PracticeViewController.swift */; };
 		ED1C89CA1B5985EF00DCF0EB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED1C89C81B5985EF00DCF0EB /* Main.storyboard */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		ED1BA4B71B659B2D0095BF34 /* PracticeFlashcardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PracticeFlashcardViewController.swift; sourceTree = "<group>"; };
 		ED1C89C11B5985EF00DCF0EB /* FlashcardApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlashcardApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED1C89C41B5985EF00DCF0EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ED1C89C61B5985EF00DCF0EB /* PracticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeViewController.swift; sourceTree = "<group>"; };
@@ -67,6 +69,7 @@
 			isa = PBXGroup;
 			children = (
 				ED1C89C81B5985EF00DCF0EB /* Main.storyboard */,
+				ED1BA4B71B659B2D0095BF34 /* PracticeFlashcardViewController.swift */,
 				ED1C89C61B5985EF00DCF0EB /* PracticeViewController.swift */,
 				ED1C89D61B59FC9300DCF0EB /* FlashcardView.swift */,
 				ED69D2F11B647F2000B1A4AC /* MainMenuViewController.swift */,
@@ -156,6 +159,7 @@
 			files = (
 				ED1C89C71B5985EF00DCF0EB /* PracticeViewController.swift in Sources */,
 				ED69D2F01B6478EC00B1A4AC /* ReviewTableViewCell.swift in Sources */,
+				ED1BA4B81B659B2D0095BF34 /* PracticeFlashcardViewController.swift in Sources */,
 				ED3322521B61711700E3F624 /* VocabWords.swift in Sources */,
 				ED3322541B61B99000E3F624 /* ReviewTableViewController.swift in Sources */,
 				ED69D2F21B647F2000B1A4AC /* MainMenuViewController.swift in Sources */,

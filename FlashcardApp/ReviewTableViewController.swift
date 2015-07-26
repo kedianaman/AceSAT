@@ -24,6 +24,7 @@ class ReviewTableViewController: UITableViewController {
         navigationController?.view.window?.tintColor = UIColor(red:0.51, green:0.98, blue:0.43, alpha:1.0)
         
         navigationController?.hidesBarsOnSwipe = true
+        tableView.backgroundColor = UIColor.blackColor()
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
