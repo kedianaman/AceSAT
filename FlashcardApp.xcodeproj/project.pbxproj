@@ -68,11 +68,11 @@
 			children = (
 				ED1C89C81B5985EF00DCF0EB /* Main.storyboard */,
 				ED1C89C61B5985EF00DCF0EB /* PracticeViewController.swift */,
-				ED3322511B61711700E3F624 /* VocabWords.swift */,
 				ED1C89D61B59FC9300DCF0EB /* FlashcardView.swift */,
 				ED69D2F11B647F2000B1A4AC /* MainMenuViewController.swift */,
 				ED69D2EF1B6478EC00B1A4AC /* ReviewTableViewCell.swift */,
 				ED3322531B61B99000E3F624 /* ReviewTableViewController.swift */,
+				ED3322511B61711700E3F624 /* VocabWords.swift */,
 				ED1C89CB1B5985EF00DCF0EB /* Assets.xcassets */,
 				ED1C89C41B5985EF00DCF0EB /* AppDelegate.swift */,
 				ED1C89CD1B5985EF00DCF0EB /* LaunchScreen.storyboard */,

@@ -18,9 +18,7 @@ class PracticeViewController: UIViewController {
     var word: String?
     var wordDefinition: String?
     var index = 0
-    let speechSynthesizer = AVSpeechSynthesizer()
     var words = VocabWords().getWordsAtIndex(5)!
-    @IBOutlet weak var speechButton: UIButton!
     @IBOutlet weak var indexWordLabel: UILabel!
     
     override func viewDidLoad() {
@@ -29,8 +27,6 @@ class PracticeViewController: UIViewController {
         let tapGesture = UITapGestureRecognizer(target: self, action: "cardTapped")
         wordView.addGestureRecognizer(tapGesture)
         view.addSubview(wordView)
-        speechButton.enabled = false
-        speechButton.alpha = 0.0
         vocabWordLabel.text = ""
         indexWordLabel.text = ""
         indexWordLabel.alpha = 0.6
@@ -57,6 +53,9 @@ class PracticeViewController: UIViewController {
         let swipeLeft = UISwipeGestureRecognizer(target: self, action: "cardSwiped:")
         swipeLeft.direction = UISwipeGestureRecognizerDirection.Left
         self.view.addGestureRecognizer(swipeLeft)
+        
+        self.navigationController?.barHideOnSwipeGestureRecognizer.requireGestureRecognizerToFail(swipeLeft)
+        self.navigationController?.barHideOnSwipeGestureRecognizer.requireGestureRecognizerToFail(swipeRight)
 
         sender.enabled = false
         sender.removeFromSuperview()
@@ -64,9 +63,7 @@ class PracticeViewController: UIViewController {
         wordDefinition = words[word!]
         vocabWordLabel.text = word
         showingWord = true
-        speechButton.enabled = true
-        speechButton.alpha = 1.0
-         indexWordLabel.text = "\(index + 1) of \(words.count)"
+        indexWordLabel.text = "\(index + 1) of \(words.count)"
     }
     
     @IBAction func next() {
@@ -81,10 +78,9 @@ class PracticeViewController: UIViewController {
         wordDefinition = words[word!]
         vocabWordLabel.text = word
         showingWord = true
-        vocabWordLabel.font = vocabWordLabel.font.fontWithSize(30)
-//        wordView.shadowOffSet = CGFloat(index)
-
+        vocabWordLabel.font = vocabWordLabel.font.fontWithSize(100)
     }
+    
     @IBAction func back() {
         index--
         if index < 0 {
@@ -96,27 +92,16 @@ class PracticeViewController: UIViewController {
         showingWord = true
         indexWordLabel.text = "\(index + 1) of \(words.count)"
         wordView.next(false, shadowOffSet: CGFloat(index))
-//        wordView.shadowOffSet = CGFloat(index)
     }
-
-    @IBAction func speak(sender: UIButton) {
-        let speechUtterance = AVSpeechUtterance(string: word!)
-        speechSynthesizer.speakUtterance(speechUtterance)
-    }
- 
     
     func cardTapped() {
         if showingWord == true {
-            speechButton.enabled = false
-            speechButton.alpha = 0.0
-            vocabWordLabel.font = vocabWordLabel.font.fontWithSize(20)
+            vocabWordLabel.font = vocabWordLabel.font.fontWithSize(37)
             vocabWordLabel.text = wordDefinition
             wordView.flip()
             showingWord = false
         } else {
-            speechButton.enabled = true
-            speechButton.alpha = 1.0
-            vocabWordLabel.font = vocabWordLabel.font.fontWithSize(30)
+            vocabWordLabel.font = vocabWordLabel.font.fontWithSize(100)
             vocabWordLabel.text = word
             wordView.flip()
             showingWord = true

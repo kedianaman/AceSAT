@@ -21,18 +21,5 @@ class FlashcardView: UIView {
             self.layer.shadowOffset = CGSizeMake(shadowOffSet, shadowOffSet)
             }, completion: nil)
     }
-//    var shadowOffSet: CGFloat? {
-//        didSet {
-//            self.layer.shadowOffset = CGSizeMake(shadowOffSet!, shadowOffSet!)
-//	        }
-//    }
     
-    override func awakeFromNib() {
-        self.layer.cornerRadius = 10
-        self.layer.shadowColor = UIColor.blackColor().CGColor
-        self.layer.shadowOffset = CGSizeMake(0, 0)
-        self.layer.shadowOpacity = 0.3
-    }
- 
-
 }
