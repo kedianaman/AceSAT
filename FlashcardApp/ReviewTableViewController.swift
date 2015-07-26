@@ -18,21 +18,29 @@ class ReviewTableViewController: UITableViewController {
  
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.estimatedRowHeight = 96
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.separatorColor = UIColor(white: 1.0, alpha: 0.3)
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return vocabWords.count
     }
+    
+
 
    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("vocabWordCell", forIndexPath: indexPath) as UITableViewCell
-        let vocabWord = vocabWords.keys.array[indexPath.row]
-        cell.textLabel?.text = vocabWord
-        cell.detailTextLabel?.text = vocabWords[vocabWord]
+        if let cell = tableView.dequeueReusableCellWithIdentifier("ReviewVocabWordCell", forIndexPath: indexPath) as?ReviewTableViewCell {
+            let vocabWord = vocabWords.keys.array[indexPath.row]
+            cell.wordTitle.text = vocabWord
+            cell.wordDefinition.text = vocabWords[vocabWord]
+            
+            return cell
 
-        return cell
+        }
+        return UITableViewCell()
     }
   
 

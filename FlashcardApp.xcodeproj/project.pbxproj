@@ -15,6 +15,7 @@
 		ED1C89D71B59FC9300DCF0EB /* FlashcardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1C89D61B59FC9300DCF0EB /* FlashcardView.swift */; };
 		ED3322521B61711700E3F624 /* VocabWords.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3322511B61711700E3F624 /* VocabWords.swift */; };
 		ED3322541B61B99000E3F624 /* ReviewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3322531B61B99000E3F624 /* ReviewTableViewController.swift */; };
+		ED69D2F01B6478EC00B1A4AC /* ReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED69D2EF1B6478EC00B1A4AC /* ReviewTableViewCell.swift */; };
 		EDF48E361B64507A0090C6F3 /* Wordlist.json in Resources */ = {isa = PBXBuildFile; fileRef = EDF48E351B64507A0090C6F3 /* Wordlist.json */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +30,7 @@
 		ED1C89D61B59FC9300DCF0EB /* FlashcardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlashcardView.swift; sourceTree = "<group>"; };
 		ED3322511B61711700E3F624 /* VocabWords.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VocabWords.swift; sourceTree = "<group>"; };
 		ED3322531B61B99000E3F624 /* ReviewTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewTableViewController.swift; sourceTree = "<group>"; };
+		ED69D2EF1B6478EC00B1A4AC /* ReviewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewTableViewCell.swift; sourceTree = "<group>"; };
 		EDF48E351B64507A0090C6F3 /* Wordlist.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Wordlist.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -67,6 +69,7 @@
 				ED3322511B61711700E3F624 /* VocabWords.swift */,
 				ED1C89D61B59FC9300DCF0EB /* FlashcardView.swift */,
 				ED1C89C81B5985EF00DCF0EB /* Main.storyboard */,
+				ED69D2EF1B6478EC00B1A4AC /* ReviewTableViewCell.swift */,
 				ED3322531B61B99000E3F624 /* ReviewTableViewController.swift */,
 				ED1C89CB1B5985EF00DCF0EB /* Assets.xcassets */,
 				ED1C89CD1B5985EF00DCF0EB /* LaunchScreen.storyboard */,
@@ -149,6 +152,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED1C89C71B5985EF00DCF0EB /* PracticeViewController.swift in Sources */,
+				ED69D2F01B6478EC00B1A4AC /* ReviewTableViewCell.swift in Sources */,
 				ED3322521B61711700E3F624 /* VocabWords.swift in Sources */,
 				ED3322541B61B99000E3F624 /* ReviewTableViewController.swift in Sources */,
 				ED1C89D71B59FC9300DCF0EB /* FlashcardView.swift in Sources */,
