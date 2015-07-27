@@ -56,6 +56,11 @@ class PracticePageViewController: UIViewController, UIPageViewControllerDataSour
     
     // MARK: Page View Controller Data Source 
     
+    func pageViewController(pageViewController: UIPageViewController, willTransitionToViewControllers pendingViewControllers: [UIViewController]) {
+        let newViewController = pendingViewControllers.first
+        
+    }
+    
     func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
         let practiceViewController = viewController as! PracticeFlashcardViewController
         if var index = practiceViewController.indexOfView {

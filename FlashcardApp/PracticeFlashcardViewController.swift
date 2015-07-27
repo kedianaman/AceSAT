@@ -10,7 +10,12 @@ import UIKit
 
 class PracticeFlashcardViewController: UIViewController {
     
-    var showingDefinition = false
+    var showingDefinition = false {
+        didSet {
+            updateLabelConstraints()
+        }
+    }
+    
     var indexOfView: Int? 
     @IBOutlet weak var definitionWordLabel: UILabel!
     @IBOutlet weak var vocabWordLabel: UILabel!
@@ -28,27 +33,35 @@ class PracticeFlashcardViewController: UIViewController {
         definitionlabelCenterYConstraint.constant = view.bounds.size.height/2
         definitionWordLabel.text = definitionWordText
         vocabWordLabel.text = vocabWordText
-        
+        definitionWordLabel.alpha = 0
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        updateLabelConstraints()
     }
     
     override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
-        definitionlabelCenterYConstraint.constant = showingDefinition ? size.height/6 : size.height / 2
-        vocabWordLabelCenterYConstraint.constant = showingDefinition ? -size.height/6 : 0
+        updateLabelConstraints()
     }
 
     
     func viewTapped(gesture: UIGestureRecognizer) {
         if gesture.state == .Recognized {
-            showingDefinition = !showingDefinition
             UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
-                self.definitionlabelCenterYConstraint.constant = self.showingDefinition ? self.view.bounds.height/6 : self.view.bounds.height / 2
-                self.vocabWordLabelCenterYConstraint.constant = self.showingDefinition ? -self.view.bounds.size.height/6 : 0
+                self.showingDefinition = !self.showingDefinition
                 self.view.layoutIfNeeded()
                 }, completion: nil)
         }
     }
     
-
+    func updateLabelConstraints() {
+        if definitionlabelCenterYConstraint != nil {
+            definitionlabelCenterYConstraint.constant = showingDefinition ? view.bounds.height/6 : self.view.bounds.height / 2
+            vocabWordLabelCenterYConstraint.constant = showingDefinition ? -view.bounds.size.height/6 : 0
+            definitionWordLabel.alpha = showingDefinition ? 1 : 0
+        }
+    }
    
 }

@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8152.3" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ipr-nR-jwD">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8124.4"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -110,14 +109,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Word" textAlignment="center" lineBreakMode="clip" baselineAdjustment="alignBaselines" translatesAutoresizingMaskIntoConstraints="NO" id="e0g-31-Qk1">
-                                <rect key="frame" x="20" y="248" width="560" height="105.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Word" textAlignment="center" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e0g-31-Qk1">
+                                <rect key="frame" x="205.5" y="248" width="189" height="105.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="88"/>
                                 <color key="textColor" red="0.19607843137254902" green="0.77647058823529413" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Definition" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WQ9-hw-09y">
-                                <rect key="frame" x="20" y="500" width="560" height="45"/>
+                                <rect key="frame" x="20" y="477.5" width="560" height="45"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="37.5"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -125,12 +124,12 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="e0g-31-Qk1" firstAttribute="centerX" secondItem="qmD-ay-1Sx" secondAttribute="centerX" id="6hO-M7-t1e"/>
-                            <constraint firstItem="e0g-31-Qk1" firstAttribute="leading" secondItem="qmD-ay-1Sx" secondAttribute="leadingMargin" id="7pP-gZ-Oug"/>
+                            <constraint firstItem="e0g-31-Qk1" firstAttribute="centerX" secondItem="qmD-ay-1Sx" secondAttribute="centerX" id="2uS-jm-IMI"/>
+                            <constraint firstItem="e0g-31-Qk1" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="qmD-ay-1Sx" secondAttribute="leadingMargin" id="7pP-gZ-Oug"/>
                             <constraint firstItem="e0g-31-Qk1" firstAttribute="centerY" secondItem="qmD-ay-1Sx" secondAttribute="centerY" id="AdF-th-LFW"/>
                             <constraint firstItem="WQ9-hw-09y" firstAttribute="centerX" secondItem="qmD-ay-1Sx" secondAttribute="centerX" id="WCz-Uq-ihw"/>
-                            <constraint firstItem="WQ9-hw-09y" firstAttribute="top" secondItem="qmD-ay-1Sx" secondAttribute="centerY" constant="200" id="XYG-do-G3D"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="e0g-31-Qk1" secondAttribute="trailing" id="iqU-AA-Xgj"/>
+                            <constraint firstItem="WQ9-hw-09y" firstAttribute="centerY" secondItem="qmD-ay-1Sx" secondAttribute="centerY" constant="200" id="XYG-do-G3D"/>
+                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="e0g-31-Qk1" secondAttribute="trailing" id="iqU-AA-Xgj"/>
                             <constraint firstAttribute="trailingMargin" secondItem="WQ9-hw-09y" secondAttribute="trailing" id="mo2-8f-syE"/>
                             <constraint firstItem="WQ9-hw-09y" firstAttribute="leading" secondItem="qmD-ay-1Sx" secondAttribute="leadingMargin" id="nw1-gX-l8M"/>
                         </constraints>
@@ -209,10 +208,10 @@
             </objects>
             <point key="canvasLocation" x="983" y="486"/>
         </scene>
-        <!--View Controller-->
+        <!--Test View Controller-->
         <scene sceneID="44H-jn-JHE">
             <objects>
-                <viewController id="b3L-bB-S3N" sceneMemberID="viewController">
+                <viewController id="b3L-bB-S3N" customClass="TestViewController" customModule="FlashcardApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1Mr-5E-kep"/>
                         <viewControllerLayoutGuide type="bottom" id="RCk-Zn-lnn"/>
@@ -226,8 +225,8 @@
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Word" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zkn-bL-VMe">
                                         <rect key="frame" x="0.0" y="0.0" width="400" height="116"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="45"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="45"/>
+                                        <color key="textColor" red="1" green="0.0" blue="0.32549019607843138" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="lNX-0t-DH5">
@@ -235,26 +234,30 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VWA-ND-vnt">
                                                 <rect key="frame" x="0.0" y="0.0" width="400" height="116"/>
+                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="32"/>
                                                 <state key="normal" title="Title">
-                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JZO-G7-KxP">
                                                 <rect key="frame" x="0.0" y="116" width="400" height="116"/>
+                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="32"/>
                                                 <state key="normal" title="Title">
-                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NzJ-Yw-no0">
                                                 <rect key="frame" x="0.0" y="232" width="400" height="116"/>
+                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="32"/>
                                                 <state key="normal" title="Title">
-                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Mi-yq-xQQ">
                                                 <rect key="frame" x="0.0" y="348" width="400" height="116"/>
+                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="32"/>
                                                 <state key="normal" title="Title">
-                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                             </button>
                                         </subviews>
@@ -265,7 +268,7 @@
                                 </constraints>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="B6g-Z9-HOA" firstAttribute="top" secondItem="1Mr-5E-kep" secondAttribute="bottom" id="3qA-E5-vOZ"/>
                             <constraint firstItem="RCk-Zn-lnn" firstAttribute="top" secondItem="B6g-Z9-HOA" secondAttribute="bottom" id="EUl-KP-RAf"/>

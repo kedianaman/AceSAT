@@ -13,12 +13,17 @@ class MainMenuViewController: UIViewController {
     @IBOutlet weak var titleText: UILabel!
     @IBOutlet weak var stackView: UIStackView!
     
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent
+    }
+    
     // MARK:- View Controller Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBarHidden = true
+        self.navigationController?.navigationBar.shadowImage = UIImage()
         titleText.attributedText = getTitleAttributedText()
     }
     
