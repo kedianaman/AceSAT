@@ -20,20 +20,32 @@ class TestViewController: UIViewController {
     var buttons = [UIButton]()
     var selectedIndex: Int?
     var indexOfCorrectDefinition = arc4random() % 4
-    let words = VocabWords().getWordsAtIndex(0)!
+    var viewControllerIndex: Int? 
+    var vocabWordText: String?
+    var button1Text: String?
+    var button2Text: String?
+    var button3Text: String?
+    var button4Text: String?
+    var buttonTexts = [String?]()
+
     
     override func viewDidLoad() {
-        navigationController?.view.window?.tintColor = UIColor(red:1.00, green:0.16, blue:0.41, alpha:1.0)
         buttons = [definition1Button, definition2Button, definition3Button, definition4Button]
-        setUpAtIndex(2)
+        vocabWordTitle.text = vocabWordText!
+        
+        for i in 0...3 {
+            buttons[i].setImage(UIImage(named: "Not Selected Circle"), forState: UIControlState.Normal)
+            buttons[i].setTitle(buttonTexts[i], forState: UIControlState.Normal)
+        }
+        
     }
+    
     @IBAction func buttonTapped(sender: UIButton) {
         if let selectedIndex = selectedIndex {
             buttons[selectedIndex].setImage(UIImage(named: "Not Selected Circle"), forState: UIControlState.Normal)
         }
         sender.setImage(UIImage(named: "Selected Circle"), forState: UIControlState.Normal)
         selectedIndex = sender.tag
-        print(isCorrect())
         
     }
     
@@ -48,22 +60,23 @@ class TestViewController: UIViewController {
         return nil
     }
     
-    func setUpAtIndex(indexOfWord: Int) {
+    func setUpAtIndex(indexOfWord: Int, words: [String: String]) {
         let vocabWord = words.keys.array[indexOfWord]
-        vocabWordTitle.text = vocabWord
-//        var buttons = [definition1Button, definition2Button, definition3Button, definition4Button]
-        let label = buttons[Int(indexOfCorrectDefinition)]
-        label.setTitle(words[vocabWord], forState: UIControlState.Normal)
+        vocabWordText = vocabWord
+        buttonTexts = [button1Text, button2Text, button3Text, button4Text]
+        // set definition of correct word to button text at random index
+        buttonTexts[Int(indexOfCorrectDefinition)] = words[vocabWord]
+        var previousIndices = [UInt32(indexOfWord)]
         for i in 0...3 {
+            // if the index is not of the correct definition, set it to a random definition everytime
             if i != Int(indexOfCorrectDefinition) {
-                var previousIndices = [UInt32(indexOfWord)]
                 var randomIndex: UInt32 = UInt32(indexOfWord)
-                while randomIndex == UInt32(indexOfWord) && previousIndices.contains(randomIndex) == true {
+                while randomIndex == UInt32(indexOfWord) || previousIndices.contains(randomIndex) == true {
                     randomIndex = arc4random() % UInt32(words.count - 1)
                 }
                 previousIndices.append(randomIndex)
-                let vocabWord = words.keys.array[Int(randomIndex)]
-                buttons[i].setTitle(words[vocabWord], forState: UIControlState.Normal)
+                let currentVocabWord = words.keys.array[Int(randomIndex)]
+                buttonTexts[i] = words[currentVocabWord]
             }
         }
         

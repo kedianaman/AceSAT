@@ -91,4 +91,11 @@ class MainMenuViewController: UIViewController {
         let practicePageViewController = PracticePageViewController()
         self.navigationController?.pushViewController(practicePageViewController, animated: true)
     }
+    
+    @IBAction func testButtonPressed(sender: UIButton) {
+        let testPageViewController = TestPageViewController()
+        self.navigationController?.pushViewController(testPageViewController, animated: true)
+        
+    }
+    
 }
