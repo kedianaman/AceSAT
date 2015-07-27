@@ -220,45 +220,61 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="B6g-Z9-HOA">
-                                <rect key="frame" x="20" y="0.0" width="400" height="580"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="B6g-Z9-HOA">
+                                <rect key="frame" x="20" y="20" width="480" height="580"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Word" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zkn-bL-VMe">
-                                        <rect key="frame" x="0.0" y="0.0" width="400" height="116"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="480" height="116"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="45"/>
                                         <color key="textColor" red="1" green="0.0" blue="0.32549019607843138" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="lNX-0t-DH5">
-                                        <rect key="frame" x="0.0" y="116" width="400" height="464"/>
+                                        <rect key="frame" x="0.0" y="116" width="480" height="464"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VWA-ND-vnt">
-                                                <rect key="frame" x="0.0" y="0.0" width="400" height="116"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="480" height="116"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="32"/>
-                                                <state key="normal" title="Title">
+                                                <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                <state key="normal" title="Title" image="Not Selected Circle">
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="buttonTapped:" destination="b3L-bB-S3N" eventType="touchUpInside" id="2sE-PE-duT"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JZO-G7-KxP">
-                                                <rect key="frame" x="0.0" y="116" width="400" height="116"/>
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JZO-G7-KxP">
+                                                <rect key="frame" x="0.0" y="116" width="480" height="116"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="32"/>
-                                                <state key="normal" title="Title">
+                                                <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                <state key="normal" title="Title" image="Not Selected Circle">
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="buttonTapped:" destination="b3L-bB-S3N" eventType="touchUpInside" id="OO8-yF-OoV"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NzJ-Yw-no0">
-                                                <rect key="frame" x="0.0" y="232" width="400" height="116"/>
+                                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NzJ-Yw-no0">
+                                                <rect key="frame" x="0.0" y="232" width="480" height="116"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="32"/>
-                                                <state key="normal" title="Title">
+                                                <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                <state key="normal" title="Title" image="Not Selected Circle">
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="buttonTapped:" destination="b3L-bB-S3N" eventType="touchUpInside" id="qbc-7f-4cI"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Mi-yq-xQQ">
-                                                <rect key="frame" x="0.0" y="348" width="400" height="116"/>
+                                            <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Mi-yq-xQQ">
+                                                <rect key="frame" x="0.0" y="348" width="480" height="116"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="32"/>
-                                                <state key="normal" title="Title">
+                                                <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                <state key="normal" title="Title" image="Not Selected Circle">
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="buttonTapped:" destination="b3L-bB-S3N" eventType="touchUpInside" id="Dpf-f8-S97"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -273,9 +289,16 @@
                             <constraint firstItem="B6g-Z9-HOA" firstAttribute="top" secondItem="1Mr-5E-kep" secondAttribute="bottom" id="3qA-E5-vOZ"/>
                             <constraint firstItem="RCk-Zn-lnn" firstAttribute="top" secondItem="B6g-Z9-HOA" secondAttribute="bottom" id="EUl-KP-RAf"/>
                             <constraint firstItem="B6g-Z9-HOA" firstAttribute="leading" secondItem="nyf-pf-tFn" secondAttribute="leadingMargin" id="K6l-GS-B6l"/>
-                            <constraint firstItem="B6g-Z9-HOA" firstAttribute="width" secondItem="nyf-pf-tFn" secondAttribute="width" multiplier="2/3" id="Obk-Db-8zk"/>
+                            <constraint firstItem="B6g-Z9-HOA" firstAttribute="width" secondItem="nyf-pf-tFn" secondAttribute="width" multiplier="4/5" id="Obk-Db-8zk"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="definition1Button" destination="VWA-ND-vnt" id="X54-0G-aqL"/>
+                        <outlet property="definition2Button" destination="JZO-G7-KxP" id="EIw-YC-4si"/>
+                        <outlet property="definition3Button" destination="NzJ-Yw-no0" id="ift-n8-2BA"/>
+                        <outlet property="definition4Button" destination="0Mi-yq-xQQ" id="bG0-kD-VW7"/>
+                        <outlet property="vocabWordTitle" destination="zkn-bL-VMe" id="9EH-2G-7ag"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u5u-hE-dj7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -304,6 +327,7 @@
     <resources>
         <image name="Blue Circle" width="468" height="468"/>
         <image name="Green Circle" width="461" height="468"/>
+        <image name="Not Selected Circle" width="25" height="25"/>
         <image name="Red Circle" width="460" height="468"/>
     </resources>
 </document>
