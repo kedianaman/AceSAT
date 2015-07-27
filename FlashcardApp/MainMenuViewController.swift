@@ -13,11 +13,13 @@ class MainMenuViewController: UIViewController {
     @IBOutlet weak var titleText: UILabel!
     @IBOutlet weak var stackView: UIStackView!
     
+    // MARK:- View Controller Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.shadowImage = UIImage()
-                titleText.attributedText = getTitleAttributedText()
         self.navigationController?.navigationBarHidden = true
+        titleText.attributedText = getTitleAttributedText()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -26,7 +28,7 @@ class MainMenuViewController: UIViewController {
             self.navigationController?.setNavigationBarHidden(true, animated: animated)
         }
     }
-    
+
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         if (self.navigationController?.navigationBarHidden == true) {
@@ -34,15 +36,31 @@ class MainMenuViewController: UIViewController {
         }
     }
     
+    // MARK:- Trait Collection Changes
+    
     override func willTransitionToTraitCollection(newCollection: UITraitCollection, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
         super.willTransitionToTraitCollection(newCollection, withTransitionCoordinator: coordinator)
-        if newCollection.verticalSizeClass == UIUserInterfaceSizeClass.Compact {
+        updateAxisForTraitCollection(newCollection)
+    }
+    
+    override func traitCollectionDidChange(previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        updateAxisForTraitCollection(self.view.traitCollection)
+
+        
+    }
+
+    func updateAxisForTraitCollection(traitCollection: UITraitCollection) {
+        if traitCollection.verticalSizeClass == UIUserInterfaceSizeClass.Compact {
             self.stackView.axis = UILayoutConstraintAxis.Horizontal
         }
         else {
             self.stackView.axis = UILayoutConstraintAxis.Vertical
         }
+
     }
+    
+    // MARK:- Attributed Title
     
     func getTitleAttributedText() -> NSAttributedString {
         let thinFont = UIFont.systemFontOfSize(72.0, weight: UIFontWeightUltraLight)
@@ -60,5 +78,12 @@ class MainMenuViewController: UIViewController {
         mainTitle.appendAttributedString(NSMutableAttributedString(string: "T", attributes: [NSFontAttributeName : lightFont, NSForegroundColorAttributeName : redColor]))
         
         return mainTitle
+    }
+    
+    // MARK:- Actions
+    
+    @IBAction func practicleButtonPressed(sender: UIButton) {
+        let practicePageViewController = PracticePageViewController()
+        self.navigationController?.pushViewController(practicePageViewController, animated: true)
     }
 }
