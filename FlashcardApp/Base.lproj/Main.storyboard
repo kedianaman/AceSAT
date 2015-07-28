@@ -242,7 +242,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="520" height="108"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="26"/>
                                                 <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                <state key="normal" title="Title" image="3EA7B14B-FF51-428D-9F42-B0E3A93A74AA">
+                                                <state key="normal" title="Title" image="E902CD2A-53F3-469E-91DF-C6ECDA536D37">
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
@@ -253,7 +253,7 @@
                                                 <rect key="frame" x="0.0" y="108" width="520" height="108"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="26"/>
                                                 <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                <state key="normal" title="Title" image="3EA7B14B-FF51-428D-9F42-B0E3A93A74AA">
+                                                <state key="normal" title="Title" image="E902CD2A-53F3-469E-91DF-C6ECDA536D37">
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
@@ -264,7 +264,7 @@
                                                 <rect key="frame" x="0.0" y="216" width="520" height="108"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="26"/>
                                                 <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                <state key="normal" title="Title" image="3EA7B14B-FF51-428D-9F42-B0E3A93A74AA">
+                                                <state key="normal" title="Title" image="E902CD2A-53F3-469E-91DF-C6ECDA536D37">
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
@@ -275,7 +275,7 @@
                                                 <rect key="frame" x="0.0" y="324" width="520" height="108"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="26"/>
                                                 <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                <state key="normal" title="Title" image="3EA7B14B-FF51-428D-9F42-B0E3A93A74AA">
+                                                <state key="normal" title="Title" image="E902CD2A-53F3-469E-91DF-C6ECDA536D37">
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
@@ -310,6 +310,79 @@
             </objects>
             <point key="canvasLocation" x="1650" y="486"/>
         </scene>
+        <!--Test Results View Controller-->
+        <scene sceneID="gvz-73-1e0">
+            <objects>
+                <viewController storyboardIdentifier="TestResultsViewController" id="jQR-Jn-wyq" customClass="TestResultsViewController" customModule="FlashcardApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rNK-0D-LD2"/>
+                        <viewControllerLayoutGuide type="bottom" id="DxW-wQ-pAg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="oeC-55-3nl">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="V8x-pC-mgI">
+                                <rect key="frame" x="30" y="30" width="540" height="560"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QPb-cm-QRx">
+                                        <rect key="frame" x="0.0" y="0.0" width="270" height="560"/>
+                                        <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="80"/>
+                                        <color key="textColor" red="0.90588235294117647" green="0.0" blue="0.24313725490196078" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="Qdt-sC-yWW">
+                                        <rect key="frame" x="270" y="0.0" width="270" height="560"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="correct" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VbU-4z-hW2">
+                                                <rect key="frame" x="0.0" y="0.0" width="98" height="140"/>
+                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="32"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="incorrect" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KIZ-L8-m0i">
+                                                <rect key="frame" x="0.0" y="140" width="122" height="140"/>
+                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="32"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="unasnwered" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="W09-ox-m4D">
+                                                <rect key="frame" x="0.0" y="280" width="171" height="140"/>
+                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="32"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x6O-6Q-LOf">
+                                                <rect key="frame" x="0.0" y="420" width="99" height="140"/>
+                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="32"/>
+                                                <state key="normal" title="Review">
+                                                    <color key="titleColor" red="1" green="0.0" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="V8x-pC-mgI" firstAttribute="top" secondItem="rNK-0D-LD2" secondAttribute="bottom" constant="10" id="C0x-wa-lFX"/>
+                            <constraint firstItem="DxW-wQ-pAg" firstAttribute="top" secondItem="V8x-pC-mgI" secondAttribute="bottom" constant="10" id="Ft7-Jz-qmm"/>
+                            <constraint firstItem="V8x-pC-mgI" firstAttribute="leading" secondItem="oeC-55-3nl" secondAttribute="leadingMargin" constant="10" id="XcM-Nq-rqc"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="V8x-pC-mgI" secondAttribute="trailing" constant="10" id="cK2-p2-EH4"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="numberCorrectLabel" destination="VbU-4z-hW2" id="ECh-8y-gQV"/>
+                        <outlet property="numberUnansweredLabel" destination="W09-ox-m4D" id="Ihj-d5-rrB"/>
+                        <outlet property="numberWrongLabel" destination="KIZ-L8-m0i" id="rAO-BK-egz"/>
+                        <outlet property="percentageLabel" destination="QPb-cm-QRx" id="qpb-91-wuo"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aOt-ND-dbk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2363" y="523"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="NKn-SI-JZd">
             <objects>
@@ -331,7 +404,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="3EA7B14B-FF51-428D-9F42-B0E3A93A74AA" width="25" height="25">
+        <image name="Blue Circle" width="468" height="468"/>
+        <image name="E902CD2A-53F3-469E-91DF-C6ECDA536D37" width="25" height="25">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOzxYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISksLzU4VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA
@@ -443,7 +517,6 @@ GAoYGRgdGCQYLBg5GD4YQBhCGEcYTxhSGFcYXxhiGHQYdxh8AAAAAAAAAgEAAAAAAAAAPwAAAAAAAAAA
 AAAAAAAAGH4
 </mutableData>
         </image>
-        <image name="Blue Circle" width="468" height="468"/>
         <image name="Green Circle" width="461" height="468"/>
         <image name="Red Circle" width="460" height="468"/>
     </resources>

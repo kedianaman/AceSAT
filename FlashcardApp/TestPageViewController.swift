@@ -10,12 +10,15 @@ import UIKit
 
 class TestPageViewController: UIViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource {
 
-    let test = Test(wordList: WordListManager.sharedManager.wordListAtIndex(7))
+    let test = Test(wordList: WordListManager.sharedManager.wordListAtIndex(4))
     var pageViewController: UIPageViewController!
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let completeButton : UIBarButtonItem = UIBarButtonItem(title: "Complete", style: UIBarButtonItemStyle.Plain, target: self, action: "completed:")
+        navigationItem.rightBarButtonItem = completeButton
+
         navigationController?.view.window?.tintColor = UIColor(red:1.00, green:0.16, blue:0.41, alpha:1.0)
         // Do any additional setup after loading the view.
     }
@@ -24,6 +27,38 @@ class TestPageViewController: UIViewController, UIPageViewControllerDelegate, UI
         super.loadView()
         setUpPageViewController()
         self.view.backgroundColor = UIColor.blackColor()
+    }
+    
+    func completed(sender: UIBarButtonItem) {
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let testResultsViewController = storyboard.instantiateViewControllerWithIdentifier("TestResultsViewController") as! TestResultsViewController
+        let results = testResults()
+        testResultsViewController.correctText = "\(results.correctAnswers) correct"
+        testResultsViewController.wrongText = "\(results.incorrectAnswers) incorrect"
+        testResultsViewController.unansweredText = "\(results.unanswered) unanswered"
+        let percentage = Double(results.correctAnswers) / Double(test.numberOfQuestions) * 100.0
+        testResultsViewController.percentageText = "\(Int(percentage)) %"
+        navigationController?.pushViewController(testResultsViewController, animated: true)
+        
+    }
+    
+    func testResults() -> (correctAnswers: Int, incorrectAnswers: Int, unanswered: Int) {
+        var correctAnswers = 0
+        var incorrectAnswers = 0
+        var unanswered = 0
+        for index in 0...test.numberOfQuestions - 1 {
+            let testViewController = testViewControllerAtIndex(index) as! TestViewController
+            if testViewController.testQuestion?.userSelectedDefinition == nil {
+                unanswered++
+            }
+            else if testViewController.testQuestion?.userSelectedDefinition == testViewController.testQuestion?.word.definition {
+                correctAnswers++
+            } else {
+                incorrectAnswers++
+            }
+        }
+        return (correctAnswers, incorrectAnswers, unanswered)
+
     }
     
     
