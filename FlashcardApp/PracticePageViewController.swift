@@ -48,7 +48,7 @@ class PracticePageViewController: UIViewController, UIPageViewControllerDataSour
     private func flashCardViewControllerAtIndex(index: Int) -> PracticeFlashcardViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let flashCardViewController = storyboard.instantiateViewControllerWithIdentifier("PracticeFlashcardViewController") as! PracticeFlashcardViewController
-        let vocabWord = wordList.wordAtIndex(index)
+        let vocabWord = wordList[index]
         flashCardViewController.vocabWordText = vocabWord.word
         flashCardViewController.definitionWordText = vocabWord.definition
         flashCardViewController.indexOfView = index
@@ -79,7 +79,7 @@ class PracticePageViewController: UIViewController, UIPageViewControllerDataSour
         let practiceViewController = viewController as! PracticeFlashcardViewController
         if var index = practiceViewController.indexOfView {
             index++
-            if index == wordList.numberOfWords() {
+            if index == wordList.count {
                 return nil
             }
             return self.flashCardViewControllerAtIndex(index)
@@ -88,7 +88,7 @@ class PracticePageViewController: UIViewController, UIPageViewControllerDataSour
     }
     
     func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int {
-        return wordList.numberOfWords()
+        return wordList.count
     }
     
     func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int {

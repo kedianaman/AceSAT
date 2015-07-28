@@ -10,6 +10,10 @@ import UIKit
 
 class TestPageViewController: UIViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource {
 
+    let test = Test(wordList: WordListManager.sharedManager.wordListAtIndex(7))
+    var pageViewController: UIPageViewController!
+    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.view.window?.tintColor = UIColor(red:1.00, green:0.16, blue:0.41, alpha:1.0)
@@ -23,15 +27,10 @@ class TestPageViewController: UIViewController, UIPageViewControllerDelegate, UI
     }
     
     
-
-    let wordList = WordListManager.sharedManager.wordListAtIndex(0)
-    var pageViewController: UIPageViewController!
-
-    
     func testViewControllerAtIndex(index: Int) -> TestViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let testViewController = storyboard.instantiateViewControllerWithIdentifier("TestViewController") as! TestViewController
-        testViewController.setUpAtIndex(index, wordList: wordList)
+        testViewController.testQuestion = test.questionAtIndex(index)
         testViewController.viewControllerIndex = index
         return testViewController
     }
@@ -71,7 +70,7 @@ class TestPageViewController: UIViewController, UIPageViewControllerDelegate, UI
         let testViewController = viewController as! TestViewController
         if var index = testViewController.viewControllerIndex {
             index++
-            if index == wordList.numberOfWords() {
+            if index == test.numberOfQuestions {
                 return nil
             }
             return testViewControllerAtIndex(index)
@@ -80,21 +79,10 @@ class TestPageViewController: UIViewController, UIPageViewControllerDelegate, UI
     }
     
     func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int {
-        return wordList.numberOfWords()
+        return test.numberOfQuestions
     }
     
     func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int {
         return 0
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

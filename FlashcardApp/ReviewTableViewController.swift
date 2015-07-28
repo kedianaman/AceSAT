@@ -25,12 +25,12 @@ class ReviewTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return wordList.numberOfWords()
+        return wordList.count
     }
    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCellWithIdentifier("ReviewVocabWordCell", forIndexPath: indexPath) as?ReviewTableViewCell {
-            let vocabWord = wordList.wordAtIndex(indexPath.row)
+            let vocabWord = wordList[indexPath.row]
             cell.wordTitle.text = vocabWord.word
             cell.wordDefinition.text = vocabWord.definition
             

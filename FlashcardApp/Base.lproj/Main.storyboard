@@ -240,9 +240,9 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="VWA-ND-vnt">
                                                 <rect key="frame" x="0.0" y="0.0" width="520" height="108"/>
-                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="32"/>
+                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="26"/>
                                                 <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                <state key="normal" title="Title" image="C5A7E74D-D314-4D22-88DD-0469DA5E066A">
+                                                <state key="normal" title="Title" image="3EA7B14B-FF51-428D-9F42-B0E3A93A74AA">
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
@@ -251,9 +251,9 @@
                                             </button>
                                             <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="JZO-G7-KxP">
                                                 <rect key="frame" x="0.0" y="108" width="520" height="108"/>
-                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="32"/>
+                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="26"/>
                                                 <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                <state key="normal" title="Title" image="C5A7E74D-D314-4D22-88DD-0469DA5E066A">
+                                                <state key="normal" title="Title" image="3EA7B14B-FF51-428D-9F42-B0E3A93A74AA">
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
@@ -262,9 +262,9 @@
                                             </button>
                                             <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="NzJ-Yw-no0">
                                                 <rect key="frame" x="0.0" y="216" width="520" height="108"/>
-                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="32"/>
+                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="26"/>
                                                 <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                <state key="normal" title="Title" image="C5A7E74D-D314-4D22-88DD-0469DA5E066A">
+                                                <state key="normal" title="Title" image="3EA7B14B-FF51-428D-9F42-B0E3A93A74AA">
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
@@ -273,9 +273,9 @@
                                             </button>
                                             <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="0Mi-yq-xQQ">
                                                 <rect key="frame" x="0.0" y="324" width="520" height="108"/>
-                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="32"/>
+                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="26"/>
                                                 <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                <state key="normal" title="Title" image="C5A7E74D-D314-4D22-88DD-0469DA5E066A">
+                                                <state key="normal" title="Title" image="3EA7B14B-FF51-428D-9F42-B0E3A93A74AA">
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
@@ -299,11 +299,11 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="definition1Button" destination="VWA-ND-vnt" id="X54-0G-aqL"/>
-                        <outlet property="definition2Button" destination="JZO-G7-KxP" id="EIw-YC-4si"/>
-                        <outlet property="definition3Button" destination="NzJ-Yw-no0" id="ift-n8-2BA"/>
-                        <outlet property="definition4Button" destination="0Mi-yq-xQQ" id="bG0-kD-VW7"/>
                         <outlet property="vocabWordTitle" destination="zkn-bL-VMe" id="9EH-2G-7ag"/>
+                        <outletCollection property="definitionButtons" destination="VWA-ND-vnt" collectionClass="NSMutableArray" id="5hT-MW-8ln"/>
+                        <outletCollection property="definitionButtons" destination="JZO-G7-KxP" collectionClass="NSMutableArray" id="YXp-Ee-2zR"/>
+                        <outletCollection property="definitionButtons" destination="NzJ-Yw-no0" collectionClass="NSMutableArray" id="DIk-Vh-eQn"/>
+                        <outletCollection property="definitionButtons" destination="0Mi-yq-xQQ" collectionClass="NSMutableArray" id="Fr6-JQ-gRI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u5u-hE-dj7" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -331,8 +331,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Blue Circle" width="468" height="468"/>
-        <image name="C5A7E74D-D314-4D22-88DD-0469DA5E066A" width="25" height="25">
+        <image name="3EA7B14B-FF51-428D-9F42-B0E3A93A74AA" width="25" height="25">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOzxYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISksLzU4VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA
@@ -444,6 +443,7 @@ GAoYGRgdGCQYLBg5GD4YQBhCGEcYTxhSGFcYXxhiGHQYdxh8AAAAAAAAAgEAAAAAAAAAPwAAAAAAAAAA
 AAAAAAAAGH4
 </mutableData>
         </image>
+        <image name="Blue Circle" width="468" height="468"/>
         <image name="Green Circle" width="461" height="468"/>
         <image name="Red Circle" width="460" height="468"/>
     </resources>

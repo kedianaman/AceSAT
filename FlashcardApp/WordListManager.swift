@@ -47,7 +47,7 @@ class WordListManager {
     
     // MARK:- Word List Access
     
-    func numberOfWordLists() -> Int {
+    var numberOfWordLists: Int {
         return wordLists.count
     }
     
@@ -56,8 +56,14 @@ class WordListManager {
     }
 }
 
-class WordList : CustomStringConvertible {
+class WordList : CustomStringConvertible, CollectionType {
+    typealias Generator = IndexingGenerator<[Word]>
+    typealias _Element = Word
+
+    
     private var words = [Word]()
+    
+    typealias Element = Word
     
     var description: String {
         var desc = ""
@@ -67,15 +73,29 @@ class WordList : CustomStringConvertible {
         return desc
     }
     
-    func numberOfWords() -> Int{
-        return words.count
+    var startIndex: Int {
+        return words.startIndex
     }
     
-    func wordAtIndex(index: Int) -> Word {
-        return words[index]
+    var endIndex: Int {
+        return words.endIndex
     }
-
+    
+    func generate() -> Generator {
+        return words.generate()
+    }
+    
+    subscript(i: Int) -> Word {
+        return words[i]
+    }
+    
+    func hasWord(word: Word) -> Bool {
+        return contains({ (aWord) -> Bool in
+            return word == aWord
+        })
+    }
 }
+
 
 class Word : CustomStringConvertible {
     var word: String
@@ -89,7 +109,10 @@ class Word : CustomStringConvertible {
     var description: String {
         return word + " : " + definition
     }
+    
+    
 }
 
-
-
+func ==(lhs: Word, rhs: Word) -> Bool {
+    return lhs.word == rhs.word && lhs.definition == rhs.definition
+}
