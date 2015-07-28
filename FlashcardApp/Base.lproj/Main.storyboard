@@ -6,6 +6,11 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="HelveticaNeue.ttc">
+            <string>HelveticaNeue</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--Main Menu View Controller-->
         <scene sceneID="axv-jv-jks">
@@ -19,17 +24,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="1000" text="Sample" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ip2-Pw-VoZ">
-                                <rect key="frame" x="204" y="28" width="193" height="72"/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="60"/>
-                                <color key="textColor" red="0.36078431372549019" green="0.76078431372549016" blue="0.27843137254901962" alpha="1" colorSpace="calibratedRGB"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="1000" text="AceSAT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ip2-Pw-VoZ">
+                                <rect key="frame" x="195" y="28" width="210" height="70"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="60"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="uGv-pz-Aab">
-                                <rect key="frame" x="20" y="108" width="560" height="484"/>
+                                <rect key="frame" x="20" y="106" width="560" height="486"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nFz-7f-73y">
-                                        <rect key="frame" x="0.0" y="148.5" width="186.5" height="187"/>
+                                        <rect key="frame" x="0.0" y="149.5" width="186.5" height="187"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="nFz-7f-73y" secondAttribute="height" multiplier="1:1" id="c5v-8o-muf"/>
                                         </constraints>
@@ -42,7 +47,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fY0-uB-A4e">
-                                        <rect key="frame" x="186.5" y="149" width="187" height="186"/>
+                                        <rect key="frame" x="186.5" y="150" width="187" height="186"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="fY0-uB-A4e" secondAttribute="height" multiplier="1:1" constant="1" id="Jdg-F8-aJW"/>
                                         </constraints>
@@ -55,7 +60,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CSO-pQ-sbU">
-                                        <rect key="frame" x="373.5" y="148.5" width="186.5" height="187"/>
+                                        <rect key="frame" x="373.5" y="149.5" width="186.5" height="187"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="CSO-pQ-sbU" secondAttribute="height" multiplier="1:1" id="PUz-Vz-rba"/>
                                         </constraints>
@@ -125,11 +130,11 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="e0g-31-Qk1" firstAttribute="centerX" secondItem="qmD-ay-1Sx" secondAttribute="centerX" id="2uS-jm-IMI"/>
-                            <constraint firstItem="e0g-31-Qk1" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="qmD-ay-1Sx" secondAttribute="leadingMargin" id="7pP-gZ-Oug"/>
+                            <constraint firstItem="e0g-31-Qk1" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="qmD-ay-1Sx" secondAttribute="leadingMargin" constant="20" id="7pP-gZ-Oug"/>
                             <constraint firstItem="e0g-31-Qk1" firstAttribute="centerY" secondItem="qmD-ay-1Sx" secondAttribute="centerY" id="AdF-th-LFW"/>
                             <constraint firstItem="WQ9-hw-09y" firstAttribute="centerX" secondItem="qmD-ay-1Sx" secondAttribute="centerX" id="WCz-Uq-ihw"/>
                             <constraint firstItem="WQ9-hw-09y" firstAttribute="centerY" secondItem="qmD-ay-1Sx" secondAttribute="centerY" constant="200" id="XYG-do-G3D"/>
-                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="e0g-31-Qk1" secondAttribute="trailing" id="iqU-AA-Xgj"/>
+                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="e0g-31-Qk1" secondAttribute="trailing" constant="20" id="iqU-AA-Xgj"/>
                             <constraint firstAttribute="trailingMargin" secondItem="WQ9-hw-09y" secondAttribute="trailing" id="mo2-8f-syE"/>
                             <constraint firstItem="WQ9-hw-09y" firstAttribute="leading" secondItem="qmD-ay-1Sx" secondAttribute="leadingMargin" id="nw1-gX-l8M"/>
                         </constraints>
@@ -237,7 +242,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="520" height="108"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="32"/>
                                                 <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                <state key="normal" title="Title" image="128AA8D0-B48F-4942-AFBB-EA99354B7818">
+                                                <state key="normal" title="Title" image="C5A7E74D-D314-4D22-88DD-0469DA5E066A">
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
@@ -248,7 +253,7 @@
                                                 <rect key="frame" x="0.0" y="108" width="520" height="108"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="32"/>
                                                 <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                <state key="normal" title="Title" image="128AA8D0-B48F-4942-AFBB-EA99354B7818">
+                                                <state key="normal" title="Title" image="C5A7E74D-D314-4D22-88DD-0469DA5E066A">
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
@@ -259,7 +264,7 @@
                                                 <rect key="frame" x="0.0" y="216" width="520" height="108"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="32"/>
                                                 <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                <state key="normal" title="Title" image="128AA8D0-B48F-4942-AFBB-EA99354B7818">
+                                                <state key="normal" title="Title" image="C5A7E74D-D314-4D22-88DD-0469DA5E066A">
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
@@ -270,7 +275,7 @@
                                                 <rect key="frame" x="0.0" y="324" width="520" height="108"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="32"/>
                                                 <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                <state key="normal" title="Title" image="128AA8D0-B48F-4942-AFBB-EA99354B7818">
+                                                <state key="normal" title="Title" image="C5A7E74D-D314-4D22-88DD-0469DA5E066A">
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
@@ -326,7 +331,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="128AA8D0-B48F-4942-AFBB-EA99354B7818" width="25" height="25">
+        <image name="Blue Circle" width="468" height="468"/>
+        <image name="C5A7E74D-D314-4D22-88DD-0469DA5E066A" width="25" height="25">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOzxYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISksLzU4VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA
@@ -438,7 +444,6 @@ GAoYGRgdGCQYLBg5GD4YQBhCGEcYTxhSGFcYXxhiGHQYdxh8AAAAAAAAAgEAAAAAAAAAPwAAAAAAAAAA
 AAAAAAAAGH4
 </mutableData>
         </image>
-        <image name="Blue Circle" width="468" height="468"/>
         <image name="Green Circle" width="461" height="468"/>
         <image name="Red Circle" width="460" height="468"/>
     </resources>

@@ -32,7 +32,8 @@ class PracticePageViewController: UIViewController, UIPageViewControllerDataSour
     
     func setUpPageViewController() {
         pageViewController = UIPageViewController(transitionStyle: UIPageViewControllerTransitionStyle.Scroll, navigationOrientation: UIPageViewControllerNavigationOrientation.Horizontal, options: nil)
-        self.pageViewController.dataSource = self
+        pageViewController.delegate = self
+        pageViewController.dataSource = self
         
         let startViewController = flashCardViewControllerAtIndex(0) as PracticeFlashcardViewController
         let viewControllers = [startViewController]
@@ -57,8 +58,9 @@ class PracticePageViewController: UIViewController, UIPageViewControllerDataSour
     // MARK: Page View Controller Data Source 
     
     func pageViewController(pageViewController: UIPageViewController, willTransitionToViewControllers pendingViewControllers: [UIViewController]) {
-        let newViewController = pendingViewControllers.first
-        
+        let newViewController = pendingViewControllers.first as! PracticeFlashcardViewController
+        let oldViewController = pageViewController.viewControllers?.first as! PracticeFlashcardViewController
+        newViewController.showingDefinition = oldViewController.showingDefinition
     }
     
     func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
