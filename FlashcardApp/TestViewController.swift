@@ -41,8 +41,12 @@ class TestViewController: UIViewController {
     }
     
     @IBAction func buttonTapped(sender: UIButton) {
-        if let selectedIndex = selectedIndex {
-            buttons[selectedIndex].setImage(UIImage(named: "Not Selected Circle"), forState: UIControlState.Normal)
+        if let currentSelectedIndex = selectedIndex {
+            buttons[currentSelectedIndex].setImage(UIImage(named: "Not Selected Circle"), forState: UIControlState.Normal)
+            if selectedIndex == sender.tag {
+                selectedIndex = nil
+                return
+            }
         }
         sender.setImage(UIImage(named: "Selected Circle"), forState: UIControlState.Normal)
         selectedIndex = sender.tag

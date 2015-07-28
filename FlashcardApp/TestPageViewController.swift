@@ -26,7 +26,7 @@ class TestPageViewController: UIViewController, UIPageViewControllerDelegate, UI
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    let words = VocabWords().getWordsAtIndex(2)!
+    let words = VocabWords().getWordsAtIndex(3)!
     var pageViewController: UIPageViewController!
 
     
