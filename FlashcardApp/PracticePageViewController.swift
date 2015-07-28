@@ -11,7 +11,7 @@ import UIKit
 class PracticePageViewController: UIViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
     
     var pageViewController: UIPageViewController!
-    var words = [String: String]()
+    var wordList = WordList()
     
     // MARK:- View Controller Lifecycle
     
@@ -24,7 +24,7 @@ class PracticePageViewController: UIViewController, UIPageViewControllerDataSour
     
     override func loadView() {
         super.loadView()
-        words = VocabWords().getWordsAtIndex(0)!
+        wordList = WordListManager.sharedManager.wordListAtIndex(0)
         setUpPageViewController()
         self.view.backgroundColor = UIColor.blackColor()
     }
@@ -48,9 +48,9 @@ class PracticePageViewController: UIViewController, UIPageViewControllerDataSour
     private func flashCardViewControllerAtIndex(index: Int) -> PracticeFlashcardViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let flashCardViewController = storyboard.instantiateViewControllerWithIdentifier("PracticeFlashcardViewController") as! PracticeFlashcardViewController
-        let vocabWord = words.keys.array[index]
-        flashCardViewController.vocabWordText = vocabWord
-        flashCardViewController.definitionWordText = words[vocabWord]
+        let vocabWord = wordList.wordAtIndex(index)
+        flashCardViewController.vocabWordText = vocabWord.word
+        flashCardViewController.definitionWordText = vocabWord.definition
         flashCardViewController.indexOfView = index
         return flashCardViewController
     }
@@ -79,7 +79,7 @@ class PracticePageViewController: UIViewController, UIPageViewControllerDataSour
         let practiceViewController = viewController as! PracticeFlashcardViewController
         if var index = practiceViewController.indexOfView {
             index++
-            if index == words.count {
+            if index == wordList.numberOfWords() {
                 return nil
             }
             return self.flashCardViewControllerAtIndex(index)
@@ -88,7 +88,7 @@ class PracticePageViewController: UIViewController, UIPageViewControllerDataSour
     }
     
     func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int {
-        return words.count
+        return wordList.numberOfWords()
     }
     
     func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int {

@@ -64,23 +64,23 @@ class TestViewController: UIViewController {
         return nil
     }
     
-    func setUpAtIndex(indexOfWord: Int, words: [String: String]) {
-        let vocabWord = words.keys.array[indexOfWord]
-        vocabWordText = vocabWord
+    func setUpAtIndex(indexOfWord: Int, wordList: WordList) {
+        let vocabWord = wordList.wordAtIndex(indexOfWord)
+        vocabWordText = vocabWord.word
         buttonTexts = [button1Text, button2Text, button3Text, button4Text]
         // set definition of correct word to button text at random index
-        buttonTexts[Int(indexOfCorrectDefinition)] = words[vocabWord]
+        buttonTexts[Int(indexOfCorrectDefinition)] = vocabWord.definition
         var previousIndices = [UInt32(indexOfWord)]
         for i in 0...3 {
             // if the index is not of the correct definition, set it to a random definition everytime
             if i != Int(indexOfCorrectDefinition) {
                 var randomIndex: UInt32 = UInt32(indexOfWord)
                 while randomIndex == UInt32(indexOfWord) || previousIndices.contains(randomIndex) == true {
-                    randomIndex = arc4random() % UInt32(words.count - 1)
+                    randomIndex = arc4random() % UInt32(wordList.numberOfWords() - 1)
                 }
                 previousIndices.append(randomIndex)
-                let currentVocabWord = words.keys.array[Int(randomIndex)]
-                buttonTexts[i] = words[currentVocabWord]
+                let currentVocabWord = wordList.wordAtIndex(Int(randomIndex))
+                buttonTexts[i] = currentVocabWord.definition
             }
         }
         

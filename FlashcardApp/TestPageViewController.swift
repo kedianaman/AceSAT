@@ -21,19 +21,17 @@ class TestPageViewController: UIViewController, UIPageViewControllerDelegate, UI
         setUpPageViewController()
         self.view.backgroundColor = UIColor.blackColor()
     }
+    
+    
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    let words = VocabWords().getWordsAtIndex(3)!
+    let wordList = WordListManager.sharedManager.wordListAtIndex(0)
     var pageViewController: UIPageViewController!
 
     
     func testViewControllerAtIndex(index: Int) -> TestViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let testViewController = storyboard.instantiateViewControllerWithIdentifier("TestViewController") as! TestViewController
-        testViewController.setUpAtIndex(index, words: words)
+        testViewController.setUpAtIndex(index, wordList: wordList)
         testViewController.viewControllerIndex = index
         return testViewController
     }
@@ -73,7 +71,7 @@ class TestPageViewController: UIViewController, UIPageViewControllerDelegate, UI
         let testViewController = viewController as! TestViewController
         if var index = testViewController.viewControllerIndex {
             index++
-            if index == words.count {
+            if index == wordList.numberOfWords() {
                 return nil
             }
             return testViewControllerAtIndex(index)
@@ -82,7 +80,7 @@ class TestPageViewController: UIViewController, UIPageViewControllerDelegate, UI
     }
     
     func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int {
-        return words.count
+        return wordList.numberOfWords()
     }
     
     func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int {

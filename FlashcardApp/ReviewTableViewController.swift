@@ -10,9 +10,8 @@ import UIKit
 
 class ReviewTableViewController: UITableViewController {
 
-    let vocabWords = VocabWords().getWordsAtIndex(5)!
+    let wordList = WordListManager.sharedManager.wordListAtIndex(0)
     
-   
     // MARK: - Table view data source
 
  
@@ -23,19 +22,17 @@ class ReviewTableViewController: UITableViewController {
         tableView.separatorColor = UIColor(white: 1.0, alpha: 0.3)
         navigationController?.view.window?.tintColor = UIColor(red:0.51, green:0.98, blue:0.43, alpha:1.0)
         tableView.backgroundColor = UIColor.blackColor()
-        
-//        navigationController?.hidesBarsOnSwipe = true
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return vocabWords.count
+        return wordList.numberOfWords()
     }
    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCellWithIdentifier("ReviewVocabWordCell", forIndexPath: indexPath) as?ReviewTableViewCell {
-            let vocabWord = vocabWords.keys.array[indexPath.row]
-            cell.wordTitle.text = vocabWord
-            cell.wordDefinition.text = vocabWords[vocabWord]
+            let vocabWord = wordList.wordAtIndex(indexPath.row)
+            cell.wordTitle.text = vocabWord.word
+            cell.wordDefinition.text = vocabWord.definition
             
             return cell
 
