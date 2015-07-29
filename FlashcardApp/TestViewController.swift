@@ -29,10 +29,10 @@ class TestViewController: UIViewController {
             let definition = definitions[i]
             
             if definition == testQuestion?.userSelectedDefinition {
-                button.setImage(UIImage(named: "Selected Circle"), forState: UIControlState.Normal)
+                button.setImage(UIImage(named: "SelectedButton"), forState: UIControlState.Normal)
             }
             else {
-                button.setImage(UIImage(named: "Not Selected Circle"), forState: UIControlState.Normal)
+                button.setImage(UIImage(named: "DeselectedButton"), forState: UIControlState.Normal)
             }
             
             button.setTitle(definitions[i], forState: UIControlState.Normal)
@@ -42,11 +42,11 @@ class TestViewController: UIViewController {
     @IBAction func buttonTapped(sender: UIButton) {
         for button in definitionButtons {
             if button == sender {
-                sender.setImage(UIImage(named: "Selected Circle"), forState: UIControlState.Normal)
+                sender.setImage(UIImage(named: "SelectedButton"), forState: UIControlState.Normal)
                 testQuestion?.userSelectedDefinition = sender.titleLabel?.text
             }
             else {
-                button.setImage(UIImage(named: "Not Selected Circle"), forState: UIControlState.Normal)
+                button.setImage(UIImage(named: "DeselectedButton"), forState: UIControlState.Normal)
             }
         }
     }
