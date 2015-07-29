@@ -20,16 +20,15 @@ class TestResultsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let results = testResults()
-        numberCorrectLabel.text = "\(results.correctAnswers) correct"
-        numberWrongLabel.text = "\(results.incorrectAnswers) incorrect"
-        numberUnansweredLabel.text = "\(results.unanswered) unanswered"
-        let percentage = Double(results.correctAnswers) / Double(test!.numberOfQuestions) * 100.0
-        percentageLabel.text = "\(Int(percentage)) %"
+        numberCorrectLabel.text = results.correctAnswersLabel
+        numberWrongLabel.text = results.incorrectAnswersLabel
+        numberUnansweredLabel.text = results.unansweredLabel
+        percentageLabel.text = results.percentageLabel
         
         
     }
     
-    func testResults() -> (correctAnswers: Int, incorrectAnswers: Int, unanswered: Int) {
+    func testResults() -> (correctAnswersLabel: String, incorrectAnswersLabel: String, unansweredLabel: String, percentageLabel: String) {
         var correctAnswers = 0
         var incorrectAnswers = 0
         var unanswered = 0
@@ -44,7 +43,12 @@ class TestResultsViewController: UIViewController {
                 incorrectAnswers++
             }
         }
-        return (correctAnswers, incorrectAnswers, unanswered)
+        let correctAnswersLabel = "\(correctAnswers) correct"
+        let incorrectAnswersLabel = "\(incorrectAnswers) incorrect"
+        let unansweredLabel = "\(unanswered) unanswered"
+        let percentage = Double(correctAnswers) / Double(test!.numberOfQuestions) * 100.0
+        let percentageLabel = "\(Int(percentage)) %"
+        return (correctAnswersLabel, incorrectAnswersLabel, unansweredLabel, percentageLabel)
         
     }
     

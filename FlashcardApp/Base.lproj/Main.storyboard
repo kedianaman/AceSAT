@@ -56,7 +56,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="practicleButtonPressed:" destination="1Eq-nB-goO" eventType="touchUpInside" id="DON-4A-RAt"/>
+                                            <action selector="practiceButtonPressed:" destination="1Eq-nB-goO" eventType="touchUpInside" id="7fZ-m2-GgL"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CSO-pQ-sbU">
@@ -140,6 +140,13 @@
                             <constraint firstItem="WQ9-hw-09y" firstAttribute="leading" secondItem="qmD-ay-1Sx" secondAttribute="leadingMargin" id="nw1-gX-l8M"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="zRe-ZL-DnB">
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="7SD-w2-D4F">
+                            <connections>
+                                <action selector="doneButtonPressed:" destination="2Hw-ee-PbL" id="F5A-6e-L8R"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="definitionWordLabel" destination="WQ9-hw-09y" id="ngT-CX-13J"/>
                         <outlet property="definitionlabelCenterYConstraint" destination="XYG-do-G3D" id="0vK-ob-aK1"/>
@@ -149,7 +156,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="smH-Vy-CdJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="33" y="486"/>
+            <point key="canvasLocation" x="845" y="486"/>
         </scene>
         <!--Review Table View Controller-->
         <scene sceneID="gpm-08-ZHz">
@@ -219,7 +226,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KSS-oy-DT8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1385" y="486"/>
+            <point key="canvasLocation" x="2197" y="486"/>
         </scene>
         <!--Test View Controller-->
         <scene sceneID="44H-jn-JHE">
@@ -315,7 +322,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u5u-hE-dj7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2462" y="486"/>
+            <point key="canvasLocation" x="3274" y="486"/>
         </scene>
         <!--Test Results View Controller-->
         <scene sceneID="gvz-73-1e0">
@@ -400,7 +407,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aOt-ND-dbk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3167" y="486"/>
+            <point key="canvasLocation" x="3979" y="486"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="NKn-SI-JZd">
@@ -425,7 +432,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="th2-sK-eU1" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="lHQ-Gs-r5r">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="blackTranslucent" id="lHQ-Gs-r5r">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -436,7 +443,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JtR-E2-aQB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="751" y="486"/>
+            <point key="canvasLocation" x="1563" y="486"/>
         </scene>
     </scenes>
     <resources>

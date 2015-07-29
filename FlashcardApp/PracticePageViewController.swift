@@ -17,7 +17,14 @@ class PracticePageViewController: UIViewController, UIPageViewControllerDataSour
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.view.window?.tintColor = UIColor(red:0.10, green:0.82, blue:0.99, alpha:1.0)
+        let doneButton : UIBarButtonItem = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.Plain, target: self, action: "doneButtonPressed:")
+        navigationItem.rightBarButtonItem = doneButton
+        
+        navigationController?.navigationBar.setBackgroundImage(UIImage(named: "NavBarBG"), forBarMetrics: .Default)
+        navigationController?.navigationBar.shadowImage = UIImage(named: "NavBarBG")
+        navigationController?.navigationBar.barStyle = UIBarStyle.Black
+        navigationController?.view.tintColor = UIColor(red:0.10, green:0.82, blue:0.99, alpha:1.0)
+        
     }
     
     // MARK:- View Setup
@@ -28,7 +35,12 @@ class PracticePageViewController: UIViewController, UIPageViewControllerDataSour
         setUpPageViewController()
         self.view.backgroundColor = UIColor.blackColor()
     }
+    // MARK:- IB Action
     
+    func doneButtonPressed(sender: UIBarButtonItem) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+
     
     func setUpPageViewController() {
         pageViewController = UIPageViewController(transitionStyle: UIPageViewControllerTransitionStyle.Scroll, navigationOrientation: UIPageViewControllerNavigationOrientation.Horizontal, options: nil)

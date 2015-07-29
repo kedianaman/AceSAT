@@ -63,9 +63,10 @@ class MainMenuViewController: UIViewController {
     
     // MARK:- Actions
     
-    @IBAction func practicleButtonPressed(sender: UIButton) {
+    @IBAction func practiceButtonPressed(sender: UIButton) {
         let practicePageViewController = PracticePageViewController()
-        self.navigationController?.pushViewController(practicePageViewController, animated: true)
+        let practiceNavigationController = UINavigationController(rootViewController: practicePageViewController)
+        presentViewController(practiceNavigationController, animated: true, completion: nil)
     }
     
     @IBAction func testButtonPressed(sender: UIButton) {

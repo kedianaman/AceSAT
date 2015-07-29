@@ -56,6 +56,7 @@ class PracticeFlashcardViewController: UIViewController {
         }
     }
     
+
     func updateLabelConstraints(size: CGSize) {
         if definitionlabelCenterYConstraint != nil {
             definitionlabelCenterYConstraint.constant = showingDefinition ? size.height/6 : size.height / 2
