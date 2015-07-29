@@ -16,10 +16,13 @@ class TestPageViewController: UIViewController, UIPageViewControllerDelegate, UI
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let completeButton : UIBarButtonItem = UIBarButtonItem(title: "Complete", style: UIBarButtonItemStyle.Plain, target: self, action: "completed:")
+        let completeButton : UIBarButtonItem = UIBarButtonItem(title: "End", style: UIBarButtonItemStyle.Plain, target: self, action: "endButtonPressed:")
         navigationItem.rightBarButtonItem = completeButton
 
-        navigationController?.view.window?.tintColor = UIColor(red:1.00, green:0.16, blue:0.41, alpha:1.0)
+        navigationController?.navigationBar.setBackgroundImage(UIImage(named: "NavBarBG"), forBarMetrics: .Default)
+        navigationController?.navigationBar.shadowImage = UIImage(named: "NavBarBG")
+        navigationController?.navigationBar.barStyle = UIBarStyle.Black
+        navigationController?.view.tintColor = UIColor(red:1.00, green:0.16, blue:0.41, alpha:1.0)
         // Do any additional setup after loading the view.
     }
     
@@ -29,12 +32,8 @@ class TestPageViewController: UIViewController, UIPageViewControllerDelegate, UI
         self.view.backgroundColor = UIColor.blackColor()
     }
     
-    @IBAction func reviewUnwindSegueAction(segue: UIStoryboardSegue) {
-        print("unwind back")
-    }
-
-    func completed(sender: UIBarButtonItem) {
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+    func endButtonPressed(sender: UIBarButtonItem) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let testResultsViewController = storyboard.instantiateViewControllerWithIdentifier("TestResultsViewController") as! TestResultsViewController
         let results = testResults()
         testResultsViewController.correctText = "\(results.correctAnswers) correct"
@@ -51,7 +50,7 @@ class TestPageViewController: UIViewController, UIPageViewControllerDelegate, UI
         var incorrectAnswers = 0
         var unanswered = 0
         for index in 0...test.numberOfQuestions - 1 {
-            let testViewController = testViewControllerAtIndex(index) as! TestViewController
+            let testViewController = testViewControllerAtIndex(index)
             if testViewController.testQuestion?.userSelectedDefinition == nil {
                 unanswered++
             }

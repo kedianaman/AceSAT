@@ -8,6 +8,14 @@
 
 import UIKit
 
+class TestButton: UIButton {
+    override func intrinsicContentSize() -> CGSize {
+        var size = self.titleLabel!.intrinsicContentSize()
+        size.width += self.imageView!.bounds.size.width
+        return size
+    }
+}
+
 class TestViewController: UIViewController {
 
     @IBOutlet weak var vocabWordTitle: UILabel!
@@ -39,6 +47,11 @@ class TestViewController: UIViewController {
         }
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        updateButtonPreferredMaxLayoutWidth(view.bounds.size)
+    }
+    
     @IBAction func buttonTapped(sender: UIButton) {
         for button in definitionButtons {
             if button == sender {
@@ -49,5 +62,17 @@ class TestViewController: UIViewController {
                 button.setImage(UIImage(named: "DeselectedButton"), forState: UIControlState.Normal)
             }
         }
+    }
+    
+    // MARK:- 
+    
+    func updateButtonPreferredMaxLayoutWidth(size: CGSize) {
+        for button in definitionButtons {
+            button.titleLabel?.preferredMaxLayoutWidth = size.width - button.imageView!.image!.size.width - view.layoutMargins.left*2 - 20*2
+        }
+    }
+    
+    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+        updateButtonPreferredMaxLayoutWidth(size)
     }
 }

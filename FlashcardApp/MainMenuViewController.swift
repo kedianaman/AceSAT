@@ -69,10 +69,9 @@ class MainMenuViewController: UIViewController {
     }
     
     @IBAction func testButtonPressed(sender: UIButton) {
-        let testPageViewController = TestPageViewController() as! TestPageViewController
-        testPageViewController
-        self.navigationController?.pushViewController(testPageViewController, animated: true)
-        
+        let testPageViewController = TestPageViewController()
+        let testNavigationController = UINavigationController(rootViewController: testPageViewController)
+        self.presentViewController(testNavigationController, animated: true, completion: nil)
     }
     
 }
