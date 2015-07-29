@@ -35,34 +35,11 @@ class TestPageViewController: UIViewController, UIPageViewControllerDelegate, UI
     func endButtonPressed(sender: UIBarButtonItem) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let testResultsViewController = storyboard.instantiateViewControllerWithIdentifier("TestResultsViewController") as! TestResultsViewController
-        let results = testResults()
-        testResultsViewController.correctText = "\(results.correctAnswers) correct"
-        testResultsViewController.wrongText = "\(results.incorrectAnswers) incorrect"
-        testResultsViewController.unansweredText = "\(results.unanswered) unanswered"
-        let percentage = Double(results.correctAnswers) / Double(test.numberOfQuestions) * 100.0
-        testResultsViewController.percentageText = "\(Int(percentage)) %"
+        testResultsViewController.test = self.test
         navigationController?.pushViewController(testResultsViewController, animated: true)
         
     }
-    
-    func testResults() -> (correctAnswers: Int, incorrectAnswers: Int, unanswered: Int) {
-        var correctAnswers = 0
-        var incorrectAnswers = 0
-        var unanswered = 0
-        for index in 0...test.numberOfQuestions - 1 {
-            let testViewController = testViewControllerAtIndex(index)
-            if testViewController.testQuestion?.userSelectedDefinition == nil {
-                unanswered++
-            }
-            else if testViewController.testQuestion?.userSelectedDefinition == testViewController.testQuestion?.word.definition {
-                correctAnswers++
-            } else {
-                incorrectAnswers++
-            }
-        }
-        return (correctAnswers, incorrectAnswers, unanswered)
-
-    }
+ 
     
     
     func testViewControllerAtIndex(index: Int) -> TestViewController {

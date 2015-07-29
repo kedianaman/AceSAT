@@ -342,29 +342,39 @@
                                         <rect key="frame" x="0.0" y="280" width="540" height="280"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="correct" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VbU-4z-hW2">
-                                                <rect key="frame" x="221" y="0.0" width="98" height="70"/>
+                                                <rect key="frame" x="221" y="0.0" width="98" height="56"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="32"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="incorrect" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KIZ-L8-m0i">
-                                                <rect key="frame" x="209" y="70" width="122" height="70"/>
+                                                <rect key="frame" x="209" y="56" width="122" height="56"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="32"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="unasnwered" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="W09-ox-m4D">
-                                                <rect key="frame" x="185" y="140" width="170.5" height="70"/>
+                                                <rect key="frame" x="185" y="112" width="170.5" height="56"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="32"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x6O-6Q-LOf">
-                                                <rect key="frame" x="220.5" y="210" width="99" height="70"/>
+                                                <rect key="frame" x="220.5" y="168" width="99" height="56"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="32"/>
                                                 <state key="normal" title="Review">
                                                     <color key="titleColor" red="1" green="0.0" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iry-qL-v80">
+                                                <rect key="frame" x="229.5" y="224" width="81" height="56"/>
+                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="32"/>
+                                                <state key="normal" title="Finish">
+                                                    <color key="titleColor" red="1" green="0.0" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="finishButtonPressed:" destination="jQR-Jn-wyq" eventType="touchUpInside" id="cey-ia-O14"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <variation key="heightClass=compact" alignment="top"/>

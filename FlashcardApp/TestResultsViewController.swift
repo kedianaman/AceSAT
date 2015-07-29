@@ -15,35 +15,45 @@ class TestResultsViewController: UIViewController {
     @IBOutlet weak var numberUnansweredLabel: UILabel!
     @IBOutlet weak var percentageLabel: UILabel!
     
-    var correctText: String!
-    var wrongText: String!
-    var unansweredText: String!
-    var percentageText: String!
+    var test: Test?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        numberCorrectLabel.text = correctText
-        numberWrongLabel.text = wrongText
-        numberUnansweredLabel.text = unansweredText
-        percentageLabel.text = percentageText
+        let results = testResults()
+        numberCorrectLabel.text = "\(results.correctAnswers) correct"
+        numberWrongLabel.text = "\(results.incorrectAnswers) incorrect"
+        numberUnansweredLabel.text = "\(results.unanswered) unanswered"
+        let percentage = Double(results.correctAnswers) / Double(test!.numberOfQuestions) * 100.0
+        percentageLabel.text = "\(Int(percentage)) %"
+        
+        
     }
     
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "ReviewUnwindSegue" {
-            if let tpvc = segue.destinationViewController as? TestPageViewController {
-                for index in 0..<tpvc.test.numberOfQuestions {
-                    let testViewController = tpvc.testViewControllerAtIndex(index) as TestViewController
-                    if testViewController.testQuestion?.userSelectedDefinition == nil || testViewController.testQuestion?.word.definition != testViewController.testQuestion?.userSelectedDefinition {
-                        // make correct word def green
-                        print("wrong or unanswered")
-                    } else {
-                        print("correct")
-                        // do nothing at the moment.
-                    }
-                }
+    func testResults() -> (correctAnswers: Int, incorrectAnswers: Int, unanswered: Int) {
+        var correctAnswers = 0
+        var incorrectAnswers = 0
+        var unanswered = 0
+        for index in 0...test!.numberOfQuestions - 1 {
+            let testQuestion = test?.questionAtIndex(index)
+            if testQuestion?.userSelectedDefinition == nil {
+                unanswered++
+            }
+            else if testQuestion?.userSelectedDefinition == testQuestion?.word.definition {
+                correctAnswers++
+            } else {
+                incorrectAnswers++
             }
         }
+        return (correctAnswers, incorrectAnswers, unanswered)
+        
     }
+    
+    @IBAction func finishButtonPressed(sender: AnyObject) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    
+
+    
 }
 
