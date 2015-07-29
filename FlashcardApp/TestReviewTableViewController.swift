@@ -19,7 +19,8 @@ class TestReviewTableViewController: UITableViewController {
         wrongOrUnansweredQuestions = collectDataFromTest()
         tableView.estimatedRowHeight = 150
         tableView.rowHeight = UITableViewAutomaticDimension
-
+        tableView.separatorColor = UIColor(white: 1.0, alpha: 0.3)
+        tableView.backgroundColor = UIColor.blackColor()
     }
 
    
@@ -30,7 +31,7 @@ class TestReviewTableViewController: UITableViewController {
                 let testQuestion = test.questionAtIndex(index)
                 if testQuestion.userSelectedDefinition == nil {
                     wrongOrUnansweredQuestionsArray.append(testQuestion)
-                } else if testQuestion.userSelectedDefinition != testQuestion.word.description {
+                } else if testQuestion.userSelectedDefinition != testQuestion.word.definition {
                     wrongOrUnansweredQuestionsArray.append(testQuestion)
                 }
                 
@@ -55,9 +56,9 @@ class TestReviewTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("TestReviewTableViewCell", forIndexPath: indexPath) as! TestReviewTableViewCell
         let testQuestion = wrongOrUnansweredQuestions![indexPath.row]
         cell.wordLabel.text = testQuestion.word.word
-        cell.correctDefinitionLabel.text = testQuestion.word.definition
+        cell.correctDefinitionLabel.text = "✅ " + testQuestion.word.definition
         if testQuestion.userSelectedDefinition != nil {
-            cell.userSelectedDefinitionLabel.text = testQuestion.userSelectedDefinition
+            cell.userSelectedDefinitionLabel.text = "❌ " + testQuestion.userSelectedDefinition!
         } else {
             cell.userSelectedDefinitionLabel.text = nil
         }
