@@ -12,18 +12,23 @@ class ReviewTableViewController: UITableViewController {
 
     let wordList = WordListManager.sharedManager.wordListAtIndex(5)
     
-    // MARK: - Table view data source
-
- 
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.estimatedRowHeight = 96
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.separatorColor = UIColor(white: 1.0, alpha: 0.3)
-        navigationController?.view.window?.tintColor = UIColor(red:0.51, green:0.98, blue:0.43, alpha:1.0)
         tableView.backgroundColor = UIColor.blackColor()
+        
+        navigationController?.view.tintColor = UIColor(red:0.51, green:0.98, blue:0.43, alpha:1.0)
+        navigationController?.hidesBarsOnSwipe = true
     }
-
+    
+    @IBAction func doneButtonPressed(sender: UIBarButtonItem) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    // MARK: - Table view data source
+ 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return wordList.count
     }
