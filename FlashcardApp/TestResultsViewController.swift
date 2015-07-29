@@ -24,6 +24,7 @@ class TestResultsViewController: UIViewController {
         numberWrongLabel.text = results.incorrectAnswersLabel
         numberUnansweredLabel.text = results.unansweredLabel
         percentageLabel.text = results.percentageLabel
+        navigationController?.navigationBarHidden = true
         
         
     }
@@ -54,6 +55,14 @@ class TestResultsViewController: UIViewController {
     
     @IBAction func finishButtonPressed(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "ReviewSegueToTableView" {
+            if let testReviewTVC = segue.destinationViewController as? TestReviewTableViewController {
+                testReviewTVC.test = self.test
+            }
+        }
     }
     
     
