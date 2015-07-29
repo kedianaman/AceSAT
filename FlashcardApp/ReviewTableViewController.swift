@@ -10,7 +10,7 @@ import UIKit
 
 class ReviewTableViewController: UITableViewController {
 
-    let wordList = WordListManager.sharedManager.wordListAtIndex(4)
+    let wordList = WordListManager.sharedManager.wordListAtIndex(5)
     
     // MARK: - Table view data source
 

@@ -12,7 +12,7 @@ class PracticeFlashcardViewController: UIViewController {
     
     var showingDefinition = false {
         didSet {
-            updateLabelConstraints()
+            updateLabelConstraints(view.bounds.size)
         }
     }
     
@@ -38,12 +38,12 @@ class PracticeFlashcardViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        updateLabelConstraints()
+        updateLabelConstraints(view.bounds.size)
     }
     
     override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
-        updateLabelConstraints()
+        updateLabelConstraints(size)
     }
 
     
@@ -56,10 +56,10 @@ class PracticeFlashcardViewController: UIViewController {
         }
     }
     
-    func updateLabelConstraints() {
+    func updateLabelConstraints(size: CGSize) {
         if definitionlabelCenterYConstraint != nil {
-            definitionlabelCenterYConstraint.constant = showingDefinition ? view.bounds.height/6 : self.view.bounds.height / 2
-            vocabWordLabelCenterYConstraint.constant = showingDefinition ? -view.bounds.size.height/6 : 0
+            definitionlabelCenterYConstraint.constant = showingDefinition ? size.height/6 : size.height / 2
+            vocabWordLabelCenterYConstraint.constant = showingDefinition ? -size.height/6 : 0
             definitionWordLabel.alpha = showingDefinition ? 1 : 0
         }
     }

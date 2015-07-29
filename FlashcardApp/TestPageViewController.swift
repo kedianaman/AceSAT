@@ -10,7 +10,7 @@ import UIKit
 
 class TestPageViewController: UIViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource {
 
-    let test = Test(wordList: WordListManager.sharedManager.wordListAtIndex(4))
+    let test = Test(wordList: WordListManager.sharedManager.wordListAtIndex(5))
     var pageViewController: UIPageViewController!
     
 
@@ -29,6 +29,10 @@ class TestPageViewController: UIViewController, UIPageViewControllerDelegate, UI
         self.view.backgroundColor = UIColor.blackColor()
     }
     
+    @IBAction func reviewUnwindSegueAction(segue: UIStoryboardSegue) {
+        print("unwind back")
+    }
+
     func completed(sender: UIBarButtonItem) {
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let testResultsViewController = storyboard.instantiateViewControllerWithIdentifier("TestResultsViewController") as! TestResultsViewController

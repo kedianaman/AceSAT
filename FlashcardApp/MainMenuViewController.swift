@@ -41,30 +41,6 @@ class MainMenuViewController: UIViewController {
         }
     }
     
-    // MARK:- Trait Collection Changes
-    
-    override func willTransitionToTraitCollection(newCollection: UITraitCollection, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
-        super.willTransitionToTraitCollection(newCollection, withTransitionCoordinator: coordinator)
-        updateAxisForTraitCollection(newCollection)
-    }
-    
-    override func traitCollectionDidChange(previousTraitCollection: UITraitCollection?) {
-        super.traitCollectionDidChange(previousTraitCollection)
-        updateAxisForTraitCollection(self.view.traitCollection)
-
-        
-    }
-
-    func updateAxisForTraitCollection(traitCollection: UITraitCollection) {
-        if traitCollection.verticalSizeClass == UIUserInterfaceSizeClass.Compact {
-            self.stackView.axis = UILayoutConstraintAxis.Horizontal
-        }
-        else {
-            self.stackView.axis = UILayoutConstraintAxis.Vertical
-        }
-
-    }
-    
     // MARK:- Attributed Title
     
     func getTitleAttributedText() -> NSAttributedString {
@@ -93,7 +69,8 @@ class MainMenuViewController: UIViewController {
     }
     
     @IBAction func testButtonPressed(sender: UIButton) {
-        let testPageViewController = TestPageViewController()
+        let testPageViewController = TestPageViewController() as! TestPageViewController
+        testPageViewController
         self.navigationController?.pushViewController(testPageViewController, animated: true)
         
     }
