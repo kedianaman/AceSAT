@@ -61,6 +61,41 @@ class MainMenuViewController: UIViewController {
         return mainTitle
     }
     
+    // MARK:- Trait Collection Changes
+    
+    override func willTransitionToTraitCollection(newCollection: UITraitCollection, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+        super.willTransitionToTraitCollection(newCollection, withTransitionCoordinator: coordinator)
+        updateAxisForTraitCollection(newCollection, size: view.bounds.size)
+    }
+    
+    override func traitCollectionDidChange(previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        updateAxisForTraitCollection(self.view.traitCollection, size: view.bounds.size)
+    }
+    
+    func updateAxisForTraitCollection(traitCollection: UITraitCollection, size: CGSize) {
+        if traitCollection.verticalSizeClass == UIUserInterfaceSizeClass.Compact {
+            self.stackView.axis = UILayoutConstraintAxis.Horizontal
+        }
+        else if traitCollection.horizontalSizeClass == .Regular && traitCollection.verticalSizeClass == .Regular {
+            // iPad - check orientation in this case.
+            if size.width > size.height {
+                self.stackView.axis = UILayoutConstraintAxis.Horizontal
+            }
+            else {
+                self.stackView.axis = UILayoutConstraintAxis.Vertical
+            }
+        }
+        else {
+            self.stackView.axis = UILayoutConstraintAxis.Vertical
+        }
+    }
+    
+    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
+        updateAxisForTraitCollection(self.traitCollection, size: size)
+    }
+    
     // MARK:- Actions
     
     @IBAction func practiceButtonPressed(sender: UIButton) {
