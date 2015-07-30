@@ -40,6 +40,12 @@ class MainMenuViewController: UIViewController {
         }
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        updateAxisForTraitCollection(self.view.traitCollection, size: view.bounds.size)
+
+    }
+    
     // MARK:- View Setup
     
     private func updateGradientButtonColors() {

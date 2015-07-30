@@ -17,11 +17,10 @@ class TestReviewTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         wrongOrUnansweredQuestions = collectDataFromTest()
-        tableView.estimatedRowHeight = 150
+        tableView.estimatedRowHeight = 250
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.separatorColor = UIColor(white: 1.0, alpha: 0.3)
         tableView.backgroundColor = UIColor.blackColor()
-        navigationController?.navigationBar.barStyle = UIBarStyle.Black
         navigationController?.navigationBarHidden = false
         navigationController?.navigationBar.backgroundColor = UIColor.blackColor()
         navigationItem.setHidesBackButton(true, animated: false)
