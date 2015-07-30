@@ -13,12 +13,13 @@ class TestResultsViewController: UIViewController {
     @IBOutlet weak var numberCorrectLabel: UILabel!
     @IBOutlet weak var numberWrongLabel: UILabel!
     @IBOutlet weak var percentageLabel: UILabel!
-    
+    @IBOutlet weak var reviewButton: UIButton!
     var test: Test?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         let results = testResults()
+        reviewButton.setTitleColor(UIColor.ace_redColor(), forState: UIControlState.Normal)
         numberCorrectLabel.text = results.correctAnswersLabel
         numberWrongLabel.text = results.incorrectAnswersLabel
         percentageLabel.text = results.percentageLabel

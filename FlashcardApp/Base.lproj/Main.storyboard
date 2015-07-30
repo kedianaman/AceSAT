@@ -381,6 +381,7 @@
                         <outlet property="numberCorrectLabel" destination="VbU-4z-hW2" id="ECh-8y-gQV"/>
                         <outlet property="numberWrongLabel" destination="KIZ-L8-m0i" id="rAO-BK-egz"/>
                         <outlet property="percentageLabel" destination="QPb-cm-QRx" id="qpb-91-wuo"/>
+                        <outlet property="reviewButton" destination="x6O-6Q-LOf" id="36T-Iu-1Cz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aOt-ND-dbk" userLabel="First Responder" sceneMemberID="firstResponder"/>
