@@ -13,6 +13,10 @@ class MainMenuViewController: UIViewController {
     @IBOutlet weak var titleText: UILabel!
     @IBOutlet weak var stackView: UIStackView!
     
+    @IBOutlet weak var reviewButton: RoundGradientButton!
+    @IBOutlet weak var practiceButton: RoundGradientButton!
+    @IBOutlet weak var testButton: RoundGradientButton!
+    
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent
     }
@@ -25,6 +29,8 @@ class MainMenuViewController: UIViewController {
         self.navigationController?.navigationBarHidden = true
         self.navigationController?.navigationBar.shadowImage = UIImage()
         titleText.attributedText = getTitleAttributedText()
+        
+        updateGradientButtonColors()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -41,9 +47,15 @@ class MainMenuViewController: UIViewController {
         }
     }
     
-    // MARK:- Attributed Title
+    // MARK:- View Setup
     
-    func getTitleAttributedText() -> NSAttributedString {
+    private func updateGradientButtonColors() {
+        reviewButton.gradient = CGGradientRef.ace_greenGradient()
+        practiceButton.gradient = CGGradientRef.ace_blueGradient()
+        testButton.gradient = CGGradientRef.ace_redGradient()
+    }
+    
+    private func getTitleAttributedText() -> NSAttributedString {
         let thinFont = UIFont.systemFontOfSize(72.0, weight: UIFontWeightUltraLight)
         let lightFont = UIFont.systemFontOfSize(72.0, weight: UIFontWeightLight)
         

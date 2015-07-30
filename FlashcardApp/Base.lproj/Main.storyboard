@@ -29,42 +29,42 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="uGv-pz-Aab">
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="uGv-pz-Aab">
                                 <rect key="frame" x="20" y="106" width="560" height="486"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nFz-7f-73y">
-                                        <rect key="frame" x="0.0" y="149.5" width="186.5" height="187"/>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nFz-7f-73y" customClass="RoundGradientButton" customModule="FlashcardApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="156.5" width="173.5" height="173"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="nFz-7f-73y" secondAttribute="height" multiplier="1:1" id="c5v-8o-muf"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="32"/>
-                                        <state key="normal" title="Review" backgroundImage="Green Circle">
+                                        <state key="normal" title="Review">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
                                             <segue destination="th2-sK-eU1" kind="presentation" id="HGg-kW-zlI"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fY0-uB-A4e">
-                                        <rect key="frame" x="186.5" y="150" width="187" height="186"/>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fY0-uB-A4e" customClass="RoundGradientButton" customModule="FlashcardApp" customModuleProvider="target">
+                                        <rect key="frame" x="193.5" y="157" width="173" height="172"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="fY0-uB-A4e" secondAttribute="height" multiplier="1:1" constant="1" id="Jdg-F8-aJW"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="32"/>
-                                        <state key="normal" title="Practice" backgroundImage="Blue Circle">
+                                        <state key="normal" title="Practice">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
                                             <action selector="practiceButtonPressed:" destination="1Eq-nB-goO" eventType="touchUpInside" id="7fZ-m2-GgL"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CSO-pQ-sbU">
-                                        <rect key="frame" x="373.5" y="149.5" width="186.5" height="187"/>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CSO-pQ-sbU" customClass="RoundGradientButton" customModule="FlashcardApp" customModuleProvider="target">
+                                        <rect key="frame" x="386.5" y="156.5" width="173.5" height="173"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="CSO-pQ-sbU" secondAttribute="height" multiplier="1:1" id="PUz-Vz-rba"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="32"/>
-                                        <state key="normal" title="Test" backgroundImage="Red Circle">
+                                        <state key="normal" title="Test">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -94,7 +94,10 @@
                     <navigationItem key="navigationItem" id="6xW-YJ-ngk"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="practiceButton" destination="fY0-uB-A4e" id="Shp-Gp-j5B"/>
+                        <outlet property="reviewButton" destination="nFz-7f-73y" id="30R-Rh-7g9"/>
                         <outlet property="stackView" destination="uGv-pz-Aab" id="B5a-ei-1Od"/>
+                        <outlet property="testButton" destination="CSO-pQ-sbU" id="z9X-HR-PRa"/>
                         <outlet property="titleText" destination="ip2-Pw-VoZ" id="Cg0-yt-Faq"/>
                     </connections>
                 </viewController>
@@ -350,7 +353,7 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="unasnwered" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="W09-ox-m4D">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="unasnwered" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W09-ox-m4D">
                                                 <rect key="frame" x="185" y="135" width="170.5" height="67.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="32"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -499,9 +502,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Blue Circle" width="468" height="468"/>
         <image name="DeselectedButton" width="24" height="24"/>
-        <image name="Green Circle" width="461" height="468"/>
-        <image name="Red Circle" width="460" height="468"/>
     </resources>
 </document>
