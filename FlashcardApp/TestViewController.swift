@@ -47,8 +47,8 @@ class TestViewController: UIViewController {
         }
     }
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
         updateButtonPreferredMaxLayoutWidth(view.bounds.size)
     }
     
@@ -68,7 +68,7 @@ class TestViewController: UIViewController {
     
     func updateButtonPreferredMaxLayoutWidth(size: CGSize) {
         for button in definitionButtons {
-            button.titleLabel?.preferredMaxLayoutWidth = size.width - button.imageView!.image!.size.width - view.layoutMargins.left*2 - 20*2
+            button.titleLabel?.preferredMaxLayoutWidth = size.width - button.imageView!.image!.size.width - view.layoutMargins.left*2 - 20*2 - button.titleEdgeInsets.left - button.titleEdgeInsets.right - button.imageEdgeInsets.left - button.imageEdgeInsets.right
         }
     }
     
