@@ -21,6 +21,17 @@ class TestReviewTableViewController: UITableViewController {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.separatorColor = UIColor(white: 1.0, alpha: 0.3)
         tableView.backgroundColor = UIColor.blackColor()
+        navigationController?.navigationBar.barStyle = UIBarStyle.Black
+        navigationController?.navigationBarHidden = false
+        navigationController?.navigationBar.backgroundColor = UIColor.blackColor()
+        navigationItem.setHidesBackButton(true, animated: false)
+        let completeButton : UIBarButtonItem = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.Plain, target: self, action: "endButtonPressed:")
+        navigationItem.rightBarButtonItem = completeButton
+
+    }
+    
+    func endButtonPressed(sender: UIBarButtonItem) {
+        dismissViewControllerAnimated(true, completion: nil)
     }
 
    
