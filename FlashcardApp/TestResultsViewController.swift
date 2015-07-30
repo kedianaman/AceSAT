@@ -24,10 +24,18 @@ class TestResultsViewController: UIViewController {
         numberWrongLabel.text = results.incorrectAnswersLabel
         numberUnansweredLabel.text = results.unansweredLabel
         percentageLabel.text = results.percentageLabel
-        navigationController?.navigationBarHidden = true
-        
-        
+        navigationController?.navigationBarHidden = false
+        navigationItem.setHidesBackButton(true, animated: false)
+        let completeButton : UIBarButtonItem = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.Plain, target: self, action: "endButtonPressed:")
+        navigationItem.rightBarButtonItem = completeButton
     }
+    
+    
+    func endButtonPressed(sender: UIBarButtonItem) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+
     
     func testResults() -> (correctAnswersLabel: String, incorrectAnswersLabel: String, unansweredLabel: String, percentageLabel: String) {
         var correctAnswers = 0
