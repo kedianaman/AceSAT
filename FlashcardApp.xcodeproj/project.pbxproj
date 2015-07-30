@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ED15F9851B69FA3500C3F0B9 /* UIColor+AceSAT.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED15F9841B69FA3500C3F0B9 /* UIColor+AceSAT.swift */; };
+		ED15F98A1B6A044000C3F0B9 /* TintColorLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED15F9891B6A044000C3F0B9 /* TintColorLabel.swift */; };
 		ED1BA4B81B659B2D0095BF34 /* PracticeFlashcardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1BA4B71B659B2D0095BF34 /* PracticeFlashcardViewController.swift */; };
 		ED1C89C51B5985EF00DCF0EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1C89C41B5985EF00DCF0EB /* AppDelegate.swift */; };
 		ED1C89CA1B5985EF00DCF0EB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED1C89C81B5985EF00DCF0EB /* Main.storyboard */; };
@@ -27,6 +29,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		ED15F9841B69FA3500C3F0B9 /* UIColor+AceSAT.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+AceSAT.swift"; sourceTree = "<group>"; };
+		ED15F9891B6A044000C3F0B9 /* TintColorLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TintColorLabel.swift; sourceTree = "<group>"; };
 		ED1BA4B71B659B2D0095BF34 /* PracticeFlashcardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PracticeFlashcardViewController.swift; sourceTree = "<group>"; };
 		ED1C89C11B5985EF00DCF0EB /* FlashcardApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlashcardApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED1C89C41B5985EF00DCF0EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +63,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		ED15F9861B6A020400C3F0B9 /* Review */ = {
+			isa = PBXGroup;
+			children = (
+				ED3322531B61B99000E3F624 /* ReviewTableViewController.swift */,
+				ED69D2EF1B6478EC00B1A4AC /* ReviewTableViewCell.swift */,
+			);
+			name = Review;
+			sourceTree = "<group>";
+		};
+		ED15F9871B6A020900C3F0B9 /* Practice */ = {
+			isa = PBXGroup;
+			children = (
+				ED67293A1B65BFCB00B396F6 /* PracticePageViewController.swift */,
+				ED1BA4B71B659B2D0095BF34 /* PracticeFlashcardViewController.swift */,
+			);
+			name = Practice;
+			sourceTree = "<group>";
+		};
+		ED15F9881B6A021100C3F0B9 /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				ED67293E1B66D0AF00B396F6 /* TestPageViewController.swift */,
+				ED67293C1B66059200B396F6 /* TestViewController.swift */,
+				EDFE7D2C1B6801F000168A7A /* TestResultsViewController.swift */,
+				EDC573161B69624D001B1E9C /* TestReviewTableViewController.swift */,
+				EDC573181B696869001B1E9C /* TestReviewTableViewCell.swift */,
+			);
+			name = Test;
+			sourceTree = "<group>";
+		};
 		ED1C89B81B5985EF00DCF0EB = {
 			isa = PBXGroup;
 			children = (
@@ -81,17 +115,13 @@
 				ED1C89C41B5985EF00DCF0EB /* AppDelegate.swift */,
 				ED1C89C81B5985EF00DCF0EB /* Main.storyboard */,
 				ED69D2F11B647F2000B1A4AC /* MainMenuViewController.swift */,
-				ED3322531B61B99000E3F624 /* ReviewTableViewController.swift */,
-				ED69D2EF1B6478EC00B1A4AC /* ReviewTableViewCell.swift */,
-				ED67293A1B65BFCB00B396F6 /* PracticePageViewController.swift */,
-				ED1BA4B71B659B2D0095BF34 /* PracticeFlashcardViewController.swift */,
-				ED67293E1B66D0AF00B396F6 /* TestPageViewController.swift */,
-				ED67293C1B66059200B396F6 /* TestViewController.swift */,
-				EDFE7D2C1B6801F000168A7A /* TestResultsViewController.swift */,
-				EDC573161B69624D001B1E9C /* TestReviewTableViewController.swift */,
-				EDC573181B696869001B1E9C /* TestReviewTableViewCell.swift */,
+				ED15F9861B6A020400C3F0B9 /* Review */,
+				ED15F9871B6A020900C3F0B9 /* Practice */,
+				ED15F9881B6A021100C3F0B9 /* Test */,
 				EDFE7D2A1B675E3400168A7A /* Test.swift */,
 				EDFE7D0A1B67490F00168A7A /* WordListManager.swift */,
+				ED15F9891B6A044000C3F0B9 /* TintColorLabel.swift */,
+				ED15F9841B69FA3500C3F0B9 /* UIColor+AceSAT.swift */,
 				ED1C89CB1B5985EF00DCF0EB /* Assets.xcassets */,
 				ED1C89CD1B5985EF00DCF0EB /* LaunchScreen.storyboard */,
 				ED1C89D01B5985EF00DCF0EB /* Info.plist */,
@@ -172,11 +202,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED15F9851B69FA3500C3F0B9 /* UIColor+AceSAT.swift in Sources */,
 				ED67293F1B66D0AF00B396F6 /* TestPageViewController.swift in Sources */,
 				ED69D2F01B6478EC00B1A4AC /* ReviewTableViewCell.swift in Sources */,
 				EDC573191B696869001B1E9C /* TestReviewTableViewCell.swift in Sources */,
 				ED1BA4B81B659B2D0095BF34 /* PracticeFlashcardViewController.swift in Sources */,
 				ED67293D1B66059200B396F6 /* TestViewController.swift in Sources */,
+				ED15F98A1B6A044000C3F0B9 /* TintColorLabel.swift in Sources */,
 				ED3322541B61B99000E3F624 /* ReviewTableViewController.swift in Sources */,
 				ED67293B1B65BFCB00B396F6 /* PracticePageViewController.swift in Sources */,
 				EDFE7D2D1B6801F000168A7A /* TestResultsViewController.swift in Sources */,

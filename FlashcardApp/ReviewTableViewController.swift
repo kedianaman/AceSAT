@@ -19,7 +19,7 @@ class ReviewTableViewController: UITableViewController {
         tableView.separatorColor = UIColor(white: 1.0, alpha: 0.3)
         tableView.backgroundColor = UIColor.blackColor()
         
-        navigationController?.view.tintColor = UIColor(red:0.51, green:0.98, blue:0.43, alpha:1.0)
+        navigationController?.view.tintColor = UIColor.ace_greenColor()
         navigationController?.hidesBarsOnSwipe = true
     }
     

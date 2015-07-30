@@ -25,7 +25,6 @@ class PracticeFlashcardViewController: UIViewController {
     var definitionWordText: String!
     var vocabWordText: String!
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         let tapGesture = UITapGestureRecognizer(target: self, action: "viewTapped:")

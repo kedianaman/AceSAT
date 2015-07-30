@@ -22,8 +22,7 @@ class TestPageViewController: UIViewController, UIPageViewControllerDelegate, UI
         navigationController?.navigationBar.setBackgroundImage(UIImage(named: "NavBarBG"), forBarMetrics: .Default)
         navigationController?.navigationBar.shadowImage = UIImage(named: "NavBarBG")
         navigationController?.navigationBar.barStyle = UIBarStyle.Black
-        navigationController?.view.tintColor = UIColor(red:1.00, green:0.16, blue:0.41, alpha:1.0)
-        // Do any additional setup after loading the view.
+        navigationController?.view.tintColor = UIColor.ace_redColor()
     }
     
     override func loadView() {

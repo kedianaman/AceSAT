@@ -47,16 +47,11 @@ class MainMenuViewController: UIViewController {
         let thinFont = UIFont.systemFontOfSize(72.0, weight: UIFontWeightUltraLight)
         let lightFont = UIFont.systemFontOfSize(72.0, weight: UIFontWeightLight)
         
-        let whiteColor = UIColor.whiteColor()
-        let greenColor = UIColor(red:0.51, green:0.98, blue:0.43, alpha:1.0)
-        let blueColor = UIColor(red:0.10, green:0.82, blue:0.99, alpha:1.0)
-        let redColor = UIColor(red:1.00, green:0.16, blue:0.41, alpha:1.0)
-        
-        let mainTitle = NSMutableAttributedString(string: "A", attributes: [NSFontAttributeName : thinFont, NSForegroundColorAttributeName : whiteColor])
-        mainTitle.appendAttributedString(NSMutableAttributedString(string: "CE", attributes: [NSFontAttributeName : UIFont.systemFontOfSize(54.0, weight: UIFontWeightUltraLight), NSForegroundColorAttributeName : whiteColor]))
-        mainTitle.appendAttributedString(NSMutableAttributedString(string: "S", attributes: [NSFontAttributeName : lightFont, NSForegroundColorAttributeName : greenColor]))
-        mainTitle.appendAttributedString(NSMutableAttributedString(string: "A", attributes: [NSFontAttributeName : lightFont, NSForegroundColorAttributeName : blueColor]))
-        mainTitle.appendAttributedString(NSMutableAttributedString(string: "T", attributes: [NSFontAttributeName : lightFont, NSForegroundColorAttributeName : redColor]))
+        let mainTitle = NSMutableAttributedString(string: "A", attributes: [NSFontAttributeName : thinFont, NSForegroundColorAttributeName : UIColor.whiteColor()])
+        mainTitle.appendAttributedString(NSMutableAttributedString(string: "CE", attributes: [NSFontAttributeName : UIFont.systemFontOfSize(54.0, weight: UIFontWeightUltraLight), NSForegroundColorAttributeName : UIColor.whiteColor()]))
+        mainTitle.appendAttributedString(NSMutableAttributedString(string: "S", attributes: [NSFontAttributeName : lightFont, NSForegroundColorAttributeName : UIColor.ace_greenColor()]))
+        mainTitle.appendAttributedString(NSMutableAttributedString(string: "A", attributes: [NSFontAttributeName : lightFont, NSForegroundColorAttributeName : UIColor.ace_blueColor()]))
+        mainTitle.appendAttributedString(NSMutableAttributedString(string: "T", attributes: [NSFontAttributeName : lightFont, NSForegroundColorAttributeName : UIColor.ace_redColor()]))
         
         return mainTitle
     }

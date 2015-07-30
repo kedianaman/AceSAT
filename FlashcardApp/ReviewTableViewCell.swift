@@ -12,4 +12,5 @@ class ReviewTableViewCell: UITableViewCell {
 
     @IBOutlet weak var wordTitle: UILabel!
     @IBOutlet weak var wordDefinition: UILabel!
+
 }

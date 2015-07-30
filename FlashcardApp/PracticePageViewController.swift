@@ -23,8 +23,7 @@ class PracticePageViewController: UIViewController, UIPageViewControllerDataSour
         navigationController?.navigationBar.setBackgroundImage(UIImage(named: "NavBarBG"), forBarMetrics: .Default)
         navigationController?.navigationBar.shadowImage = UIImage(named: "NavBarBG")
         navigationController?.navigationBar.barStyle = UIBarStyle.Black
-        navigationController?.view.tintColor = UIColor(red:0.10, green:0.82, blue:0.99, alpha:1.0)
-        
+        navigationController?.view.tintColor = UIColor.ace_blueColor()
     }
     
     // MARK:- View Setup
