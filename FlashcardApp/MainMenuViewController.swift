@@ -39,13 +39,6 @@ class MainMenuViewController: UIViewController {
             self.navigationController?.setNavigationBarHidden(true, animated: animated)
         }
     }
-
-    override func viewWillDisappear(animated: Bool) {
-        super.viewWillDisappear(animated)
-        if (self.navigationController?.navigationBarHidden == true) {
-            self.navigationController?.setNavigationBarHidden(false, animated: animated)
-        }
-    }
     
     // MARK:- View Setup
     
