@@ -22,7 +22,7 @@ class TestReviewTableViewController: UITableViewController {
         tableView.separatorColor = UIColor(white: 1.0, alpha: 0.3)
         tableView.backgroundColor = UIColor.blackColor()
         navigationController?.navigationBarHidden = false
-        navigationController?.navigationBar.backgroundColor = UIColor.blackColor()
+        navigationController?.navigationBar.translucent = false
         navigationItem.setHidesBackButton(true, animated: false)
         let completeButton : UIBarButtonItem = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.Plain, target: self, action: "endButtonPressed:")
         navigationItem.rightBarButtonItem = completeButton
@@ -66,7 +66,7 @@ class TestReviewTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("TestReviewTableViewCell", forIndexPath: indexPath) as! TestReviewTableViewCell
         let testQuestion = wrongOrUnansweredQuestions![indexPath.row]
         cell.wordLabel.text = testQuestion.word.word
-        cell.correctDefinitionLabel.text = "✅ " + testQuestion.word.definition
+        cell.correctDefinitionLabel.text = "✓ " + testQuestion.word.definition
         if testQuestion.userSelectedDefinition != nil {
             cell.userSelectedDefinitionLabel.text = "❌ " + testQuestion.userSelectedDefinition!
         } else {

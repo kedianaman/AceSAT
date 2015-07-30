@@ -38,9 +38,12 @@ class TestViewController: UIViewController {
             
             if definition == testQuestion?.userSelectedDefinition {
                 button.setImage(UIImage(named: "SelectedButton"), forState: UIControlState.Normal)
+                button.setTitleColor(UIColor.ace_redColor(), forState: UIControlState.Normal)
             }
             else {
                 button.setImage(UIImage(named: "DeselectedButton"), forState: UIControlState.Normal)
+                button.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+
             }
             
             button.setTitle(definitions[i], forState: UIControlState.Normal)
@@ -56,10 +59,13 @@ class TestViewController: UIViewController {
         for button in definitionButtons {
             if button == sender {
                 sender.setImage(UIImage(named: "SelectedButton"), forState: UIControlState.Normal)
+                sender.setTitleColor(UIColor.ace_redColor(), forState: UIControlState.Normal)
+                
                 testQuestion?.userSelectedDefinition = sender.titleLabel?.text
             }
             else {
                 button.setImage(UIImage(named: "DeselectedButton"), forState: UIControlState.Normal)
+                button.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
             }
         }
     }
