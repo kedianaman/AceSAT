@@ -38,6 +38,7 @@ class ReviewTableViewController: UITableViewController {
             let vocabWord = wordList[indexPath.row]
             cell.wordTitle.text = vocabWord.word
             cell.wordDefinition.text = vocabWord.definition
+            cell.backgroundColor = UIColor.blackColor()
             
             return cell
 
