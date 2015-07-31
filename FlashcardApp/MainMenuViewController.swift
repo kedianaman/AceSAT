@@ -38,13 +38,11 @@ class MainMenuViewController: UIViewController {
         if (self.navigationController?.navigationBarHidden == false) {
             self.navigationController?.setNavigationBarHidden(true, animated: animated)
         }
+        
+        updateAxisForTraitCollection(traitCollection)
     }
     
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        updateAxisForTraitCollection(self.view.traitCollection, size: view.bounds.size)
-
-    }
+    
     
     // MARK:- View Setup
     
@@ -71,19 +69,28 @@ class MainMenuViewController: UIViewController {
     
     override func willTransitionToTraitCollection(newCollection: UITraitCollection, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
         super.willTransitionToTraitCollection(newCollection, withTransitionCoordinator: coordinator)
-        updateAxisForTraitCollection(newCollection, size: view.bounds.size)
+        updateAxisForTraitCollection(newCollection)
     }
     
     override func traitCollectionDidChange(previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
-        updateAxisForTraitCollection(self.view.traitCollection, size: view.bounds.size)
+        updateAxisForTraitCollection(self.view.traitCollection)
     }
     
-    func updateAxisForTraitCollection(traitCollection: UITraitCollection, size: CGSize) {
+    func updateAxisForTraitCollection(traitCollection: UITraitCollection) {
         if traitCollection.verticalSizeClass == UIUserInterfaceSizeClass.Compact {
             self.stackView.axis = UILayoutConstraintAxis.Horizontal
         }
         else if traitCollection.horizontalSizeClass == .Regular && traitCollection.verticalSizeClass == .Regular {
+            updateAxisForBoundsChange(view.bounds.size)
+        }
+        else {
+            self.stackView.axis = UILayoutConstraintAxis.Vertical
+        }
+    }
+    
+    func updateAxisForBoundsChange(size: CGSize) {
+        if traitCollection.horizontalSizeClass == .Regular && traitCollection.verticalSizeClass == .Regular {
             // iPad - check orientation in this case.
             if size.width > size.height {
                 self.stackView.axis = UILayoutConstraintAxis.Horizontal
@@ -92,14 +99,11 @@ class MainMenuViewController: UIViewController {
                 self.stackView.axis = UILayoutConstraintAxis.Vertical
             }
         }
-        else {
-            self.stackView.axis = UILayoutConstraintAxis.Vertical
-        }
     }
     
     override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
-        updateAxisForTraitCollection(self.traitCollection, size: size)
+        updateAxisForBoundsChange(size)
     }
     
     // MARK:- Actions
