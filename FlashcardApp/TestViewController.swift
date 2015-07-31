@@ -19,9 +19,7 @@ class TestButton: UIButton {
 class TestViewController: UIViewController {
 
     @IBOutlet weak var vocabWordTitle: UILabel!
-    
-    var viewControllerIndex: Int?
-    
+        
     var testQuestion: TestQuestion?
 
     @IBOutlet var definitionButtons: [UIButton]!

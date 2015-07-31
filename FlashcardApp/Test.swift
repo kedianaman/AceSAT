@@ -20,7 +20,7 @@ class Test: CustomStringConvertible {
             while possibleDefinitions.count < 3 {
                 let randomWordList = wordListManager.wordListAtIndex(random()%numberOfWordLists)
                 let randomWord = randomWordList[random()%randomWordList.count]
-                if (wordList.hasWord(randomWord) == false) {
+                if (wordList.hasWord(randomWord) == false && possibleDefinitions.contains(randomWord.definition) == false) {
                     possibleDefinitions.append(randomWord.definition)
                 }
             }
@@ -30,6 +30,10 @@ class Test: CustomStringConvertible {
     
     func questionAtIndex(index: Int) -> TestQuestion {
         return testQuestions[index];
+    }
+    
+    func indexOfQuestion(question: TestQuestion) -> Int? {
+        return self.testQuestions.indexOf(question)
     }
     
     var numberOfQuestions: Int {
@@ -46,7 +50,7 @@ class Test: CustomStringConvertible {
 }
 
 
-class TestQuestion: CustomStringConvertible {
+class TestQuestion: CustomStringConvertible, Equatable {
     var word: Word
     var possibleDefinitions: [String] // 3 other definitions for multiple choice
     
@@ -61,3 +65,9 @@ class TestQuestion: CustomStringConvertible {
         return word.description + " \n" + self.possibleDefinitions.description
     }
 }
+
+func ==(lhs: TestQuestion, rhs: TestQuestion) -> Bool {
+    return lhs.word == rhs.word && lhs.possibleDefinitions == rhs.possibleDefinitions
+}
+
+

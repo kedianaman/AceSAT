@@ -26,7 +26,7 @@ class WordListManager {
     }
     
     init() {
-        let wordListPath = NSBundle.mainBundle().pathForResource("WordList", ofType: "json")!
+        let wordListPath = NSBundle.mainBundle().pathForResource("MyWordList", ofType: "json")!
         let wordListData = NSData(contentsOfFile: wordListPath)
         do {
             let wordListsArray = try NSJSONSerialization.JSONObjectWithData(wordListData!, options: NSJSONReadingOptions.AllowFragments) as! [[String: String]]
@@ -97,7 +97,7 @@ class WordList : CustomStringConvertible, CollectionType {
 }
 
 
-class Word : CustomStringConvertible {
+class Word : CustomStringConvertible, Equatable {
     var word: String
     var definition: String
     
