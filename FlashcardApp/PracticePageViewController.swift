@@ -30,7 +30,7 @@ class PracticePageViewController: UIViewController, UIPageViewControllerDataSour
     
     override func loadView() {
         super.loadView()
-        wordList = WordListManager.sharedManager.wordListAtIndex(90)
+        wordList = WordListManager.sharedManager.wordListAtIndex(20)
         setUpPageViewController()
         self.view.backgroundColor = UIColor.blackColor()
     }

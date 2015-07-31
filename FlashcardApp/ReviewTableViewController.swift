@@ -10,8 +10,7 @@ import UIKit
 
 class ReviewTableViewController: UITableViewController {
 
-    let wordList = WordListManager.sharedManager.wordListAtIndex(99)
-    
+    let wordList = WordListManager.sharedManager.wordListAtIndex(20)
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.estimatedRowHeight = 96

@@ -43,6 +43,11 @@ class MainMenuViewController: UIViewController {
         updateAxisForTraitCollection(traitCollection)
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        titleText.attributedText = getTitleAttributedText()
+        updateAxisForBoundsChange(view.bounds.size)
+    }
     
     
     // MARK:- View Setup
@@ -54,11 +59,13 @@ class MainMenuViewController: UIViewController {
     }
     
     private func getTitleAttributedText() -> NSAttributedString {
-        let thinFont = UIFont.systemFontOfSize(72.0, weight: UIFontWeightUltraLight)
-        let lightFont = UIFont.systemFontOfSize(72.0, weight: UIFontWeightLight)
+        let dimension = min(view.bounds.size.height, view.bounds.size.width)
+        
+        let thinFont = UIFont.systemFontOfSize(dimension * 0.25, weight: UIFontWeightUltraLight)
+        let lightFont = UIFont.systemFontOfSize(dimension * 0.25, weight: UIFontWeightLight)
         
         let mainTitle = NSMutableAttributedString(string: "A", attributes: [NSFontAttributeName : thinFont, NSForegroundColorAttributeName : UIColor.whiteColor()])
-        mainTitle.appendAttributedString(NSMutableAttributedString(string: "CE", attributes: [NSFontAttributeName : UIFont.systemFontOfSize(54.0, weight: UIFontWeightUltraLight), NSForegroundColorAttributeName : UIColor.whiteColor()]))
+        mainTitle.appendAttributedString(NSMutableAttributedString(string: "CE", attributes: [NSFontAttributeName : UIFont.systemFontOfSize(dimension * 0.2, weight: UIFontWeightUltraLight), NSForegroundColorAttributeName : UIColor.whiteColor()]))
         mainTitle.appendAttributedString(NSMutableAttributedString(string: "S", attributes: [NSFontAttributeName : lightFont, NSForegroundColorAttributeName : UIColor.ace_greenColor()]))
         mainTitle.appendAttributedString(NSMutableAttributedString(string: "A", attributes: [NSFontAttributeName : lightFont, NSForegroundColorAttributeName : UIColor.ace_blueColor()]))
         mainTitle.appendAttributedString(NSMutableAttributedString(string: "T", attributes: [NSFontAttributeName : lightFont, NSForegroundColorAttributeName : UIColor.ace_redColor()]))
