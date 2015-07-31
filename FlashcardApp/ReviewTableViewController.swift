@@ -10,7 +10,7 @@ import UIKit
 
 class ReviewTableViewController: UITableViewController {
 
-    let wordList = WordListManager.sharedManager.wordListAtIndex(9)
+    let wordList = WordListManager.sharedManager.wordListAtIndex(99)
     
     override func viewDidLoad() {
         super.viewDidLoad()

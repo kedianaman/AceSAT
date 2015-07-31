@@ -54,6 +54,10 @@ class TestResultsViewController: UIViewController {
         let incorrectAnswersLabel = "\(incorrectAnswers) incorrect"
         let percentage = Double(correctAnswers) / Double(test!.numberOfQuestions) * 100.0
         let percentageLabel = "\(Int(percentage)) %"
+        if incorrectAnswers == 0 {
+            reviewButton.setTitle("Great Job!", forState: UIControlState.Normal)
+            reviewButton.enabled = false 
+        }
         return (correctAnswersLabel, incorrectAnswersLabel, percentageLabel)
         
     }

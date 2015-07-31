@@ -29,6 +29,7 @@ class MainMenuViewController: UIViewController {
         self.navigationController?.navigationBarHidden = true
         self.navigationController?.navigationBar.shadowImage = UIImage()
         titleText.attributedText = getTitleAttributedText()
+        print(WordListManager.sharedManager.numberOfWordLists)
         
         updateGradientButtonColors()
     }

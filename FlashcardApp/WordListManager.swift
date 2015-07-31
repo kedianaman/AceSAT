@@ -26,7 +26,7 @@ class WordListManager {
     }
     
     init() {
-        let wordListPath = NSBundle.mainBundle().pathForResource("MyWordList", ofType: "json")!
+        let wordListPath = NSBundle.mainBundle().pathForResource("WordList", ofType: "json")!
         let wordListData = NSData(contentsOfFile: wordListPath)
         do {
             let wordListsArray = try NSJSONSerialization.JSONObjectWithData(wordListData!, options: NSJSONReadingOptions.AllowFragments) as! [[String: String]]
@@ -38,7 +38,6 @@ class WordListManager {
                 }
                 wordLists.append(wordList)
             }
-            print(wordLists)
         }
         catch {
             print("Error creating word list")
