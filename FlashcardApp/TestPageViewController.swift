@@ -27,17 +27,9 @@ class TestPageViewController: UIViewController, UIPageViewControllerDelegate, UI
     override func loadView() {
         super.loadView()
         setUpPageViewController()
+        setUpPageControlAppearance()
         self.view.backgroundColor = UIColor.blackColor()
     }
-    
-//    func nextButtonPressed(sender: UIBarButtonItem) {
-//        let testViewController = pageViewController.viewControllers?.first as! TestViewController
-//        if let index = indexOfViewController(testViewController) {
-//            if index < test.numberOfQuestions - 1 {
-//                pageViewController.setViewControllers([testViewControllerAtIndex(index+1)], direction: .Forward, animated: true, completion: nil)
-//            }
-//        }
-//    }
     
     func completeButtonPressed(sender: UIBarButtonItem) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -64,6 +56,11 @@ class TestPageViewController: UIViewController, UIPageViewControllerDelegate, UI
         self.view.addSubview(pageViewController.view)
         pageViewController.didMoveToParentViewController(self)
         
+    }
+    
+    private func setUpPageControlAppearance() {
+        let appearance = UIPageControl.appearance()
+        appearance.currentPageIndicatorTintColor = UIColor.ace_redColor()
     }
     
     private func testViewControllerAtIndex(index: Int) -> TestViewController {

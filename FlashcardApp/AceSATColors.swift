@@ -11,15 +11,15 @@ import UIKit
 extension UIColor {
 
     class func ace_greenColor() -> UIColor {
-        return UIColor(red: (182/255.0), green: 1.0, blue: 0.0, alpha: 1.0)
+        return UIColor(red: (167/255.0), green: (252/255.0), blue: (50/255.0), alpha: 1.0)
     }
     
     class func ace_blueColor() -> UIColor {
-        return UIColor(red: 0.0, green: (250/255.0), blue: (208/255.0), alpha: 1.0)
+        return UIColor(red: (42/255.0), green: (243/255.0), blue: (232/255.0), alpha: 1.0)
     }
     
     class func ace_redColor() -> UIColor {
-        return UIColor(red: (240/255.0), green: (25/255.0), blue: (78/255.0), alpha: 1.0)
+        return UIColor(red: (246/255.0), green: (27/255.0), blue: (82/255.0), alpha: 1.0)
     }
 }
 
