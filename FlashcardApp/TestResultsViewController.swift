@@ -10,19 +10,12 @@ import UIKit
 
 class TestResultsViewController: UIViewController {
 
-    @IBOutlet weak var numberCorrectLabel: UILabel!
-    @IBOutlet weak var numberWrongLabel: UILabel!
-    @IBOutlet weak var reviewButton: UIButton!
     var test: Test?
     @IBOutlet weak var testPercentageView: TestPercentageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let results = testResults()
-        reviewButton.setTitleColor(UIColor.ace_redColor(), forState: UIControlState.Normal)
-        numberCorrectLabel.text = results.correctAnswersLabel
-        numberWrongLabel.text = results.incorrectAnswersLabel
-        testPercentageView.percentage = results.percentage
+        testPercentageView.percentage = percentageOfCorrectAnswers()
         navigationController?.navigationBarHidden = false
         navigationItem.setHidesBackButton(true, animated: false)
         let completeButton : UIBarButtonItem = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.Plain, target: self, action: "endButtonPressed:")
@@ -36,7 +29,7 @@ class TestResultsViewController: UIViewController {
     
 
     
-    func testResults() -> (correctAnswersLabel: String, incorrectAnswersLabel: String, percentage: Double) {
+    func percentageOfCorrectAnswers() -> Double {
         var correctAnswers = 0
         var incorrectAnswers = 0
         for index in 0...test!.numberOfQuestions - 1 {
@@ -50,15 +43,8 @@ class TestResultsViewController: UIViewController {
                 incorrectAnswers++
             }
         }
-        let correctAnswersLabel = "\(correctAnswers) correct"
-        let incorrectAnswersLabel = "\(incorrectAnswers) incorrect"
         let percentage = Double(correctAnswers) / Double(test!.numberOfQuestions) * 100.0
-        if incorrectAnswers == 0 {
-            reviewButton.setTitle("Great Job!", forState: UIControlState.Normal)
-            reviewButton.enabled = false 
-        }
-        return (correctAnswersLabel, incorrectAnswersLabel, percentage)
-        
+        return percentage
     }
     
     @IBAction func finishButtonPressed(sender: AnyObject) {
@@ -66,7 +52,7 @@ class TestResultsViewController: UIViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "ReviewSegueToTableView" {
+        if segue.identifier == "ShowReviewTableView" {
             if let testReviewTVC = segue.destinationViewController as? TestReviewTableViewController {
                 testReviewTVC.test = self.test
             }

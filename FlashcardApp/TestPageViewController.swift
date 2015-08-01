@@ -10,7 +10,7 @@ import UIKit
 
 class TestPageViewController: UIViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource {
 
-    let test = Test(wordList: WordListManager.sharedManager.wordListAtIndex(20))
+    let test = Test(wordList: WordListManager.sharedManager.wordListAtIndex(21))
     var pageViewController: UIPageViewController!
     
 

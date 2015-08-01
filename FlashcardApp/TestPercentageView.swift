@@ -25,7 +25,7 @@ class TestPercentageView: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        let ringSize = min(bounds.width, bounds.height)
+        let ringSize = min(bounds.width, bounds.height) - 40
         let ringBounds = CGRect(origin: CGPoint(x: (bounds.width-ringSize)/2.0, y: (bounds.height-ringSize)/2.0), size: CGSize(width: ringSize, height: ringSize))
         
         lineWidth = floor(Double(ringSize) * 0.08)
@@ -52,7 +52,6 @@ class TestPercentageView: UIView {
 
         if ringLayer == nil {
             ringLayer = CAShapeLayer()
-            ringLayer.lineWidth = CGFloat(lineWidth)
             ringLayer.fillColor = nil
             ringLayer.strokeColor = UIColor.ace_redColor().CGColor
             ringLayer.anchorPoint = CGPointMake(CGFloat(0.5), CGFloat(0.5))
@@ -67,6 +66,7 @@ class TestPercentageView: UIView {
         let ringLayerRect = CGRectInset(innerRingBounds, CGFloat(lineWidth / 2.0), CGFloat(lineWidth / 2.0))
         let ringLayerPath = UIBezierPath(ovalInRect: ringLayerRect)
         
+        ringLayer.lineWidth = CGFloat(lineWidth)
         ringLayer.path = ringLayerPath.CGPath
         if gradientLayer == nil {
             gradientLayer = CAGradientLayer()
