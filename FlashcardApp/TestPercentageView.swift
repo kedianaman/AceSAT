@@ -13,6 +13,7 @@ class TestPercentageView: UIView {
     var backgroundRingLayer: CAShapeLayer!
     var ringLayer: CAShapeLayer!
     var gradientLayer: CAGradientLayer!
+    var percentageLabel = UILabel()
     
     var lineWidth: Double = 10.0
     
@@ -28,6 +29,12 @@ class TestPercentageView: UIView {
         let ringBounds = CGRect(origin: CGPoint(x: (bounds.width-ringSize)/2.0, y: (bounds.height-ringSize)/2.0), size: CGSize(width: ringSize, height: ringSize))
         
         lineWidth = floor(Double(ringSize) * 0.08)
+        
+        percentageLabel.frame = ringBounds
+        percentageLabel.font = UIFont.systemFontOfSize(CGFloat(ringSize * 0.3), weight: UIFontWeightUltraLight)
+        percentageLabel.textColor = UIColor.whiteColor()
+        percentageLabel.textAlignment = NSTextAlignment.Center
+        self.addSubview(percentageLabel)
         
         if backgroundRingLayer == nil {
             backgroundRingLayer = CAShapeLayer()
@@ -80,6 +87,7 @@ class TestPercentageView: UIView {
         if ringLayer != nil {
             ringLayer.strokeEnd = CGFloat(percentage / 100.0)
         }
+        percentageLabel.text = String(Int(percentage)) + "%"
     }
 
     /*
