@@ -17,7 +17,7 @@ class TestReviewTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         wrongOrUnansweredQuestions = collectDataFromTest()
-        tableView.estimatedRowHeight = 150
+        tableView.estimatedRowHeight = 250
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.separatorColor = UIColor(white: 1.0, alpha: 0.3)
         tableView.backgroundColor = UIColor.blackColor()
@@ -68,12 +68,11 @@ class TestReviewTableViewController: UITableViewController {
         cell.wordLabel.text = testQuestion.word.word
         cell.correctDefinitionLabel.text = "✓ " + testQuestion.word.definition
         if testQuestion.userSelectedDefinition != nil {
-            cell.setUserSelectedDefinitionText("❌ " + testQuestion.userSelectedDefinition!)
+            cell.userSelectedDefinitionLabel.text = "❌ " + testQuestion.userSelectedDefinition!
         } else {
-            cell.setUserSelectedDefinitionText(nil)
+            cell.userSelectedDefinitionLabel.text = nil
         }
-        cell.layoutIfNeeded()
-        
+
         return cell
     }
     

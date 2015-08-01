@@ -21,6 +21,14 @@ extension UIColor {
     class func ace_redColor() -> UIColor {
         return UIColor(red: (246/255.0), green: (27/255.0), blue: (82/255.0), alpha: 1.0)
     }
+    
+    class func ace_redGradientStartColor() -> UIColor {
+        return UIColor(red: 1.0, green: (50/255.0), blue: (135/255.0), alpha: 1.0)
+    }
+    
+    class func ace_redGradientEndColor() -> UIColor {
+        return UIColor(red: (225/255.0), green: 0.0, blue: (20/255.0), alpha: 1.0)
+    }
 }
 
 extension CGGradientRef {

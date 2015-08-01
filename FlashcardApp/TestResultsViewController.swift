@@ -12,9 +12,9 @@ class TestResultsViewController: UIViewController {
 
     @IBOutlet weak var numberCorrectLabel: UILabel!
     @IBOutlet weak var numberWrongLabel: UILabel!
-    @IBOutlet weak var percentageLabel: UILabel!
     @IBOutlet weak var reviewButton: UIButton!
     var test: Test?
+    @IBOutlet weak var testPercentageView: TestPercentageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +22,7 @@ class TestResultsViewController: UIViewController {
         reviewButton.setTitleColor(UIColor.ace_redColor(), forState: UIControlState.Normal)
         numberCorrectLabel.text = results.correctAnswersLabel
         numberWrongLabel.text = results.incorrectAnswersLabel
-        percentageLabel.text = results.percentageLabel
+        testPercentageView.percentage = results.percentage
         navigationController?.navigationBarHidden = false
         navigationItem.setHidesBackButton(true, animated: false)
         let completeButton : UIBarButtonItem = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.Plain, target: self, action: "endButtonPressed:")
@@ -36,7 +36,7 @@ class TestResultsViewController: UIViewController {
     
 
     
-    func testResults() -> (correctAnswersLabel: String, incorrectAnswersLabel: String, percentageLabel: String) {
+    func testResults() -> (correctAnswersLabel: String, incorrectAnswersLabel: String, percentage: Double) {
         var correctAnswers = 0
         var incorrectAnswers = 0
         for index in 0...test!.numberOfQuestions - 1 {
@@ -53,12 +53,11 @@ class TestResultsViewController: UIViewController {
         let correctAnswersLabel = "\(correctAnswers) correct"
         let incorrectAnswersLabel = "\(incorrectAnswers) incorrect"
         let percentage = Double(correctAnswers) / Double(test!.numberOfQuestions) * 100.0
-        let percentageLabel = "\(Int(percentage)) %"
         if incorrectAnswers == 0 {
             reviewButton.setTitle("Great Job!", forState: UIControlState.Normal)
             reviewButton.enabled = false 
         }
-        return (correctAnswersLabel, incorrectAnswersLabel, percentageLabel)
+        return (correctAnswersLabel, incorrectAnswersLabel, percentage)
         
     }
     

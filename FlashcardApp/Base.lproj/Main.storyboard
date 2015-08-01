@@ -355,23 +355,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="V8x-pC-mgI">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="V8x-pC-mgI">
                                 <rect key="frame" x="30" y="30" width="540" height="540"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QPb-cm-QRx" customClass="TintColorLabel" customModule="FlashcardApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="540" height="270"/>
-                                        <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="80"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                        <variation key="heightClass=regular-widthClass=regular">
-                                            <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="160"/>
-                                        </variation>
-                                    </label>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="deL-No-BHc" customClass="TestPercentageView" customModule="FlashcardApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="540" height="250"/>
+                                    </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Qdt-sC-yWW">
-                                        <rect key="frame" x="0.0" y="270" width="540" height="270"/>
+                                        <rect key="frame" x="0.0" y="290" width="540" height="250"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="correct" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VbU-4z-hW2">
-                                                <rect key="frame" x="221" y="0.0" width="98" height="90"/>
+                                                <rect key="frame" x="221" y="0.0" width="98" height="83.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="32"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
@@ -380,7 +374,7 @@
                                                 </variation>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="incorrect" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KIZ-L8-m0i">
-                                                <rect key="frame" x="209" y="90" width="122" height="90"/>
+                                                <rect key="frame" x="209" y="83.5" width="122" height="83"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="32"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
@@ -389,7 +383,7 @@
                                                 </variation>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x6O-6Q-LOf">
-                                                <rect key="frame" x="220.5" y="180" width="99" height="90"/>
+                                                <rect key="frame" x="220.5" y="166.5" width="99" height="83.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="32"/>
                                                 <state key="normal" title="Review">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -419,8 +413,8 @@
                     <connections>
                         <outlet property="numberCorrectLabel" destination="VbU-4z-hW2" id="ECh-8y-gQV"/>
                         <outlet property="numberWrongLabel" destination="KIZ-L8-m0i" id="rAO-BK-egz"/>
-                        <outlet property="percentageLabel" destination="QPb-cm-QRx" id="qpb-91-wuo"/>
                         <outlet property="reviewButton" destination="x6O-6Q-LOf" id="36T-Iu-1Cz"/>
+                        <outlet property="testPercentageView" destination="deL-No-BHc" id="fPF-g5-KUC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aOt-ND-dbk" userLabel="First Responder" sceneMemberID="firstResponder"/>
