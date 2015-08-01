@@ -32,6 +32,7 @@ class PracticePageViewController: UIViewController, UIPageViewControllerDataSour
         super.loadView()
         wordList = WordListManager.sharedManager.wordListAtIndex(20)
         setUpPageViewController()
+        setUpPageControlAppearance()
         self.view.backgroundColor = UIColor.blackColor()
     }
     // MARK:- IB Action
@@ -55,6 +56,12 @@ class PracticePageViewController: UIViewController, UIPageViewControllerDataSour
         self.view.addSubview(pageViewController.view)
         pageViewController.didMoveToParentViewController(self)
     }
+    
+    private func setUpPageControlAppearance() {
+        let appearance = UIPageControl.appearance()
+        appearance.currentPageIndicatorTintColor = UIColor.ace_blueColor()
+    }
+
     
     private func flashCardViewControllerAtIndex(index: Int) -> PracticeFlashcardViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)

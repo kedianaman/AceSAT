@@ -437,61 +437,69 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="sectionIndexBackgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TestReviewTableViewCell" rowHeight="150" id="Wbs-Qx-GuX" customClass="TestReviewTableViewCell" customModule="FlashcardApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="22" width="600" height="150"/>
+                            <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TestReviewTableViewCell" rowHeight="125" id="Wbs-Qx-GuX" customClass="TestReviewTableViewCell" customModule="FlashcardApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="22" width="600" height="125"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Wbs-Qx-GuX" id="VUa-0Z-zWp">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="149.5"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" tableViewCell="Wbs-Qx-GuX" id="VUa-0Z-zWp">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="124.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="redraw" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="v9k-b5-F51">
-                                            <rect key="frame" x="18" y="18" width="564" height="113.5"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uoz-FJ-mkL" customClass="TintColorLabel" customModule="FlashcardApp" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="0.0" width="564" height="43"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="40"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                    <variation key="heightClass=regular-widthClass=regular">
-                                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="60"/>
-                                                    </variation>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yxs-HI-V2j">
-                                                    <rect key="frame" x="0.0" y="53" width="564" height="26.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                    <size key="shadowOffset" width="0.0" height="0.0"/>
-                                                    <variation key="heightClass=regular-widthClass=regular">
-                                                        <fontDescription key="fontDescription" type="system" pointSize="36"/>
-                                                    </variation>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G1p-Kp-23Q">
-                                                    <rect key="frame" x="0.0" y="89.5" width="564" height="24"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                    <size key="shadowOffset" width="0.0" height="0.0"/>
-                                                    <variation key="heightClass=regular-widthClass=regular">
-                                                        <fontDescription key="fontDescription" type="system" pointSize="36"/>
-                                                    </variation>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                        </stackView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uoz-FJ-mkL" customClass="TestReviewCellLabel" customModule="FlashcardApp" customModuleProvider="target">
+                                            <rect key="frame" x="15" y="10" width="570" height="48"/>
+                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="40"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                            <variation key="heightClass=regular-widthClass=regular">
+                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="60"/>
+                                            </variation>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G1p-Kp-23Q" customClass="TestReviewCellLabel" customModule="FlashcardApp" customModuleProvider="target">
+                                            <rect key="frame" x="15" y="86" width="570" height="29"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                            <size key="shadowOffset" width="0.0" height="0.0"/>
+                                            <variation key="heightClass=regular-widthClass=regular">
+                                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                            </variation>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yxs-HI-V2j" customClass="TestReviewCellLabel" customModule="FlashcardApp" customModuleProvider="target">
+                                            <rect key="frame" x="15" y="58" width="570" height="28"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" id="Raz-oB-dXX"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                            <size key="shadowOffset" width="0.0" height="0.0"/>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="Raz-oB-dXX"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="heightClass=regular-widthClass=regular">
+                                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                            </variation>
+                                        </label>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
-                                        <constraint firstAttribute="trailingMargin" secondItem="v9k-b5-F51" secondAttribute="trailing" constant="10" id="7ow-sO-jbb"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="v9k-b5-F51" secondAttribute="bottom" constant="10" id="Y2n-Wv-Zhf"/>
-                                        <constraint firstItem="v9k-b5-F51" firstAttribute="top" secondItem="VUa-0Z-zWp" secondAttribute="topMargin" constant="10" id="hL8-rO-jMw"/>
-                                        <constraint firstItem="v9k-b5-F51" firstAttribute="leading" secondItem="VUa-0Z-zWp" secondAttribute="leadingMargin" constant="10" id="qPk-b5-R8w"/>
+                                        <constraint firstAttribute="topMargin" secondItem="uoz-FJ-mkL" secondAttribute="top" id="9BR-cn-aHI"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="Yxs-HI-V2j" secondAttribute="trailing" id="DL6-AM-naD"/>
+                                        <constraint firstItem="Yxs-HI-V2j" firstAttribute="top" secondItem="uoz-FJ-mkL" secondAttribute="bottom" id="I6a-UY-rXp"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="G1p-Kp-23Q" secondAttribute="trailing" id="OQV-L1-f58"/>
+                                        <constraint firstItem="G1p-Kp-23Q" firstAttribute="top" secondItem="Yxs-HI-V2j" secondAttribute="bottom" id="jrr-bo-p54"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="G1p-Kp-23Q" secondAttribute="bottom" id="n1g-iU-d9x"/>
+                                        <constraint firstItem="uoz-FJ-mkL" firstAttribute="leading" secondItem="VUa-0Z-zWp" secondAttribute="leadingMargin" id="sqd-CT-fdq"/>
+                                        <constraint firstItem="Yxs-HI-V2j" firstAttribute="leading" secondItem="uoz-FJ-mkL" secondAttribute="leading" id="vmF-XP-06r"/>
+                                        <constraint firstItem="G1p-Kp-23Q" firstAttribute="leading" secondItem="Yxs-HI-V2j" secondAttribute="leading" id="wAi-OH-zhA"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="uoz-FJ-mkL" secondAttribute="trailing" id="zAS-oo-WOF"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="correctDefinitionLabel" destination="G1p-Kp-23Q" id="WId-qF-VqR"/>
+                                    <outlet property="userSelectedCellZeroHeightConstraint" destination="Raz-oB-dXX" id="QiJ-PN-TkH"/>
                                     <outlet property="userSelectedDefinitionLabel" destination="Yxs-HI-V2j" id="oy7-oJ-JUd"/>
                                     <outlet property="wordLabel" destination="uoz-FJ-mkL" id="jvU-I0-22d"/>
                                 </connections>

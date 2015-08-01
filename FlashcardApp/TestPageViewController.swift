@@ -22,6 +22,9 @@ class TestPageViewController: UIViewController, UIPageViewControllerDelegate, UI
         navigationController?.view.tintColor = UIColor.ace_redColor()
         let cancelButton : UIBarButtonItem = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.Plain, target: self, action: "cancelButtonPressed:")
         navigationItem.leftBarButtonItem = cancelButton
+
+        let completeButton : UIBarButtonItem = UIBarButtonItem(title: "Complete", style: UIBarButtonItemStyle.Plain, target: self, action: "completeButtonPressed:")
+        navigationItem.rightBarButtonItem = completeButton
     }
     
     override func loadView() {
