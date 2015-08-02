@@ -45,6 +45,7 @@ class WordListPickerView: UIView, UIPickerViewDataSource, UIPickerViewDelegate {
         if selectionIndicatorView == nil {
             selectionIndicatorView = UIView(frame: CGRectMake((bounds.size.width - bounds.size.height)/2.0, 0, bounds.size.height, bounds.size.height))
             selectionIndicatorView.backgroundColor = UIColor(white: 1.0, alpha: 0.08)
+            selectionIndicatorView.userInteractionEnabled = false
             self.addSubview(selectionIndicatorView)
         }
         
@@ -57,6 +58,8 @@ class WordListPickerView: UIView, UIPickerViewDataSource, UIPickerViewDelegate {
         pickerView.layer.borderWidth = 1.0
         
         selectionIndicatorView.frame = CGRectMake((bounds.size.width - bounds.size.height)/2.0, 0, bounds.size.height, bounds.size.height)
+
+        pickerView.reloadAllComponents()
     }
     
     // MARK:- UIPickerViewDataSource
@@ -86,7 +89,8 @@ class WordListPickerView: UIView, UIPickerViewDataSource, UIPickerViewDelegate {
             viewForRow?.textColor = UIColor.whiteColor()
         }
         viewForRow!.text = String(row)
-        viewForRow!.font = UIFont.systemFontOfSize(24.0)
+        
+        viewForRow!.font = UIFont.systemFontOfSize(floor(11/40.0 * bounds.size.height))
         viewForRow!.transform = CGAffineTransformMakeRotation(CGFloat(M_PI_2))
         viewForRow!.sizeToFit()
         

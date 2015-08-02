@@ -21,6 +21,10 @@ class ReviewTableViewController: UITableViewController {
         
         navigationController?.view.tintColor = UIColor.ace_greenColor()
         navigationController?.hidesBarsOnSwipe = true
+        
+        navigationController?.navigationBar.barTintColor = UIColor.blackColor()
+        navigationController?.navigationBar.translucent = false
+        navigationController?.navigationBar.barStyle = UIBarStyle.Black
     }
     
     @IBAction func doneButtonPressed(sender: UIBarButtonItem) {
