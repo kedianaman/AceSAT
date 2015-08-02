@@ -39,6 +39,7 @@ class MainMenuViewController: UIViewController {
 
         wordListStackView.alpha = 0
         wordListPickerView.numberOfLists = WordListManager.sharedManager.numberOfWordLists
+        wordListStackView.transform = CGAffineTransformMakeTranslation(0, -wordListStackView.bounds.size.height/4.0)
         
         listChooserButton.tintColor = UIColor.whiteColor()
         listChooserButton.setTitle(String(wordListPickerView.selectedNumberList), forState: .Normal)
@@ -132,17 +133,25 @@ class MainMenuViewController: UIViewController {
     
     // MARK:- Actions
     @IBAction func listChooserButtonPressed(sender: AnyObject) {
+        
+        let showWordListChooser = self.wordListStackView.alpha == 0
+
+        let buttons = [reviewButton, practiceButton, testButton]
+        for button in buttons {
+            let randomDuration = Double(random()%30)/50.0 + 0.4
+            UIView.animateWithDuration(randomDuration, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.0, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
+                button.transform = showWordListChooser ? CGAffineTransformMakeTranslation(0, self.wordListStackView.bounds.size.height + 20) : CGAffineTransformIdentity
+                button.enabled = !showWordListChooser
+            }, completion: nil)
+        }
+        
         UIView.animateWithDuration(0.5, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.0, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
-            let showWordListChooser = self.wordListStackView.alpha == 0
             
-            self.stackView.transform = showWordListChooser ? CGAffineTransformMakeTranslation(0, self.wordListStackView.bounds.size.height + 20) : CGAffineTransformIdentity
             self.stackView.alpha = showWordListChooser ? 0.25 : 1.0
             self.wordListStackView.alpha = showWordListChooser ? 1.0 : 0.0
             
-            self.reviewButton.enabled = !showWordListChooser
-            self.practiceButton.enabled = !showWordListChooser
-            self.testButton.enabled = !showWordListChooser
-            
+            self.wordListStackView.transform = showWordListChooser ? CGAffineTransformIdentity : CGAffineTransformMakeTranslation(0, -self.wordListStackView.bounds.size.height/4.0)
+
             if showWordListChooser {
                 self.listChooserButton.setImage(UIImage(named: "Checkmark"), forState: .Normal)
                 self.listChooserButton.setTitle("", forState: .Normal)
