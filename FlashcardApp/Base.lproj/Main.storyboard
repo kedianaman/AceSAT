@@ -117,7 +117,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Word" textAlignment="center" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e0g-31-Qk1" customClass="TintColorLabel" customModule="FlashcardApp" customModuleProvider="target">
-                                <rect key="frame" x="205" y="248" width="189" height="105.5"/>
+                                <rect key="frame" x="205" y="248" width="189" height="106"/>
                                 <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="88"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -183,7 +183,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" verticalCompressionResistancePriority="749" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vBk-jy-Lzd" customClass="TintColorLabel" customModule="FlashcardApp" customModuleProvider="target">
-                                            <rect key="frame" x="23" y="11" width="72.5" height="44"/>
+                                            <rect key="frame" x="23" y="11" width="73" height="44"/>
                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="40"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
@@ -380,7 +380,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="resultsStackview" destination="V8x-pC-mgI" id="Gpm-Wy-2so"/>
                         <outlet property="testPercentageView" destination="deL-No-BHc" id="fPF-g5-KUC"/>
+                        <outlet property="testResultsContainerTableView" destination="p04-0q-w6h" id="cMh-fL-3rT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aOt-ND-dbk" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -414,7 +416,7 @@
                                             </variation>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" ambiguous="YES" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G1p-Kp-23Q" customClass="TestReviewCellLabel" customModule="FlashcardApp" customModuleProvider="target">
-                                            <rect key="frame" x="15" y="68.5" width="570" height="21.5"/>
+                                            <rect key="frame" x="15" y="69" width="570" height="22"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -424,7 +426,7 @@
                                             </variation>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yxs-HI-V2j" customClass="TestReviewCellLabel" customModule="FlashcardApp" customModuleProvider="target">
-                                            <rect key="frame" x="15" y="46" width="570" height="22.5"/>
+                                            <rect key="frame" x="15" y="46" width="570" height="23"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" id="Raz-oB-dXX"/>
                                             </constraints>

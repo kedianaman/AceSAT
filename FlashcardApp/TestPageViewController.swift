@@ -10,7 +10,7 @@ import UIKit
 
 class TestPageViewController: UIViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource {
 
-    let test = Test(wordList: WordListManager.sharedManager.wordListAtIndex(21))
+    let test = Test(wordList: WordListManager.sharedManager.wordListAtIndex(20))
     var pageViewController: UIPageViewController!
     
 
@@ -23,8 +23,6 @@ class TestPageViewController: UIViewController, UIPageViewControllerDelegate, UI
         let cancelButton : UIBarButtonItem = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.Plain, target: self, action: "cancelButtonPressed:")
         navigationItem.leftBarButtonItem = cancelButton
 
-        let completeButton : UIBarButtonItem = UIBarButtonItem(title: "Complete", style: UIBarButtonItemStyle.Plain, target: self, action: "completeButtonPressed:")
-        navigationItem.rightBarButtonItem = completeButton
     }
     
     override func loadView() {

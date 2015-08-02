@@ -17,7 +17,7 @@ class TestPercentageView: UIView {
     
     var lineWidth: Double = 10.0
     
-    var percentage: Double = 80.0 {
+    var correctAnswers: Int = 7 {
         didSet {
             updateLayerProperties()
         }
@@ -32,6 +32,7 @@ class TestPercentageView: UIView {
         
         percentageLabel.frame = ringBounds
         percentageLabel.font = UIFont.systemFontOfSize(CGFloat(ringSize * 0.3), weight: UIFontWeightUltraLight)
+        percentageLabel.numberOfLines = 0
         percentageLabel.textColor = UIColor.whiteColor()
         percentageLabel.textAlignment = NSTextAlignment.Center
         self.addSubview(percentageLabel)
@@ -83,11 +84,18 @@ class TestPercentageView: UIView {
         updateLayerProperties()
     }
     
+
     private func updateLayerProperties() {
         if ringLayer != nil {
-            ringLayer.strokeEnd = CGFloat(percentage / 100.0)
+            ringLayer.strokeEnd = CGFloat(Double(correctAnswers) / 10.0)
         }
-        percentageLabel.text = String(Int(percentage)) + "%"
+        let ringSize = min(bounds.width, bounds.height) - 40
+        let thinFont = UIFont.systemFontOfSize(ringSize * 0.3, weight: UIFontWeightUltraLight)
+        let lightFont = UIFont.systemFontOfSize(ringSize * 0.1, weight: UIFontWeightLight)
+        
+        let attributedText = NSMutableAttributedString(string: String(correctAnswers), attributes: [NSFontAttributeName : thinFont, NSForegroundColorAttributeName : UIColor.whiteColor()])
+        attributedText.appendAttributedString(NSAttributedString(string: "\n of 10", attributes: [NSFontAttributeName: lightFont, NSForegroundColorAttributeName:UIColor(white: CGFloat(1.0), alpha: CGFloat(0.5)) ]))
+        percentageLabel.attributedText = attributedText
     }
 
     /*

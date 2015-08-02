@@ -12,10 +12,15 @@ class TestResultsViewController: UIViewController {
 
     var test: Test?
     @IBOutlet weak var testPercentageView: TestPercentageView!
-    
+    @IBOutlet weak var testResultsContainerTableView: UIView!
+    @IBOutlet weak var resultsStackview: UIStackView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        testPercentageView.percentage = percentageOfCorrectAnswers()
+        let correctAnswers = calculateCorrectAnswers()
+        testPercentageView.correctAnswers = correctAnswers
+        if correctAnswers == test?.numberOfQuestions {
+            testResultsContainerTableView.removeFromSuperview()
+        }
         navigationController?.navigationBarHidden = false
         navigationItem.setHidesBackButton(true, animated: false)
         let completeButton : UIBarButtonItem = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.Plain, target: self, action: "endButtonPressed:")
@@ -29,7 +34,7 @@ class TestResultsViewController: UIViewController {
     
 
     
-    func percentageOfCorrectAnswers() -> Double {
+    func calculateCorrectAnswers() -> Int {
         var correctAnswers = 0
         var incorrectAnswers = 0
         for index in 0...test!.numberOfQuestions - 1 {
@@ -43,8 +48,7 @@ class TestResultsViewController: UIViewController {
                 incorrectAnswers++
             }
         }
-        let percentage = Double(correctAnswers) / Double(test!.numberOfQuestions) * 100.0
-        return percentage
+        return correctAnswers
     }
     
     @IBAction func finishButtonPressed(sender: AnyObject) {
