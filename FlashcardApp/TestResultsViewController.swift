@@ -17,6 +17,7 @@ class TestResultsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let correctAnswers = calculateCorrectAnswers()
+        testPercentageView.numberOfQuestions = test?.numberOfQuestions
         testPercentageView.correctAnswers = correctAnswers
         if correctAnswers == test?.numberOfQuestions {
             testResultsContainerTableView.removeFromSuperview()
@@ -36,16 +37,10 @@ class TestResultsViewController: UIViewController {
     
     func calculateCorrectAnswers() -> Int {
         var correctAnswers = 0
-        var incorrectAnswers = 0
         for index in 0...test!.numberOfQuestions - 1 {
             let testQuestion = test?.questionAtIndex(index)
-            if testQuestion?.userSelectedDefinition == nil {
-                incorrectAnswers++
-            }
-            else if testQuestion?.userSelectedDefinition == testQuestion?.word.definition {
+            if testQuestion?.userSelectedDefinition == testQuestion?.word.definition {
                 correctAnswers++
-            } else {
-                incorrectAnswers++
             }
         }
         return correctAnswers
