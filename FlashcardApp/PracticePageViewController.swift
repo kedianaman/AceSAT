@@ -10,7 +10,7 @@ import UIKit
 
 class PracticePageViewController: UIViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
     
-    var pageViewController: UIPageViewController!
+    private var pageViewController: UIPageViewController!
     var wordList = WordList()
     
     // MARK:- View Controller Lifecycle
@@ -30,7 +30,6 @@ class PracticePageViewController: UIViewController, UIPageViewControllerDataSour
     
     override func loadView() {
         super.loadView()
-        wordList = WordListManager.sharedManager.wordListAtIndex(20)
         setUpPageViewController()
         setUpPageControlAppearance()
         self.view.backgroundColor = UIColor.blackColor()

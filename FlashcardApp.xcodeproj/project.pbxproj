@@ -16,6 +16,7 @@
 		ED1C89CC1B5985EF00DCF0EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED1C89CB1B5985EF00DCF0EB /* Assets.xcassets */; };
 		ED1C89CF1B5985EF00DCF0EB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED1C89CD1B5985EF00DCF0EB /* LaunchScreen.storyboard */; };
 		ED3322541B61B99000E3F624 /* ReviewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3322531B61B99000E3F624 /* ReviewTableViewController.swift */; };
+		ED5A00211B6E04EC00EDB303 /* WordListPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5A00201B6E04EC00EDB303 /* WordListPickerView.swift */; };
 		ED67293B1B65BFCB00B396F6 /* PracticePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED67293A1B65BFCB00B396F6 /* PracticePageViewController.swift */; };
 		ED67293D1B66059200B396F6 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED67293C1B66059200B396F6 /* TestViewController.swift */; };
 		ED67293F1B66D0AF00B396F6 /* TestPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED67293E1B66D0AF00B396F6 /* TestPageViewController.swift */; };
@@ -35,13 +36,14 @@
 		ED15F9891B6A044000C3F0B9 /* TintColorLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TintColorLabel.swift; sourceTree = "<group>"; };
 		ED15F98B1B6A054400C3F0B9 /* RoundGradientButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundGradientButton.swift; sourceTree = "<group>"; };
 		ED1BA4B71B659B2D0095BF34 /* PracticeFlashcardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PracticeFlashcardViewController.swift; sourceTree = "<group>"; };
-		ED1C89C11B5985EF00DCF0EB /* FlashcardApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlashcardApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED1C89C11B5985EF00DCF0EB /* AceSAT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AceSAT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED1C89C41B5985EF00DCF0EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ED1C89C91B5985EF00DCF0EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		ED1C89CB1B5985EF00DCF0EB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ED1C89CE1B5985EF00DCF0EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ED1C89D01B5985EF00DCF0EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ED3322531B61B99000E3F624 /* ReviewTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewTableViewController.swift; sourceTree = "<group>"; };
+		ED5A00201B6E04EC00EDB303 /* WordListPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordListPickerView.swift; sourceTree = "<group>"; };
 		ED67293A1B65BFCB00B396F6 /* PracticePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PracticePageViewController.swift; sourceTree = "<group>"; };
 		ED67293C1B66059200B396F6 /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		ED67293E1B66D0AF00B396F6 /* TestPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestPageViewController.swift; sourceTree = "<group>"; };
@@ -109,7 +111,7 @@
 		ED1C89C21B5985EF00DCF0EB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				ED1C89C11B5985EF00DCF0EB /* FlashcardApp.app */,
+				ED1C89C11B5985EF00DCF0EB /* AceSAT.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -120,6 +122,7 @@
 				ED1C89C41B5985EF00DCF0EB /* AppDelegate.swift */,
 				ED1C89C81B5985EF00DCF0EB /* Main.storyboard */,
 				ED69D2F11B647F2000B1A4AC /* MainMenuViewController.swift */,
+				ED5A00201B6E04EC00EDB303 /* WordListPickerView.swift */,
 				ED15F9861B6A020400C3F0B9 /* Review */,
 				ED15F9871B6A020900C3F0B9 /* Practice */,
 				ED15F9881B6A021100C3F0B9 /* Test */,
@@ -139,9 +142,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		ED1C89C01B5985EF00DCF0EB /* FlashcardApp */ = {
+		ED1C89C01B5985EF00DCF0EB /* AceSAT */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = ED1C89D31B5985EF00DCF0EB /* Build configuration list for PBXNativeTarget "FlashcardApp" */;
+			buildConfigurationList = ED1C89D31B5985EF00DCF0EB /* Build configuration list for PBXNativeTarget "AceSAT" */;
 			buildPhases = (
 				ED1C89BD1B5985EF00DCF0EB /* Sources */,
 				ED1C89BE1B5985EF00DCF0EB /* Frameworks */,
@@ -151,9 +154,9 @@
 			);
 			dependencies = (
 			);
-			name = FlashcardApp;
+			name = AceSAT;
 			productName = FlashcardApp;
-			productReference = ED1C89C11B5985EF00DCF0EB /* FlashcardApp.app */;
+			productReference = ED1C89C11B5985EF00DCF0EB /* AceSAT.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -184,7 +187,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				ED1C89C01B5985EF00DCF0EB /* FlashcardApp */,
+				ED1C89C01B5985EF00DCF0EB /* AceSAT */,
 			);
 		};
 /* End PBXProject section */
@@ -210,6 +213,7 @@
 			files = (
 				ED15F9851B69FA3500C3F0B9 /* AceSATColors.swift in Sources */,
 				ED67293F1B66D0AF00B396F6 /* TestPageViewController.swift in Sources */,
+				ED5A00211B6E04EC00EDB303 /* WordListPickerView.swift in Sources */,
 				ED69D2F01B6478EC00B1A4AC /* ReviewTableViewCell.swift in Sources */,
 				EDC573191B696869001B1E9C /* TestReviewTableViewCell.swift in Sources */,
 				ED1BA4B81B659B2D0095BF34 /* PracticeFlashcardViewController.swift in Sources */,
@@ -373,7 +377,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		ED1C89D31B5985EF00DCF0EB /* Build configuration list for PBXNativeTarget "FlashcardApp" */ = {
+		ED1C89D31B5985EF00DCF0EB /* Build configuration list for PBXNativeTarget "AceSAT" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				ED1C89D41B5985EF00DCF0EB /* Debug */,

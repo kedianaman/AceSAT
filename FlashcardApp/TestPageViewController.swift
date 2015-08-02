@@ -10,8 +10,15 @@ import UIKit
 
 class TestPageViewController: UIViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource {
 
-    let test = Test(wordList: WordListManager.sharedManager.wordListAtIndex(20))
-    var pageViewController: UIPageViewController!
+    var wordList: WordList? = nil {
+        didSet {
+            if wordList != nil {
+                test = Test(wordList: wordList!)
+            }
+        }
+    }
+    private var test: Test!
+    private var pageViewController: UIPageViewController!
     
 
     override func viewDidLoad() {
