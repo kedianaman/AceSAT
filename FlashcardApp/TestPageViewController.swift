@@ -78,7 +78,7 @@ class TestPageViewController: UIViewController, UIPageViewControllerDelegate, UI
             let completeButton : UIBarButtonItem = UIBarButtonItem(title: "Complete", style: UIBarButtonItemStyle.Plain, target: self, action: "completeButtonPressed:")
             navigationItem.rightBarButtonItem = completeButton
         }
-        testViewController.testQuestion = test.questionAtIndex(index)
+        testViewController.testQuestion = test.questionAtIndex(index) // make random
         return testViewController
     }
     

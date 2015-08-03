@@ -14,6 +14,7 @@ class TestResultsViewController: UIViewController {
     @IBOutlet weak var testPercentageView: TestPercentageView!
     @IBOutlet weak var testResultsContainerTableView: UIView!
     @IBOutlet weak var resultsStackview: UIStackView!
+    @IBOutlet weak var acedView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
         let correctAnswers = calculateCorrectAnswers()
@@ -21,6 +22,8 @@ class TestResultsViewController: UIViewController {
         testPercentageView.correctAnswers = correctAnswers
         if correctAnswers == test?.numberOfQuestions {
             testResultsContainerTableView.removeFromSuperview()
+            resultsStackview.addArrangedSubview(acedView)
+            acedView.hidden = false
         }
         navigationController?.navigationBarHidden = false
         navigationItem.setHidesBackButton(true, animated: false)
