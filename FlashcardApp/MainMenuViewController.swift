@@ -42,7 +42,7 @@ class MainMenuViewController: UIViewController {
         wordListStackView.transform = CGAffineTransformMakeTranslation(0, -wordListStackView.bounds.size.height/4.0)
         
         listChooserButton.tintColor = UIColor.whiteColor()
-        listChooserButton.setTitle(String(wordListPickerView.selectedNumberList), forState: .Normal)
+        listChooserButton.setTitle(String(wordListPickerView.selectedNumberList+1), forState: .Normal)
         
         updateGradientButtonColors()
     }
@@ -158,7 +158,7 @@ class MainMenuViewController: UIViewController {
             }
             else {
                 self.listChooserButton.setImage(nil, forState: .Normal)
-                self.listChooserButton.setTitle(String(self.wordListPickerView.selectedNumberList), forState: .Normal)
+                self.listChooserButton.setTitle(String(self.wordListPickerView.selectedNumberList+1), forState: .Normal)
             }
             
             }, completion: nil)

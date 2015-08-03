@@ -87,6 +87,7 @@ class TestPercentageView: UIView {
     }
     
 
+
     private func updateLayerProperties() {
         if ringLayer != nil {
             ringLayer.strokeEnd = CGFloat(Double(correctAnswers) / 10.0)
@@ -100,12 +101,5 @@ class TestPercentageView: UIView {
         percentageLabel.attributedText = attributedText
     }
 
-    /*
-    // Only override drawRect: if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func drawRect(rect: CGRect) {
-        // Drawing code
-    }
-    */
-
+    
 }

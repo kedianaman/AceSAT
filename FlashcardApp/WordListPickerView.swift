@@ -88,7 +88,7 @@ class WordListPickerView: UIView, UIPickerViewDataSource, UIPickerViewDelegate {
             viewForRow = UILabel()
             viewForRow?.textColor = UIColor.whiteColor()
         }
-        viewForRow!.text = String(row)
+        viewForRow!.text = String(row+1)
         
         viewForRow!.font = UIFont.systemFontOfSize(floor(11/40.0 * bounds.size.height))
         viewForRow!.transform = CGAffineTransformMakeRotation(CGFloat(M_PI_2))
