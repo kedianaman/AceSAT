@@ -315,7 +315,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="B6g-Z9-HOA">
                                 <rect key="frame" x="40" y="40" width="520" height="540"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Word" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zkn-bL-VMe" customClass="TintColorLabel" customModule="AceSAT" customModuleProvider="target">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Word" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zkn-bL-VMe" customClass="TintColorLabel" customModule="AceSAT" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="520" height="53"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="44"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -423,6 +423,9 @@
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="60"/>
                                         <color key="textColor" red="1" green="0.0" blue="0.30980392156862746" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
+                                        <variation key="heightClass=regular-widthClass=regular">
+                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="120"/>
+                                        </variation>
                                     </label>
                                 </subviews>
                                 <constraints>
