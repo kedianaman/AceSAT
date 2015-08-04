@@ -415,10 +415,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gi4-sW-ZhS">
+                            <view hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gi4-sW-ZhS">
                                 <rect key="frame" x="180" y="236" width="240" height="128"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Aced! 👍🏼" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="btn-Qg-V4H">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Aced! 👍🏼" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="btn-Qg-V4H">
                                         <rect key="frame" x="31" y="54" width="192" height="59"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="60"/>
                                         <color key="textColor" red="1" green="0.0" blue="0.30980392156862746" alpha="1" colorSpace="calibratedRGB"/>
@@ -446,10 +446,10 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="V8x-pC-mgI">
                                 <rect key="frame" x="0.0" y="20" width="600" height="580"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="deL-No-BHc" customClass="TestPercentageView" customModule="AceSAT" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="deL-No-BHc" customClass="TestPercentageView" customModule="AceSAT" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="290"/>
                                     </view>
-                                    <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p04-0q-w6h">
+                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p04-0q-w6h">
                                         <rect key="frame" x="0.0" y="290" width="600" height="290"/>
                                         <connections>
                                             <segue destination="2Gk-zt-JFC" kind="embed" identifier="ShowReviewTableView" id="72a-mh-lQQ"/>
@@ -495,8 +495,8 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="99.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uoz-FJ-mkL" customClass="TestReviewCellLabel" customModule="AceSAT" customModuleProvider="target">
-                                            <rect key="frame" x="15" y="10" width="570" height="36"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" verticalCompressionResistancePriority="1000" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uoz-FJ-mkL" customClass="TestReviewCellLabel" customModule="AceSAT" customModuleProvider="target">
+                                            <rect key="frame" x="15" y="10" width="570" height="37"/>
                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="30"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
@@ -505,7 +505,7 @@
                                             </variation>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G1p-Kp-23Q" customClass="TestReviewCellLabel" customModule="AceSAT" customModuleProvider="target">
-                                            <rect key="frame" x="15" y="67" width="570" height="22.5"/>
+                                            <rect key="frame" x="40" y="68" width="545" height="21.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -515,7 +515,7 @@
                                             </variation>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yxs-HI-V2j" customClass="TestReviewCellLabel" customModule="AceSAT" customModuleProvider="target">
-                                            <rect key="frame" x="15" y="46" width="570" height="21.5"/>
+                                            <rect key="frame" x="40" y="47" width="545" height="21.5"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" id="Raz-oB-dXX"/>
                                             </constraints>
@@ -532,24 +532,60 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                             </variation>
                                         </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" image="Cross" translatesAutoresizingMaskIntoConstraints="NO" id="9Vc-Nh-n31">
+                                            <rect key="frame" x="15" y="47" width="17" height="17"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="9Vc-Nh-n31" secondAttribute="height" multiplier="1:1" priority="750" id="dui-jk-UIy"/>
+                                            </constraints>
+                                        </imageView>
+                                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CorrectCheck" translatesAutoresizingMaskIntoConstraints="NO" id="e7V-9l-hdh">
+                                            <rect key="frame" x="15" y="68" width="17" height="17"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="e7V-9l-hdh" secondAttribute="height" multiplier="1:1" id="MWi-WY-Dxt"/>
+                                            </constraints>
+                                        </imageView>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
+                                        <constraint firstItem="9Vc-Nh-n31" firstAttribute="leading" secondItem="uoz-FJ-mkL" secondAttribute="leading" id="4cs-EC-vDp"/>
+                                        <constraint firstItem="9Vc-Nh-n31" firstAttribute="height" secondItem="Yxs-HI-V2j" secondAttribute="height" id="5Vl-UY-uqV"/>
+                                        <constraint firstItem="G1p-Kp-23Q" firstAttribute="leading" secondItem="e7V-9l-hdh" secondAttribute="trailing" constant="8" id="6Jv-di-UiB"/>
+                                        <constraint firstItem="e7V-9l-hdh" firstAttribute="width" secondItem="e7V-9l-hdh" secondAttribute="height" multiplier="1:1" id="7ra-8M-e2q"/>
                                         <constraint firstAttribute="topMargin" secondItem="uoz-FJ-mkL" secondAttribute="top" id="9BR-cn-aHI"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="Yxs-HI-V2j" secondAttribute="trailing" id="DL6-AM-naD"/>
                                         <constraint firstItem="Yxs-HI-V2j" firstAttribute="top" secondItem="uoz-FJ-mkL" secondAttribute="bottom" id="I6a-UY-rXp"/>
+                                        <constraint firstItem="e7V-9l-hdh" firstAttribute="leading" secondItem="9Vc-Nh-n31" secondAttribute="leading" id="MLI-Oa-0Cc"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="G1p-Kp-23Q" secondAttribute="trailing" id="OQV-L1-f58"/>
+                                        <constraint firstItem="e7V-9l-hdh" firstAttribute="height" secondItem="G1p-Kp-23Q" secondAttribute="height" id="Rgw-Vr-kaJ"/>
+                                        <constraint firstItem="Yxs-HI-V2j" firstAttribute="leading" secondItem="9Vc-Nh-n31" secondAttribute="trailing" constant="8" symbolic="YES" id="YYh-kz-PoR"/>
+                                        <constraint firstItem="e7V-9l-hdh" firstAttribute="top" secondItem="G1p-Kp-23Q" secondAttribute="top" id="YzQ-GM-FLo"/>
+                                        <constraint firstItem="9Vc-Nh-n31" firstAttribute="centerY" secondItem="Yxs-HI-V2j" secondAttribute="centerY" id="dQH-pD-8aX"/>
                                         <constraint firstItem="G1p-Kp-23Q" firstAttribute="top" secondItem="Yxs-HI-V2j" secondAttribute="bottom" id="jrr-bo-p54"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="G1p-Kp-23Q" secondAttribute="bottom" id="n1g-iU-d9x"/>
                                         <constraint firstItem="uoz-FJ-mkL" firstAttribute="leading" secondItem="VUa-0Z-zWp" secondAttribute="leadingMargin" id="sqd-CT-fdq"/>
+                                        <constraint firstItem="e7V-9l-hdh" firstAttribute="centerY" secondItem="G1p-Kp-23Q" secondAttribute="centerY" id="uuj-rv-ccP"/>
                                         <constraint firstItem="Yxs-HI-V2j" firstAttribute="leading" secondItem="uoz-FJ-mkL" secondAttribute="leading" id="vmF-XP-06r"/>
                                         <constraint firstItem="G1p-Kp-23Q" firstAttribute="leading" secondItem="Yxs-HI-V2j" secondAttribute="leading" id="wAi-OH-zhA"/>
+                                        <constraint firstItem="9Vc-Nh-n31" firstAttribute="top" secondItem="Yxs-HI-V2j" secondAttribute="top" id="xmI-mY-pIO"/>
+                                        <constraint firstItem="G1p-Kp-23Q" firstAttribute="leading" secondItem="Yxs-HI-V2j" secondAttribute="leading" id="z0m-qu-k7S"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="uoz-FJ-mkL" secondAttribute="trailing" id="zAS-oo-WOF"/>
                                     </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="5Vl-UY-uqV"/>
+                                            <exclude reference="dQH-pD-8aX"/>
+                                            <exclude reference="vmF-XP-06r"/>
+                                            <exclude reference="7ra-8M-e2q"/>
+                                            <exclude reference="Rgw-Vr-kaJ"/>
+                                            <exclude reference="uuj-rv-ccP"/>
+                                            <exclude reference="wAi-OH-zhA"/>
+                                        </mask>
+                                    </variation>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="correctDefinitionLabel" destination="G1p-Kp-23Q" id="WId-qF-VqR"/>
+                                    <outlet property="crossImage" destination="9Vc-Nh-n31" id="EJc-1c-dw8"/>
                                     <outlet property="userSelectedCellZeroHeightConstraint" destination="Raz-oB-dXX" id="QiJ-PN-TkH"/>
                                     <outlet property="userSelectedDefinitionLabel" destination="Yxs-HI-V2j" id="oy7-oJ-JUd"/>
                                     <outlet property="wordLabel" destination="uoz-FJ-mkL" id="jvU-I0-22d"/>
@@ -604,6 +640,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="CorrectCheck" width="17" height="13"/>
+        <image name="Cross" width="14" height="14"/>
         <image name="DeselectedButton" width="24" height="24"/>
     </resources>
 </document>

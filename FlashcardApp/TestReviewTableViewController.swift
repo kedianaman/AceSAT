@@ -66,11 +66,11 @@ class TestReviewTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("TestReviewTableViewCell", forIndexPath: indexPath) as! TestReviewTableViewCell
         let testQuestion = wrongOrUnansweredQuestions![indexPath.row]
         cell.wordLabel.text = testQuestion.word.word
-        cell.correctDefinitionLabel.text = "✓ " + testQuestion.word.definition
+        cell.correctDefinitionLabel.text = testQuestion.word.definition
         if testQuestion.userSelectedDefinition != nil {
-            cell.userSelectedDefinitionLabel.text = "❌ " + testQuestion.userSelectedDefinition!
+            cell.setUserSelectedDefinitionText(testQuestion.userSelectedDefinition!)
         } else {
-            cell.userSelectedDefinitionLabel.text = nil
+            cell.setUserSelectedDefinitionText(nil)
         }
 
         return cell

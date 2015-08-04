@@ -26,6 +26,7 @@ class TestReviewTableViewCell: UITableViewCell {
     @IBOutlet weak var wordLabel: TestReviewCellLabel!
     @IBOutlet weak var correctDefinitionLabel: TestReviewCellLabel!
     @IBOutlet weak var userSelectedDefinitionLabel: TestReviewCellLabel!
+    @IBOutlet weak var crossImage: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -35,5 +36,8 @@ class TestReviewTableViewCell: UITableViewCell {
     func setUserSelectedDefinitionText(text:String?) {
         userSelectedDefinitionLabel.text = text
         userSelectedCellZeroHeightConstraint.active = (text == nil)
+        if text == nil {
+            crossImage.alpha = 0
+        }
     }
 }
