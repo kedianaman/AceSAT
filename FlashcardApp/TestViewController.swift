@@ -16,11 +16,18 @@ class TestButton: UIButton {
     }
 }
 
+protocol TestViewControllerDelegate: class {
+    func addCompleteButton(testViewController: TestViewController)
+}
+
 class TestViewController: UIViewController {
 
     @IBOutlet weak var vocabWordTitle: UILabel!
         
     var testQuestion: TestQuestion?
+    
+    weak var delegate: TestPageViewController?
+    
 
     @IBOutlet var definitionButtons: [UIButton]!
     
@@ -47,7 +54,10 @@ class TestViewController: UIViewController {
             button.setTitle(definitions[i], forState: UIControlState.Normal)
         }
     }
-    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        delegate?.addCompleteButton(self)
+    }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         updateButtonPreferredMaxLayoutWidth(view.bounds.size)

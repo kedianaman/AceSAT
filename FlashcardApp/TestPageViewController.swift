@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TestPageViewController: UIViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource {
+class TestPageViewController: UIViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource, TestViewControllerDelegate {
 
     var wordList: WordList? = nil {
         didSet {
@@ -74,9 +74,10 @@ class TestPageViewController: UIViewController, UIPageViewControllerDelegate, UI
     private func testViewControllerAtIndex(index: Int) -> TestViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let testViewController = storyboard.instantiateViewControllerWithIdentifier("TestViewController") as! TestViewController
+        testViewController.delegate = self
         if index == test.numberOfQuestions - 1 {
-            let completeButton : UIBarButtonItem = UIBarButtonItem(title: "Complete", style: UIBarButtonItemStyle.Plain, target: self, action: "completeButtonPressed:")
-            navigationItem.rightBarButtonItem = completeButton
+//            let completeButton : UIBarButtonItem = UIBarButtonItem(title: "Complete", style: UIBarButtonItemStyle.Plain, target: self, action: "completeButtonPressed:")
+//            navigationItem.rightBarButtonItem = completeButton
         }
         testViewController.testQuestion = test.questionAtIndex(index) // make random
         return testViewController
@@ -85,6 +86,15 @@ class TestPageViewController: UIViewController, UIPageViewControllerDelegate, UI
     private func indexOfViewController(viewController: TestViewController) -> Int? {
         let question = viewController.testQuestion!
         return test.indexOfQuestion(question)
+    }
+    
+    func addCompleteButton(testViewController: TestViewController) {
+        let index = indexOfViewController(testViewController)
+        if index == test.numberOfQuestions - 1 {
+            let completeButton : UIBarButtonItem = UIBarButtonItem(title: "Complete", style: UIBarButtonItemStyle.Plain, target: self, action: "completeButtonPressed:")
+            navigationItem.rightBarButtonItem = completeButton
+
+        }
     }
     
     // MARK: Page View Controller Data Source
