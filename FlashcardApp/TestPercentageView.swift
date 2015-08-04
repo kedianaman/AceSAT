@@ -59,6 +59,7 @@ class TestPercentageView: UIView {
             ringLayer.strokeColor = UIColor.ace_redColor().CGColor
             ringLayer.anchorPoint = CGPointMake(CGFloat(0.5), CGFloat(0.5))
             ringLayer.transform = CATransform3DRotate(ringLayer.transform, CGFloat(-M_PI / 2), CGFloat(0), CGFloat(0), CGFloat(1))
+            ringLayer.strokeEnd = 0.0
             layer.addSublayer(ringLayer)
             
             ringLayer.lineCap = kCALineCapRound
@@ -86,12 +87,19 @@ class TestPercentageView: UIView {
         updateLayerProperties()
     }
     
-
+    func animate() {
+        let pathAnimation = CABasicAnimation(keyPath: "draw ring")
+        pathAnimation.duration = 1.0
+        ringLayer.strokeEnd = CGFloat(Double(correctAnswers) / 10.0)
+        ringLayer.addAnimation(pathAnimation, forKey: "draw ring")
+        
+        
+    }
 
     private func updateLayerProperties() {
-        if ringLayer != nil {
-            ringLayer.strokeEnd = CGFloat(Double(correctAnswers) / 10.0)
-        }
+//        if ringLayer != nil {
+//            ringLayer.strokeEnd = CGFloat(Double(correctAnswers) / 10.0)
+//        }
         let ringSize = min(bounds.width, bounds.height) - 40
         let thinFont = UIFont.systemFontOfSize(ringSize * 0.4, weight: UIFontWeightLight)
         let lightFont = UIFont.systemFontOfSize(ringSize * 0.1, weight: UIFontWeightLight)

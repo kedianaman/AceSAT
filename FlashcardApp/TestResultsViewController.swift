@@ -31,6 +31,9 @@ class TestResultsViewController: UIViewController {
         navigationItem.rightBarButtonItem = completeButton
     }
     
+    override func viewDidAppear(animated: Bool) {
+        testPercentageView.animate()
+    }
     
     func endButtonPressed(sender: UIBarButtonItem) {
         dismissViewControllerAnimated(true, completion: nil)
