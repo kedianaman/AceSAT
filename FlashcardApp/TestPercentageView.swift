@@ -88,18 +88,18 @@ class TestPercentageView: UIView {
     }
     
     func animate() {
-        let pathAnimation = CABasicAnimation(keyPath: "draw ring")
-        pathAnimation.duration = 1.0
-        ringLayer.strokeEnd = CGFloat(Double(correctAnswers) / 10.0)
-        ringLayer.addAnimation(pathAnimation, forKey: "draw ring")
+        let pathAnimation = CASpringAnimation(keyPath: "draw ring")
+        pathAnimation.duration = 10.0
+        pathAnimation.damping = 20.0
+        pathAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        pathAnimation.fromValue = NSValue(ringLayer.strokeEnd = 0.0)
+        pathAnimation.toValue = NSValue(ringLayer.strokeEnd = CGFloat(Double(correctAnswers) / 10.0))
+        self.layer.addAnimation(pathAnimation, forKey: "draw ring")
         
         
     }
 
     private func updateLayerProperties() {
-//        if ringLayer != nil {
-//            ringLayer.strokeEnd = CGFloat(Double(correctAnswers) / 10.0)
-//        }
         let ringSize = min(bounds.width, bounds.height) - 40
         let thinFont = UIFont.systemFontOfSize(ringSize * 0.4, weight: UIFontWeightLight)
         let lightFont = UIFont.systemFontOfSize(ringSize * 0.1, weight: UIFontWeightLight)
