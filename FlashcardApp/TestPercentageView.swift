@@ -88,13 +88,15 @@ class TestPercentageView: UIView {
     }
     
     func animate() {
-        let pathAnimation = CASpringAnimation(keyPath: "draw ring")
-        pathAnimation.duration = 10.0
-        pathAnimation.damping = 20.0
-        pathAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        let pathAnimation = CASpringAnimation(keyPath: "strokeEnd")
+        pathAnimation.duration = 2.0
+        pathAnimation.damping = 16.0
+        
+        pathAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
         pathAnimation.fromValue = NSValue(ringLayer.strokeEnd = 0.0)
         pathAnimation.toValue = NSValue(ringLayer.strokeEnd = CGFloat(Double(correctAnswers) / 10.0))
-        self.layer.addAnimation(pathAnimation, forKey: "draw ring")
+
+        ringLayer.addAnimation(pathAnimation, forKey: "strokeEnd")
         
         
     }
