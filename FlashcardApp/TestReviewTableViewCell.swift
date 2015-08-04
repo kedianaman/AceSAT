@@ -37,7 +37,9 @@ class TestReviewTableViewCell: UITableViewCell {
         userSelectedDefinitionLabel.text = text
         userSelectedCellZeroHeightConstraint.active = (text == nil)
         if text == nil {
-            crossImage.alpha = 0
+            crossImage.image = nil
+        } else {
+            crossImage.image = UIImage(named: "Cross")
         }
     }
 }
