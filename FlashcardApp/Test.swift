@@ -13,7 +13,8 @@ class Test: CustomStringConvertible {
     
     init(wordList: WordList) {
         self.testQuestions = [TestQuestion]()
-        for word in wordList {
+        let shuffledWordList = wordList.shuffle()
+        for word in shuffledWordList  {
             var possibleDefinitions = [String]()
             let wordListManager = WordListManager.sharedManager
             let numberOfWordLists = wordListManager.numberOfWordLists
@@ -70,4 +71,24 @@ func ==(lhs: TestQuestion, rhs: TestQuestion) -> Bool {
     return lhs.word == rhs.word && lhs.possibleDefinitions == rhs.possibleDefinitions
 }
 
+extension CollectionType where Index == Int {
+    /// Return a copy of `self` with its elements shuffled
+    func shuffle() -> [Generator.Element] {
+        var list = Array(self)
+        list.shuffleInPlace()
+        return list
+    }
+}
 
+extension MutableCollectionType where Index == Int {
+    /// Shuffle the elements of `self` in-place.
+    mutating func shuffleInPlace() {
+        // empty and single-element collections don't shuffle
+        if count < 2 { return }
+        
+        for i in 0..<count - 1 {
+            let j = Int(arc4random_uniform(UInt32(count - i))) + i
+            swap(&self[i], &self[j])
+        }
+    }
+}

@@ -530,7 +530,7 @@
                                     <constraints>
                                         <constraint firstItem="9Vc-Nh-n31" firstAttribute="leading" secondItem="uoz-FJ-mkL" secondAttribute="leading" id="4cs-EC-vDp"/>
                                         <constraint firstItem="9Vc-Nh-n31" firstAttribute="height" secondItem="Yxs-HI-V2j" secondAttribute="height" id="5Vl-UY-uqV"/>
-                                        <constraint firstItem="G1p-Kp-23Q" firstAttribute="leading" secondItem="e7V-9l-hdh" secondAttribute="trailing" constant="8" id="6Jv-di-UiB"/>
+                                        <constraint firstItem="G1p-Kp-23Q" firstAttribute="leading" secondItem="e7V-9l-hdh" secondAttribute="trailing" constant="8" symbolic="YES" id="6Jv-di-UiB"/>
                                         <constraint firstItem="e7V-9l-hdh" firstAttribute="width" secondItem="e7V-9l-hdh" secondAttribute="height" multiplier="1:1" id="7ra-8M-e2q"/>
                                         <constraint firstAttribute="topMargin" secondItem="uoz-FJ-mkL" secondAttribute="top" id="9BR-cn-aHI"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="Yxs-HI-V2j" secondAttribute="trailing" id="DL6-AM-naD"/>
