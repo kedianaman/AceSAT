@@ -166,7 +166,8 @@ class MainMenuViewController: UIViewController {
     
     @IBAction func practiceButtonPressed(sender: UIButton) {
         let practicePageViewController = PracticePageViewController()
-        practicePageViewController.wordList = currentlySelectedWordList
+        let shuffledWordArray = currentlySelectedWordList.shuffle()
+        practicePageViewController.wordList = shuffledWordArray
         let practiceNavigationController = UINavigationController(rootViewController: practicePageViewController)
         presentViewController(practiceNavigationController, animated: true, completion: nil)
     }
