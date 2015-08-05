@@ -11,7 +11,7 @@ import UIKit
 class PracticePageViewController: UIViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
     
     private var pageViewController: UIPageViewController!
-    var wordList = [Word]()
+    var wordList = WordList()
     
     // MARK:- View Controller Lifecycle
     

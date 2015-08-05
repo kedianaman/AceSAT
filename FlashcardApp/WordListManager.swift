@@ -59,10 +59,13 @@ class WordList : CustomStringConvertible, CollectionType {
     typealias Generator = IndexingGenerator<[Word]>
     typealias _Element = Word
 
-    
     private var words = [Word]()
     
     typealias Element = Word
+    
+    func randomize() {
+        words = self.words.shuffle()
+    }
     
     var description: String {
         var desc = ""
