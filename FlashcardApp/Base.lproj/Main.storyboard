@@ -177,7 +177,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Word" textAlignment="center" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e0g-31-Qk1" customClass="TintColorLabel" customModule="AceSAT" customModuleProvider="target">
-                                <rect key="frame" x="205" y="248" width="189" height="106"/>
+                                <rect key="frame" x="205" y="247" width="189" height="105.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="88"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -186,12 +186,12 @@
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Definition" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WQ9-hw-09y">
-                                <rect key="frame" x="20" y="476" width="560" height="48"/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="40"/>
+                                <rect key="frame" x="20" y="479" width="560" height="43"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="36"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=regular-widthClass=regular">
-                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="80"/>
+                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="72"/>
                                 </variation>
                             </label>
                         </subviews>
