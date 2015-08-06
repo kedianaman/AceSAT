@@ -22,7 +22,9 @@ class MainMenuViewController: UIViewController {
     @IBOutlet weak var wordListPickerView: WordListPickerView!
     
     var currentlySelectedWordList: WordList {
-        return WordListManager.sharedManager.wordListAtIndex(self.wordListPickerView.selectedNumberList)
+        get {
+            return WordListManager.sharedManager.wordListAtIndex(self.wordListPickerView.selectedNumberList)
+        }
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
@@ -42,7 +44,9 @@ class MainMenuViewController: UIViewController {
         wordListStackView.transform = CGAffineTransformMakeTranslation(0, -wordListStackView.bounds.size.height/4.0)
         
         listChooserButton.tintColor = UIColor.whiteColor()
-        listChooserButton.setTitle(String(wordListPickerView.selectedNumberList+1), forState: .Normal)
+        if let index = NSUserDefaults.standardUserDefaults().valueForKey("WordListIndex") as? Int {
+            listChooserButton.setTitle(String(index+1), forState: .Normal)
+        }
         
         updateGradientButtonColors()
     }
@@ -135,7 +139,14 @@ class MainMenuViewController: UIViewController {
     @IBAction func listChooserButtonPressed(sender: AnyObject) {
         
         let showWordListChooser = self.wordListStackView.alpha == 0
-
+        if showWordListChooser {
+            if let index = NSUserDefaults.standardUserDefaults().valueForKey("WordListIndex") as? Int {
+                print(index)
+                self.wordListPickerView?.selectRow(index)
+            }
+        } else {
+             NSUserDefaults.standardUserDefaults().setValue(wordListPickerView.selectedNumberList, forKey: "WordListIndex")
+        }
         let buttons = [reviewButton, practiceButton, testButton]
         for button in buttons {
             let randomDuration = Double(random()%30)/50.0 + 0.4
@@ -146,7 +157,6 @@ class MainMenuViewController: UIViewController {
         }
         
         UIView.animateWithDuration(0.5, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.0, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
-            
             self.stackView.alpha = showWordListChooser ? 0.25 : 1.0
             self.wordListStackView.alpha = showWordListChooser ? 1.0 : 0.0
             
@@ -159,6 +169,7 @@ class MainMenuViewController: UIViewController {
             else {
                 self.listChooserButton.setImage(nil, forState: .Normal)
                 self.listChooserButton.setTitle(String(self.wordListPickerView.selectedNumberList+1), forState: .Normal)
+               
             }
             
             }, completion: nil)
