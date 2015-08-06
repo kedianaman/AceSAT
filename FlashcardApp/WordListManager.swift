@@ -44,6 +44,38 @@ class WordListManager {
         }
     }
     
+    // MARK:- Storing NSUseDefaults
+    
+    struct DefaultsKey {
+        static let AcedWordListKey = "AcedWordLists"
+    }
+    
+    func setAced(wordList: WordList) {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        let acedWordLists: NSMutableArray
+        if let lists = defaults.objectForKey(DefaultsKey.AcedWordListKey) {
+            acedWordLists = lists.mutableCopy() as! NSMutableArray
+        }
+        else {
+            acedWordLists = NSMutableArray()
+        }
+        
+        let index = wordLists.indexOf(wordList)!
+        if acedWordLists.containsObject(index) == false {
+            acedWordLists.addObject(index)
+        }
+        
+        defaults.setObject(acedWordLists, forKey: DefaultsKey.AcedWordListKey)
+    }
+    
+    func getAced(wordList: WordList) -> Bool {
+        let index = wordLists.indexOf(wordList)!
+        if let acedWordLists = NSUserDefaults.standardUserDefaults().objectForKey(DefaultsKey.AcedWordListKey) {
+            return acedWordLists.containsObject(index)
+        }
+        return false
+    }
+    
     // MARK:- Word List Access
     
     var numberOfWordLists: Int {
@@ -53,9 +85,11 @@ class WordListManager {
     func wordListAtIndex(index: Int) -> WordList {
         return wordLists[index];
     }
+    
 }
 
-class WordList : CustomStringConvertible, CollectionType {
+
+class WordList : CustomStringConvertible, CollectionType, Equatable {
     typealias Generator = IndexingGenerator<[Word]>
     typealias _Element = Word
 
@@ -92,14 +126,15 @@ class WordList : CustomStringConvertible, CollectionType {
     }
     
     func hasWord(word: Word) -> Bool {
-        return contains({ (aWord) -> Bool in
+        return contains { (aWord) -> Bool in
             return word == aWord
-        })
+        }
     }
 }
 
-
-
+func ==(lhs: WordList, rhs: WordList) -> Bool {
+    return lhs.words == rhs.words
+}
 
 class Word : CustomStringConvertible, Equatable {
     var word: String
@@ -113,8 +148,6 @@ class Word : CustomStringConvertible, Equatable {
     var description: String {
         return word + " : " + definition
     }
-    
-    
 }
 
 func ==(lhs: Word, rhs: Word) -> Bool {

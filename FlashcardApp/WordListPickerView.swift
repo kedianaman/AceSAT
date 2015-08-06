@@ -86,11 +86,29 @@ class WordListPickerView: UIView, UIPickerViewDataSource, UIPickerViewDelegate {
         }
         if viewForRow == nil {
             viewForRow = UILabel()
-            viewForRow?.textColor = UIColor.whiteColor()
+            viewForRow!.textColor = UIColor.whiteColor()
+            viewForRow!.textAlignment = .Center
+            viewForRow!.numberOfLines = 0
         }
-        viewForRow!.text = String(row+1)
         
-        viewForRow!.font = UIFont.systemFontOfSize(floor(11/40.0 * bounds.size.height))
+        let wordList = WordListManager.sharedManager.wordListAtIndex(row)
+        
+        let fontSize = (floor(11/40.0 * bounds.size.height))
+        let listFont = UIFont.systemFontOfSize(fontSize)
+        let starFont = UIFont.systemFontOfSize(fontSize * 0.75)
+        
+        if WordListManager.sharedManager.getAced(wordList) == true {
+            let attributedText = NSMutableAttributedString(string: "\n", attributes: [NSFontAttributeName : starFont])
+            attributedText.appendAttributedString(NSAttributedString(string: "\(row+1)\n", attributes: [NSFontAttributeName: listFont, NSForegroundColorAttributeName:UIColor.whiteColor() ]))
+            attributedText.appendAttributedString(NSAttributedString(string: "★", attributes: [NSFontAttributeName: starFont, NSForegroundColorAttributeName:UIColor.orangeColor() ]))
+            viewForRow!.attributedText = attributedText
+        }
+        else {
+            viewForRow!.text = String(row+1)
+            viewForRow!.font = listFont
+        }
+        
+        
         viewForRow!.transform = CGAffineTransformMakeRotation(CGFloat(M_PI_2))
         viewForRow!.sizeToFit()
         

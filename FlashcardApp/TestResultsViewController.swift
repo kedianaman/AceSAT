@@ -11,6 +11,7 @@ import UIKit
 class TestResultsViewController: UIViewController {
 
     var test: Test?
+    var wordList: WordList?
     @IBOutlet weak var testPercentageView: TestPercentageView!
     @IBOutlet weak var testResultsContainerTableView: UIView!
     @IBOutlet weak var resultsStackview: UIStackView!
@@ -24,6 +25,7 @@ class TestResultsViewController: UIViewController {
             testResultsContainerTableView.removeFromSuperview()
             resultsStackview.addArrangedSubview(acedLabel)
             acedLabel.alpha = 1
+            WordListManager.sharedManager.setAced(wordList!)
         }
         navigationController?.navigationBarHidden = false
         navigationItem.setHidesBackButton(true, animated: false)

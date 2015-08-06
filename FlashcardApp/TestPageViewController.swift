@@ -43,6 +43,7 @@ class TestPageViewController: UIViewController, UIPageViewControllerDelegate, UI
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let testResultsViewController = storyboard.instantiateViewControllerWithIdentifier("TestResultsViewController") as! TestResultsViewController
         testResultsViewController.test = self.test
+        testResultsViewController.wordList = self.wordList
         navigationController?.pushViewController(testResultsViewController, animated: true)
         
     }
