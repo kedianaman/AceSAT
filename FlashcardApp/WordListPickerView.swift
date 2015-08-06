@@ -29,10 +29,7 @@ class WordListPickerView: UIView, UIPickerViewDataSource, UIPickerViewDelegate {
     override func awakeFromNib() {
         super.awakeFromNib()
         backgroundColor = UIColor.clearColor()
-        
     }
-    
-
     
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -65,9 +62,6 @@ class WordListPickerView: UIView, UIPickerViewDataSource, UIPickerViewDelegate {
         pickerView.reloadAllComponents()
     }
     
-    func selectRow(row: Int) {
-        pickerView.selectRow(row, inComponent: 0, animated: false)
-    }
     // MARK:- UIPickerViewDataSource
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
@@ -102,5 +96,4 @@ class WordListPickerView: UIView, UIPickerViewDataSource, UIPickerViewDelegate {
         
         return viewForRow!
     }
-    
- }
+}
