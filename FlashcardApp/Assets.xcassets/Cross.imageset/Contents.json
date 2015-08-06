@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "Cross1x.png",
+      "filename" : "Cross.png",
       "scale" : "1x"
     },
     {
@@ -47,21 +47,20 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "Cross@1x.png",
+      "filename" : "Cross~ipad.png",
       "width-class" : "regular",
       "height-class" : "regular",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Cross@2x-1.png",
+      "filename" : "Cross@2x~ipad.png",
       "width-class" : "regular",
       "height-class" : "regular",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Cross@3x-1.png",
       "width-class" : "regular",
       "height-class" : "regular",
       "scale" : "3x"

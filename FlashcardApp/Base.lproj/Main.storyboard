@@ -2,6 +2,8 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8164.2" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ipr-nR-jwD">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8135.1"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -486,7 +488,7 @@
                                             </variation>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G1p-Kp-23Q" customClass="TestReviewCellLabel" customModule="AceSAT" customModuleProvider="target">
-                                            <rect key="frame" x="40" y="68" width="545" height="21.5"/>
+                                            <rect key="frame" x="43" y="68" width="542" height="21.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -496,7 +498,7 @@
                                             </variation>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yxs-HI-V2j" customClass="TestReviewCellLabel" customModule="AceSAT" customModuleProvider="target">
-                                            <rect key="frame" x="40" y="47" width="545" height="21.5"/>
+                                            <rect key="frame" x="43" y="47" width="542" height="21.5"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" id="Raz-oB-dXX"/>
                                             </constraints>
@@ -513,14 +515,14 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                             </variation>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" image="Cross" translatesAutoresizingMaskIntoConstraints="NO" id="9Vc-Nh-n31">
-                                            <rect key="frame" x="15" y="47" width="17" height="17"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" misplaced="YES" image="Cross" translatesAutoresizingMaskIntoConstraints="NO" id="9Vc-Nh-n31">
+                                            <rect key="frame" x="15" y="48" width="20" height="20"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="9Vc-Nh-n31" secondAttribute="height" multiplier="1:1" priority="750" id="dui-jk-UIy"/>
                                             </constraints>
                                         </imageView>
                                         <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CorrectCheck" translatesAutoresizingMaskIntoConstraints="NO" id="e7V-9l-hdh">
-                                            <rect key="frame" x="15" y="68" width="17" height="17"/>
+                                            <rect key="frame" x="15" y="72" width="20" height="20"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="e7V-9l-hdh" secondAttribute="height" multiplier="1:1" id="MWi-WY-Dxt"/>
                                             </constraints>
@@ -528,21 +530,28 @@
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
+                                        <constraint firstItem="9Vc-Nh-n31" firstAttribute="centerY" secondItem="Yxs-HI-V2j" secondAttribute="centerY" id="2Qb-Te-bho"/>
                                         <constraint firstItem="9Vc-Nh-n31" firstAttribute="leading" secondItem="uoz-FJ-mkL" secondAttribute="leading" id="4cs-EC-vDp"/>
                                         <constraint firstItem="9Vc-Nh-n31" firstAttribute="height" secondItem="Yxs-HI-V2j" secondAttribute="height" id="5Vl-UY-uqV"/>
+                                        <constraint firstItem="9Vc-Nh-n31" firstAttribute="bottom" secondItem="Yxs-HI-V2j" secondAttribute="firstBaseline" id="6B3-c8-hZg"/>
                                         <constraint firstItem="G1p-Kp-23Q" firstAttribute="leading" secondItem="e7V-9l-hdh" secondAttribute="trailing" constant="8" symbolic="YES" id="6Jv-di-UiB"/>
                                         <constraint firstItem="e7V-9l-hdh" firstAttribute="width" secondItem="e7V-9l-hdh" secondAttribute="height" multiplier="1:1" id="7ra-8M-e2q"/>
                                         <constraint firstAttribute="topMargin" secondItem="uoz-FJ-mkL" secondAttribute="top" id="9BR-cn-aHI"/>
+                                        <constraint firstItem="9Vc-Nh-n31" firstAttribute="centerY" secondItem="Yxs-HI-V2j" secondAttribute="centerY" id="Bii-Lf-re7"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="Yxs-HI-V2j" secondAttribute="trailing" id="DL6-AM-naD"/>
                                         <constraint firstItem="Yxs-HI-V2j" firstAttribute="top" secondItem="uoz-FJ-mkL" secondAttribute="bottom" id="I6a-UY-rXp"/>
                                         <constraint firstItem="e7V-9l-hdh" firstAttribute="leading" secondItem="9Vc-Nh-n31" secondAttribute="leading" id="MLI-Oa-0Cc"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="G1p-Kp-23Q" secondAttribute="trailing" id="OQV-L1-f58"/>
                                         <constraint firstItem="e7V-9l-hdh" firstAttribute="height" secondItem="G1p-Kp-23Q" secondAttribute="height" id="Rgw-Vr-kaJ"/>
+                                        <constraint firstItem="9Vc-Nh-n31" firstAttribute="top" secondItem="Yxs-HI-V2j" secondAttribute="top" constant="3" id="Xou-OP-FTE"/>
                                         <constraint firstItem="Yxs-HI-V2j" firstAttribute="leading" secondItem="9Vc-Nh-n31" secondAttribute="trailing" constant="8" symbolic="YES" id="YYh-kz-PoR"/>
-                                        <constraint firstItem="e7V-9l-hdh" firstAttribute="top" secondItem="G1p-Kp-23Q" secondAttribute="top" id="YzQ-GM-FLo"/>
+                                        <constraint firstItem="e7V-9l-hdh" firstAttribute="top" secondItem="G1p-Kp-23Q" secondAttribute="top" constant="4" id="YzQ-GM-FLo"/>
+                                        <constraint firstItem="9Vc-Nh-n31" firstAttribute="top" secondItem="Yxs-HI-V2j" secondAttribute="top" id="Zfb-J4-zyi"/>
                                         <constraint firstItem="9Vc-Nh-n31" firstAttribute="centerY" secondItem="Yxs-HI-V2j" secondAttribute="centerY" id="dQH-pD-8aX"/>
                                         <constraint firstItem="G1p-Kp-23Q" firstAttribute="top" secondItem="Yxs-HI-V2j" secondAttribute="bottom" id="jrr-bo-p54"/>
+                                        <constraint firstItem="9Vc-Nh-n31" firstAttribute="baseline" secondItem="Yxs-HI-V2j" secondAttribute="firstBaseline" id="lAE-jb-T3E"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="G1p-Kp-23Q" secondAttribute="bottom" id="n1g-iU-d9x"/>
+                                        <constraint firstItem="9Vc-Nh-n31" firstAttribute="centerY" secondItem="Yxs-HI-V2j" secondAttribute="centerY" priority="750" id="sHT-lQ-xLw"/>
                                         <constraint firstItem="uoz-FJ-mkL" firstAttribute="leading" secondItem="VUa-0Z-zWp" secondAttribute="leadingMargin" id="sqd-CT-fdq"/>
                                         <constraint firstItem="e7V-9l-hdh" firstAttribute="centerY" secondItem="G1p-Kp-23Q" secondAttribute="centerY" id="uuj-rv-ccP"/>
                                         <constraint firstItem="Yxs-HI-V2j" firstAttribute="leading" secondItem="uoz-FJ-mkL" secondAttribute="leading" id="vmF-XP-06r"/>
@@ -553,8 +562,15 @@
                                     </constraints>
                                     <variation key="default">
                                         <mask key="constraints">
+                                            <exclude reference="2Qb-Te-bho"/>
                                             <exclude reference="5Vl-UY-uqV"/>
+                                            <exclude reference="6B3-c8-hZg"/>
+                                            <exclude reference="Bii-Lf-re7"/>
+                                            <exclude reference="Zfb-J4-zyi"/>
                                             <exclude reference="dQH-pD-8aX"/>
+                                            <exclude reference="lAE-jb-T3E"/>
+                                            <exclude reference="sHT-lQ-xLw"/>
+                                            <exclude reference="xmI-mY-pIO"/>
                                             <exclude reference="vmF-XP-06r"/>
                                             <exclude reference="7ra-8M-e2q"/>
                                             <exclude reference="Rgw-Vr-kaJ"/>
@@ -621,8 +637,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="CorrectCheck" width="17" height="13"/>
-        <image name="Cross" width="14" height="14"/>
+        <image name="CorrectCheck" width="20" height="20"/>
+        <image name="Cross" width="20" height="20"/>
         <image name="DeselectedButton" width="24" height="24"/>
     </resources>
 </document>

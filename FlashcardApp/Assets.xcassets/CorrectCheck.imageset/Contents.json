@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "Checkmark@1x.png",
+      "filename" : "CorrectCheck.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Checkmark@2x.png",
+      "filename" : "CorrectCheck@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Checkmark@3x.png",
+      "filename" : "CorrectCheck@3x.png",
       "scale" : "3x"
     },
     {
@@ -47,21 +47,20 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "Checkmark.png",
+      "filename" : "CorrectCheck~ipad.png",
       "width-class" : "regular",
       "height-class" : "regular",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Checkmark@2x-1.png",
+      "filename" : "CorrectCheck@2x~ipad.png",
       "width-class" : "regular",
       "height-class" : "regular",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Checkmark@3x-1.png",
       "width-class" : "regular",
       "height-class" : "regular",
       "scale" : "3x"

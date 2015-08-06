@@ -135,7 +135,6 @@ class MainMenuViewController: UIViewController {
     @IBAction func listChooserButtonPressed(sender: AnyObject) {
         
         let showWordListChooser = self.wordListStackView.alpha == 0
-
         let buttons = [reviewButton, practiceButton, testButton]
         for button in buttons {
             let randomDuration = Double(random()%30)/50.0 + 0.4
@@ -155,6 +154,7 @@ class MainMenuViewController: UIViewController {
             if showWordListChooser {
                 self.listChooserButton.setImage(UIImage(named: "Checkmark"), forState: .Normal)
                 self.listChooserButton.setTitle("", forState: .Normal)
+                self.wordListPickerView.reloadInputViews()
             }
             else {
                 self.listChooserButton.setImage(nil, forState: .Normal)
