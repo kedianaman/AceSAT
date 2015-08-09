@@ -23,6 +23,10 @@ class WordListPickerView: UIView, UIPickerViewDataSource, UIPickerViewDelegate {
         return pickerView.selectedRowInComponent(0)
     }
     
+    func reloadComponents() {
+        pickerView.reloadAllComponents()
+    }
+    
     private var pickerView: UIPickerView!
     private var selectionIndicatorView: UIView!
     

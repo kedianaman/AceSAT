@@ -133,6 +133,7 @@ class MainMenuViewController: UIViewController {
     
     // MARK:- Actions
     @IBAction func listChooserButtonPressed(sender: AnyObject) {
+        wordListPickerView.reloadComponents()
         
         let showWordListChooser = self.wordListStackView.alpha == 0
         let buttons = [reviewButton, practiceButton, testButton]
