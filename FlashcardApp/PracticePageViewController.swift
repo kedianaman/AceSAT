@@ -26,6 +26,8 @@ class PracticePageViewController: UIViewController, UIPageViewControllerDataSour
         navigationController?.view.tintColor = UIColor.ace_blueColor()
     }
     
+
+
     // MARK:- View Setup
     
     override func loadView() {

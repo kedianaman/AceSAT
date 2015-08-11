@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class PracticeFlashcardViewController: UIViewController {
     
@@ -21,6 +22,7 @@ class PracticeFlashcardViewController: UIViewController {
     @IBOutlet weak var vocabWordLabel: UILabel!
     @IBOutlet weak var vocabWordLabelCenterYConstraint: NSLayoutConstraint!
     @IBOutlet weak var definitionlabelCenterYConstraint: NSLayoutConstraint!
+    let speechSynthesizer = AVSpeechSynthesizer()
     
     var definitionWordText: String!
     var vocabWordText: String!
@@ -43,6 +45,14 @@ class PracticeFlashcardViewController: UIViewController {
     override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
         updateLabelConstraints(size)
+    }
+    
+    override func motionBegan(motion: UIEventSubtype, withEvent event: UIEvent?) {
+        if motion == .MotionShake {
+            let speechUtterance = AVSpeechUtterance(string: vocabWordText)
+            speechSynthesizer.speakUtterance(speechUtterance)
+            
+        }
     }
 
     
