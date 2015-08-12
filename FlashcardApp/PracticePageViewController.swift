@@ -25,8 +25,6 @@ class PracticePageViewController: UIViewController, UIPageViewControllerDataSour
         navigationController?.navigationBar.barStyle = UIBarStyle.Black
         navigationController?.view.tintColor = UIColor.ace_blueColor()
     }
-    
-
 
     // MARK:- View Setup
     
@@ -36,12 +34,22 @@ class PracticePageViewController: UIViewController, UIPageViewControllerDataSour
         setUpPageControlAppearance()
         self.view.backgroundColor = UIColor.blackColor()
     }
+    
+    // MARK:- Motion
+    
+    override func motionBegan(motion: UIEventSubtype, withEvent event: UIEvent?) {
+        super.motionBegan(motion, withEvent: event)
+        if motion == .MotionShake {
+            let viewController = pageViewController.viewControllers?.first as! PracticeFlashcardViewController
+            viewController.speakWord()
+        }
+    }
+    
     // MARK:- IB Action
     
     func doneButtonPressed(sender: UIBarButtonItem) {
         dismissViewControllerAnimated(true, completion: nil)
     }
-
     
     func setUpPageViewController() {
         pageViewController = UIPageViewController(transitionStyle: UIPageViewControllerTransitionStyle.Scroll, navigationOrientation: UIPageViewControllerNavigationOrientation.Horizontal, options: nil)

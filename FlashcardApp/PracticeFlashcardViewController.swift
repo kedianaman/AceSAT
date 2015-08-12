@@ -47,15 +47,11 @@ class PracticeFlashcardViewController: UIViewController {
         updateLabelConstraints(size)
     }
     
-    override func motionBegan(motion: UIEventSubtype, withEvent event: UIEvent?) {
-        if motion == .MotionShake {
-            let speechUtterance = AVSpeechUtterance(string: vocabWordText)
-            speechSynthesizer.speakUtterance(speechUtterance)
-            
-        }
+    func speakWord() {
+        let speechUtterance = AVSpeechUtterance(string: vocabWordText)
+        speechSynthesizer.speakUtterance(speechUtterance)
     }
-
-    
+        
     func viewTapped(gesture: UIGestureRecognizer) {
         if gesture.state == .Recognized {
             UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in

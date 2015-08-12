@@ -22,6 +22,8 @@ class ReviewTableViewController: UITableViewController {
         navigationController?.view.tintColor = UIColor.ace_greenColor()
         navigationController?.hidesBarsOnSwipe = true
         
+        navigationController?.barHideOnSwipeGestureRecognizer.addTarget(self, action: "hideBarOnSwipe:")
+        
         navigationController?.navigationBar.barTintColor = UIColor.blackColor()
         navigationController?.navigationBar.translucent = false
         navigationController?.navigationBar.barStyle = UIBarStyle.Black
@@ -29,6 +31,21 @@ class ReviewTableViewController: UITableViewController {
     
     @IBAction func doneButtonPressed(sender: UIBarButtonItem) {
         self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func hideBarOnSwipe(gesture: UIPanGestureRecognizer) {
+        if gesture.state == .Ended {
+            UIView.animateWithDuration(0.2, animations: { () -> Void in
+                self.setNeedsStatusBarAppearanceUpdate()
+            })
+        }
+    }
+    
+    override func prefersStatusBarHidden() -> Bool {
+        if let navigationController = navigationController {
+            return navigationController.navigationBarHidden
+        }
+        return false
     }
     
     // MARK: - Table view data source
