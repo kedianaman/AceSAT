@@ -63,6 +63,7 @@ class TestResultsViewController: UIViewController {
         if segue.identifier == "ShowReviewTableView" {
             if let testReviewTVC = segue.destinationViewController as? TestReviewTableViewController {
                 testReviewTVC.test = self.test
+                testReviewTVC.correctAnswers = calculateCorrectAnswers()
             }
         }
     }

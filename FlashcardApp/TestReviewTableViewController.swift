@@ -13,6 +13,10 @@ class TestReviewTableViewController: UITableViewController {
     
     var test: Test?
     var wrongOrUnansweredQuestions: [TestQuestion]?
+    var correctAnswers: Int? 
+    
+    @IBOutlet weak var feedbackHeaderView: UIView!
+    @IBOutlet weak var feedbackLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +30,9 @@ class TestReviewTableViewController: UITableViewController {
         navigationItem.setHidesBackButton(true, animated: false)
         let completeButton : UIBarButtonItem = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.Plain, target: self, action: "endButtonPressed:")
         navigationItem.rightBarButtonItem = completeButton
+        feedbackLabel.textColor = UIColor.whiteColor()
+        setFeedbackLabel()
+        tableView.tableHeaderView = feedbackHeaderView
 
     }
     
@@ -36,6 +43,20 @@ class TestReviewTableViewController: UITableViewController {
     
     func endButtonPressed(sender: UIBarButtonItem) {
         dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func setFeedbackLabel() {
+        if let correctAnswers = correctAnswers {
+            if correctAnswers == 10 {
+                feedbackLabel = nil
+            } else if correctAnswers == 9 {
+                feedbackLabel.text = "Great Job!"
+            } else if correctAnswers == 8 {
+                feedbackLabel.text = "Almost there!"
+            } else {
+                feedbackLabel.text = "Keep trying!"
+            }
+        }
     }
 
    
@@ -65,6 +86,8 @@ class TestReviewTableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         return wrongOrUnansweredQuestions!.count
     }
+    
+
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -81,6 +104,7 @@ class TestReviewTableViewController: UITableViewController {
         return cell
     }
     
+ 
 
     /*
     // Override to support conditional editing of the table view.
