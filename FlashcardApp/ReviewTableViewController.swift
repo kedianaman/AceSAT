@@ -43,9 +43,9 @@ class ReviewTableViewController: UITableViewController {
     
     override func prefersStatusBarHidden() -> Bool {
         if let navigationController = navigationController {
-            return navigationController.navigationBarHidden
+            return navigationController.navigationBarHidden || super.prefersStatusBarHidden()
         }
-        return false
+        return super.prefersStatusBarHidden()
     }
     
     // MARK: - Table view data source

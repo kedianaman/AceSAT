@@ -12,6 +12,7 @@ class TestButton: UIButton {
     override func intrinsicContentSize() -> CGSize {
         var size = self.titleLabel!.intrinsicContentSize()
         size.width += self.imageView!.bounds.size.width
+        size.height = floor(size.height * 1.2)
         return size
     }
 }
