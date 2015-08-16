@@ -32,7 +32,7 @@ class TestReviewTableViewController: UITableViewController {
         navigationItem.rightBarButtonItem = completeButton
         feedbackLabel.textColor = UIColor.whiteColor()
         setFeedbackLabel()
-        tableView.tableHeaderView = feedbackHeaderView
+//        tableView.tableHeaderView = feedbackHeaderView
 
     }
     
