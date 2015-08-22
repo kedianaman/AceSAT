@@ -22,7 +22,23 @@ class MainMenuViewController: UIViewController {
     @IBOutlet weak var wordListPickerView: WordListPickerView!
     
     var currentlySelectedWordList: WordList {
-        return WordListManager.sharedManager.wordListAtIndex(self.wordListPickerView.selectedNumberList)
+        let index = NSUserDefaults.standardUserDefaults().valueForKey("SelectedWordListKey") as! Int
+        print(index)
+        return WordListManager.sharedManager.wordListAtIndex(index)
+    }
+    
+    var currentlySelectedIndex: Int {
+        set {
+            NSUserDefaults.standardUserDefaults().setValue(newValue, forKey: "SelectedWordListKey")
+        }
+        get {
+            if let index = NSUserDefaults.standardUserDefaults().valueForKey("SelectedWordListKey") as? Int {
+                return index
+            } else {
+                return 0
+
+            }
+        }
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
@@ -42,7 +58,7 @@ class MainMenuViewController: UIViewController {
         wordListStackView.transform = CGAffineTransformMakeTranslation(0, -wordListStackView.bounds.size.height/4.0)
         
         listChooserButton.tintColor = UIColor.whiteColor()
-        listChooserButton.setTitle(String(wordListPickerView.selectedNumberList+1), forState: .Normal)
+        listChooserButton.setTitle(String(currentlySelectedIndex+1), forState: .Normal)
         
         updateGradientButtonColors()
     }
@@ -134,8 +150,10 @@ class MainMenuViewController: UIViewController {
     // MARK:- Actions
     @IBAction func listChooserButtonPressed(sender: AnyObject) {
         wordListPickerView.reloadComponents()
-        
         let showWordListChooser = self.wordListStackView.alpha == 0
+        if showWordListChooser == true {
+            wordListPickerView.setSelectedRow(currentlySelectedIndex)
+        }
         let buttons = [reviewButton, practiceButton, testButton]
         for button in buttons {
             let randomDuration = Double(random()%30)/50.0 + 0.4
@@ -160,6 +178,7 @@ class MainMenuViewController: UIViewController {
             else {
                 self.listChooserButton.setImage(nil, forState: .Normal)
                 self.listChooserButton.setTitle(String(self.wordListPickerView.selectedNumberList+1), forState: .Normal)
+                self.currentlySelectedIndex = self.wordListPickerView.selectedNumberList
             }
             
             }, completion: nil)

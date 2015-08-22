@@ -27,6 +27,9 @@ class WordListPickerView: UIView, UIPickerViewDataSource, UIPickerViewDelegate {
         pickerView.reloadAllComponents()
     }
     
+    func setSelectedRow(row: Int) {
+        pickerView.selectRow(row, inComponent: 0, animated: false)
+    }
     private var pickerView: UIPickerView!
     private var selectionIndicatorView: UIView!
     
