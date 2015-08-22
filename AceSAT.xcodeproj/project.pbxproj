@@ -103,7 +103,7 @@
 		ED1C89B81B5985EF00DCF0EB = {
 			isa = PBXGroup;
 			children = (
-				ED1C89C31B5985EF00DCF0EB /* FlashcardApp */,
+				ED1C89C31B5985EF00DCF0EB /* AceSAT */,
 				ED1C89C21B5985EF00DCF0EB /* Products */,
 			);
 			sourceTree = "<group>";
@@ -116,7 +116,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		ED1C89C31B5985EF00DCF0EB /* FlashcardApp */ = {
+		ED1C89C31B5985EF00DCF0EB /* AceSAT */ = {
 			isa = PBXGroup;
 			children = (
 				ED1C89C41B5985EF00DCF0EB /* AppDelegate.swift */,
@@ -136,7 +136,7 @@
 				ED1C89D01B5985EF00DCF0EB /* Info.plist */,
 				EDF48E351B64507A0090C6F3 /* WordList.json */,
 			);
-			path = FlashcardApp;
+			path = AceSAT;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -174,7 +174,7 @@
 					};
 				};
 			};
-			buildConfigurationList = ED1C89BC1B5985EF00DCF0EB /* Build configuration list for PBXProject "FlashcardApp" */;
+			buildConfigurationList = ED1C89BC1B5985EF00DCF0EB /* Build configuration list for PBXProject "AceSAT" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -343,9 +343,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				INFOPLIST_FILE = FlashcardApp/Info.plist;
+				INFOPLIST_FILE = AceSAT/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.namankedia.FlashcardApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.namankedia.AceSAT;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -357,9 +357,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				INFOPLIST_FILE = FlashcardApp/Info.plist;
+				INFOPLIST_FILE = AceSAT/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.namankedia.FlashcardApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.namankedia.AceSAT;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -368,7 +368,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		ED1C89BC1B5985EF00DCF0EB /* Build configuration list for PBXProject "FlashcardApp" */ = {
+		ED1C89BC1B5985EF00DCF0EB /* Build configuration list for PBXProject "AceSAT" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				ED1C89D11B5985EF00DCF0EB /* Debug */,

@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:FlashcardApp.xcodeproj">
+      location = "self:/Users/Shubham/Developer/AceSAT/AceSAT.xcodeproj">
    </FileRef>
 </Workspace>
