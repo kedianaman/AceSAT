@@ -22,9 +22,11 @@ class MainMenuViewController: UIViewController {
     @IBOutlet weak var wordListPickerView: WordListPickerView!
     
     var currentlySelectedWordList: WordList {
-        let index = NSUserDefaults.standardUserDefaults().valueForKey("SelectedWordListKey") as! Int
-        print(index)
-        return WordListManager.sharedManager.wordListAtIndex(index)
+        if let index = NSUserDefaults.standardUserDefaults().valueForKey("SelectedWordListKey") as? Int {
+            return WordListManager.sharedManager.wordListAtIndex(index)
+        } else {
+            return WordListManager.sharedManager.wordListAtIndex(0)
+        }
     }
     
     var currentlySelectedIndex: Int {

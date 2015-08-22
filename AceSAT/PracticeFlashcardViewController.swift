@@ -67,7 +67,7 @@ class PracticeFlashcardViewController: UIViewController {
         
     func viewTapped(gesture: UIGestureRecognizer) {
         if gesture.state == .Recognized {
-            UIView.animateWithDuration(0.4, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0, options: UIViewAnimationOptions.CurveEaseOut.union(.AllowUserInteraction), animations: { () -> Void in
+            UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0, options: UIViewAnimationOptions.CurveEaseOut.union(.AllowUserInteraction), animations: { () -> Void in
                 self.showingDefinition = !self.showingDefinition
                 self.view.layoutIfNeeded()
                 }, completion: nil)
