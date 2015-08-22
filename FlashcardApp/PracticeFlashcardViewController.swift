@@ -11,13 +11,7 @@ import AVFoundation
 
 class PracticeFlashcardViewController: UIViewController {
     
-    var showingDefinition = false {
-        didSet {
-            updateLabelConstraints(view.bounds.size)
-        }
-    }
-    
-    var indexOfView: Int? 
+    var indexOfView: Int?
     @IBOutlet weak var definitionWordLabel: UILabel!
     @IBOutlet weak var vocabWordLabel: UILabel!
     
@@ -37,6 +31,12 @@ class PracticeFlashcardViewController: UIViewController {
     var definitionWordText: String!
     var vocabWordText: String!
     
+    var showingDefinition = false {
+        didSet {
+            updateConstraintsAndLabelAlpha()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let tapGesture = UITapGestureRecognizer(target: self, action: "viewTapped:")
@@ -48,14 +48,14 @@ class PracticeFlashcardViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        updateLabelConstraints(view.bounds.size)
+        updateConstraintsAndLabelAlpha()
     }
     
     override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
         
         coordinator.animateAlongsideTransition({ context -> Void in
-            self.updateLabelConstraints(size)
+            self.updateConstraintsAndLabelAlpha()
             self.view.layoutIfNeeded()
             }, completion: nil)
     }
@@ -74,23 +74,21 @@ class PracticeFlashcardViewController: UIViewController {
         }
     }
 
-    func updateLabelConstraints(size: CGSize) {
+    func updateConstraintsAndLabelAlpha() {
+        let showDefinitionConstraints: [NSLayoutConstraint] = [ definitionWordSpacingConstraint, containerViewCenterYConstraint ]
+        let hideDefinitionConstraints: [NSLayoutConstraint] = [ wordZeroBottomSpaceConstraint, containerViewTopSpaceConstraint, containerViewBottomSpaceConstraint ]
+        
         if showingDefinition {
-            wordZeroBottomSpaceConstraint.active = !showingDefinition
-            containerViewTopSpaceConstraint.active = !showingDefinition
-            containerViewBottomSpaceConstraint.active = !showingDefinition
-            definitionWordSpacingConstraint.active = showingDefinition
-            containerViewCenterYConstraint.active = showingDefinition
+            NSLayoutConstraint.deactivateConstraints(hideDefinitionConstraints)
+            NSLayoutConstraint.activateConstraints(showDefinitionConstraints)
         }
         else {
-            definitionWordSpacingConstraint.active = showingDefinition
-            containerViewCenterYConstraint.active = showingDefinition
-            wordZeroBottomSpaceConstraint.active = !showingDefinition
-            containerViewTopSpaceConstraint.active = !showingDefinition
-            containerViewBottomSpaceConstraint.active = !showingDefinition
+            NSLayoutConstraint.deactivateConstraints(showDefinitionConstraints)
+            NSLayoutConstraint.activateConstraints(hideDefinitionConstraints)
         }
-        definitionWordLabel.alpha = showingDefinition ? 1 : 0
 
+        definitionWordLabel.alpha = showingDefinition ? 1 : 0
+        view.layoutIfNeeded()
     }
    
 }
