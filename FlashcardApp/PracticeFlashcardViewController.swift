@@ -20,8 +20,18 @@ class PracticeFlashcardViewController: UIViewController {
     var indexOfView: Int? 
     @IBOutlet weak var definitionWordLabel: UILabel!
     @IBOutlet weak var vocabWordLabel: UILabel!
-    @IBOutlet weak var vocabWordLabelCenterYConstraint: NSLayoutConstraint!
-    @IBOutlet weak var definitionlabelCenterYConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var containerView: UIView!
+    
+    // Active when definition is hidden
+    @IBOutlet weak var wordZeroBottomSpaceConstraint: NSLayoutConstraint!
+    @IBOutlet weak var containerViewTopSpaceConstraint: NSLayoutConstraint!
+    @IBOutlet weak var containerViewBottomSpaceConstraint: NSLayoutConstraint!
+
+    // Active when showing definition
+    @IBOutlet weak var definitionWordSpacingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var containerViewCenterYConstraint: NSLayoutConstraint!
+    
     let speechSynthesizer = AVSpeechSynthesizer()
     
     var definitionWordText: String!
@@ -31,7 +41,6 @@ class PracticeFlashcardViewController: UIViewController {
         super.viewDidLoad()
         let tapGesture = UITapGestureRecognizer(target: self, action: "viewTapped:")
         view.addGestureRecognizer(tapGesture)
-        definitionlabelCenterYConstraint.constant = view.bounds.size.height/2
         definitionWordLabel.text = definitionWordText
         vocabWordLabel.text = vocabWordText
         definitionWordLabel.alpha = 0
@@ -44,7 +53,11 @@ class PracticeFlashcardViewController: UIViewController {
     
     override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
-        updateLabelConstraints(size)
+        
+        coordinator.animateAlongsideTransition({ context -> Void in
+            self.updateLabelConstraints(size)
+            self.view.layoutIfNeeded()
+            }, completion: nil)
     }
     
     func speakWord() {
@@ -60,14 +73,24 @@ class PracticeFlashcardViewController: UIViewController {
                 }, completion: nil)
         }
     }
-    
 
     func updateLabelConstraints(size: CGSize) {
-        if definitionlabelCenterYConstraint != nil {
-            definitionlabelCenterYConstraint.constant = showingDefinition ? size.height/6 : size.height / 2
-            vocabWordLabelCenterYConstraint.constant = showingDefinition ? -size.height/6 : 0
-            definitionWordLabel.alpha = showingDefinition ? 1 : 0
+        if showingDefinition {
+            wordZeroBottomSpaceConstraint.active = !showingDefinition
+            containerViewTopSpaceConstraint.active = !showingDefinition
+            containerViewBottomSpaceConstraint.active = !showingDefinition
+            definitionWordSpacingConstraint.active = showingDefinition
+            containerViewCenterYConstraint.active = showingDefinition
         }
+        else {
+            definitionWordSpacingConstraint.active = showingDefinition
+            containerViewCenterYConstraint.active = showingDefinition
+            wordZeroBottomSpaceConstraint.active = !showingDefinition
+            containerViewTopSpaceConstraint.active = !showingDefinition
+            containerViewBottomSpaceConstraint.active = !showingDefinition
+        }
+        definitionWordLabel.alpha = showingDefinition ? 1 : 0
+
     }
    
 }
