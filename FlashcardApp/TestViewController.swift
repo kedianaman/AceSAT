@@ -61,6 +61,7 @@ class TestViewController: UIViewController {
     }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        updateFonts()
         updateButtonPreferredMaxLayoutWidth(view.bounds.size)
     }
     
@@ -80,6 +81,18 @@ class TestViewController: UIViewController {
     }
     
     // MARK:- 
+    
+    func updateFonts() {
+        if traitCollection.verticalSizeClass == .Compact || traitCollection.horizontalSizeClass == .Compact {
+            let screenSize = UIScreen.mainScreen().bounds.size
+            let titleFontSize = 44.0 / 375 * min(screenSize.width, screenSize.height)
+            vocabWordTitle.font = UIFont.systemFontOfSize(titleFontSize, weight: UIFontWeightLight)
+            let buttonFontSize = 24.0 / 375 * min(screenSize.width, screenSize.height)
+            for button in definitionButtons {
+                button.titleLabel?.font = UIFont.systemFontOfSize(buttonFontSize, weight: UIFontWeightLight)
+            }
+        }
+    }
     
     func updateButtonPreferredMaxLayoutWidth(size: CGSize) {
         for button in definitionButtons {
