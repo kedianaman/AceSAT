@@ -67,6 +67,8 @@ class WordListPickerView: UIView, UIPickerViewDataSource, UIPickerViewDelegate {
         selectionIndicatorView.frame = CGRectMake((bounds.size.width - bounds.size.height)/2.0, 0, bounds.size.height, bounds.size.height)
 
         pickerView.reloadAllComponents()
+        
+        pickerView.setNeedsLayout()
     }
     
     // MARK:- UIPickerViewDataSource
