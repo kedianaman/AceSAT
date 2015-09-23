@@ -36,7 +36,7 @@ class TestViewController: UIViewController {
         vocabWordTitle.text = testQuestion!.word.word
         
         var definitions = testQuestion!.possibleDefinitions
-        definitions.insert(testQuestion!.word.definition, atIndex: random()%definitions.count)
+        definitions.insert(testQuestion!.word.definition, atIndex: random()%definitions.count+1)
         
         for i in 0..<definitions.count {
             let button = definitionButtons[i]

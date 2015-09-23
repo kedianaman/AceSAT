@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ipr-nR-jwD">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15B17c" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ipr-nR-jwD">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
@@ -31,6 +31,7 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nFz-7f-73y" customClass="RoundGradientButton" customModule="AceSAT" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="134.5" width="173.5" height="173"/>
+                                        <animations/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="nFz-7f-73y" secondAttribute="height" multiplier="1:1" id="c5v-8o-muf"/>
                                         </constraints>
@@ -44,6 +45,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fY0-uB-A4e" customClass="RoundGradientButton" customModule="AceSAT" customModuleProvider="target">
                                         <rect key="frame" x="193.5" y="135" width="173" height="172"/>
+                                        <animations/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="fY0-uB-A4e" secondAttribute="height" multiplier="1:1" constant="1" id="Jdg-F8-aJW"/>
                                         </constraints>
@@ -57,6 +59,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CSO-pQ-sbU" customClass="RoundGradientButton" customModule="AceSAT" customModuleProvider="target">
                                         <rect key="frame" x="386.5" y="134.5" width="173.5" height="173"/>
+                                        <animations/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="CSO-pQ-sbU" secondAttribute="height" multiplier="1:1" id="PUz-Vz-rba"/>
                                         </constraints>
@@ -69,12 +72,14 @@
                                         </connections>
                                     </button>
                                 </subviews>
+                                <animations/>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y0e-WU-OKN">
                                 <rect key="frame" x="149" y="40" width="302" height="90"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S8l-lF-0Bl">
                                         <rect key="frame" x="230" y="9" width="72" height="72"/>
+                                        <animations/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.20000000000000001" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="S8l-lF-0Bl" secondAttribute="height" multiplier="1:1" id="Qe4-TF-BWM"/>
@@ -89,11 +94,13 @@
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="1000" text="AceSAT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ip2-Pw-VoZ">
                                         <rect key="frame" x="0.0" y="0.0" width="210" height="90"/>
+                                        <animations/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="60"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
+                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="S8l-lF-0Bl" secondAttribute="trailing" id="8DE-rF-qjh"/>
                                     <constraint firstItem="S8l-lF-0Bl" firstAttribute="leading" secondItem="ip2-Pw-VoZ" secondAttribute="trailing" constant="20" id="F71-Ru-UwI"/>
@@ -109,6 +116,7 @@
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose a Vocabulary Word List:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9YP-Bf-W3T">
                                         <rect key="frame" x="0.0" y="0.0" width="602" height="80"/>
+                                        <animations/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="22"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -118,9 +126,11 @@
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sz5-4f-nec" customClass="WordListPickerView" customModule="AceSAT" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="80" width="602" height="80"/>
+                                        <animations/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                 </subviews>
+                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="160" id="4Nu-O9-hgD">
                                         <variation key="heightClass=regular-widthClass=regular" constant="320"/>
@@ -128,6 +138,7 @@
                                 </constraints>
                             </stackView>
                         </subviews>
+                        <animations/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="leading" secondItem="32B-4L-dEY" secondAttribute="leading" constant="1" id="87R-hm-2pD"/>
@@ -183,6 +194,7 @@
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Word" textAlignment="center" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumScaleFactor="0.25" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e0g-31-Qk1" customClass="TintColorLabel" customModule="AceSAT" customModuleProvider="target">
                                         <rect key="frame" x="205" y="0.0" width="189" height="600"/>
+                                        <animations/>
                                         <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="88"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -192,6 +204,7 @@
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Definition" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WQ9-hw-09y">
                                         <rect key="frame" x="227" y="557" width="147" height="43"/>
+                                        <animations/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="36"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -200,6 +213,7 @@
                                         </variation>
                                     </label>
                                 </subviews>
+                                <animations/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="WQ9-hw-09y" firstAttribute="centerX" secondItem="ggu-r8-hpK" secondAttribute="centerX" id="2b8-9q-Jvw"/>
@@ -220,6 +234,7 @@
                                 </variation>
                             </view>
                         </subviews>
+                        <animations/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ggu-r8-hpK" firstAttribute="centerY" secondItem="qmD-ay-1Sx" secondAttribute="centerY" id="A4I-Mf-iM9"/>
@@ -265,6 +280,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="22" sectionFooterHeight="22" id="hOl-Mk-iZn">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="sectionIndexBackgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -277,6 +293,7 @@
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" verticalCompressionResistancePriority="749" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vBk-jy-Lzd" customClass="TintColorLabel" customModule="AceSAT" customModuleProvider="target">
                                             <rect key="frame" x="23" y="11" width="73" height="44"/>
+                                            <animations/>
                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="40"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
@@ -286,6 +303,7 @@
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LAg-C4-NAn">
                                             <rect key="frame" x="23" y="55" width="569" height="29"/>
+                                            <animations/>
                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -294,6 +312,7 @@
                                             </variation>
                                         </label>
                                     </subviews>
+                                    <animations/>
                                     <constraints>
                                         <constraint firstAttribute="trailingMargin" secondItem="LAg-C4-NAn" secondAttribute="trailing" id="0bQ-hV-EA5"/>
                                         <constraint firstItem="vBk-jy-Lzd" firstAttribute="leading" secondItem="hZ8-nF-XoO" secondAttribute="leadingMargin" constant="15" id="5Up-FU-nLN"/>
@@ -309,6 +328,7 @@
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>
+                                <animations/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="wordDefinition" destination="LAg-C4-NAn" id="9gw-XI-AG4"/>
@@ -350,6 +370,7 @@
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Word" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zkn-bL-VMe" customClass="TintColorLabel" customModule="AceSAT" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="520" height="53"/>
+                                        <animations/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="44"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -359,6 +380,7 @@
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="VWA-ND-vnt" customClass="TestButton" customModule="AceSAT" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="146" width="520" height="29"/>
+                                        <animations/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
                                         <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <state key="normal" title="Title" image="DeselectedButton">
@@ -373,6 +395,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="JZO-G7-KxP" customClass="TestButton" customModule="AceSAT" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="267.5" width="520" height="29"/>
+                                        <animations/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
                                         <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <state key="normal" title="Title" image="DeselectedButton">
@@ -387,6 +410,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="NzJ-Yw-no0" customClass="TestButton" customModule="AceSAT" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="389.5" width="520" height="29"/>
+                                        <animations/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
                                         <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <state key="normal" title="Title" image="DeselectedButton">
@@ -401,6 +425,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="0Mi-yq-xQQ" customClass="TestButton" customModule="AceSAT" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="511" width="520" height="29"/>
+                                        <animations/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
                                         <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <state key="normal" title="Title" image="DeselectedButton">
@@ -414,8 +439,10 @@
                                         </connections>
                                     </button>
                                 </subviews>
+                                <animations/>
                             </stackView>
                         </subviews>
+                        <animations/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="B6g-Z9-HOA" firstAttribute="top" secondItem="1Mr-5E-kep" secondAttribute="bottom" constant="20" id="0Py-q4-lW3"/>
@@ -448,8 +475,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Aced! 👍🏼" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="btn-Qg-V4H">
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Aced! 👍🏼" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="btn-Qg-V4H">
                                 <rect key="frame" x="204" y="271" width="224" height="59"/>
+                                <animations/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="60"/>
                                 <color key="textColor" red="1" green="0.0" blue="0.30980392156862746" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -462,17 +490,21 @@
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="deL-No-BHc" customClass="TestPercentageView" customModule="AceSAT" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="290"/>
+                                        <animations/>
                                     </view>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p04-0q-w6h">
                                         <rect key="frame" x="0.0" y="290" width="600" height="290"/>
+                                        <animations/>
                                         <connections>
                                             <segue destination="2Gk-zt-JFC" kind="embed" identifier="ShowReviewTableView" id="72a-mh-lQQ"/>
                                         </connections>
                                     </containerView>
                                 </subviews>
+                                <animations/>
                                 <variation key="heightClass=compact" axis="horizontal"/>
                             </stackView>
                         </subviews>
+                        <animations/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="V8x-pC-mgI" firstAttribute="top" secondItem="rNK-0D-LD2" secondAttribute="bottom" id="C0x-wa-lFX"/>
@@ -499,6 +531,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="88" sectionHeaderHeight="22" sectionFooterHeight="22" id="0ep-qk-Sa0">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="290"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <color key="sectionIndexBackgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -512,6 +545,7 @@
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" verticalCompressionResistancePriority="1000" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uoz-FJ-mkL" customClass="TestReviewCellLabel" customModule="AceSAT" customModuleProvider="target">
                                             <rect key="frame" x="15" y="10" width="570" height="37"/>
+                                            <animations/>
                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="30"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
@@ -521,6 +555,7 @@
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G1p-Kp-23Q" customClass="TestReviewCellLabel" customModule="AceSAT" customModuleProvider="target">
                                             <rect key="frame" x="43" y="68" width="542" height="21.5"/>
+                                            <animations/>
                                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -531,6 +566,7 @@
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yxs-HI-V2j" customClass="TestReviewCellLabel" customModule="AceSAT" customModuleProvider="target">
                                             <rect key="frame" x="43" y="47" width="542" height="21.5"/>
+                                            <animations/>
                                             <constraints>
                                                 <constraint firstAttribute="height" id="Raz-oB-dXX"/>
                                             </constraints>
@@ -549,17 +585,20 @@
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" misplaced="YES" image="Cross" translatesAutoresizingMaskIntoConstraints="NO" id="9Vc-Nh-n31">
                                             <rect key="frame" x="15" y="48" width="20" height="20"/>
+                                            <animations/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="9Vc-Nh-n31" secondAttribute="height" multiplier="1:1" priority="750" id="dui-jk-UIy"/>
                                             </constraints>
                                         </imageView>
                                         <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CorrectCheck" translatesAutoresizingMaskIntoConstraints="NO" id="e7V-9l-hdh">
                                             <rect key="frame" x="15" y="72" width="20" height="20"/>
+                                            <animations/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="e7V-9l-hdh" secondAttribute="height" multiplier="1:1" id="MWi-WY-Dxt"/>
                                             </constraints>
                                         </imageView>
                                     </subviews>
+                                    <animations/>
                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstItem="9Vc-Nh-n31" firstAttribute="centerY" secondItem="Yxs-HI-V2j" secondAttribute="centerY" id="2Qb-Te-bho"/>
@@ -611,6 +650,7 @@
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>
+                                <animations/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="correctDefinitionLabel" destination="G1p-Kp-23Q" id="WId-qF-VqR"/>
@@ -639,6 +679,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="W2U-7A-Hq9">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -657,6 +698,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="blackTranslucent" id="lHQ-Gs-r5r">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
