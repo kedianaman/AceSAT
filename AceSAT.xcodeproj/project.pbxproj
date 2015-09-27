@@ -16,6 +16,17 @@
 		ED1C89CC1B5985EF00DCF0EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED1C89CB1B5985EF00DCF0EB /* Assets.xcassets */; };
 		ED1C89CF1B5985EF00DCF0EB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED1C89CD1B5985EF00DCF0EB /* LaunchScreen.storyboard */; };
 		ED3322541B61B99000E3F624 /* ReviewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3322531B61B99000E3F624 /* ReviewTableViewController.swift */; };
+		ED403E961BB81E5400BC3E58 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED403E941BB81E5400BC3E58 /* Interface.storyboard */; };
+		ED403E981BB81E5400BC3E58 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED403E971BB81E5400BC3E58 /* Assets.xcassets */; };
+		ED403E9F1BB81E5500BC3E58 /* AceSATWatch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = ED403E9E1BB81E5500BC3E58 /* AceSATWatch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		ED403EA41BB81E5500BC3E58 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED403EA31BB81E5500BC3E58 /* InterfaceController.swift */; };
+		ED403EA61BB81E5500BC3E58 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED403EA51BB81E5500BC3E58 /* ExtensionDelegate.swift */; };
+		ED403EA81BB81E5500BC3E58 /* GlanceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED403EA71BB81E5500BC3E58 /* GlanceController.swift */; };
+		ED403EAA1BB81E5500BC3E58 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED403EA91BB81E5500BC3E58 /* Assets.xcassets */; };
+		ED403EAE1BB81E5500BC3E58 /* AceSATWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = ED403E921BB81E5400BC3E58 /* AceSATWatch.app */; };
+		ED403EBA1BB8232500BC3E58 /* ReviewInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED403EB91BB8232500BC3E58 /* ReviewInterfaceController.swift */; settings = {ASSET_TAGS = (); }; };
+		ED403EBC1BB8235900BC3E58 /* ReviewTableRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED403EBB1BB8235900BC3E58 /* ReviewTableRow.swift */; settings = {ASSET_TAGS = (); }; };
+		ED403EBF1BB824A500BC3E58 /* AceSATColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED15F9841B69FA3500C3F0B9 /* AceSATColors.swift */; settings = {ASSET_TAGS = (); }; };
 		ED5A00211B6E04EC00EDB303 /* WordListPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5A00201B6E04EC00EDB303 /* WordListPickerView.swift */; };
 		ED67293B1B65BFCB00B396F6 /* PracticePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED67293A1B65BFCB00B396F6 /* PracticePageViewController.swift */; };
 		ED67293D1B66059200B396F6 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED67293C1B66059200B396F6 /* TestViewController.swift */; };
@@ -31,6 +42,48 @@
 		EDFE7D2D1B6801F000168A7A /* TestResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFE7D2C1B6801F000168A7A /* TestResultsViewController.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		ED403EA01BB81E5500BC3E58 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ED1C89B91B5985EF00DCF0EB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ED403E9D1BB81E5500BC3E58;
+			remoteInfo = "AceSATWatch Extension";
+		};
+		ED403EAC1BB81E5500BC3E58 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ED1C89B91B5985EF00DCF0EB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ED403E911BB81E5400BC3E58;
+			remoteInfo = AceSATWatch;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		ED403EB41BB81E5500BC3E58 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				ED403E9F1BB81E5500BC3E58 /* AceSATWatch Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ED403EB61BB81E5500BC3E58 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				ED403EAE1BB81E5500BC3E58 /* AceSATWatch.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		ED15F9841B69FA3500C3F0B9 /* AceSATColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AceSATColors.swift; sourceTree = "<group>"; };
 		ED15F9891B6A044000C3F0B9 /* TintColorLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TintColorLabel.swift; sourceTree = "<group>"; };
@@ -43,6 +96,18 @@
 		ED1C89CE1B5985EF00DCF0EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ED1C89D01B5985EF00DCF0EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ED3322531B61B99000E3F624 /* ReviewTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewTableViewController.swift; sourceTree = "<group>"; };
+		ED403E921BB81E5400BC3E58 /* AceSATWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AceSATWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED403E951BB81E5400BC3E58 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		ED403E971BB81E5400BC3E58 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		ED403E991BB81E5400BC3E58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ED403E9E1BB81E5500BC3E58 /* AceSATWatch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "AceSATWatch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED403EA31BB81E5500BC3E58 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		ED403EA51BB81E5500BC3E58 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		ED403EA71BB81E5500BC3E58 /* GlanceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlanceController.swift; sourceTree = "<group>"; };
+		ED403EA91BB81E5500BC3E58 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		ED403EAB1BB81E5500BC3E58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ED403EB91BB8232500BC3E58 /* ReviewInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewInterfaceController.swift; sourceTree = "<group>"; };
+		ED403EBB1BB8235900BC3E58 /* ReviewTableRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewTableRow.swift; sourceTree = "<group>"; };
 		ED5A00201B6E04EC00EDB303 /* WordListPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordListPickerView.swift; sourceTree = "<group>"; };
 		ED67293A1B65BFCB00B396F6 /* PracticePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PracticePageViewController.swift; sourceTree = "<group>"; };
 		ED67293C1B66059200B396F6 /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
@@ -60,6 +125,13 @@
 
 /* Begin PBXFrameworksBuildPhase section */
 		ED1C89BE1B5985EF00DCF0EB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ED403E9B1BB81E5500BC3E58 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -104,6 +176,8 @@
 			isa = PBXGroup;
 			children = (
 				ED1C89C31B5985EF00DCF0EB /* AceSAT */,
+				ED403E931BB81E5400BC3E58 /* AceSATWatch */,
+				ED403EA21BB81E5500BC3E58 /* AceSATWatch Extension */,
 				ED1C89C21B5985EF00DCF0EB /* Products */,
 			);
 			sourceTree = "<group>";
@@ -112,6 +186,8 @@
 			isa = PBXGroup;
 			children = (
 				ED1C89C11B5985EF00DCF0EB /* AceSAT.app */,
+				ED403E921BB81E5400BC3E58 /* AceSATWatch.app */,
+				ED403E9E1BB81E5500BC3E58 /* AceSATWatch Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -139,6 +215,30 @@
 			path = AceSAT;
 			sourceTree = "<group>";
 		};
+		ED403E931BB81E5400BC3E58 /* AceSATWatch */ = {
+			isa = PBXGroup;
+			children = (
+				ED403E941BB81E5400BC3E58 /* Interface.storyboard */,
+				ED403E971BB81E5400BC3E58 /* Assets.xcassets */,
+				ED403E991BB81E5400BC3E58 /* Info.plist */,
+			);
+			path = AceSATWatch;
+			sourceTree = "<group>";
+		};
+		ED403EA21BB81E5500BC3E58 /* AceSATWatch Extension */ = {
+			isa = PBXGroup;
+			children = (
+				ED403EA31BB81E5500BC3E58 /* InterfaceController.swift */,
+				ED403EB91BB8232500BC3E58 /* ReviewInterfaceController.swift */,
+				ED403EBB1BB8235900BC3E58 /* ReviewTableRow.swift */,
+				ED403EA51BB81E5500BC3E58 /* ExtensionDelegate.swift */,
+				ED403EA71BB81E5500BC3E58 /* GlanceController.swift */,
+				ED403EA91BB81E5500BC3E58 /* Assets.xcassets */,
+				ED403EAB1BB81E5500BC3E58 /* Info.plist */,
+			);
+			path = "AceSATWatch Extension";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -149,15 +249,51 @@
 				ED1C89BD1B5985EF00DCF0EB /* Sources */,
 				ED1C89BE1B5985EF00DCF0EB /* Frameworks */,
 				ED1C89BF1B5985EF00DCF0EB /* Resources */,
+				ED403EB61BB81E5500BC3E58 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				ED403EAD1BB81E5500BC3E58 /* PBXTargetDependency */,
 			);
 			name = AceSAT;
 			productName = FlashcardApp;
 			productReference = ED1C89C11B5985EF00DCF0EB /* AceSAT.app */;
 			productType = "com.apple.product-type.application";
+		};
+		ED403E911BB81E5400BC3E58 /* AceSATWatch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ED403EB51BB81E5500BC3E58 /* Build configuration list for PBXNativeTarget "AceSATWatch" */;
+			buildPhases = (
+				ED403E901BB81E5400BC3E58 /* Resources */,
+				ED403EB41BB81E5500BC3E58 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				ED403EA11BB81E5500BC3E58 /* PBXTargetDependency */,
+			);
+			name = AceSATWatch;
+			productName = AceSATWatch;
+			productReference = ED403E921BB81E5400BC3E58 /* AceSATWatch.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		ED403E9D1BB81E5500BC3E58 /* AceSATWatch Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ED403EB31BB81E5500BC3E58 /* Build configuration list for PBXNativeTarget "AceSATWatch Extension" */;
+			buildPhases = (
+				ED403E9A1BB81E5500BC3E58 /* Sources */,
+				ED403E9B1BB81E5500BC3E58 /* Frameworks */,
+				ED403E9C1BB81E5500BC3E58 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "AceSATWatch Extension";
+			productName = "AceSATWatch Extension";
+			productReference = ED403E9E1BB81E5500BC3E58 /* AceSATWatch Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -180,6 +316,13 @@
 							};
 						};
 					};
+					ED403E911BB81E5400BC3E58 = {
+						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = R8VRS65L49;
+					};
+					ED403E9D1BB81E5500BC3E58 = {
+						CreatedOnToolsVersion = 7.0;
+					};
 				};
 			};
 			buildConfigurationList = ED1C89BC1B5985EF00DCF0EB /* Build configuration list for PBXProject "AceSAT" */;
@@ -196,6 +339,8 @@
 			projectRoot = "";
 			targets = (
 				ED1C89C01B5985EF00DCF0EB /* AceSAT */,
+				ED403E911BB81E5400BC3E58 /* AceSATWatch */,
+				ED403E9D1BB81E5500BC3E58 /* AceSATWatch Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -209,6 +354,23 @@
 				EDF48E361B64507A0090C6F3 /* WordList.json in Resources */,
 				ED1C89CC1B5985EF00DCF0EB /* Assets.xcassets in Resources */,
 				ED1C89CA1B5985EF00DCF0EB /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ED403E901BB81E5400BC3E58 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED403E981BB81E5400BC3E58 /* Assets.xcassets in Resources */,
+				ED403E961BB81E5400BC3E58 /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ED403E9C1BB81E5500BC3E58 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED403EAA1BB81E5500BC3E58 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,7 +402,33 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		ED403E9A1BB81E5500BC3E58 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED403EBF1BB824A500BC3E58 /* AceSATColors.swift in Sources */,
+				ED403EA61BB81E5500BC3E58 /* ExtensionDelegate.swift in Sources */,
+				ED403EBA1BB8232500BC3E58 /* ReviewInterfaceController.swift in Sources */,
+				ED403EA41BB81E5500BC3E58 /* InterfaceController.swift in Sources */,
+				ED403EA81BB81E5500BC3E58 /* GlanceController.swift in Sources */,
+				ED403EBC1BB8235900BC3E58 /* ReviewTableRow.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		ED403EA11BB81E5500BC3E58 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ED403E9D1BB81E5500BC3E58 /* AceSATWatch Extension */;
+			targetProxy = ED403EA01BB81E5500BC3E58 /* PBXContainerItemProxy */;
+		};
+		ED403EAD1BB81E5500BC3E58 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ED403E911BB81E5400BC3E58 /* AceSATWatch */;
+			targetProxy = ED403EAC1BB81E5500BC3E58 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		ED1C89C81B5985EF00DCF0EB /* Main.storyboard */ = {
@@ -257,6 +445,14 @@
 				ED1C89CE1B5985EF00DCF0EB /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		ED403E941BB81E5400BC3E58 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ED403E951BB81E5400BC3E58 /* Base */,
+			);
+			name = Interface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -375,6 +571,70 @@
 			};
 			name = Release;
 		};
+		ED403EAF1BB81E5500BC3E58 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				IBSC_MODULE = AceSATWatch_Extension;
+				INFOPLIST_FILE = AceSATWatch/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.namankedia.AceSATApp.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		ED403EB01BB81E5500BC3E58 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				IBSC_MODULE = AceSATWatch_Extension;
+				INFOPLIST_FILE = AceSATWatch/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.namankedia.AceSATApp.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
+		ED403EB11BB81E5500BC3E58 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "AceSATWatch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.namankedia.AceSATApp.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		ED403EB21BB81E5500BC3E58 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "AceSATWatch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.namankedia.AceSATApp.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -395,6 +655,22 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		ED403EB31BB81E5500BC3E58 /* Build configuration list for PBXNativeTarget "AceSATWatch Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ED403EB11BB81E5500BC3E58 /* Debug */,
+				ED403EB21BB81E5500BC3E58 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		ED403EB51BB81E5500BC3E58 /* Build configuration list for PBXNativeTarget "AceSATWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ED403EAF1BB81E5500BC3E58 /* Debug */,
+				ED403EB01BB81E5500BC3E58 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
