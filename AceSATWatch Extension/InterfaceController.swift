@@ -17,15 +17,16 @@ class InterfaceController: WKInterfaceController {
 
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
-        for (var i = 0; i < 10
+        for (var i = 0; i < 100
             ; i++) {
             let pickerItem = WKPickerItem()
-            pickerItem.title = "\(i)"
+            pickerItem.title = "\(i+1)"
+
             pickerArray.append(pickerItem)
         }
         
-        vocabularyPicker.setItems(pickerArray)    
-        // Configure interface objects here.
+        vocabularyPicker.setItems(pickerArray)
+        
     }
 
     override func willActivate() {

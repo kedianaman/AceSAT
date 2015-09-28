@@ -33,8 +33,11 @@
 		ED67293F1B66D0AF00B396F6 /* TestPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED67293E1B66D0AF00B396F6 /* TestPageViewController.swift */; };
 		ED69D2F01B6478EC00B1A4AC /* ReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED69D2EF1B6478EC00B1A4AC /* ReviewTableViewCell.swift */; };
 		ED69D2F21B647F2000B1A4AC /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED69D2F11B647F2000B1A4AC /* MainMenuViewController.swift */; };
+		ED834E301BB923260063EF7C /* MainScreenPracticeInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED834E2F1BB923260063EF7C /* MainScreenPracticeInterfaceController.swift */; settings = {ASSET_TAGS = (); }; };
+		ED8CF1EF1BB97BA800356C8E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED1C89CB1B5985EF00DCF0EB /* Assets.xcassets */; settings = {ASSET_TAGS = (); }; };
 		EDC573171B69624D001B1E9C /* TestReviewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC573161B69624D001B1E9C /* TestReviewTableViewController.swift */; };
 		EDC573191B696869001B1E9C /* TestReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC573181B696869001B1E9C /* TestReviewTableViewCell.swift */; };
+		EDCD69191BB8EE01008D19F9 /* PracticeInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCD69181BB8EE01008D19F9 /* PracticeInterfaceController.swift */; settings = {ASSET_TAGS = (); }; };
 		EDD3AD4A1B6D689500494618 /* TestPercentageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD3AD491B6D689500494618 /* TestPercentageView.swift */; };
 		EDF48E361B64507A0090C6F3 /* WordList.json in Resources */ = {isa = PBXBuildFile; fileRef = EDF48E351B64507A0090C6F3 /* WordList.json */; };
 		EDFE7D0B1B67490F00168A7A /* WordListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFE7D0A1B67490F00168A7A /* WordListManager.swift */; };
@@ -114,8 +117,10 @@
 		ED67293E1B66D0AF00B396F6 /* TestPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestPageViewController.swift; sourceTree = "<group>"; };
 		ED69D2EF1B6478EC00B1A4AC /* ReviewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewTableViewCell.swift; sourceTree = "<group>"; };
 		ED69D2F11B647F2000B1A4AC /* MainMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
+		ED834E2F1BB923260063EF7C /* MainScreenPracticeInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainScreenPracticeInterfaceController.swift; sourceTree = "<group>"; };
 		EDC573161B69624D001B1E9C /* TestReviewTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestReviewTableViewController.swift; sourceTree = "<group>"; };
 		EDC573181B696869001B1E9C /* TestReviewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestReviewTableViewCell.swift; sourceTree = "<group>"; };
+		EDCD69181BB8EE01008D19F9 /* PracticeInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PracticeInterfaceController.swift; sourceTree = "<group>"; };
 		EDD3AD491B6D689500494618 /* TestPercentageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestPercentageView.swift; sourceTree = "<group>"; };
 		EDF48E351B64507A0090C6F3 /* WordList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = WordList.json; sourceTree = "<group>"; };
 		EDFE7D0A1B67490F00168A7A /* WordListManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordListManager.swift; sourceTree = "<group>"; };
@@ -231,6 +236,8 @@
 				ED403EA31BB81E5500BC3E58 /* InterfaceController.swift */,
 				ED403EB91BB8232500BC3E58 /* ReviewInterfaceController.swift */,
 				ED403EBB1BB8235900BC3E58 /* ReviewTableRow.swift */,
+				EDCD69181BB8EE01008D19F9 /* PracticeInterfaceController.swift */,
+				ED834E2F1BB923260063EF7C /* MainScreenPracticeInterfaceController.swift */,
 				ED403EA51BB81E5500BC3E58 /* ExtensionDelegate.swift */,
 				ED403EA71BB81E5500BC3E58 /* GlanceController.swift */,
 				ED403EA91BB81E5500BC3E58 /* Assets.xcassets */,
@@ -370,6 +377,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED8CF1EF1BB97BA800356C8E /* Assets.xcassets in Resources */,
 				ED403EAA1BB81E5500BC3E58 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -409,6 +417,8 @@
 				ED403EBF1BB824A500BC3E58 /* AceSATColors.swift in Sources */,
 				ED403EA61BB81E5500BC3E58 /* ExtensionDelegate.swift in Sources */,
 				ED403EBA1BB8232500BC3E58 /* ReviewInterfaceController.swift in Sources */,
+				ED834E301BB923260063EF7C /* MainScreenPracticeInterfaceController.swift in Sources */,
+				EDCD69191BB8EE01008D19F9 /* PracticeInterfaceController.swift in Sources */,
 				ED403EA41BB81E5500BC3E58 /* InterfaceController.swift in Sources */,
 				ED403EA81BB81E5500BC3E58 /* GlanceController.swift in Sources */,
 				ED403EBC1BB8235900BC3E58 /* ReviewTableRow.swift in Sources */,
@@ -663,6 +673,7 @@
 				ED403EB21BB81E5500BC3E58 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		ED403EB51BB81E5500BC3E58 /* Build configuration list for PBXNativeTarget "AceSATWatch" */ = {
 			isa = XCConfigurationList;
@@ -671,6 +682,7 @@
 				ED403EB01BB81E5500BC3E58 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

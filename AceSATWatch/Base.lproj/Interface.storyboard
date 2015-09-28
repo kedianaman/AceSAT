@@ -11,10 +11,10 @@
                 <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="AceSATWatch" customModuleProvider="target">
                     <items>
                         <label alignment="center" text="Choose a list: " textAlignment="center" id="CXS-RB-xJb"/>
-                        <picker width="1" height="100" alignment="left" id="VRT-b3-ZN0"/>
+                        <picker width="1" height="100" alignment="left" id="LbQ-Jc-7m5"/>
                     </items>
                     <connections>
-                        <outlet property="vocabularyPicker" destination="VRT-b3-ZN0" id="PDS-xy-z4G"/>
+                        <outlet property="vocabularyPicker" destination="LbQ-Jc-7m5" id="l56-jD-C2s"/>
                         <segue destination="4up-E2-sjn" kind="relationship" relationship="nextPage" id="zto-S0-IfD"/>
                     </connections>
                 </controller>
@@ -41,14 +41,17 @@
             </objects>
             <point key="canvasLocation" x="370" y="217"/>
         </scene>
-        <!--Interface Controller-->
+        <!--Main Screen Practice Interface Controller-->
         <scene sceneID="JWy-ox-u8h">
             <objects>
-                <controller hidesWhenLoading="NO" id="ans-kf-xL2">
+                <controller hidesWhenLoading="NO" id="ans-kf-xL2" customClass="MainScreenPracticeInterfaceController" customModule="AceSATWatch_Extension">
                     <items>
                         <button width="0.90000000000000002" height="0.90000000000000002" alignment="center" verticalAlignment="center" title="Practice" backgroundImage="Practice button watch" id="adr-xO-lil">
                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             <fontDescription key="font" type="system" pointSize="30"/>
+                            <connections>
+                                <action selector="practiceButtonPressed" destination="ans-kf-xL2" id="Rge-qN-1OM"/>
+                            </connections>
                         </button>
                     </items>
                 </controller>
@@ -98,6 +101,34 @@
                 </controller>
             </objects>
             <point key="canvasLocation" x="389" y="512"/>
+        </scene>
+        <!--PracticeIdentifier-->
+        <scene sceneID="UVG-Z9-l7E">
+            <objects>
+                <controller identifier="PracticeIdentifier" hidesWhenLoading="NO" id="tXt-12-J97" customClass="PracticeInterfaceController" customModule="AceSATWatch_Extension">
+                    <items>
+                        <group width="1" height="0.80000000000000004" alignment="left" layout="vertical" spacing="10" id="zaX-5k-Wzb">
+                            <items>
+                                <label width="0.90000000000000002" alignment="center" verticalAlignment="center" text="Label" textAlignment="center" minimumScaleFactor="0.5" id="3od-Hc-nHR">
+                                    <fontDescription key="font" type="system" pointSize="30"/>
+                                </label>
+                                <label width="0.90000000000000002" alignment="center" verticalAlignment="center" text="Label" textAlignment="center" numberOfLines="0" id="1Ab-bD-Tbx"/>
+                            </items>
+                        </group>
+                        <button width="1" height="0.20000000000000001" alignment="center" verticalAlignment="bottom" title="See definition" id="6UY-lu-R1i">
+                            <connections>
+                                <action selector="seeDefinitionPressed" destination="tXt-12-J97" id="Zdf-v1-JDx"/>
+                            </connections>
+                        </button>
+                    </items>
+                    <connections>
+                        <outlet property="definitionLabel" destination="1Ab-bD-Tbx" id="kof-X8-NZO"/>
+                        <outlet property="seeDefinitionButton" destination="6UY-lu-R1i" id="MwS-rB-KGR"/>
+                        <outlet property="wordLabel" destination="3od-Hc-nHR" id="NIg-qR-VJY"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="644" y="513"/>
         </scene>
     </scenes>
 </document>
