@@ -22,6 +22,7 @@ class PracticeInterfaceController: WKInterfaceController {
        
         animateWithDuration(0.2, animations: { () -> Void in
             if self.definitionShowing == false {
+                self.definitionLabel.sizeToFitHeight()
                 self.definitionLabel.setVerticalAlignment(WKInterfaceObjectVerticalAlignment.Center)
                 self.definitionLabel.setAlpha(1.0)
                 self.seeDefinitionButton.setTitle("Hide definition")
@@ -29,7 +30,7 @@ class PracticeInterfaceController: WKInterfaceController {
             }
             else {
                 self.definitionLabel.setVerticalAlignment(WKInterfaceObjectVerticalAlignment.Bottom)
-            
+                self.definitionLabel.setHeight(0)
                 self.definitionLabel.setAlpha(0.0)
                 self.seeDefinitionButton.setTitle("See definition")
                 self.definitionShowing = false
@@ -48,6 +49,8 @@ class PracticeInterfaceController: WKInterfaceController {
         wordLabel.setTextColor(UIColor.ace_blueColor())
         self.definitionLabel.setVerticalAlignment(WKInterfaceObjectVerticalAlignment.Bottom)
         definitionLabel.setAlpha(0.0)
+        definitionLabel.setHeight(0.0)
+        
         wordLabel.setText(word)
         definitionLabel.setText(definition)
         wordLabel.setVerticalAlignment(WKInterfaceObjectVerticalAlignment.Center)

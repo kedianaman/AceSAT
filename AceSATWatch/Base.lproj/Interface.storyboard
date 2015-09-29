@@ -10,16 +10,20 @@
             <objects>
                 <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="AceSATWatch" customModuleProvider="target">
                     <items>
+                        <label alignment="center" text="Label" textAlignment="center" id="mA6-nv-mQU">
+                            <fontDescription key="font" type="system" pointSize="40"/>
+                        </label>
                         <label alignment="center" text="Choose a list: " textAlignment="center" id="CXS-RB-xJb"/>
-                        <picker width="1" height="100" alignment="left" id="LbQ-Jc-7m5"/>
+                        <picker width="1" height="0.5" alignment="left" id="LbQ-Jc-7m5"/>
                     </items>
                     <connections>
+                        <outlet property="titleLabel" destination="mA6-nv-mQU" id="caU-F8-PWV"/>
                         <outlet property="vocabularyPicker" destination="LbQ-Jc-7m5" id="l56-jD-C2s"/>
                         <segue destination="4up-E2-sjn" kind="relationship" relationship="nextPage" id="zto-S0-IfD"/>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="129" y="211"/>
+            <point key="canvasLocation" x="129" y="198"/>
         </scene>
         <!--Interface Controller-->
         <scene sceneID="636-l6-Gcr">
