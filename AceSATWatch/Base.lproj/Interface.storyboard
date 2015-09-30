@@ -65,10 +65,20 @@
         <!--Glance Interface Controller-->
         <scene sceneID="rjY-Ar-IMT">
             <objects>
-                <glanceController spacing="0.0" id="Sv0-Ai-Zie" customClass="GlanceController" customModule="AceSATWatch" customModuleProvider="target">
+                <glanceController spacing="0.0" bottomTemplateType="largeBody4Footer" id="Sv0-Ai-Zie" customClass="GlanceController" customModule="AceSATWatch" customModuleProvider="target">
                     <items>
-                        <group alignment="left" id="gv7-I2-MZq"/>
-                        <group alignment="left" id="eew-Gs-W6Y"/>
+                        <group alignment="left" id="Ig1-4E-Cbf">
+                            <items>
+                                <imageView width="49" height="1" alignment="left" image="Icon" contentMode="scaleAspectFit" id="d6m-3a-Z6h"/>
+                            </items>
+                        </group>
+                        <label alignment="left" text="Bigot" minimumScaleFactor="0.25" id="BY9-in-cTH">
+                            <color key="textColor" red="1" green="0.0" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
+                        </label>
+                        <label alignment="left" text="  Narrow minded prejudiced person" id="oxw-YT-nQc">
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </label>
+                        <label alignment="left" text="Footer" id="isD-fE-SKs"/>
                     </items>
                     <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="14"/>
                 </glanceController>
