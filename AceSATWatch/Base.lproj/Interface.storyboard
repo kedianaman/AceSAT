@@ -1,66 +1,37 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="8191" systemVersion="15B17c" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="8191" systemVersion="15B17c" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="lbZ-MX-hRl">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="8092"/>
     </dependencies>
     <scenes>
-        <!--Interface Controller-->
+        <!--ListPicker-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="AceSATWatch" customModuleProvider="target">
+                <controller title="ListPicker" id="AgC-eL-Hgc" customClass="ListPickerInterfaceController" customModule="AceSATWatch_Extension">
                     <items>
                         <label alignment="center" text="Label" textAlignment="center" id="mA6-nv-mQU">
                             <fontDescription key="font" type="system" pointSize="40"/>
                         </label>
                         <label alignment="center" text="Choose a list: " textAlignment="center" id="CXS-RB-xJb"/>
-                        <picker width="1" height="0.5" alignment="left" id="LbQ-Jc-7m5"/>
+                        <picker width="1" height="0.5" alignment="left" id="LbQ-Jc-7m5">
+                            <connections>
+                                <action selector="listNumberChanged:" destination="AgC-eL-Hgc" id="8HF-ft-2L8"/>
+                            </connections>
+                        </picker>
                     </items>
+                    <menu key="menu" id="dU4-Yf-XMs">
+                        <items>
+                            <menuItem title="Hello" icon="add" id="Vma-vu-cY0"/>
+                        </items>
+                    </menu>
                     <connections>
                         <outlet property="titleLabel" destination="mA6-nv-mQU" id="caU-F8-PWV"/>
                         <outlet property="vocabularyPicker" destination="LbQ-Jc-7m5" id="l56-jD-C2s"/>
-                        <segue destination="4up-E2-sjn" kind="relationship" relationship="nextPage" id="zto-S0-IfD"/>
                     </connections>
                 </controller>
             </objects>
             <point key="canvasLocation" x="129" y="198"/>
-        </scene>
-        <!--Interface Controller-->
-        <scene sceneID="636-l6-Gcr">
-            <objects>
-                <controller hidesWhenLoading="NO" id="4up-E2-sjn">
-                    <items>
-                        <button width="0.90000000000000002" height="0.90000000000000002" alignment="center" verticalAlignment="center" title="Review" backgroundImage="Review button watch" id="63s-xo-KIj">
-                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                            <fontDescription key="font" type="system" pointSize="30"/>
-                            <connections>
-                                <segue destination="sfQ-Ro-YoG" kind="modal" id="t3N-k6-tUf"/>
-                            </connections>
-                        </button>
-                    </items>
-                    <connections>
-                        <segue destination="ans-kf-xL2" kind="relationship" relationship="nextPage" id="VoL-JO-bdM"/>
-                    </connections>
-                </controller>
-            </objects>
-            <point key="canvasLocation" x="370" y="217"/>
-        </scene>
-        <!--Main Screen Practice Interface Controller-->
-        <scene sceneID="JWy-ox-u8h">
-            <objects>
-                <controller hidesWhenLoading="NO" id="ans-kf-xL2" customClass="MainScreenPracticeInterfaceController" customModule="AceSATWatch_Extension">
-                    <items>
-                        <button width="0.90000000000000002" height="0.90000000000000002" alignment="center" verticalAlignment="center" title="Practice" backgroundImage="Practice button watch" id="adr-xO-lil">
-                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                            <fontDescription key="font" type="system" pointSize="30"/>
-                            <connections>
-                                <action selector="practiceButtonPressed" destination="ans-kf-xL2" id="Rge-qN-1OM"/>
-                            </connections>
-                        </button>
-                    </items>
-                </controller>
-            </objects>
-            <point key="canvasLocation" x="639" y="217"/>
         </scene>
         <!--Glance Interface Controller-->
         <scene sceneID="rjY-Ar-IMT">
@@ -143,6 +114,44 @@
                 </controller>
             </objects>
             <point key="canvasLocation" x="644" y="513"/>
+        </scene>
+        <!--Mode Picker Interface Controller-->
+        <scene sceneID="nZb-gy-b20">
+            <objects>
+                <controller hidesWhenLoading="NO" id="lbZ-MX-hRl" customClass="ModePickerInterfaceController" customModule="AceSATWatch_Extension">
+                    <items>
+                        <button width="1" height="0.33000000000000002" alignment="left" title="Review" backgroundImage="Review button" id="uBa-LD-Fls">
+                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            <fontDescription key="font" type="system" pointSize="24"/>
+                            <connections>
+                                <action selector="reviewButtonPressed" destination="lbZ-MX-hRl" id="9VU-zF-ZbB"/>
+                                <segue destination="sfQ-Ro-YoG" kind="modal" identifier="ReviewSegue" id="aCD-fW-YyW"/>
+                            </connections>
+                        </button>
+                        <button width="1" height="0.33000000000000002" alignment="left" title="Practice" backgroundImage="Practice Button" id="VKX-62-UA4">
+                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            <fontDescription key="font" type="system" pointSize="24"/>
+                            <connections>
+                                <action selector="practiceButtonPressed" destination="lbZ-MX-hRl" id="mgo-na-pKj"/>
+                            </connections>
+                        </button>
+                        <button width="1" height="0.33000000000000002" alignment="left" title="Test" backgroundImage="Test button-1" id="a4e-rf-x89">
+                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            <fontDescription key="font" type="system" pointSize="24"/>
+                        </button>
+                    </items>
+                    <menu key="menu" id="qVY-o7-2Qg">
+                        <items>
+                            <menuItem title="Choose list" icon="more" id="s8u-IG-CQr">
+                                <connections>
+                                    <action selector="chooseListButtonPressed" destination="lbZ-MX-hRl" id="JtT-Gp-air"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="307" y="832"/>
         </scene>
     </scenes>
 </document>

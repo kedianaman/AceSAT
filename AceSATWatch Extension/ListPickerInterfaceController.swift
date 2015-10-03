@@ -10,29 +10,53 @@ import WatchKit
 import Foundation
 
 
-class InterfaceController: WKInterfaceController {
+class ListPickerInterfaceController: WKInterfaceController {
+    
+    class var sharedManager: ListPickerInterfaceController {
+        struct Static {
+            static var onceToken: dispatch_once_t = 0
+            static var instance: ListPickerInterfaceController? = nil
+        }
+        dispatch_once(&Static.onceToken) {
+            Static.instance = ListPickerInterfaceController()
+        }
+        return Static.instance!
+    }
+    @IBAction func listNumberChanged(value: Int) {
+        currentlySelectedIndex = value
+    }
+    
+    var currentlySelectedIndex = 0
+
 
     @IBOutlet var vocabularyPicker: WKInterfacePicker!
-    var pickerArray = [WKPickerItem]()
 
     @IBOutlet var titleLabel: WKInterfaceLabel!
     
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
+        setTitleText()
+        let pickerItems = getPickerItemArray()
+        vocabularyPicker.setItems(pickerItems)
+    }
+    
+    
+
+    func getPickerItemArray() -> [WKPickerItem]
+    {
+        var pickerArray = [WKPickerItem]()
+
         for (var i = 0; i < 100
             ; i++) {
-            let pickerItem = WKPickerItem()
-            pickerItem.title = "\(i+1)"
-
-            pickerArray.append(pickerItem)
+                let pickerItem = WKPickerItem()
+                pickerItem.title = "\(i+1)"
+                
+                pickerArray.append(pickerItem)
         }
         
-        setTitleText()
-        vocabularyPicker.setItems(pickerArray)
-        
-    }
+        return pickerArray
 
-    
+    }
     func setTitleText() {
         
         let thinFont = UIFont.systemFontOfSize(40.0, weight: UIFontWeightUltraLight)
@@ -46,14 +70,5 @@ class InterfaceController: WKInterfaceController {
         
         titleLabel.setAttributedText(mainTitle)
     }
-    override func willActivate() {
-        // This method is called when watch view controller is about to be visible to user
-        super.willActivate()
-    }
-
-    override func didDeactivate() {
-        // This method is called when watch view controller is no longer visible
-        super.didDeactivate()
-    }
-
+   
 }

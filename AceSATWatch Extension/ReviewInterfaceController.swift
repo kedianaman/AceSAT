@@ -14,42 +14,29 @@ class ReviewInterfaceController: WKInterfaceController {
 
     @IBOutlet var reviewTable: WKInterfaceTable!
     
-    let temporaryWordsDict = ["Abhor":"hate",
-        "Bigot":"narrow-minded, prejudiced person",
-        "Counterfeit":"fake; false",
-        "Enfranchise":"give voting rights",
-        "Hamper":"hinder; obstruct",
-        "Kindle":"to start a fire",
-        "Noxious":"harmful; poisonous; lethal",
-        "Placid":"calm; peaceful",
-        "Remuneration":"payment for work done",
-        "Talisman":"lucky charm"]
-
+//    let wordList = WordListManager.sharedManager.wordListAtIndex(1)
+    
     
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
-        reviewTable.setNumberOfRows(temporaryWordsDict.count, withRowType: "ReviewWordsRowIdentifier")
+        let index = ListPickerInterfaceController.sharedManager.currentlySelectedIndex
+        var wordList = WordListManager.sharedManager.wordListAtIndex(index)
+        reviewTable.setNumberOfRows(wordList.count, withRowType: "ReviewWordsRowIdentifier")
+        
+
+
         
         var i = 0
-        for (word, definition) in temporaryWordsDict {
+        for word in wordList {
             let row = reviewTable.rowControllerAtIndex(i) as! ReviewTableRow
-            row.titleLabel.setText(word)
+            row.titleLabel.setText(word.word)
             row.titleLabel.setTextColor(UIColor.ace_greenColor())
-            row.definitionLabel.setText(definition)
+            row.definitionLabel.setText(word.definition)
             i++
         }
         
         // Configure interface objects here.
     }
 
-    override func willActivate() {
-        // This method is called when watch view controller is about to be visible to user
-        super.willActivate()
-    }
-
-    override func didDeactivate() {
-        // This method is called when watch view controller is no longer visible
-        super.didDeactivate()
-    }
 
 }
