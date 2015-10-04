@@ -36,13 +36,9 @@
         <!--Glance Interface Controller-->
         <scene sceneID="rjY-Ar-IMT">
             <objects>
-                <glanceController spacing="0.0" bottomTemplateType="largeBody4Footer" id="Sv0-Ai-Zie" customClass="GlanceController" customModule="AceSATWatch" customModuleProvider="target">
+                <glanceController spacing="0.0" topTemplateType="extraLarge" bottomTemplateType="largeBody4Footer" id="Sv0-Ai-Zie" customClass="GlanceController" customModule="AceSATWatch" customModuleProvider="target">
                     <items>
-                        <group alignment="left" id="Ig1-4E-Cbf">
-                            <items>
-                                <imageView width="49" height="1" alignment="left" image="Icon" contentMode="scaleAspectFit" id="d6m-3a-Z6h"/>
-                            </items>
-                        </group>
+                        <label alignment="left" text="123" id="uSS-GP-oWB"/>
                         <label alignment="left" text="Bigot" minimumScaleFactor="0.25" id="BY9-in-cTH">
                             <color key="textColor" red="1" green="0.0" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
                         </label>
@@ -120,21 +116,21 @@
             <objects>
                 <controller hidesWhenLoading="NO" id="lbZ-MX-hRl" customClass="ModePickerInterfaceController" customModule="AceSATWatch_Extension">
                     <items>
-                        <button width="1" height="0.33000000000000002" alignment="left" title="Review" backgroundImage="Review button" id="uBa-LD-Fls">
+                        <button width="1" height="0.33000000000000002" alignment="left" title="Review" backgroundImage="ReviewButton" id="uBa-LD-Fls">
                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             <fontDescription key="font" type="system" pointSize="24"/>
                             <connections>
                                 <segue destination="sfQ-Ro-YoG" kind="modal" id="zvo-Gt-Ne8"/>
                             </connections>
                         </button>
-                        <button width="1" height="0.33000000000000002" alignment="left" title="Practice" backgroundImage="Practice Button" id="VKX-62-UA4">
+                        <button width="1" height="0.33000000000000002" alignment="left" title="Practice" backgroundImage="PracticeButton" id="VKX-62-UA4">
                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             <fontDescription key="font" type="system" pointSize="24"/>
                             <connections>
                                 <action selector="practiceButtonPressed" destination="lbZ-MX-hRl" id="SXI-wf-efT"/>
                             </connections>
                         </button>
-                        <button width="1" height="0.33000000000000002" alignment="left" title="Test" backgroundImage="Test button-1" id="a4e-rf-x89">
+                        <button width="1" height="0.33000000000000002" alignment="left" title="Test" backgroundImage="TestButton" id="a4e-rf-x89">
                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             <fontDescription key="font" type="system" pointSize="24"/>
                             <connections>
