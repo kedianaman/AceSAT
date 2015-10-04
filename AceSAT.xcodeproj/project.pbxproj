@@ -22,7 +22,6 @@
 		ED403EA41BB81E5500BC3E58 /* ListPickerInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED403EA31BB81E5500BC3E58 /* ListPickerInterfaceController.swift */; };
 		ED403EA61BB81E5500BC3E58 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED403EA51BB81E5500BC3E58 /* ExtensionDelegate.swift */; };
 		ED403EA81BB81E5500BC3E58 /* GlanceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED403EA71BB81E5500BC3E58 /* GlanceController.swift */; };
-		ED403EAA1BB81E5500BC3E58 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED403EA91BB81E5500BC3E58 /* Assets.xcassets */; };
 		ED403EAE1BB81E5500BC3E58 /* AceSATWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = ED403E921BB81E5400BC3E58 /* AceSATWatch.app */; };
 		ED403EBA1BB8232500BC3E58 /* ReviewInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED403EB91BB8232500BC3E58 /* ReviewInterfaceController.swift */; settings = {ASSET_TAGS = (); }; };
 		ED403EBC1BB8235900BC3E58 /* ReviewTableRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED403EBB1BB8235900BC3E58 /* ReviewTableRow.swift */; settings = {ASSET_TAGS = (); }; };
@@ -33,8 +32,10 @@
 		ED67293F1B66D0AF00B396F6 /* TestPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED67293E1B66D0AF00B396F6 /* TestPageViewController.swift */; };
 		ED69D2F01B6478EC00B1A4AC /* ReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED69D2EF1B6478EC00B1A4AC /* ReviewTableViewCell.swift */; };
 		ED69D2F21B647F2000B1A4AC /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED69D2F11B647F2000B1A4AC /* MainMenuViewController.swift */; };
-		ED834E301BB923260063EF7C /* MainScreenPracticeInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED834E2F1BB923260063EF7C /* MainScreenPracticeInterfaceController.swift */; settings = {ASSET_TAGS = (); }; };
 		ED8CF1EF1BB97BA800356C8E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED1C89CB1B5985EF00DCF0EB /* Assets.xcassets */; settings = {ASSET_TAGS = (); }; };
+		EDA24DAC1BC1216300B0D608 /* TestInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA24DAB1BC1216300B0D608 /* TestInterfaceController.swift */; settings = {ASSET_TAGS = (); }; };
+		EDA24DB11BC12A3D00B0D608 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA24DAF1BC12A3D00B0D608 /* ComplicationController.swift */; settings = {ASSET_TAGS = (); }; };
+		EDA24DB21BC12A3D00B0D608 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDA24DB01BC12A3D00B0D608 /* Assets.xcassets */; settings = {ASSET_TAGS = (); }; };
 		EDAF68C41BC01B6D001E862D /* WordListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFE7D0A1B67490F00168A7A /* WordListManager.swift */; settings = {ASSET_TAGS = (); }; };
 		EDAF68C51BC01B72001E862D /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFE7D2A1B675E3400168A7A /* Test.swift */; settings = {ASSET_TAGS = (); }; };
 		EDAF68C61BC01DB2001E862D /* WordList.json in Resources */ = {isa = PBXBuildFile; fileRef = EDF48E351B64507A0090C6F3 /* WordList.json */; settings = {ASSET_TAGS = (); }; };
@@ -111,7 +112,6 @@
 		ED403EA31BB81E5500BC3E58 /* ListPickerInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPickerInterfaceController.swift; sourceTree = "<group>"; };
 		ED403EA51BB81E5500BC3E58 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
 		ED403EA71BB81E5500BC3E58 /* GlanceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlanceController.swift; sourceTree = "<group>"; };
-		ED403EA91BB81E5500BC3E58 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ED403EAB1BB81E5500BC3E58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ED403EB91BB8232500BC3E58 /* ReviewInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewInterfaceController.swift; sourceTree = "<group>"; };
 		ED403EBB1BB8235900BC3E58 /* ReviewTableRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewTableRow.swift; sourceTree = "<group>"; };
@@ -121,7 +121,9 @@
 		ED67293E1B66D0AF00B396F6 /* TestPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestPageViewController.swift; sourceTree = "<group>"; };
 		ED69D2EF1B6478EC00B1A4AC /* ReviewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewTableViewCell.swift; sourceTree = "<group>"; };
 		ED69D2F11B647F2000B1A4AC /* MainMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
-		ED834E2F1BB923260063EF7C /* MainScreenPracticeInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainScreenPracticeInterfaceController.swift; sourceTree = "<group>"; };
+		EDA24DAB1BC1216300B0D608 /* TestInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestInterfaceController.swift; sourceTree = "<group>"; };
+		EDA24DAF1BC12A3D00B0D608 /* ComplicationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
+		EDA24DB01BC12A3D00B0D608 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EDAF68C71BC01DE6001E862D /* ModePickerInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModePickerInterfaceController.swift; sourceTree = "<group>"; };
 		EDC573161B69624D001B1E9C /* TestReviewTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestReviewTableViewController.swift; sourceTree = "<group>"; };
 		EDC573181B696869001B1E9C /* TestReviewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestReviewTableViewCell.swift; sourceTree = "<group>"; };
@@ -239,14 +241,15 @@
 			isa = PBXGroup;
 			children = (
 				EDAF68C71BC01DE6001E862D /* ModePickerInterfaceController.swift */,
+				EDA24DAB1BC1216300B0D608 /* TestInterfaceController.swift */,
 				ED403EB91BB8232500BC3E58 /* ReviewInterfaceController.swift */,
 				ED403EBB1BB8235900BC3E58 /* ReviewTableRow.swift */,
 				EDCD69181BB8EE01008D19F9 /* PracticeInterfaceController.swift */,
 				ED403EA31BB81E5500BC3E58 /* ListPickerInterfaceController.swift */,
-				ED834E2F1BB923260063EF7C /* MainScreenPracticeInterfaceController.swift */,
 				ED403EA51BB81E5500BC3E58 /* ExtensionDelegate.swift */,
 				ED403EA71BB81E5500BC3E58 /* GlanceController.swift */,
-				ED403EA91BB81E5500BC3E58 /* Assets.xcassets */,
+				EDA24DAF1BC12A3D00B0D608 /* ComplicationController.swift */,
+				EDA24DB01BC12A3D00B0D608 /* Assets.xcassets */,
 				ED403EAB1BB81E5500BC3E58 /* Info.plist */,
 			);
 			path = "AceSATWatch Extension";
@@ -384,8 +387,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED8CF1EF1BB97BA800356C8E /* Assets.xcassets in Resources */,
+				EDA24DB21BC12A3D00B0D608 /* Assets.xcassets in Resources */,
 				EDAF68C61BC01DB2001E862D /* WordList.json in Resources */,
-				ED403EAA1BB81E5500BC3E58 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -421,11 +424,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDA24DAC1BC1216300B0D608 /* TestInterfaceController.swift in Sources */,
 				ED403EBF1BB824A500BC3E58 /* AceSATColors.swift in Sources */,
 				ED403EA61BB81E5500BC3E58 /* ExtensionDelegate.swift in Sources */,
 				EDAF68C41BC01B6D001E862D /* WordListManager.swift in Sources */,
 				ED403EBA1BB8232500BC3E58 /* ReviewInterfaceController.swift in Sources */,
-				ED834E301BB923260063EF7C /* MainScreenPracticeInterfaceController.swift in Sources */,
+				EDA24DB11BC12A3D00B0D608 /* ComplicationController.swift in Sources */,
 				EDCD69191BB8EE01008D19F9 /* PracticeInterfaceController.swift in Sources */,
 				ED403EA41BB81E5500BC3E58 /* ListPickerInterfaceController.swift in Sources */,
 				EDAF68C51BC01B72001E862D /* Test.swift in Sources */,
@@ -630,6 +634,7 @@
 		ED403EB11BB81E5500BC3E58 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				INFOPLIST_FILE = "AceSATWatch Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.namankedia.AceSATApp.watchkitapp.watchkitextension;
@@ -644,6 +649,7 @@
 		ED403EB21BB81E5500BC3E58 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				INFOPLIST_FILE = "AceSATWatch Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.namankedia.AceSATApp.watchkitapp.watchkitextension;

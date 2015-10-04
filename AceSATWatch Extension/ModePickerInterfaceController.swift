@@ -37,6 +37,16 @@ class ModePickerInterfaceController: WKInterfaceController {
     }
     
     @IBAction func testButtonPressed() {
-        print("test button pressed")
+        let wordList = WordListManager.sharedManager.wordListAtIndex(0)
+        let contexts = Test(wordList: wordList).allQuestions
+        
+        var identifiers = [String]()
+        for _ in 0..<contexts.count {
+            identifiers.append(ControllerIdentifier.TestIdentifier)
+        }
+        
+        presentControllerWithNames(identifiers, contexts: contexts)
+
+        
     }
 }

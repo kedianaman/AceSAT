@@ -48,6 +48,10 @@ class Test: CustomStringConvertible {
         }
         return desc
     }
+    
+    var allQuestions: [TestQuestion] {
+        return testQuestions
+    }
 }
 
 

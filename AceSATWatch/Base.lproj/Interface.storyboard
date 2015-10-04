@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="8173.3" systemVersion="15A282a" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="lbZ-MX-hRl">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="8191" systemVersion="15B17c" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="lbZ-MX-hRl">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8142"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="8089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="8092"/>
     </dependencies>
     <scenes>
         <!--ListPicker-->
@@ -36,21 +36,29 @@
         <!--Glance Interface Controller-->
         <scene sceneID="rjY-Ar-IMT">
             <objects>
-                <glanceController spacing="0.0" topTemplateType="extraLarge" bottomTemplateType="largeBody4Footer" id="Sv0-Ai-Zie" customClass="GlanceController" customModule="AceSATWatch" customModuleProvider="target">
+                <glanceController spacing="0.0" bottomTemplateType="largeBody4Footer" id="Sv0-Ai-Zie" customClass="GlanceController" customModule="AceSATWatch" customModuleProvider="target">
                     <items>
-                        <label alignment="left" text="123" id="uSS-GP-oWB"/>
+                        <group alignment="left" id="VR8-kq-Wtw">
+                            <items>
+                                <imageView width="1" height="1" alignment="left" id="lYP-RB-dEk"/>
+                            </items>
+                        </group>
                         <label alignment="left" text="Bigot" minimumScaleFactor="0.25" id="BY9-in-cTH">
                             <color key="textColor" red="1" green="0.0" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
                         </label>
                         <label alignment="left" text="  Narrow minded prejudiced person" id="oxw-YT-nQc">
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </label>
-                        <label alignment="left" text="Footer" id="isD-fE-SKs"/>
+                        <label alignment="left" text="Footer" id="TdB-X2-9tr"/>
                     </items>
                     <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="14"/>
+                    <connections>
+                        <outlet property="definitionLabel" destination="oxw-YT-nQc" id="o9w-EV-R5R"/>
+                        <outlet property="wordLabel" destination="BY9-in-cTH" id="6EV-oD-Z3H"/>
+                    </connections>
                 </glanceController>
             </objects>
-            <point key="canvasLocation" x="711" y="685"/>
+            <point key="canvasLocation" x="431" y="826"/>
         </scene>
         <!--Review Interface Controller-->
         <scene sceneID="ePC-R7-JuE">
@@ -109,7 +117,25 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="389" y="809"/>
+            <point key="canvasLocation" x="567" y="512"/>
+        </scene>
+        <!--TestIdentifier-->
+        <scene sceneID="NXe-tV-8oR">
+            <objects>
+                <controller identifier="TestIdentifier" hidesWhenLoading="NO" id="bDG-xR-Yly" customClass="TestInterfaceController" customModule="AceSATWatch_Extension">
+                    <items>
+                        <label alignment="left" text="Label" id="ZwV-v4-Ano">
+                            <fontDescription key="font" type="system" pointSize="30"/>
+                        </label>
+                        <picker width="1" height="100" alignment="left" id="f3g-VA-TDd"/>
+                    </items>
+                    <connections>
+                        <outlet property="definitionsPicker" destination="f3g-VA-TDd" id="xrO-bT-2OC"/>
+                        <outlet property="wordLabel" destination="ZwV-v4-Ano" id="73z-cv-Twm"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="745" y="512"/>
         </scene>
         <!--AceSAT-->
         <scene sceneID="nZb-gy-b20">
