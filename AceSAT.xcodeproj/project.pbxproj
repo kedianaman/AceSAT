@@ -238,11 +238,11 @@
 		ED403EA21BB81E5500BC3E58 /* AceSATWatch Extension */ = {
 			isa = PBXGroup;
 			children = (
-				ED403EA31BB81E5500BC3E58 /* ListPickerInterfaceController.swift */,
 				EDAF68C71BC01DE6001E862D /* ModePickerInterfaceController.swift */,
 				ED403EB91BB8232500BC3E58 /* ReviewInterfaceController.swift */,
 				ED403EBB1BB8235900BC3E58 /* ReviewTableRow.swift */,
 				EDCD69181BB8EE01008D19F9 /* PracticeInterfaceController.swift */,
+				ED403EA31BB81E5500BC3E58 /* ListPickerInterfaceController.swift */,
 				ED834E2F1BB923260063EF7C /* MainScreenPracticeInterfaceController.swift */,
 				ED403EA51BB81E5500BC3E58 /* ExtensionDelegate.swift */,
 				ED403EA71BB81E5500BC3E58 /* GlanceController.swift */,

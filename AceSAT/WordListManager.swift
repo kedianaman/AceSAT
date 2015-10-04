@@ -130,6 +130,10 @@ class WordList : CustomStringConvertible, CollectionType, Equatable {
             return word == aWord
         }
     }
+    
+    var allWords: [Word] {
+        return words
+    }
 }
 
 func ==(lhs: WordList, rhs: WordList) -> Bool {

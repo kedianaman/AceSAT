@@ -36,25 +36,20 @@ class PracticeInterfaceController: WKInterfaceController {
                 self.definitionShowing = false
 
             }
-            
         })
-        
     }
+    
     override func awakeWithContext(context: AnyObject?) {
-        
         super.awakeWithContext(context)
-        let newContext = context as! [String:String]
-        let word = newContext.keys.first
-        let definition = newContext[word!]
+        
+        let word = context as! Word
         wordLabel.setTextColor(UIColor.ace_blueColor())
         self.definitionLabel.setVerticalAlignment(WKInterfaceObjectVerticalAlignment.Bottom)
         definitionLabel.setAlpha(0.0)
         definitionLabel.setHeight(0.0)
         
-        wordLabel.setText(word)
-        definitionLabel.setText(definition)
+        wordLabel.setText(word.word)
+        definitionLabel.setText(word.definition)
         wordLabel.setVerticalAlignment(WKInterfaceObjectVerticalAlignment.Center)
-        // Configure interface objects here.
     }
-    
 }

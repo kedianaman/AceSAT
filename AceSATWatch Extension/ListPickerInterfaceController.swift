@@ -12,26 +12,14 @@ import Foundation
 
 class ListPickerInterfaceController: WKInterfaceController {
     
-    class var sharedManager: ListPickerInterfaceController {
-        struct Static {
-            static var onceToken: dispatch_once_t = 0
-            static var instance: ListPickerInterfaceController? = nil
-        }
-        dispatch_once(&Static.onceToken) {
-            Static.instance = ListPickerInterfaceController()
-        }
-        return Static.instance!
-    }
+    var currentlySelectedIndex = 0
+    
+    @IBOutlet var vocabularyPicker: WKInterfacePicker!
+    @IBOutlet var titleLabel: WKInterfaceLabel!
+    
     @IBAction func listNumberChanged(value: Int) {
         currentlySelectedIndex = value
     }
-    
-    var currentlySelectedIndex = 0
-
-
-    @IBOutlet var vocabularyPicker: WKInterfacePicker!
-
-    @IBOutlet var titleLabel: WKInterfaceLabel!
     
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
@@ -40,10 +28,7 @@ class ListPickerInterfaceController: WKInterfaceController {
         vocabularyPicker.setItems(pickerItems)
     }
     
-    
-
-    func getPickerItemArray() -> [WKPickerItem]
-    {
+    func getPickerItemArray() -> [WKPickerItem] {
         var pickerArray = [WKPickerItem]()
 
         for (var i = 0; i < 100

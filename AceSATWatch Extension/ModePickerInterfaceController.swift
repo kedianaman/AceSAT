@@ -9,48 +9,34 @@
 import WatchKit
 import Foundation
 
+struct ControllerIdentifier {
+    static let ReviewIdentifier = "ReviewIdentifier"
+    static let PracticeIdentifier = "PracticeIdentifier"
+    static let TestIdentifier = "TestIdentifier"
+}
 
 class ModePickerInterfaceController: WKInterfaceController {
     
-    var wordList: WordList?
+    override func awakeWithContext(context: AnyObject?) {
+        super.awakeWithContext(context)
+    }
 
-    func getContextsFromWordList(wordList: WordList) -> [Dictionary<String, String>] {
-        var wordDict: [Dictionary<String, String>] = []
-        for word in WordList() {
-            wordDict.append([word.word: word.definition])
-        }
-        return wordDict
-    }
-    
-    func getIdentifiers() -> [String] {
-        var identifiers = [String]()
-        for _ in 0..<10 {
-            identifiers.append("PracticeIdentifier")
-        }
-        return identifiers
-    }
-    
     @IBAction func chooseListButtonPressed() {
         presentControllerWithName("ListPicker", context: nil)
     }
 
-
     @IBAction func practiceButtonPressed() {
-        print("practice button pressed")
-
-        let contexts = getContextsFromWordList(wordList!)
-        let identifiers = getIdentifiers()
+        let contexts = WordListManager.sharedManager.wordListAtIndex(0).allWords
+        
+        var identifiers = [String]()
+        for _ in 0..<contexts.count {
+            identifiers.append(ControllerIdentifier.PracticeIdentifier)
+        }
+        
         presentControllerWithNames(identifiers, contexts: contexts)
-
     }
+    
     @IBAction func testButtonPressed() {
         print("test button pressed")
-    }
-   
-    
-    override func awakeWithContext(context: AnyObject?) {
-        super.awakeWithContext(context)
-        let index = ListPickerInterfaceController.sharedManager.currentlySelectedIndex
-        wordList = WordListManager.sharedManager.wordListAtIndex(index)
     }
 }
