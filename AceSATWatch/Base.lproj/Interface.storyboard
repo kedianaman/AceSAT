@@ -8,7 +8,7 @@
         <!--ListPicker-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller title="ListPicker" id="AgC-eL-Hgc" customClass="ListPickerInterfaceController" customModule="AceSATWatch_Extension">
+                <controller identifier="ListPicker" id="AgC-eL-Hgc" customClass="ListPickerInterfaceController" customModule="AceSATWatch_Extension">
                     <items>
                         <label alignment="center" text="Label" textAlignment="center" id="mA6-nv-mQU">
                             <fontDescription key="font" type="system" pointSize="40"/>
@@ -31,7 +31,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="129" y="198"/>
+            <point key="canvasLocation" x="131" y="512"/>
         </scene>
         <!--Glance Interface Controller-->
         <scene sceneID="rjY-Ar-IMT">
@@ -54,7 +54,7 @@
                     <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="14"/>
                 </glanceController>
             </objects>
-            <point key="canvasLocation" x="141" y="547"/>
+            <point key="canvasLocation" x="833" y="867"/>
         </scene>
         <!--Review Interface Controller-->
         <scene sceneID="ePC-R7-JuE">
@@ -124,34 +124,36 @@
                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             <fontDescription key="font" type="system" pointSize="24"/>
                             <connections>
-                                <action selector="reviewButtonPressed" destination="lbZ-MX-hRl" id="9VU-zF-ZbB"/>
-                                <segue destination="sfQ-Ro-YoG" kind="modal" identifier="ReviewSegue" id="aCD-fW-YyW"/>
+                                <segue destination="sfQ-Ro-YoG" kind="modal" id="zvo-Gt-Ne8"/>
                             </connections>
                         </button>
                         <button width="1" height="0.33000000000000002" alignment="left" title="Practice" backgroundImage="Practice Button" id="VKX-62-UA4">
                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             <fontDescription key="font" type="system" pointSize="24"/>
                             <connections>
-                                <action selector="practiceButtonPressed" destination="lbZ-MX-hRl" id="mgo-na-pKj"/>
+                                <action selector="practiceButtonPressed" destination="lbZ-MX-hRl" id="SXI-wf-efT"/>
                             </connections>
                         </button>
                         <button width="1" height="0.33000000000000002" alignment="left" title="Test" backgroundImage="Test button-1" id="a4e-rf-x89">
                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             <fontDescription key="font" type="system" pointSize="24"/>
+                            <connections>
+                                <action selector="testButtonPressed" destination="lbZ-MX-hRl" id="WdD-Q2-ci1"/>
+                            </connections>
                         </button>
                     </items>
                     <menu key="menu" id="qVY-o7-2Qg">
                         <items>
                             <menuItem title="Choose list" icon="more" id="s8u-IG-CQr">
                                 <connections>
-                                    <action selector="chooseListButtonPressed" destination="lbZ-MX-hRl" id="JtT-Gp-air"/>
+                                    <action selector="chooseListButtonPressed" destination="lbZ-MX-hRl" id="nq6-9V-5Ub"/>
                                 </connections>
                             </menuItem>
                         </items>
                     </menu>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="307" y="832"/>
+            <point key="canvasLocation" x="389" y="956"/>
         </scene>
     </scenes>
 </document>

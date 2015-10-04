@@ -29,13 +29,22 @@ class ModePickerInterfaceController: WKInterfaceController {
         }
         return identifiers
     }
+    
+    @IBAction func chooseListButtonPressed() {
+        presentControllerWithName("ListPicker", context: nil)
+    }
 
 
     @IBAction func practiceButtonPressed() {
+        print("practice button pressed")
+
         let contexts = getContextsFromWordList(wordList!)
         let identifiers = getIdentifiers()
         presentControllerWithNames(identifiers, contexts: contexts)
 
+    }
+    @IBAction func testButtonPressed() {
+        print("test button pressed")
     }
    
     
