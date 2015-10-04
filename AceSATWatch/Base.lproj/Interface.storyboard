@@ -10,15 +10,20 @@
             <objects>
                 <controller identifier="ListPicker" id="AgC-eL-Hgc" customClass="ListPickerInterfaceController" customModule="AceSATWatch_Extension">
                     <items>
-                        <label alignment="center" text="Label" textAlignment="center" id="mA6-nv-mQU">
-                            <fontDescription key="font" type="system" pointSize="40"/>
+                        <label alignment="center" text="Choose a vocabulary list:" textAlignment="center" numberOfLines="0" id="CXS-RB-xJb">
+                            <fontDescription key="font" style="UICTFontTextStyleCallout"/>
                         </label>
-                        <label alignment="center" text="Choose a list: " textAlignment="center" id="CXS-RB-xJb"/>
                         <picker width="1" height="0.5" alignment="left" id="LbQ-Jc-7m5">
                             <connections>
                                 <action selector="listNumberChanged:" destination="AgC-eL-Hgc" id="8HF-ft-2L8"/>
                             </connections>
                         </picker>
+                        <button width="1" height="0.20000000000000001" alignment="left" title="Done" id="X2u-7a-6v4">
+                            <fontDescription key="font" type="system" pointSize="20"/>
+                            <connections>
+                                <action selector="doneButtonPressed" destination="AgC-eL-Hgc" id="2AT-1L-3ri"/>
+                            </connections>
+                        </button>
                     </items>
                     <menu key="menu" id="dU4-Yf-XMs">
                         <items>
@@ -26,7 +31,6 @@
                         </items>
                     </menu>
                     <connections>
-                        <outlet property="titleLabel" destination="mA6-nv-mQU" id="caU-F8-PWV"/>
                         <outlet property="vocabularyPicker" destination="LbQ-Jc-7m5" id="l56-jD-C2s"/>
                     </connections>
                 </controller>

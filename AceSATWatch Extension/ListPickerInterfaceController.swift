@@ -15,7 +15,6 @@ class ListPickerInterfaceController: WKInterfaceController {
     var currentlySelectedIndex = 0
     
     @IBOutlet var vocabularyPicker: WKInterfacePicker!
-    @IBOutlet var titleLabel: WKInterfaceLabel!
     
     @IBAction func listNumberChanged(value: Int) {
         currentlySelectedIndex = value
@@ -23,7 +22,6 @@ class ListPickerInterfaceController: WKInterfaceController {
     
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
-        setTitleText()
         let pickerItems = getPickerItemArray()
         vocabularyPicker.setItems(pickerItems)
     }
@@ -42,18 +40,8 @@ class ListPickerInterfaceController: WKInterfaceController {
         return pickerArray
 
     }
-    func setTitleText() {
-        
-        let thinFont = UIFont.systemFontOfSize(40.0, weight: UIFontWeightUltraLight)
-        let lightFont = UIFont.systemFontOfSize(40.0, weight: UIFontWeightLight)
-
-        let mainTitle = NSMutableAttributedString(string: "A", attributes: [NSFontAttributeName : thinFont, NSForegroundColorAttributeName : UIColor.whiteColor()])
-        mainTitle.appendAttributedString(NSMutableAttributedString(string: "CE", attributes: [NSFontAttributeName : UIFont.systemFontOfSize(32.0, weight: UIFontWeightUltraLight), NSForegroundColorAttributeName : UIColor.whiteColor()]))
-        mainTitle.appendAttributedString(NSMutableAttributedString(string: "S", attributes: [NSFontAttributeName : lightFont, NSForegroundColorAttributeName : UIColor.ace_greenColor()]))
-        mainTitle.appendAttributedString(NSMutableAttributedString(string: "A", attributes: [NSFontAttributeName : lightFont, NSForegroundColorAttributeName : UIColor.ace_blueColor()]))
-        mainTitle.appendAttributedString(NSMutableAttributedString(string: "T", attributes: [NSFontAttributeName : lightFont, NSForegroundColorAttributeName : UIColor.ace_redColor()]))
-        
-        titleLabel.setAttributedText(mainTitle)
+    
+    @IBAction func doneButtonPressed() {
+        dismissController()
     }
-   
 }
