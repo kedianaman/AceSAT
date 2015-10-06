@@ -14,15 +14,17 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     // MARK: - Timeline Configuration
     
     func getSupportedTimeTravelDirectionsForComplication(complication: CLKComplication, withHandler handler: (CLKComplicationTimeTravelDirections) -> Void) {
-        handler([.Forward, .Backward])
+        handler([.Forward])
     }
     
     func getTimelineStartDateForComplication(complication: CLKComplication, withHandler handler: (NSDate?) -> Void) {
-        handler(nil)
+        let startDate = NSDate.init(timeIntervalSinceNow: NSTimeInterval(-60.0 * 60 * 24))
+        handler(startDate)
     }
     
     func getTimelineEndDateForComplication(complication: CLKComplication, withHandler handler: (NSDate?) -> Void) {
-        handler(nil)
+        let endDate = NSDate.init(timeIntervalSinceNow: NSTimeInterval(60 * 60 * 24))
+        handler(endDate)
     }
     
     func getPrivacyBehaviorForComplication(complication: CLKComplication, withHandler handler: (CLKComplicationPrivacyBehavior) -> Void) {
@@ -32,8 +34,9 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     // MARK: - Timeline Population
     
     func getCurrentTimelineEntryForComplication(complication: CLKComplication, withHandler handler: ((CLKComplicationTimelineEntry?) -> Void)) {
-        // Call the handler with the current timeline entry
-        handler(nil)
+        getTimelineEntriesForComplication(complication, afterDate: NSDate(), limit: 1) { (entries) -> Void in
+            handler(entries?.first)
+        }
     }
     
     func getTimelineEntriesForComplication(complication: CLKComplication, beforeDate date: NSDate, limit: Int, withHandler handler: (([CLKComplicationTimelineEntry]?) -> Void)) {
@@ -42,8 +45,22 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     }
     
     func getTimelineEntriesForComplication(complication: CLKComplication, afterDate date: NSDate, limit: Int, withHandler handler: (([CLKComplicationTimelineEntry]?) -> Void)) {
-        // Call the handler with the timeline entries after to the given date
-        handler(nil)
+        
+        var entries = [CLKComplicationTimelineEntry]()
+        var timeInterval = 0.0
+        while entries.count <= limit {
+            let randomListIndex = random() % 100
+            let randomWordIndex = random() % 10
+            let wordList = WordListManager.sharedManager.wordListAtIndex(randomListIndex)
+            let word = wordList[randomWordIndex]
+            let template = templateForWord(word)
+            let date = NSDate.init(timeInterval: timeInterval, sinceDate: date)
+            let entry = CLKComplicationTimelineEntry(date: date, complicationTemplate: template)
+            entries.append(entry)
+            timeInterval += 60.0 * 60.0
+
+        }
+        handler(entries)
     }
     
     // MARK: - Update Scheduling
@@ -56,10 +73,39 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     // MARK: - Placeholder Templates
     
     func getPlaceholderTemplateForComplication(complication: CLKComplication, withHandler handler: (CLKComplicationTemplate?) -> Void) {
-        let template = CLKComplicationTemplateModularLargeStandardBody()
-        template.body1TextProvider = CLKSimpleTextProvider(text: "Test word")
-        template.body2TextProvider = CLKSimpleTextProvider(text: "This is a sample definition")
+        var template: CLKComplicationTemplate? = nil
+        switch complication.family {
+        case .ModularSmall:
+            template = nil
+        case .UtilitarianSmall:
+            template = nil
+        case .UtilitarianLarge:
+            template = nil
+        case .CircularSmall:
+            template = nil
+        case.ModularLarge:
+            let modularTemplate = CLKComplicationTemplateModularLargeStandardBody()
+            let textProdivder = CLKSimpleTextProvider(text: "Test word")
+            textProdivder.tintColor = UIColor.ace_redColor()
+
+            modularTemplate.headerTextProvider = textProdivder
+            modularTemplate.body1TextProvider = CLKSimpleTextProvider(text: "This is a sample definition")
+            template = modularTemplate
+        }
+      
         handler(template)
+    }
+    
+    func templateForWord(word: Word) -> CLKComplicationTemplate {
+        let template = CLKComplicationTemplateModularLargeStandardBody()
+        let headerText = CLKSimpleTextProvider(text: word.word)
+        headerText.tintColor = UIColor.ace_redColor()
+        template.headerTextProvider = headerText
+        let bodyText = CLKSimpleTextProvider(text: word.definition)
+        bodyText.tintColor = UIColor.ace_blueColor()
+        template.body1TextProvider = bodyText
+        return template
+        
     }
     
 }
