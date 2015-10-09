@@ -152,6 +152,7 @@ class Word : CustomStringConvertible, Equatable {
     var description: String {
         return word + " : " + definition
     }
+    
 }
 
 func ==(lhs: Word, rhs: Word) -> Bool {

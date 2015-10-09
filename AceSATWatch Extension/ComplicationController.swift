@@ -14,16 +14,16 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     // MARK: - Timeline Configuration
     
     func getSupportedTimeTravelDirectionsForComplication(complication: CLKComplication, withHandler handler: (CLKComplicationTimeTravelDirections) -> Void) {
-        handler([.Forward])
+        handler([.Backward, .Forward])
     }
     
     func getTimelineStartDateForComplication(complication: CLKComplication, withHandler handler: (NSDate?) -> Void) {
-        let startDate = NSDate.init(timeIntervalSinceNow: NSTimeInterval(-60.0 * 60 * 24))
+        let startDate = getStartDate()
         handler(startDate)
     }
     
     func getTimelineEndDateForComplication(complication: CLKComplication, withHandler handler: (NSDate?) -> Void) {
-        let endDate = NSDate.init(timeIntervalSinceNow: NSTimeInterval(60 * 60 * 24))
+        let endDate = getEndDate()
         handler(endDate)
     }
     
@@ -40,34 +40,40 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     }
     
     func getTimelineEntriesForComplication(complication: CLKComplication, beforeDate date: NSDate, limit: Int, withHandler handler: (([CLKComplicationTimelineEntry]?) -> Void)) {
-        // Call the handler with the timeline entries prior to the given date
-        handler(nil)
+        let entries = getWordEntriesForDay()
+        var newEntries = [CLKComplicationTimelineEntry]()
+        for entry in entries {
+            let earlierDate = entry.date.earlierDate(date)
+            if earlierDate.isEqualToDate(entry.date) {
+                newEntries.append(entry)
+            }
+        }
+        
+        handler(newEntries)
+
     }
     
     func getTimelineEntriesForComplication(complication: CLKComplication, afterDate date: NSDate, limit: Int, withHandler handler: (([CLKComplicationTimelineEntry]?) -> Void)) {
         
-        var entries = [CLKComplicationTimelineEntry]()
-        var timeInterval = 0.0
-        while entries.count <= limit {
-            let randomListIndex = random() % 100
-            let randomWordIndex = random() % 10
-            let wordList = WordListManager.sharedManager.wordListAtIndex(randomListIndex)
-            let word = wordList[randomWordIndex]
-            let template = templateForWord(word)
-            let date = NSDate.init(timeInterval: timeInterval, sinceDate: date)
-            let entry = CLKComplicationTimelineEntry(date: date, complicationTemplate: template)
-            entries.append(entry)
-            timeInterval += 60.0 * 60.0
-
+        let entries = getWordEntriesForDay()
+        var newEntries = [CLKComplicationTimelineEntry]()
+        for entry in entries {
+            let laterDate =  entry.date.laterDate(date)
+            if laterDate.isEqualToDate(entry.date) {
+                newEntries.append(entry)
+            }
         }
-        handler(entries)
+  
+        handler(newEntries)
+
     }
+
     
     // MARK: - Update Scheduling
     
     func getNextRequestedUpdateDateWithHandler(handler: (NSDate?) -> Void) {
-        // Call the handler with the date when you would next like to be given the opportunity to update your complication content
-        handler(nil);
+        let endDate = getEndDate()
+        handler(endDate);
     }
     
     // MARK: - Placeholder Templates
@@ -107,5 +113,46 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         return template
         
     }
+    
+    func getStartDate() -> NSDate {
+        let calendar = NSCalendar.currentCalendar()
+        let date = calendar.dateBySettingHour(0, minute: 0, second: 0, ofDate: NSDate(), options: NSCalendarOptions.WrapComponents)
+        return date!
+    }
+    
+    
+    func getEndDate() -> NSDate {
+        let calendar = NSCalendar.currentCalendar()
+        let date = calendar.dateBySettingHour(23, minute: 59, second: 59, ofDate: NSDate(), options: NSCalendarOptions.WrapComponents)
+        return date!
+    }
+    
+    func getWordEntriesForDay() -> [CLKComplicationTimelineEntry] {
+        let date = getStartDate()
+        var timeInterval = 0.0
+        var entries = [CLKComplicationTimelineEntry]()
+        for (var i = 0; i < 24; i++) {
+            let template = templateForWord(getRandomWord())
+            let entryDate = NSDate(timeInterval: timeInterval, sinceDate: date)
+            let entry = CLKComplicationTimelineEntry(date: entryDate, complicationTemplate: template)
+            entries.append(entry)
+            timeInterval += 60 * 60
+
+        }
+        
+        return entries
+        
+    }
+    
+    func getRandomWord() -> Word {
+        let randomListIndex = random() % 100
+        let randomWordIndex = random() % 10
+        let wordList = WordListManager.sharedManager.wordListAtIndex(randomListIndex)
+        let word = wordList[randomWordIndex]
+        return word
+
+    }
+    
+
     
 }

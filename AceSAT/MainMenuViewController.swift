@@ -54,7 +54,6 @@ class MainMenuViewController: UIViewController {
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBarHidden = true
         self.navigationController?.navigationBar.shadowImage = UIImage()
-
         wordListStackView.alpha = 0
         wordListPickerView.numberOfLists = WordListManager.sharedManager.numberOfWordLists
         wordListStackView.transform = CGAffineTransformMakeTranslation(0, -wordListStackView.bounds.size.height/4.0)
