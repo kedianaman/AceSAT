@@ -53,6 +53,11 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
 
     }
     
+    func getTimelineAnimationBehaviorForComplication(complication: CLKComplication, withHandler handler: (CLKComplicationTimelineAnimationBehavior) -> Void) {
+        handler(CLKComplicationTimelineAnimationBehavior.Always)
+        
+    }
+    
     func getTimelineEntriesForComplication(complication: CLKComplication, afterDate date: NSDate, limit: Int, withHandler handler: (([CLKComplicationTimelineEntry]?) -> Void)) {
         
         let entries = getWordEntriesForDay()
