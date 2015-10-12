@@ -18,7 +18,7 @@ class TestInterfaceController: WKInterfaceController {
 
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
-        testQuestion = context as! TestQuestion
+        testQuestion = context as? TestQuestion
         let items = getPickerItemArray()
         definitionsPicker.setItems(items)
         wordLabel.setTextColor(UIColor.ace_redColor())

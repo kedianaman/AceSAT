@@ -9,10 +9,15 @@
 import WatchKit
 import Foundation
 
+protocol ListPickerControllerDelegate: class {
+    var currentlySelectedList: Int { get set }
+}
 
 class ListPickerInterfaceController: WKInterfaceController {
     
     var currentlySelectedIndex = 0
+    
+    weak var delegate: ModePickerInterfaceController?
     
     @IBOutlet var vocabularyPicker: WKInterfacePicker!
     
@@ -22,6 +27,8 @@ class ListPickerInterfaceController: WKInterfaceController {
     
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
+        let modePickerController = context as? ModePickerInterfaceController
+        delegate = modePickerController
         let pickerItems = getPickerItemArray()
         vocabularyPicker.setItems(pickerItems)
     }
@@ -42,6 +49,7 @@ class ListPickerInterfaceController: WKInterfaceController {
     }
     
     @IBAction func doneButtonPressed() {
+        delegate?.currentlySelectedList = currentlySelectedIndex
         dismissController()
     }
 }
