@@ -20,14 +20,15 @@ class ReviewInterfaceController: WKInterfaceController {
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
         let index = 1
+        let words = context as! [Word]
         let wordList = WordListManager.sharedManager.wordListAtIndex(index)
-        reviewTable.setNumberOfRows(wordList.count, withRowType: "ReviewWordsRowIdentifier")
+        reviewTable.setNumberOfRows(words.count, withRowType: "ReviewWordsRowIdentifier")
         
 
 
         
         var i = 0
-        for word in wordList {
+        for word in words {
             let row = reviewTable.rowControllerAtIndex(i) as! ReviewTableRow
             row.titleLabel.setText(word.word)
             row.titleLabel.setTextColor(UIColor.ace_greenColor())

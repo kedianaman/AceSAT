@@ -61,10 +61,10 @@
             </objects>
             <point key="canvasLocation" x="431" y="826"/>
         </scene>
-        <!--Review Interface Controller-->
+        <!--ReviewIdentifier-->
         <scene sceneID="ePC-R7-JuE">
             <objects>
-                <controller hidesWhenLoading="NO" id="sfQ-Ro-YoG" customClass="ReviewInterfaceController" customModule="AceSATWatch_Extension">
+                <controller identifier="ReviewIdentifier" hidesWhenLoading="NO" id="sfQ-Ro-YoG" customClass="ReviewInterfaceController" customModule="AceSATWatch_Extension">
                     <items>
                         <table alignment="left" id="H60-A7-ma2">
                             <items>
@@ -147,7 +147,7 @@
                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             <fontDescription key="font" type="system" pointSize="24"/>
                             <connections>
-                                <segue destination="sfQ-Ro-YoG" kind="modal" id="zvo-Gt-Ne8"/>
+                                <action selector="reviewButtonPressed" destination="lbZ-MX-hRl" id="Oth-FZ-Zmd"/>
                             </connections>
                         </button>
                         <button width="1" height="0.33000000000000002" alignment="left" title="Practice" backgroundImage="PracticeButton" id="VKX-62-UA4">

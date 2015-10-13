@@ -27,6 +27,12 @@ class ModePickerInterfaceController: WKInterfaceController, ListPickerController
         presentControllerWithName("ListPicker", context: self)
     }
 
+    @IBAction func reviewButtonPressed() {
+        let contexts = WordListManager.sharedManager.wordListAtIndex(currentlySelectedList).allWords
+        presentControllerWithName(ControllerIdentifier.ReviewIdentifier, context: contexts)
+    }
+    
+    
     @IBAction func practiceButtonPressed() {
         let contexts = WordListManager.sharedManager.wordListAtIndex(currentlySelectedList).allWords
         
