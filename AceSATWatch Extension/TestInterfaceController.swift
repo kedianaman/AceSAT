@@ -12,43 +12,38 @@ import Foundation
 
 class TestInterfaceController: WKInterfaceController {
     
-    @IBOutlet var definitionsPicker: WKInterfacePicker!
+
+    @IBOutlet var definitionLabel1: WKInterfaceButton!
+    @IBOutlet var definitionLabel2: WKInterfaceButton!
+    @IBOutlet var definitionLabel3: WKInterfaceButton!
+    @IBOutlet var definitionLabel4: WKInterfaceButton!
+    
+    var buttons = [WKInterfaceButton]()
+    
     var testQuestion: TestQuestion?
+    
     @IBOutlet var wordLabel: WKInterfaceLabel!
 
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
-        testQuestion = context as? TestQuestion
-        let items = getPickerItemArray()
-        definitionsPicker.setItems(items)
+        testQuestion = context as? TestQuestion        
         wordLabel.setTextColor(UIColor.ace_redColor())
         wordLabel.setText(testQuestion?.word.word)
         
-        // Configure interface objects here.
-    }
-
-    func getPickerItemArray() -> [WKPickerItem] {
-        var pickerArray = [WKPickerItem]()
-        for definition in testQuestion!.possibleDefinitions {
-            let item = WKPickerItem()
-            item.title = definition
-            pickerArray.append(item)
+        buttons = [definitionLabel1, definitionLabel2, definitionLabel3, definitionLabel4]
+        var definitions = testQuestion!.possibleDefinitions
+        definitions.insert(testQuestion!.word.definition, atIndex: random() % 4)
+        for i in 0..<definitions.count {
+            buttons[i].setTitle(definitions[i])
         }
-        let randomIndex = random()%4
-        let item = WKPickerItem()
-        item.title = testQuestion?.word.definition
-        pickerArray.insert(item, atIndex: randomIndex)
-        return pickerArray
     }
 
-    override func willActivate() {
-        // This method is called when watch view controller is about to be visible to user
-        super.willActivate()
-    }
-
-    override func didDeactivate() {
-        // This method is called when watch view controller is no longer visible
-        super.didDeactivate()
+    @IBAction func definitionTapped(sender: WKInterfaceButton) {
+        sender.setBackgroundColor(UIColor.ace_redColor())
+        for button in buttons {
+            
+        }
+        
     }
 
 }

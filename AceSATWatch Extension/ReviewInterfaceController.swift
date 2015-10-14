@@ -19,9 +19,7 @@ class ReviewInterfaceController: WKInterfaceController {
     
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
-        let index = 1
         let words = context as! [Word]
-        let wordList = WordListManager.sharedManager.wordListAtIndex(index)
         reviewTable.setNumberOfRows(words.count, withRowType: "ReviewWordsRowIdentifier")
         
 

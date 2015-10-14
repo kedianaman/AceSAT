@@ -125,13 +125,39 @@
             <objects>
                 <controller identifier="TestIdentifier" hidesWhenLoading="NO" id="bDG-xR-Yly" customClass="TestInterfaceController" customModule="AceSATWatch_Extension">
                     <items>
-                        <label alignment="left" text="Label" id="ZwV-v4-Ano">
+                        <label alignment="left" text="Label" minimumScaleFactor="0.5" id="ZwV-v4-Ano">
                             <fontDescription key="font" type="system" pointSize="30"/>
                         </label>
-                        <picker width="1" height="100" alignment="left" id="f3g-VA-TDd"/>
+                        <group width="1" alignment="left" layout="vertical" id="4Mk-89-Hzu">
+                            <items>
+                                <button width="1" alignment="left" title="Button" id="fCO-mu-Rh0">
+                                    <connections>
+                                        <action selector="definitionTapped" destination="bDG-xR-Yly" id="9nx-qp-He4"/>
+                                    </connections>
+                                </button>
+                                <button width="1" alignment="left" title="Button" id="hfb-MC-pDz">
+                                    <connections>
+                                        <action selector="definitionTapped" destination="bDG-xR-Yly" id="7p1-6h-5Ns"/>
+                                    </connections>
+                                </button>
+                                <button width="1" alignment="left" title="Button" id="WsW-f2-XDm">
+                                    <connections>
+                                        <action selector="definitionTapped" destination="bDG-xR-Yly" id="SJG-Ga-en9"/>
+                                    </connections>
+                                </button>
+                                <button width="1" alignment="left" title="Button" id="hTm-N0-z0K">
+                                    <connections>
+                                        <action selector="definitionTapped" destination="bDG-xR-Yly" id="JeL-rr-F6h"/>
+                                    </connections>
+                                </button>
+                            </items>
+                        </group>
                     </items>
                     <connections>
-                        <outlet property="definitionsPicker" destination="f3g-VA-TDd" id="xrO-bT-2OC"/>
+                        <outlet property="definitionLabel1" destination="fCO-mu-Rh0" id="d0G-I9-YE0"/>
+                        <outlet property="definitionLabel2" destination="hfb-MC-pDz" id="zQG-Ht-M0x"/>
+                        <outlet property="definitionLabel3" destination="WsW-f2-XDm" id="xfj-X3-ces"/>
+                        <outlet property="definitionLabel4" destination="hTm-N0-z0K" id="8Uc-kp-jM4"/>
                         <outlet property="wordLabel" destination="ZwV-v4-Ano" id="73z-cv-Twm"/>
                     </connections>
                 </controller>
