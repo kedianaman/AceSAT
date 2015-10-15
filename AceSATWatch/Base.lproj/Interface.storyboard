@@ -71,7 +71,7 @@
                                 <tableRow identifier="ReviewWordsRowIdentifier" selectable="NO" id="csE-ED-v4H" customClass="ReviewTableRow" customModule="AceSATWatch_Extension">
                                     <group key="rootItem" width="1" height="0.0" alignment="left" layout="vertical" id="VmF-gn-0Lf">
                                         <items>
-                                            <label alignment="left" text="Label" id="7a8-rm-VjS">
+                                            <label alignment="left" text="Label" minimumScaleFactor="0.20000000000000001" id="7a8-rm-VjS">
                                                 <fontDescription key="font" type="system" pointSize="24"/>
                                             </label>
                                             <label alignment="left" text="Label" numberOfLines="0" id="xmi-8Q-YYA"/>

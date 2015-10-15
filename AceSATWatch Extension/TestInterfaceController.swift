@@ -40,9 +40,6 @@ class TestInterfaceController: WKInterfaceController {
 
     @IBAction func definitionTapped(sender: WKInterfaceButton) {
         sender.setBackgroundColor(UIColor.ace_redColor())
-        for button in buttons {
-            
-        }
         
     }
 
