@@ -15,10 +15,21 @@ struct ControllerIdentifier {
     static let TestIdentifier = "TestIdentifier"
 }
 
-class ModePickerInterfaceController: WKInterfaceController, ListPickerControllerDelegate {
+class ModePickerInterfaceController: WKInterfaceController {
     
-    var currentlySelectedList: Int = 0
-    
+    var currentlySelectedList: Int {
+        set {
+            NSUserDefaults(suiteName: "group.namankedia.AceSATApp")?.setValue(newValue, forKey: "SelectedWordListKey")
+        }
+        get {
+            if let index = NSUserDefaults(suiteName: "group.namankedia.AceSATApp")?.valueForKey("SelectedWordListKey") as? Int {
+                return index
+            } else {
+                return 0
+                
+            }
+        }
+    }
     
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
@@ -29,7 +40,7 @@ class ModePickerInterfaceController: WKInterfaceController, ListPickerController
         self.setTitle("AceSAT: \(currentlySelectedList + 1)")
     }
     @IBAction func chooseListButtonPressed() {
-        presentControllerWithName("ListPicker", context: self)
+        presentControllerWithName("ListPicker", context: nil)
     }
 
     @IBAction func reviewButtonPressed() {

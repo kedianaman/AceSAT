@@ -9,15 +9,25 @@
 import WatchKit
 import Foundation
 
-protocol ListPickerControllerDelegate: class {
-    var currentlySelectedList: Int { get set }
-}
 
 class ListPickerInterfaceController: WKInterfaceController {
     
-    var currentlySelectedIndex = 0
+    var defualts = NSUserDefaults(suiteName: "group.namankedia.AceSATApp")
     
-    weak var delegate: ModePickerInterfaceController?
+    var currentlySelectedIndex: Int {
+        set {
+            NSUserDefaults(suiteName: "group.namankedia.AceSATApp")?.setValue(newValue, forKey: "SelectedWordListKey")
+        }
+        get {
+            if let index = NSUserDefaults(suiteName: "group.namankedia.AceSATApp")?.valueForKey("SelectedWordListKey") as? Int {
+                return index
+            } else {
+                return 0
+                
+            }
+        }
+    }
+    
     
     @IBOutlet var vocabularyPicker: WKInterfacePicker!
     
@@ -27,10 +37,9 @@ class ListPickerInterfaceController: WKInterfaceController {
     
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
-        let modePickerController = context as? ModePickerInterfaceController
-        delegate = modePickerController
         let pickerItems = getPickerItemArray()
         vocabularyPicker.setItems(pickerItems)
+        vocabularyPicker.setSelectedItemIndex(currentlySelectedIndex)
     }
     
     func getPickerItemArray() -> [WKPickerItem] {
@@ -39,6 +48,10 @@ class ListPickerInterfaceController: WKInterfaceController {
         for (var i = 0; i < 100
             ; i++) {
                 let pickerItem = WKPickerItem()
+                let wordList = WordListManager.sharedManager.wordListAtIndex(i)
+                if WordListManager.sharedManager.getAced(wordList) == true {
+                    pickerItem.title = "\(i+1) ★"
+                }
                 pickerItem.title = "\(i+1)"
                 
                 pickerArray.append(pickerItem)
@@ -49,7 +62,6 @@ class ListPickerInterfaceController: WKInterfaceController {
     }
     
     @IBAction func doneButtonPressed() {
-        delegate?.currentlySelectedList = currentlySelectedIndex
         dismissController()
     }
 }

@@ -115,6 +115,8 @@
 		ED403EAB1BB81E5500BC3E58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ED403EB91BB8232500BC3E58 /* ReviewInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewInterfaceController.swift; sourceTree = "<group>"; };
 		ED403EBB1BB8235900BC3E58 /* ReviewTableRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewTableRow.swift; sourceTree = "<group>"; };
+		ED4920591BD5276B00CC4669 /* AceSATWatch Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "AceSATWatch Extension.entitlements"; sourceTree = "<group>"; };
+		ED49205A1BD5286D00CC4669 /* AceSAT.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = AceSAT.entitlements; sourceTree = "<group>"; };
 		ED5A00201B6E04EC00EDB303 /* WordListPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordListPickerView.swift; sourceTree = "<group>"; };
 		ED67293A1B65BFCB00B396F6 /* PracticePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PracticePageViewController.swift; sourceTree = "<group>"; };
 		ED67293C1B66059200B396F6 /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 		ED1C89C31B5985EF00DCF0EB /* AceSAT */ = {
 			isa = PBXGroup;
 			children = (
+				ED49205A1BD5286D00CC4669 /* AceSAT.entitlements */,
 				ED1C89C41B5985EF00DCF0EB /* AppDelegate.swift */,
 				ED1C89C81B5985EF00DCF0EB /* Main.storyboard */,
 				ED69D2F11B647F2000B1A4AC /* MainMenuViewController.swift */,
@@ -240,6 +243,7 @@
 		ED403EA21BB81E5500BC3E58 /* AceSATWatch Extension */ = {
 			isa = PBXGroup;
 			children = (
+				ED4920591BD5276B00CC4669 /* AceSATWatch Extension.entitlements */,
 				EDAF68C71BC01DE6001E862D /* ModePickerInterfaceController.swift */,
 				EDA24DAB1BC1216300B0D608 /* TestInterfaceController.swift */,
 				ED403EB91BB8232500BC3E58 /* ReviewInterfaceController.swift */,
@@ -324,6 +328,9 @@
 						CreatedOnToolsVersion = 7.0;
 						DevelopmentTeam = R8VRS65L49;
 						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
 							com.apple.GameCenter = {
 								enabled = 0;
 							};
@@ -338,6 +345,12 @@
 					};
 					ED403E9D1BB81E5500BC3E58 = {
 						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = R8VRS65L49;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -569,7 +582,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "";
+				CODE_SIGN_ENTITLEMENTS = AceSAT/AceSAT.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = AceSAT/Info.plist;
@@ -584,7 +597,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "";
+				CODE_SIGN_ENTITLEMENTS = AceSAT/AceSAT.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = AceSAT/Info.plist;
@@ -635,10 +648,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_ENTITLEMENTS = "AceSATWatch Extension/AceSATWatch Extension.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "AceSATWatch Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.namankedia.AceSATApp.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -650,10 +667,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_ENTITLEMENTS = "AceSATWatch Extension/AceSATWatch Extension.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "AceSATWatch Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.namankedia.AceSATApp.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;

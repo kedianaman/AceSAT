@@ -54,9 +54,9 @@ class WordListManager {
     }
     
     func setAced(wordList: WordList) {
-        let defaults = NSUserDefaults.standardUserDefaults()
+        let defaults = NSUserDefaults(suiteName: "group.namankedia.AceSATApp")
         let acedWordLists: NSMutableArray
-        if let lists = defaults.objectForKey(DefaultsKey.AcedWordListKey) {
+        if let lists = defaults?.objectForKey(DefaultsKey.AcedWordListKey) {
             acedWordLists = lists.mutableCopy() as! NSMutableArray
         }
         else {
@@ -68,12 +68,12 @@ class WordListManager {
             acedWordLists.addObject(index)
         }
         
-        defaults.setObject(acedWordLists, forKey: DefaultsKey.AcedWordListKey)
+        defaults?.setObject(acedWordLists, forKey: DefaultsKey.AcedWordListKey)
     }
     
     func getAced(wordList: WordList) -> Bool {
         let index = wordLists.indexOf(wordList)!
-        if let acedWordLists = NSUserDefaults.standardUserDefaults().objectForKey(DefaultsKey.AcedWordListKey) {
+        if let acedWordLists = NSUserDefaults(suiteName: "group.namankedia.AceSATApp")?.objectForKey(DefaultsKey.AcedWordListKey) {
             return acedWordLists.containsObject(index)
         }
         return false

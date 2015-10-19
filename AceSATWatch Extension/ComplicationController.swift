@@ -44,7 +44,7 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         var timeInterval = date.timeIntervalSinceReferenceDate
         while entries.count < limit {
             let date = NSDate(timeIntervalSinceReferenceDate: timeInterval)
-            var entry = getEntryForDate(date)
+            let entry = getEntryForDate(date)
             entries.append(entry)
             timeInterval += -3600
         }
@@ -60,7 +60,7 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         var timeInterval = date.timeIntervalSinceReferenceDate
         while entries.count < limit {
             let date = NSDate(timeIntervalSinceReferenceDate: timeInterval)
-            var entry = getEntryForDate(date)
+            let entry = getEntryForDate(date)
             entries.append(entry)
             timeInterval += 3600
         }
@@ -78,8 +78,7 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     // MARK: - Update Scheduling
     
     func getNextRequestedUpdateDateWithHandler(handler: (NSDate?) -> Void) {
-        let endDate = getEndDate()
-        handler(endDate);
+        handler(nil)
     }
     
     // MARK: - Placeholder Templates
@@ -99,7 +98,6 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
             let modularTemplate = CLKComplicationTemplateModularLargeStandardBody()
             let textProdivder = CLKSimpleTextProvider(text: "Test word")
             textProdivder.tintColor = UIColor.ace_redColor()
-
             modularTemplate.headerTextProvider = textProdivder
             modularTemplate.body1TextProvider = CLKSimpleTextProvider(text: "This is a sample definition")
             template = modularTemplate
@@ -131,44 +129,6 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         
     }
     
-    func getStartDate() -> NSDate {
-        let calendar = NSCalendar.currentCalendar()
-        let date = calendar.dateBySettingHour(0, minute: 0, second: 0, ofDate: NSDate(), options: NSCalendarOptions.WrapComponents)
-        return date!
-    }
-    
-    
-    func getEndDate() -> NSDate {
-        let calendar = NSCalendar.currentCalendar()
-        let date = calendar.dateBySettingHour(23, minute: 59, second: 59, ofDate: NSDate(), options: NSCalendarOptions.WrapComponents)
-        return date!
-    }
-    
-    func getWordEntriesForDay() -> [CLKComplicationTimelineEntry] {
-        let date = getStartDate()
-        var timeInterval = 0.0
-        var entries = [CLKComplicationTimelineEntry]()
-        for (var i = 0; i < 24; i++) {
-            let template = templateForWord(getRandomWord())
-            let entryDate = NSDate(timeInterval: timeInterval, sinceDate: date)
-            let entry = CLKComplicationTimelineEntry(date: entryDate, complicationTemplate: template)
-            entries.append(entry)
-            timeInterval += 60 * 60
-
-        }
-        
-        return entries
-        
-    }
-    
-    func getRandomWord() -> Word {
-        let randomListIndex = random() % 100
-        let randomWordIndex = random() % 10
-        let wordList = WordListManager.sharedManager.wordListAtIndex(randomListIndex)
-        let word = wordList[randomWordIndex]
-        return word
-
-    }
     
 
     
