@@ -18,12 +18,12 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     }
     
     func getTimelineStartDateForComplication(complication: CLKComplication, withHandler handler: (NSDate?) -> Void) {
-        let startDate = getStartDate()
+        let startDate = NSDate.distantPast()
         handler(startDate)
     }
     
     func getTimelineEndDateForComplication(complication: CLKComplication, withHandler handler: (NSDate?) -> Void) {
-        let endDate = getEndDate()
+        let endDate = NSDate.distantFuture()
         handler(endDate)
     }
     
@@ -34,22 +34,39 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     // MARK: - Timeline Population
     
     func getCurrentTimelineEntryForComplication(complication: CLKComplication, withHandler handler: ((CLKComplicationTimelineEntry?) -> Void)) {
-        getTimelineEntriesForComplication(complication, afterDate: NSDate(), limit: 1) { (entries) -> Void in
-            handler(entries?.first)
-        }
+        let entry = getEntryForDate(NSDate())
+        handler(entry)
+        
     }
     
     func getTimelineEntriesForComplication(complication: CLKComplication, beforeDate date: NSDate, limit: Int, withHandler handler: (([CLKComplicationTimelineEntry]?) -> Void)) {
-        let entries = getWordEntriesForDay()
-        var newEntries = [CLKComplicationTimelineEntry]()
-        for entry in entries {
-            let earlierDate = entry.date.earlierDate(date)
-            if earlierDate.isEqualToDate(entry.date) {
-                newEntries.append(entry)
-            }
+        var entries = [CLKComplicationTimelineEntry]()
+        var timeInterval = date.timeIntervalSinceReferenceDate
+        while entries.count < limit {
+            let date = NSDate(timeIntervalSinceReferenceDate: timeInterval)
+            var entry = getEntryForDate(date)
+            entries.append(entry)
+            timeInterval += -3600
         }
         
-        handler(newEntries)
+        handler(entries)
+       
+        
+
+    }
+    
+    func getTimelineEntriesForComplication(complication: CLKComplication, afterDate date: NSDate, limit: Int, withHandler handler: (([CLKComplicationTimelineEntry]?) -> Void)) {
+        var entries = [CLKComplicationTimelineEntry]()
+        var timeInterval = date.timeIntervalSinceReferenceDate
+        while entries.count < limit {
+            let date = NSDate(timeIntervalSinceReferenceDate: timeInterval)
+            var entry = getEntryForDate(date)
+            entries.append(entry)
+            timeInterval += 3600
+        }
+        
+        handler(entries)
+        
 
     }
     
@@ -57,22 +74,6 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         handler(CLKComplicationTimelineAnimationBehavior.Always)
         
     }
-    
-    func getTimelineEntriesForComplication(complication: CLKComplication, afterDate date: NSDate, limit: Int, withHandler handler: (([CLKComplicationTimelineEntry]?) -> Void)) {
-        
-        let entries = getWordEntriesForDay()
-        var newEntries = [CLKComplicationTimelineEntry]()
-        for entry in entries {
-            let laterDate =  entry.date.laterDate(date)
-            if laterDate.isEqualToDate(entry.date) {
-                newEntries.append(entry)
-            }
-        }
-  
-        handler(newEntries)
-
-    }
-
     
     // MARK: - Update Scheduling
     
@@ -107,6 +108,17 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         handler(template)
     }
     
+    func getEntryForDate(date: NSDate) -> CLKComplicationTimelineEntry {
+        let seconds = date.timeIntervalSinceReferenceDate
+        let secondsSinceDate = seconds - (seconds % 3600)
+        let hours = Int(seconds/3600)
+        let wordIndex = hours % 1000
+        let word = WordListManager.sharedManager.allWords[wordIndex]
+        let date = NSDate(timeIntervalSinceReferenceDate: secondsSinceDate)
+        let template = templateForWord(word)
+        return CLKComplicationTimelineEntry(date: date, complicationTemplate: template)
+        
+    }
     func templateForWord(word: Word) -> CLKComplicationTemplate {
         let template = CLKComplicationTemplateModularLargeStandardBody()
         let headerText = CLKSimpleTextProvider(text: word.word)

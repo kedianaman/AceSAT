@@ -19,10 +19,15 @@ class ModePickerInterfaceController: WKInterfaceController, ListPickerController
     
     var currentlySelectedList: Int = 0
     
+    
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
     }
 
+    override func willActivate() {
+        super.willActivate()
+        self.setTitle("AceSAT: \(currentlySelectedList + 1)")
+    }
     @IBAction func chooseListButtonPressed() {
         presentControllerWithName("ListPicker", context: self)
     }

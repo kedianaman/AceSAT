@@ -12,6 +12,8 @@ class WordListManager {
     
     private var wordLists = [WordList]()
     
+    var allWords = [Word]()
+    
     // MARK:- Initialization
     
     class var sharedManager: WordListManager {
@@ -34,6 +36,7 @@ class WordListManager {
             for list in wordListsArray {
                 let wordList = WordList()
                 for (word, definition) in list {
+                    allWords.append(Word(word: word, definition: definition))
                     wordList.words.append(Word(word: word, definition: definition))
                 }
                 wordLists.append(wordList)
