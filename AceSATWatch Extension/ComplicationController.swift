@@ -8,23 +8,46 @@
 
 import ClockKit
 
+struct DefaultsKey {
+    static let AcedWordListKey = "AcedWordLists"
+}
+
 
 class ComplicationController: NSObject, CLKComplicationDataSource {
     
     // MARK: - Timeline Configuration
     
     func getSupportedTimeTravelDirectionsForComplication(complication: CLKComplication, withHandler handler: (CLKComplicationTimeTravelDirections) -> Void) {
-        handler([.Backward, .Forward])
+        switch complication.family {
+        case .ModularLarge:
+            handler([.Backward, .Forward])
+        default:
+            handler([])
+        }
+       
     }
     
     func getTimelineStartDateForComplication(complication: CLKComplication, withHandler handler: (NSDate?) -> Void) {
-        let startDate = NSDate.distantPast()
-        handler(startDate)
+        switch complication.family {
+        case .ModularLarge:
+            let startDate = NSDate.distantPast()
+            handler(startDate)
+        default:
+            handler(nil)
+        }
+
+        
     }
     
     func getTimelineEndDateForComplication(complication: CLKComplication, withHandler handler: (NSDate?) -> Void) {
-        let endDate = NSDate.distantFuture()
-        handler(endDate)
+        switch complication.family {
+        case .ModularLarge:
+            let startDate = NSDate.distantFuture()
+            handler(startDate)
+        default:
+            handler(nil)
+        }
+
     }
     
     func getPrivacyBehaviorForComplication(complication: CLKComplication, withHandler handler: (CLKComplicationPrivacyBehavior) -> Void) {
@@ -87,16 +110,30 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         var template: CLKComplicationTemplate? = nil
         switch complication.family {
         case .ModularSmall:
-            template = nil
+            let modularTemplate = CLKComplicationTemplateModularSmallRingText()
+            modularTemplate.ringStyle = .Closed
+            modularTemplate.textProvider = CLKSimpleTextProvider(text: "0")
+            modularTemplate.fillFraction = 0.0
+            template = modularTemplate
         case .UtilitarianSmall:
-            template = nil
+            let utilitarianSmallTemplate = CLKComplicationTemplateUtilitarianSmallRingText()
+            utilitarianSmallTemplate.ringStyle = .Closed
+            utilitarianSmallTemplate.textProvider = CLKSimpleTextProvider(text: "0")
+            utilitarianSmallTemplate.fillFraction = 0.0
+            template = utilitarianSmallTemplate
         case .UtilitarianLarge:
-            template = nil
+            let utilitarianLargeTemplate = CLKComplicationTemplateUtilitarianLargeFlat()
+            utilitarianLargeTemplate.textProvider = CLKSimpleTextProvider(text: "0 lists aced", shortText: "0 aced")
+            template = utilitarianLargeTemplate
         case .CircularSmall:
-            template = nil
+            let circularTemplate = CLKComplicationTemplateCircularSmallRingText()
+            circularTemplate.fillFraction = 0.0
+            circularTemplate.ringStyle = .Closed
+            circularTemplate.textProvider = CLKSimpleTextProvider(text: "0")
+            template = circularTemplate
         case.ModularLarge:
             let modularTemplate = CLKComplicationTemplateModularLargeStandardBody()
-            let textProdivder = CLKSimpleTextProvider(text: "Test word")
+            let textProdivder = CLKSimpleTextProvider(text: "Sample word")
             textProdivder.tintColor = UIColor.ace_redColor()
             modularTemplate.headerTextProvider = textProdivder
             modularTemplate.body1TextProvider = CLKSimpleTextProvider(text: "This is a sample definition")
@@ -128,6 +165,18 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         return template
         
     }
+    
+    var numberOfListsAced: Int {
+        get {
+            if let defaults = NSUserDefaults(suiteName: "group.namankedia.AceSATApp") {
+                if let lists = defaults.objectForKey("AcedWordLists") as? NSMutableArray {
+                    return lists.count
+                }
+            }
+            return 0
+        }
+    }
+    
     
     
 
