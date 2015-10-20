@@ -57,21 +57,51 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     // MARK: - Timeline Population
     
     func getCurrentTimelineEntryForComplication(complication: CLKComplication, withHandler handler: ((CLKComplicationTimelineEntry?) -> Void)) {
-        let entry = getEntryForDate(NSDate())
+        var entry = CLKComplicationTimelineEntry()
+        var listsAced = numberOfListsAced
+        switch complication.family {
+        case .ModularLarge:
+            entry = getEntryForDate(NSDate())
+        case .CircularSmall:
+            let template = CLKComplicationTemplateCircularSmallRingText()
+            template.textProvider = CLKSimpleTextProvider(text: "\(numberOfListsAced)")
+            template.fillFraction = Float(numberOfListsAced) / 100
+            entry = CLKComplicationTimelineEntry(date: NSDate(), complicationTemplate: template)
+        case .ModularSmall:
+            let template = CLKComplicationTemplateModularSmallRingText()
+            template.textProvider = CLKSimpleTextProvider(text: "\(numberOfListsAced)")
+            template.fillFraction = Float(numberOfListsAced) / 100
+            entry = CLKComplicationTimelineEntry(date: NSDate(), complicationTemplate: template)
+        case .UtilitarianSmall:
+            let template = CLKComplicationTemplateUtilitarianSmallRingText()
+            template.textProvider = CLKSimpleTextProvider(text: "\(numberOfListsAced)")
+            template.fillFraction = Float(numberOfListsAced) / 100
+            entry = CLKComplicationTimelineEntry(date: NSDate(), complicationTemplate: template)
+        case .UtilitarianLarge:
+            let template = CLKComplicationTemplateUtilitarianLargeFlat()
+            template.textProvider = CLKSimpleTextProvider(text: "\(numberOfListsAced) lists aced", shortText: "\(numberOfListsAced) aced")
+            entry = CLKComplicationTimelineEntry(date: NSDate(), complicationTemplate: template)
+        }
         handler(entry)
         
     }
     
     func getTimelineEntriesForComplication(complication: CLKComplication, beforeDate date: NSDate, limit: Int, withHandler handler: (([CLKComplicationTimelineEntry]?) -> Void)) {
         var entries = [CLKComplicationTimelineEntry]()
-        var timeInterval = date.timeIntervalSinceReferenceDate
-        while entries.count < limit {
-            let date = NSDate(timeIntervalSinceReferenceDate: timeInterval)
-            let entry = getEntryForDate(date)
-            entries.append(entry)
-            timeInterval += -3600
+        switch complication.family {
+        case .ModularLarge:
+            var timeInterval = date.timeIntervalSinceReferenceDate
+            while entries.count < limit {
+                let date = NSDate(timeIntervalSinceReferenceDate: timeInterval)
+                let entry = getEntryForDate(date)
+                entries.append(entry)
+                timeInterval += -3600
+            }
+        default:
+            entries = [CLKComplicationTimelineEntry]()
+ 
         }
-        
+       
         handler(entries)
        
         
@@ -80,16 +110,21 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     
     func getTimelineEntriesForComplication(complication: CLKComplication, afterDate date: NSDate, limit: Int, withHandler handler: (([CLKComplicationTimelineEntry]?) -> Void)) {
         var entries = [CLKComplicationTimelineEntry]()
-        var timeInterval = date.timeIntervalSinceReferenceDate
-        while entries.count < limit {
-            let date = NSDate(timeIntervalSinceReferenceDate: timeInterval)
-            let entry = getEntryForDate(date)
-            entries.append(entry)
-            timeInterval += 3600
+        switch complication.family {
+        case .ModularLarge:
+            var timeInterval = date.timeIntervalSinceReferenceDate
+            while entries.count < limit {
+                let date = NSDate(timeIntervalSinceReferenceDate: timeInterval)
+                let entry = getEntryForDate(date)
+                entries.append(entry)
+                timeInterval += 3600
+            }
+        default:
+            entries = [CLKComplicationTimelineEntry]()
+            
         }
         
         handler(entries)
-        
 
     }
     
