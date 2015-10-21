@@ -14,7 +14,6 @@ class PracticeInterfaceController: WKInterfaceController {
 
     @IBOutlet var wordLabel: WKInterfaceLabel!
     @IBOutlet var definitionLabel: WKInterfaceLabel!
-    @IBOutlet var seeDefinitionButton: WKInterfaceButton!
     var definitionShowing = false
     
     
@@ -25,14 +24,12 @@ class PracticeInterfaceController: WKInterfaceController {
                 self.definitionLabel.sizeToFitHeight()
                 self.definitionLabel.setVerticalAlignment(WKInterfaceObjectVerticalAlignment.Center)
                 self.definitionLabel.setAlpha(1.0)
-                self.seeDefinitionButton.setTitle("Hide definition")
                 self.definitionShowing = true
             }
             else {
                 self.definitionLabel.setVerticalAlignment(WKInterfaceObjectVerticalAlignment.Bottom)
                 self.definitionLabel.setHeight(0)
                 self.definitionLabel.setAlpha(0.0)
-                self.seeDefinitionButton.setTitle("See definition")
                 self.definitionShowing = false
 
             }

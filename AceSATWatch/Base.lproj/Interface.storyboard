@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="8191" systemVersion="15A282a" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="lbZ-MX-hRl">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="8191" systemVersion="15B22c" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="lbZ-MX-hRl">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="8092"/>
@@ -97,23 +97,27 @@
             <objects>
                 <controller identifier="PracticeIdentifier" hidesWhenLoading="NO" id="tXt-12-J97" customClass="PracticeInterfaceController" customModule="AceSATWatch_Extension">
                     <items>
-                        <group width="1" height="0.80000000000000004" alignment="left" layout="vertical" spacing="10" id="zaX-5k-Wzb">
-                            <items>
-                                <label width="0.90000000000000002" alignment="center" verticalAlignment="center" text="Label" textAlignment="center" minimumScaleFactor="0.5" id="3od-Hc-nHR">
-                                    <fontDescription key="font" type="system" pointSize="30"/>
-                                </label>
-                                <label width="0.90000000000000002" alignment="center" verticalAlignment="center" text="Label" textAlignment="center" numberOfLines="0" id="1Ab-bD-Tbx"/>
-                            </items>
-                        </group>
-                        <button width="1" height="0.20000000000000001" alignment="center" verticalAlignment="bottom" title="See definition" id="6UY-lu-R1i">
+                        <button alignment="left" id="d0c-r3-s9i">
+                            <group key="contentGroup" width="1" height="1" alignment="left" layout="vertical" spacing="8" id="lrt-Ik-fio">
+                                <items>
+                                    <label width="0.90000000000000002" alignment="center" verticalAlignment="center" text="Label" textAlignment="center" minimumScaleFactor="0.5" id="3od-Hc-nHR">
+                                        <accessibilityTraits key="accessibilityTraits" staticText="YES" notEnabled="YES"/>
+                                        <fontDescription key="font" type="system" pointSize="30"/>
+                                    </label>
+                                    <label width="0.90000000000000002" alignment="center" verticalAlignment="center" text="Label" textAlignment="center" numberOfLines="0" id="1Ab-bD-Tbx">
+                                        <accessibilityTraits key="accessibilityTraits" staticText="YES" notEnabled="YES"/>
+                                    </label>
+                                </items>
+                                <color key="backgroundColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="0.0" colorSpace="calibratedRGB"/>
+                                <edgeInsets key="margins" left="4" right="4" top="4" bottom="4"/>
+                            </group>
                             <connections>
-                                <action selector="seeDefinitionPressed" destination="tXt-12-J97" id="Zdf-v1-JDx"/>
+                                <action selector="seeDefinitionPressed" destination="tXt-12-J97" id="ndc-NK-cT7"/>
                             </connections>
                         </button>
                     </items>
                     <connections>
                         <outlet property="definitionLabel" destination="1Ab-bD-Tbx" id="kof-X8-NZO"/>
-                        <outlet property="seeDefinitionButton" destination="6UY-lu-R1i" id="MwS-rB-KGR"/>
                         <outlet property="wordLabel" destination="3od-Hc-nHR" id="NIg-qR-VJY"/>
                     </connections>
                 </controller>
