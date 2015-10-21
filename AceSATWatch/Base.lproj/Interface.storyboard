@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="8191" systemVersion="15B22c" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="lbZ-MX-hRl">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="8191" systemVersion="15A282a" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="lbZ-MX-hRl">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="8092"/>
@@ -125,39 +125,79 @@
             <objects>
                 <controller identifier="TestIdentifier" hidesWhenLoading="NO" id="bDG-xR-Yly" customClass="TestInterfaceController" customModule="AceSATWatch_Extension">
                     <items>
-                        <label alignment="left" text="Label" minimumScaleFactor="0.5" id="ZwV-v4-Ano">
+                        <label alignment="left" text="Word" minimumScaleFactor="0.5" id="ZwV-v4-Ano">
                             <fontDescription key="font" type="system" pointSize="30"/>
                         </label>
                         <group width="1" alignment="left" layout="vertical" id="4Mk-89-Hzu">
                             <items>
-                                <button width="1" alignment="left" title="Button" id="fCO-mu-Rh0">
+                                <button alignment="left" id="fCO-mu-Rh0">
+                                    <group key="contentGroup" width="1" alignment="left" spacing="8" id="4Nq-eu-cXA">
+                                        <items>
+                                            <imageView width="24" height="24" alignment="left" verticalAlignment="center" image="TestSelectedButton" id="5aN-5y-Xy4"/>
+                                            <label alignment="left" verticalAlignment="center" text="Definition" numberOfLines="0" id="j3M-6d-ZoJ"/>
+                                        </items>
+                                        <color key="backgroundColor" red="0.13333333333333333" green="0.13333333333333333" blue="0.13333333333333333" alpha="1" colorSpace="calibratedRGB"/>
+                                        <edgeInsets key="margins" left="4" right="4" top="4" bottom="4"/>
+                                    </group>
                                     <connections>
-                                        <action selector="definitionTapped" destination="bDG-xR-Yly" id="9nx-qp-He4"/>
+                                        <action selector="definition1ButtonTapped" destination="bDG-xR-Yly" id="RVp-ft-blg"/>
                                     </connections>
                                 </button>
-                                <button width="1" alignment="left" title="Button" id="hfb-MC-pDz">
+                                <button alignment="left" id="UeP-ql-xcC">
+                                    <group key="contentGroup" width="1" alignment="left" spacing="8" id="8bn-hw-rRI">
+                                        <items>
+                                            <imageView width="24" height="24" alignment="left" verticalAlignment="center" image="TestSelectedButton" id="Gys-8l-G4z"/>
+                                            <label alignment="left" verticalAlignment="center" text="Definition" numberOfLines="0" id="yOr-bv-qP4"/>
+                                        </items>
+                                        <color key="backgroundColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                                        <edgeInsets key="margins" left="4" right="4" top="4" bottom="4"/>
+                                    </group>
                                     <connections>
-                                        <action selector="definitionTapped" destination="bDG-xR-Yly" id="7p1-6h-5Ns"/>
+                                        <action selector="definition2ButtonTapped" destination="bDG-xR-Yly" id="beS-ig-Mia"/>
                                     </connections>
                                 </button>
-                                <button width="1" alignment="left" title="Button" id="WsW-f2-XDm">
+                                <button alignment="left" id="dmf-4z-U3H">
+                                    <group key="contentGroup" width="1" alignment="left" spacing="8" id="I4r-Er-Gwi">
+                                        <items>
+                                            <imageView width="24" height="24" alignment="left" verticalAlignment="center" image="TestSelectedButton" id="rHW-wU-cXk"/>
+                                            <label alignment="left" verticalAlignment="center" text="Definition" numberOfLines="0" id="QWt-za-1wc"/>
+                                        </items>
+                                        <color key="backgroundColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                                        <edgeInsets key="margins" left="4" right="4" top="4" bottom="4"/>
+                                    </group>
                                     <connections>
-                                        <action selector="definitionTapped" destination="bDG-xR-Yly" id="SJG-Ga-en9"/>
+                                        <action selector="definition3ButtonTapped" destination="bDG-xR-Yly" id="D5y-xR-uJK"/>
                                     </connections>
                                 </button>
-                                <button width="1" alignment="left" title="Button" id="hTm-N0-z0K">
+                                <button alignment="left" id="gWK-VM-LbV">
+                                    <group key="contentGroup" width="1" alignment="left" spacing="8" id="Ia3-ct-ODL">
+                                        <items>
+                                            <imageView width="24" height="24" alignment="left" verticalAlignment="center" image="TestSelectedButton" id="Z6j-B4-lQY"/>
+                                            <label alignment="left" verticalAlignment="center" text="Definition" numberOfLines="0" id="Xla-0p-npm"/>
+                                        </items>
+                                        <color key="backgroundColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                                        <edgeInsets key="margins" left="4" right="4" top="4" bottom="4"/>
+                                    </group>
                                     <connections>
-                                        <action selector="definitionTapped" destination="bDG-xR-Yly" id="JeL-rr-F6h"/>
+                                        <action selector="definition4ButtonTapped" destination="bDG-xR-Yly" id="SsR-LU-yYp"/>
                                     </connections>
                                 </button>
                             </items>
                         </group>
                     </items>
                     <connections>
-                        <outlet property="definitionLabel1" destination="fCO-mu-Rh0" id="d0G-I9-YE0"/>
-                        <outlet property="definitionLabel2" destination="hfb-MC-pDz" id="zQG-Ht-M0x"/>
-                        <outlet property="definitionLabel3" destination="WsW-f2-XDm" id="xfj-X3-ces"/>
-                        <outlet property="definitionLabel4" destination="hTm-N0-z0K" id="8Uc-kp-jM4"/>
+                        <outlet property="definition1Button" destination="fCO-mu-Rh0" id="OC1-pY-V0x"/>
+                        <outlet property="definition1Label" destination="j3M-6d-ZoJ" id="ZHh-ey-oFH"/>
+                        <outlet property="definition1SelectedImage" destination="5aN-5y-Xy4" id="3hb-hk-EXo"/>
+                        <outlet property="definition2Button" destination="UeP-ql-xcC" id="gUD-ZY-qaP"/>
+                        <outlet property="definition2Label" destination="yOr-bv-qP4" id="rqm-eM-ZDg"/>
+                        <outlet property="definition2SelectedImage" destination="Gys-8l-G4z" id="9UH-r6-wOb"/>
+                        <outlet property="definition3Button" destination="dmf-4z-U3H" id="Jo0-qL-ois"/>
+                        <outlet property="definition3Label" destination="QWt-za-1wc" id="DfZ-vS-b94"/>
+                        <outlet property="definition3SelectedImage" destination="rHW-wU-cXk" id="36d-8C-nja"/>
+                        <outlet property="definition4Button" destination="gWK-VM-LbV" id="uCJ-I6-0yo"/>
+                        <outlet property="definition4Label" destination="Xla-0p-npm" id="A1u-Zd-CTn"/>
+                        <outlet property="definition4SelectedImage" destination="Z6j-B4-lQY" id="Mvs-Xf-YMo"/>
                         <outlet property="wordLabel" destination="ZwV-v4-Ano" id="73z-cv-Twm"/>
                     </connections>
                 </controller>
