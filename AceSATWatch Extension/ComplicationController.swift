@@ -24,7 +24,7 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         default:
             handler([])
         }
-       
+        
     }
     
     func getTimelineStartDateForComplication(complication: CLKComplication, withHandler handler: (NSDate?) -> Void) {
@@ -35,7 +35,7 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         default:
             handler(nil)
         }
-
+        
         
     }
     
@@ -47,7 +47,7 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         default:
             handler(nil)
         }
-
+        
     }
     
     func getPrivacyBehaviorForComplication(complication: CLKComplication, withHandler handler: (CLKComplicationPrivacyBehavior) -> Void) {
@@ -99,13 +99,13 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
             }
         default:
             entries = [CLKComplicationTimelineEntry]()
- 
+            
         }
-       
-        handler(entries)
-       
         
-
+        handler(entries)
+        
+        
+        
     }
     
     func getTimelineEntriesForComplication(complication: CLKComplication, afterDate date: NSDate, limit: Int, withHandler handler: (([CLKComplicationTimelineEntry]?) -> Void)) {
@@ -125,7 +125,7 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         }
         
         handler(entries)
-
+        
     }
     
     func getTimelineAnimationBehaviorForComplication(complication: CLKComplication, withHandler handler: (CLKComplicationTimelineAnimationBehavior) -> Void) {
@@ -174,7 +174,7 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
             modularTemplate.body1TextProvider = CLKSimpleTextProvider(text: "This is a sample definition")
             template = modularTemplate
         }
-      
+        
         handler(template)
     }
     
@@ -203,17 +203,17 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     
     var numberOfListsAced: Int {
         get {
-            if let defaults = NSUserDefaults(suiteName: "group.namankedia.AceSATApp") {
-                if let lists = defaults.objectForKey("AcedWordLists") as? NSMutableArray {
-                    return lists.count
-                }
+            let defaults = NSUserDefaults.standardUserDefaults()
+            if let lists = defaults.objectForKey("AcedWordLists") as? NSMutableArray {
+                return lists.count
             }
+            
             return 0
         }
     }
     
     
     
-
+    
     
 }

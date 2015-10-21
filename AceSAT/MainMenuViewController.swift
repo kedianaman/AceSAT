@@ -22,7 +22,7 @@ class MainMenuViewController: UIViewController {
     @IBOutlet weak var wordListPickerView: WordListPickerView!
     
     var currentlySelectedWordList: WordList {
-        if let index = NSUserDefaults(suiteName: "group.namankedia.AceSATApp")?.valueForKey("SelectedWordListKey") as? Int {
+        if let index = NSUserDefaults.standardUserDefaults().valueForKey("SelectedWordListKey") as? Int {
             return WordListManager.sharedManager.wordListAtIndex(index)
         } else {
             return WordListManager.sharedManager.wordListAtIndex(0)
@@ -31,10 +31,10 @@ class MainMenuViewController: UIViewController {
     
     var currentlySelectedIndex: Int {
         set {
-            NSUserDefaults(suiteName: "group.namankedia.AceSATApp")?.setValue(newValue, forKey: "SelectedWordListKey")
+            NSUserDefaults.standardUserDefaults().setValue(newValue, forKey: "SelectedWordListKey")
         }
         get {
-            if let index = NSUserDefaults(suiteName: "group.namankedia.AceSATApp")?.valueForKey("SelectedWordListKey") as? Int {
+            if let index = NSUserDefaults.standardUserDefaults().valueForKey("SelectedWordListKey") as? Int {
                 return index
             } else {
                 return 0
