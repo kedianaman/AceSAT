@@ -7,13 +7,11 @@
 //
 
 import UIKit
-import WatchConnectivity
 
-class TestResultsViewController: UIViewController, WCSessionDelegate {
+class TestResultsViewController: UIViewController {
 
     var test: Test?
     var wordList: WordList?
-    var session: WCSession!
     
     @IBOutlet weak var testPercentageView: TestPercentageView!
     @IBOutlet weak var testResultsContainerTableView: UIView!
@@ -21,7 +19,6 @@ class TestResultsViewController: UIViewController, WCSessionDelegate {
     @IBOutlet weak var acedLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpWCSession()
         let correctAnswers = calculateCorrectAnswers()
         testPercentageView.numberOfQuestions = test?.numberOfQuestions
         testPercentageView.correctAnswers = correctAnswers
@@ -30,6 +27,7 @@ class TestResultsViewController: UIViewController, WCSessionDelegate {
             resultsStackview.addArrangedSubview(acedLabel)
             acedLabel.alpha = 1
             WordListManager.sharedManager.setAced(wordList!)
+            WordListManager.sharedManager.updateApplicationContext()
         }
         navigationController?.navigationBarHidden = false
         navigationItem.setHidesBackButton(true, animated: false)
@@ -54,24 +52,7 @@ class TestResultsViewController: UIViewController, WCSessionDelegate {
         dismissViewControllerAnimated(true, completion: nil)
     }
     
-    func setUpWCSession() {
-        if WCSession.isSupported() {
-            session = WCSession.defaultSession()
-            session.delegate = self
-            session.activateSession()
-        }
-
-    }
-    
-    func session(session: WCSession, didReceiveMessage message: [String : AnyObject], replyHandler: ([String : AnyObject]) -> Void) {
-        if let messageRequest = message["AcedListsRequestKey"] as? String {
-            if messageRequest == "GetAcedLists" {
-                let acedLists = WordListManager.sharedManager.getAcedLists()
-                acedLists
-                replyHandler(["acedLists": acedLists])
-            }
-        }
-    }
+ 
     
     // MARK:- Trait Collection Changes
     

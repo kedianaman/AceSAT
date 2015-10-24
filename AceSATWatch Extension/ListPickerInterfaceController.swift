@@ -8,14 +8,12 @@
 
 import WatchKit
 import Foundation
-import WatchConnectivity
 
 
 
-class ListPickerInterfaceController: WKInterfaceController, WCSessionDelegate {
+class ListPickerInterfaceController: WKInterfaceController {
     
     var defualts = NSUserDefaults.standardUserDefaults()
-    var session: WCSession!
     
     var currentlySelectedIndex: Int {
         set {
@@ -55,21 +53,6 @@ class ListPickerInterfaceController: WKInterfaceController, WCSessionDelegate {
     
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
-        if WCSession.isSupported() {
-            session = WCSession.defaultSession()
-            session.delegate = self
-            session.activateSession()
-        }
-        
-        session.sendMessage(["AcedListsRequestKey": "GetAcedLists"], replyHandler: { replyMessage in
-            if let newAcedLists = replyMessage["acedLists"] as? NSMutableArray {
-                self.acedLists = newAcedLists
-            }
-            }, errorHandler: {error in
-                print(error)
-        })
-
-
         let pickerItems = getPickerItemArray()
         vocabularyPicker.setItems(pickerItems)
         vocabularyPicker.setSelectedItemIndex(currentlySelectedIndex)

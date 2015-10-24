@@ -8,6 +8,7 @@
 
 import WatchKit
 import Foundation
+import WatchConnectivity
 
 struct ControllerIdentifier {
     static let ReviewIdentifier = "ReviewIdentifier"
@@ -15,7 +16,9 @@ struct ControllerIdentifier {
     static let TestIdentifier = "TestIdentifier"
 }
 
-class ModePickerInterfaceController: WKInterfaceController {
+class ModePickerInterfaceController: WKInterfaceController, WCSessionDelegate {
+    
+    var session: WCSession!
     
     var currentlySelectedList: Int {
         set {
@@ -37,8 +40,21 @@ class ModePickerInterfaceController: WKInterfaceController {
 
     override func willActivate() {
         super.willActivate()
+        if WCSession.isSupported() {
+            session = WCSession.defaultSession()
+            session.delegate = self
+            session.activateSession()
+        }
         self.setTitle("AceSAT: \(currentlySelectedList + 1)")
     }
+    
+    func session(session: WCSession, didReceiveApplicationContext applicationContext: [String : AnyObject]) {
+        if let acedLists = applicationContext["AcedLists"] as? NSMutableArray {
+            let defaults = NSUserDefaults.standardUserDefaults()
+            NSUserDefaults.standardUserDefaults().setValue(acedLists, forKey: "AcedWordListsKey")
+        }
+    }
+    
     @IBAction func chooseListButtonPressed() {
         presentControllerWithName("ListPicker", context: nil)
     }

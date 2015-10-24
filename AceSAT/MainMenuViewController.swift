@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import WatchConnectivity
 
-class MainMenuViewController: UIViewController {
+class MainMenuViewController: UIViewController, WCSessionDelegate {
 
+    var session: WCSession!
     @IBOutlet weak var titleText: UILabel!
     @IBOutlet weak var stackView: UIStackView!
     
@@ -62,6 +64,15 @@ class MainMenuViewController: UIViewController {
         listChooserButton.setTitle(String(currentlySelectedIndex+1), forState: .Normal)
         
         updateGradientButtonColors()
+    }
+    
+    func updateWatchData() {
+        if WCSession.isSupported() {
+            session = WCSession.defaultSession()
+            session.delegate = self
+            session.activateSession()
+        }
+        WordListManager.sharedManager.updateApplicationContext()
     }
     
     override func viewWillAppear(animated: Bool) {

@@ -7,12 +7,15 @@
 //
 
 import Foundation
+import WatchConnectivity
 
-class WordListManager {
+class WordListManager: NSObject, WCSessionDelegate {
     
     private var wordLists = [WordList]()
     
     var allWords = [Word]()
+    
+    var session: WCSession!
     
     // MARK:- Initialization
     
@@ -27,7 +30,8 @@ class WordListManager {
         return Static.instance!
     }
     
-    init() {
+    override init() {
+        super.init()
         let wordListPath = NSBundle.mainBundle().pathForResource("WordList", ofType: "json")!
         let wordListData = NSData(contentsOfFile: wordListPath)
         do {
@@ -44,6 +48,12 @@ class WordListManager {
         }
         catch {
             print("Error creating word list")
+        }
+        
+        if WCSession.isSupported() {
+            session = WCSession.defaultSession()
+            session.delegate = self
+            session.activateSession()
         }
     }
     
@@ -77,6 +87,19 @@ class WordListManager {
             return acedWordLists.containsObject(index)
         }
         return false
+    }
+    
+    func updateApplicationContext() {
+        var acedLists =  NSMutableArray()
+        if let acedWordLists = NSUserDefaults.standardUserDefaults().objectForKey(DefaultsKey.AcedWordListKey) as? NSMutableArray {
+            acedLists = acedWordLists
+        }
+        do {
+            let applicationDict = ["AcedLists": acedLists]
+            try session.updateApplicationContext(applicationDict)
+        } catch {
+            print("error")
+        }
     }
     
     func getAcedLists() -> NSMutableArray {
