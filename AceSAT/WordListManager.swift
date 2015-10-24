@@ -79,6 +79,13 @@ class WordListManager {
         return false
     }
     
+    func getAcedLists() -> NSMutableArray {
+        if let acedWordLists = NSUserDefaults.standardUserDefaults().objectForKey(DefaultsKey.AcedWordListKey) as? NSMutableArray {
+            return acedWordLists
+        }
+        return NSMutableArray()
+    }
+    
     // MARK:- Word List Access
     
     var numberOfWordLists: Int {

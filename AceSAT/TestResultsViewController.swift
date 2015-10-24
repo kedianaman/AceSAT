@@ -7,17 +7,21 @@
 //
 
 import UIKit
+import WatchConnectivity
 
-class TestResultsViewController: UIViewController {
+class TestResultsViewController: UIViewController, WCSessionDelegate {
 
     var test: Test?
     var wordList: WordList?
+    var session: WCSession!
+    
     @IBOutlet weak var testPercentageView: TestPercentageView!
     @IBOutlet weak var testResultsContainerTableView: UIView!
     @IBOutlet weak var resultsStackview: UIStackView!
     @IBOutlet weak var acedLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpWCSession()
         let correctAnswers = calculateCorrectAnswers()
         testPercentageView.numberOfQuestions = test?.numberOfQuestions
         testPercentageView.correctAnswers = correctAnswers
@@ -32,6 +36,7 @@ class TestResultsViewController: UIViewController {
         let completeButton : UIBarButtonItem = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.Plain, target: self, action: "endButtonPressed:")
         navigationItem.rightBarButtonItem = completeButton
     }
+    
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
@@ -49,7 +54,24 @@ class TestResultsViewController: UIViewController {
         dismissViewControllerAnimated(true, completion: nil)
     }
     
+    func setUpWCSession() {
+        if WCSession.isSupported() {
+            session = WCSession.defaultSession()
+            session.delegate = self
+            session.activateSession()
+        }
+
+    }
     
+    func session(session: WCSession, didReceiveMessage message: [String : AnyObject], replyHandler: ([String : AnyObject]) -> Void) {
+        if let messageRequest = message["AcedListsRequestKey"] as? String {
+            if messageRequest == "GetAcedLists" {
+                let acedLists = WordListManager.sharedManager.getAcedLists()
+                acedLists
+                replyHandler(["acedLists": acedLists])
+            }
+        }
+    }
     
     // MARK:- Trait Collection Changes
     

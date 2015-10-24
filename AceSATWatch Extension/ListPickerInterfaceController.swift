@@ -8,11 +8,14 @@
 
 import WatchKit
 import Foundation
+import WatchConnectivity
 
 
-class ListPickerInterfaceController: WKInterfaceController {
+
+class ListPickerInterfaceController: WKInterfaceController, WCSessionDelegate {
     
     var defualts = NSUserDefaults.standardUserDefaults()
+    var session: WCSession!
     
     var currentlySelectedIndex: Int {
         set {
@@ -28,6 +31,21 @@ class ListPickerInterfaceController: WKInterfaceController {
         }
     }
     
+    var acedLists: NSMutableArray {
+        set {
+            NSUserDefaults.standardUserDefaults().setValue(newValue, forKey: "AcedWordListsKey")
+        }
+        get {
+            if let acedLists = NSUserDefaults.standardUserDefaults().valueForKey("AcedWordListsKey") as? NSMutableArray {
+                return acedLists
+            } else {
+                return NSMutableArray()
+                
+            }
+            
+        }
+    }
+    
     
     @IBOutlet var vocabularyPicker: WKInterfacePicker!
     
@@ -37,6 +55,21 @@ class ListPickerInterfaceController: WKInterfaceController {
     
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
+        if WCSession.isSupported() {
+            session = WCSession.defaultSession()
+            session.delegate = self
+            session.activateSession()
+        }
+        
+        session.sendMessage(["AcedListsRequestKey": "GetAcedLists"], replyHandler: { replyMessage in
+            if let newAcedLists = replyMessage["acedLists"] as? NSMutableArray {
+                self.acedLists = newAcedLists
+            }
+            }, errorHandler: {error in
+                print(error)
+        })
+
+
         let pickerItems = getPickerItemArray()
         vocabularyPicker.setItems(pickerItems)
         vocabularyPicker.setSelectedItemIndex(currentlySelectedIndex)
@@ -48,8 +81,7 @@ class ListPickerInterfaceController: WKInterfaceController {
         for (var i = 0; i < 100
             ; i++) {
                 let pickerItem = WKPickerItem()
-                let wordList = WordListManager.sharedManager.wordListAtIndex(i)
-                if WordListManager.sharedManager.getAced(wordList) == true {
+                if acedLists.containsObject(i) {
                     pickerItem.title = "\(i+1) ★"
                 }
                 pickerItem.title = "\(i+1)"
