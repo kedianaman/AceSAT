@@ -53,6 +53,7 @@ class MainMenuViewController: UIViewController, WCSessionDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateWatchData()
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBarHidden = true
         self.navigationController?.navigationBar.shadowImage = UIImage()
@@ -64,6 +65,7 @@ class MainMenuViewController: UIViewController, WCSessionDelegate {
         listChooserButton.setTitle(String(currentlySelectedIndex+1), forState: .Normal)
         
         updateGradientButtonColors()
+    
     }
     
     func updateWatchData() {

@@ -66,8 +66,9 @@ class ListPickerInterfaceController: WKInterfaceController {
                 let pickerItem = WKPickerItem()
                 if acedLists.containsObject(i) {
                     pickerItem.title = "\(i+1) ★"
+                } else {
+                    pickerItem.title = "\(i+1)"
                 }
-                pickerItem.title = "\(i+1)"
                 
                 pickerArray.append(pickerItem)
         }

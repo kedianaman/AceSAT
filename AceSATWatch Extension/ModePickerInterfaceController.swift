@@ -50,7 +50,6 @@ class ModePickerInterfaceController: WKInterfaceController, WCSessionDelegate {
     
     func session(session: WCSession, didReceiveApplicationContext applicationContext: [String : AnyObject]) {
         if let acedLists = applicationContext["AcedLists"] as? NSMutableArray {
-            let defaults = NSUserDefaults.standardUserDefaults()
             NSUserDefaults.standardUserDefaults().setValue(acedLists, forKey: "AcedWordListsKey")
         }
     }
