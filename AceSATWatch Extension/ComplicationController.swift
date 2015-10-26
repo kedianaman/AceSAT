@@ -180,11 +180,11 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     
     func getEntryForDate(date: NSDate) -> CLKComplicationTimelineEntry {
         let seconds = date.timeIntervalSinceReferenceDate
-        let secondsSinceDate = seconds - (seconds % 3600)
+        let secondsRoundedToHour = seconds - (seconds % 3600)
         let hours = Int(seconds/3600)
         let wordIndex = hours % 1000
         let word = WordListManager.sharedManager.allWords[wordIndex]
-        let date = NSDate(timeIntervalSinceReferenceDate: secondsSinceDate)
+        let date = NSDate(timeIntervalSinceReferenceDate: secondsRoundedToHour)
         let template = templateForWord(word)
         return CLKComplicationTimelineEntry(date: date, complicationTemplate: template)
         
