@@ -77,12 +77,15 @@ class ModePickerInterfaceController: WKInterfaceController, WCSessionDelegate {
     
     @IBAction func testButtonPressed() {
         let wordList = WordListManager.sharedManager.wordListAtIndex(currentlySelectedList)
-        let contexts = Test(wordList: wordList).allQuestions
+        let test = Test(wordList: wordList)
+        var contexts:[AnyObject] = test.allQuestions
         
         var identifiers = [String]()
         for _ in 0..<contexts.count {
             identifiers.append(ControllerIdentifier.TestIdentifier)
         }
+        identifiers.append("DoneController")
+        contexts.append(test)
         
         presentControllerWithNames(identifiers, contexts: contexts)
 

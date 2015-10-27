@@ -208,6 +208,65 @@
             </objects>
             <point key="canvasLocation" x="745" y="512"/>
         </scene>
+        <!--DoneController-->
+        <scene sceneID="xVF-bh-pQh">
+            <objects>
+                <controller identifier="DoneController" hidesWhenLoading="NO" id="D3g-UV-3E9" customClass="TestDoneInterfaceController" customModule="AceSATWatch_Extension">
+                    <items>
+                        <button width="1" alignment="left" title="Done" id="J0f-JO-yaw">
+                            <connections>
+                                <action selector="testButtonPressed" destination="D3g-UV-3E9" id="mNl-jR-0hS"/>
+                            </connections>
+                        </button>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="930" y="503"/>
+        </scene>
+        <!--TestResultsControllerIdentifier-->
+        <scene sceneID="sYF-wE-XVd">
+            <objects>
+                <controller identifier="TestResultsControllerIdentifier" hidesWhenLoading="NO" id="Bkn-en-gGT" customClass="TestResultsInterfaceController" customModule="AceSATWatch_Extension">
+                    <items>
+                        <table alignment="left" id="shW-2Y-auv">
+                            <items>
+                                <tableRow identifier="TestResultsRowIdentifier" id="CfE-Uk-LjE" customClass="TestResultsTableRow" customModule="AceSATWatch_Extension">
+                                    <group key="rootItem" width="1" height="0.0" alignment="left" layout="vertical" id="UHf-XB-fz4">
+                                        <items>
+                                            <label alignment="left" text="Label" id="y3e-3z-d5u">
+                                                <fontDescription key="font" type="system" pointSize="24"/>
+                                            </label>
+                                            <group width="1" alignment="left" spacing="0.0" id="vct-VR-WUK">
+                                                <items>
+                                                    <imageView alignment="left" image="CorrectCheck" id="B5S-fl-f2T"/>
+                                                    <label alignment="left" text="Correct Definition" numberOfLines="0" id="Bs3-ei-VLe"/>
+                                                </items>
+                                            </group>
+                                            <group width="1" alignment="left" spacing="0.0" id="LlG-2t-bhA">
+                                                <items>
+                                                    <imageView alignment="left" image="Cross" id="aZG-Wv-4SJ"/>
+                                                    <label alignment="left" text="Incorrect Definition" numberOfLines="0" id="SVa-ex-kk0"/>
+                                                </items>
+                                            </group>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="correctDefinitionLabel" destination="Bs3-ei-VLe" id="TP5-Av-Miz"/>
+                                        <outlet property="incorrectDefinitionGroup" destination="LlG-2t-bhA" id="6ar-TV-MVb"/>
+                                        <outlet property="incorrectDefinitionlabel" destination="SVa-ex-kk0" id="nv9-QE-qxq"/>
+                                        <outlet property="wordLabel" destination="y3e-3z-d5u" id="4nS-1M-z4c"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="testReviewTable" destination="shW-2Y-auv" id="sKN-Y6-Ihh"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="1124" y="512"/>
+        </scene>
         <!--AceSAT-->
         <scene sceneID="nZb-gy-b20">
             <objects>
