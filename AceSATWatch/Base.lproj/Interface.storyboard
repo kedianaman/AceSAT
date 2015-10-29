@@ -237,15 +237,15 @@
                                             <label alignment="left" text="Label" id="y3e-3z-d5u">
                                                 <fontDescription key="font" type="system" pointSize="24"/>
                                             </label>
-                                            <group width="1" alignment="left" spacing="0.0" id="vct-VR-WUK">
+                                            <group width="1" alignment="left" spacing="3" id="vct-VR-WUK">
                                                 <items>
-                                                    <imageView alignment="left" image="CorrectCheck" id="B5S-fl-f2T"/>
+                                                    <imageView alignment="left" image="Checkmark" id="B5S-fl-f2T"/>
                                                     <label alignment="left" text="Correct Definition" numberOfLines="0" id="Bs3-ei-VLe"/>
                                                 </items>
                                             </group>
-                                            <group width="1" alignment="left" spacing="0.0" id="LlG-2t-bhA">
+                                            <group width="1" alignment="left" spacing="3" id="LlG-2t-bhA">
                                                 <items>
-                                                    <imageView alignment="left" image="Cross" id="aZG-Wv-4SJ"/>
+                                                    <imageView alignment="left" image="Cross@1x" id="aZG-Wv-4SJ"/>
                                                     <label alignment="left" text="Incorrect Definition" numberOfLines="0" id="SVa-ex-kk0"/>
                                                 </items>
                                             </group>

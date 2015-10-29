@@ -13,14 +13,16 @@ import Foundation
 class TestResultsInterfaceController: WKInterfaceController {
     
     var test: Test?
+    var wordList: WordList?
     var wrongOrUnansweredQuestionsArray: [TestQuestion]!
     @IBOutlet var testReviewTable: WKInterfaceTable!
     @IBOutlet var ringImage: WKInterfaceImage!
     
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
-        if let newTest = context as? Test {
-            test = newTest
+        if let newWordList = context as? WordList {
+            wordList = newWordList
+            test = Test(wordList: wordList!)
         }
         setUpTable()
         startAnimatingImage()
@@ -29,21 +31,23 @@ class TestResultsInterfaceController: WKInterfaceController {
     func setUpTable() {
          wrongOrUnansweredQuestionsArray = collectDataFromTest()
         testReviewTable.setNumberOfRows(wrongOrUnansweredQuestionsArray!.count, withRowType: "TestResultsRowIdentifier")
-        
-        
-        for i in 0...wrongOrUnansweredQuestionsArray!.count - 1 {
-            let row = testReviewTable.rowControllerAtIndex(i) as! TestResultsTableRow
-            var question = wrongOrUnansweredQuestionsArray[i]
-            row.wordLabel.setTextColor(UIColor.ace_redColor())
-            row.wordLabel.setText(question.word.word)
-            row.correctDefinitionLabel.setText(question.word.definition)
-            
-            if question.userSelectedDefinition != nil {
-                row.incorrectDefinitionlabel.setText(question.userSelectedDefinition)
-            } else {
-                row.incorrectDefinitionGroup = nil
+        if wrongOrUnansweredQuestionsArray.count > 0 {
+            for i in 0...wrongOrUnansweredQuestionsArray!.count - 1 {
+                let row = testReviewTable.rowControllerAtIndex(i) as! TestResultsTableRow
+                var question = wrongOrUnansweredQuestionsArray[i]
+                row.wordLabel.setTextColor(UIColor.ace_redColor())
+                row.wordLabel.setText(question.word.word)
+                row.correctDefinitionLabel.setText(question.word.definition)
+                
+                if question.userSelectedDefinition != nil {
+                    row.incorrectDefinitionlabel.setText(question.userSelectedDefinition)
+                } else {
+                    row.incorrectDefinitionGroup = nil
+                }
             }
         }
+        
+    
         
 
         
