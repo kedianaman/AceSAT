@@ -228,6 +228,7 @@
             <objects>
                 <controller identifier="TestResultsControllerIdentifier" hidesWhenLoading="NO" id="Bkn-en-gGT" customClass="TestResultsInterfaceController" customModule="AceSATWatch_Extension">
                     <items>
+                        <imageView alignment="left" image="ring0.png" id="glC-tY-IT3"/>
                         <table alignment="left" id="shW-2Y-auv">
                             <items>
                                 <tableRow identifier="TestResultsRowIdentifier" id="CfE-Uk-LjE" customClass="TestResultsTableRow" customModule="AceSATWatch_Extension">
@@ -261,6 +262,7 @@
                         </table>
                     </items>
                     <connections>
+                        <outlet property="ringImage" destination="glC-tY-IT3" id="tKz-o6-jkL"/>
                         <outlet property="testReviewTable" destination="shW-2Y-auv" id="sKN-Y6-Ihh"/>
                     </connections>
                 </controller>

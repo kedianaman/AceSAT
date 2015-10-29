@@ -15,13 +15,19 @@ class TestResultsInterfaceController: WKInterfaceController {
     var test: Test?
     var wrongOrUnansweredQuestionsArray: [TestQuestion]!
     @IBOutlet var testReviewTable: WKInterfaceTable!
+    @IBOutlet var ringImage: WKInterfaceImage!
     
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
         if let newTest = context as? Test {
             test = newTest
         }
-        wrongOrUnansweredQuestionsArray = collectDataFromTest()
+        setUpTable()
+        startAnimatingImage()
+    }
+    
+    func setUpTable() {
+         wrongOrUnansweredQuestionsArray = collectDataFromTest()
         testReviewTable.setNumberOfRows(wrongOrUnansweredQuestionsArray!.count, withRowType: "TestResultsRowIdentifier")
         
         
@@ -38,10 +44,29 @@ class TestResultsInterfaceController: WKInterfaceController {
                 row.incorrectDefinitionGroup = nil
             }
         }
-
+        
 
         
     }
+    
+    func startAnimatingImage() {
+        let correctAnswers = calculateCorrectAnswers()
+        ringImage.setImageNamed("ring")
+        ringImage.startAnimatingWithImagesInRange(NSMakeRange(0, correctAnswers+1), duration: 0.4, repeatCount: 1)
+
+    }
+    
+    func calculateCorrectAnswers() -> Int {
+        var correctAnswers = 0
+        for index in 0...test!.numberOfQuestions - 1 {
+            let testQuestion = test?.questionAtIndex(index)
+            if testQuestion?.userSelectedDefinition == testQuestion?.word.definition {
+                correctAnswers++
+            }
+        }
+        return correctAnswers
+    }
+
     
     func collectDataFromTest() -> [TestQuestion]? {
         if let test = test {
