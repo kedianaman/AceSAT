@@ -13,14 +13,14 @@ import Foundation
 class TestDoneInterfaceController: WKInterfaceController {
 
     var test: Test?
-    var wordList: WordList?
+
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
-        wordList = context as? WordList
-        test = Test(wordList: wordList!)
+        test = context as? Test
     }
 
     @IBAction func testButtonPressed() {
-        presentControllerWithName("TestResultsControllerIdentifier", context: wordList)
+        presentControllerWithName("TestResultsControllerIdentifier", context: test)
+        
     }
 }

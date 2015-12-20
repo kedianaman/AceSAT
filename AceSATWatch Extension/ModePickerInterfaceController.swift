@@ -85,7 +85,7 @@ class ModePickerInterfaceController: WKInterfaceController, WCSessionDelegate {
             identifiers.append(ControllerIdentifier.TestIdentifier)
         }
         identifiers.append("DoneController")
-        contexts.append(wordList)
+        contexts.append(test)
         
         presentControllerWithNames(identifiers, contexts: contexts)
 

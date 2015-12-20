@@ -13,16 +13,14 @@ import Foundation
 class TestResultsInterfaceController: WKInterfaceController {
     
     var test: Test?
-    var wordList: WordList?
     var wrongOrUnansweredQuestionsArray: [TestQuestion]!
     @IBOutlet var testReviewTable: WKInterfaceTable!
     @IBOutlet var ringImage: WKInterfaceImage!
     
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
-        if let newWordList = context as? WordList {
-            wordList = newWordList
-            test = Test(wordList: wordList!)
+        if let newTest = context as? Test {
+            test = newTest
         }
         setUpTable()
         startAnimatingImage()
@@ -55,6 +53,7 @@ class TestResultsInterfaceController: WKInterfaceController {
     
     func startAnimatingImage() {
         let correctAnswers = calculateCorrectAnswers()
+        print(correctAnswers)
         ringImage.setImageNamed("ring")
         ringImage.startAnimatingWithImagesInRange(NSMakeRange(0, correctAnswers+1), duration: 0.4, repeatCount: 1)
 

@@ -22,7 +22,7 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         case .ModularLarge:
             handler([.Backward, .Forward])
         default:
-            handler([])
+            handler([.None])
         }
         
     }
@@ -204,7 +204,7 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     var numberOfListsAced: Int {
         get {
             let defaults = NSUserDefaults.standardUserDefaults()
-            if let lists = defaults.objectForKey("AcedWordLists") as? NSMutableArray {
+            if let lists = defaults.objectForKey("AcedWordListsKey") as? NSMutableArray {
                 return lists.count
             }
             
