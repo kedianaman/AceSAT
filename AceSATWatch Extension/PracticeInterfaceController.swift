@@ -28,12 +28,14 @@ class PracticeInterfaceController: WKInterfaceController {
             }
             else {
                 self.definitionLabel.setVerticalAlignment(WKInterfaceObjectVerticalAlignment.Bottom)
-                self.definitionLabel.setHeight(0)
                 self.definitionLabel.setAlpha(0.0)
+//                self.definitionLabel.setHeight(0.0)
+
                 self.definitionShowing = false
 
             }
         })
+       
     }
     
     override func awakeWithContext(context: AnyObject?) {

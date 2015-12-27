@@ -1,39 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="8191" systemVersion="15B22c" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="lbZ-MX-hRl">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="8191" systemVersion="15B42" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="GVQ-Xe-tXp">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="8092"/>
     </dependencies>
     <scenes>
-        <!--Choose a vocab list-->
-        <scene sceneID="aou-V4-d1y">
-            <objects>
-                <controller identifier="ListPicker" title="Choose a vocab list" id="AgC-eL-Hgc" customClass="ListPickerInterfaceController" customModule="AceSATWatch_Extension">
-                    <items>
-                        <picker width="1" height="0.80000000000000004" alignment="left" id="LbQ-Jc-7m5">
-                            <connections>
-                                <action selector="listNumberChanged:" destination="AgC-eL-Hgc" id="8HF-ft-2L8"/>
-                            </connections>
-                        </picker>
-                        <button width="1" height="0.20000000000000001" alignment="left" title="Done" id="X2u-7a-6v4">
-                            <fontDescription key="font" type="system" pointSize="20"/>
-                            <connections>
-                                <action selector="doneButtonPressed" destination="AgC-eL-Hgc" id="2AT-1L-3ri"/>
-                            </connections>
-                        </button>
-                    </items>
-                    <menu key="menu" id="dU4-Yf-XMs">
-                        <items>
-                            <menuItem title="Hello" icon="add" id="Vma-vu-cY0"/>
-                        </items>
-                    </menu>
-                    <connections>
-                        <outlet property="vocabularyPicker" destination="LbQ-Jc-7m5" id="l56-jD-C2s"/>
-                    </connections>
-                </controller>
-            </objects>
-            <point key="canvasLocation" x="131" y="512"/>
-        </scene>
         <!--Glance Interface Controller-->
         <scene sceneID="rjY-Ar-IMT">
             <objects>
@@ -61,36 +32,34 @@
             </objects>
             <point key="canvasLocation" x="431" y="826"/>
         </scene>
-        <!--ReviewIdentifier-->
-        <scene sceneID="ePC-R7-JuE">
+        <!--AceSAT-->
+        <scene sceneID="aB3-ux-a2W">
             <objects>
-                <controller identifier="ReviewIdentifier" hidesWhenLoading="NO" id="sfQ-Ro-YoG" customClass="ReviewInterfaceController" customModule="AceSATWatch_Extension">
+                <controller title="AceSAT" hidesWhenLoading="NO" id="GVQ-Xe-tXp" customClass="ModePickerInterfaceController" customModule="AceSATWatch_Extension">
                     <items>
-                        <table alignment="left" id="H60-A7-ma2">
-                            <items>
-                                <tableRow identifier="ReviewWordsRowIdentifier" selectable="NO" id="csE-ED-v4H" customClass="ReviewTableRow" customModule="AceSATWatch_Extension">
-                                    <group key="rootItem" width="1" height="0.0" alignment="left" layout="vertical" id="VmF-gn-0Lf">
-                                        <items>
-                                            <label alignment="left" text="Label" minimumScaleFactor="0.20000000000000001" id="7a8-rm-VjS">
-                                                <fontDescription key="font" type="system" pointSize="24"/>
-                                            </label>
-                                            <label alignment="left" text="Label" numberOfLines="0" id="xmi-8Q-YYA"/>
-                                        </items>
-                                    </group>
-                                    <connections>
-                                        <outlet property="definitionLabel" destination="xmi-8Q-YYA" id="hV5-Bg-Vrc"/>
-                                        <outlet property="titleLabel" destination="7a8-rm-VjS" id="HGT-uv-vao"/>
-                                    </connections>
-                                </tableRow>
-                            </items>
-                        </table>
+                        <label alignment="center" text="ACESAT" id="Oln-u0-OO4">
+                            <fontDescription key="font" type="system" pointSize="30"/>
+                        </label>
+                        <picker width="1" height="0.40000000000000002" alignment="left" id="HYo-4E-yIR">
+                            <connections>
+                                <action selector="listSelected:" destination="GVQ-Xe-tXp" id="MBS-ct-Seo"/>
+                            </connections>
+                        </picker>
+                        <button width="1" alignment="left" title="Practice" backgroundImage="PracticeButton" id="4fe-V9-ncX">
+                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            <fontDescription key="font" type="system" pointSize="24"/>
+                            <connections>
+                                <action selector="practiceButtonPressed" destination="GVQ-Xe-tXp" id="MP8-8E-SW7"/>
+                            </connections>
+                        </button>
                     </items>
                     <connections>
-                        <outlet property="reviewTable" destination="H60-A7-ma2" id="5T5-Pc-mS6"/>
+                        <outlet property="listPicker" destination="HYo-4E-yIR" id="Lwm-JU-CCR"/>
+                        <outlet property="titleLabel" destination="Oln-u0-OO4" id="sYN-Im-Icg"/>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="389" y="512"/>
+            <point key="canvasLocation" x="279" y="562"/>
         </scene>
         <!--PracticeIdentifier-->
         <scene sceneID="UVG-Z9-l7E">
@@ -124,190 +93,19 @@
             </objects>
             <point key="canvasLocation" x="567" y="512"/>
         </scene>
-        <!--TestIdentifier-->
-        <scene sceneID="NXe-tV-8oR">
+        <!--AceSAT-->
+        <scene sceneID="qKJ-Vq-tw7">
             <objects>
-                <controller identifier="TestIdentifier" hidesWhenLoading="NO" id="bDG-xR-Yly" customClass="TestInterfaceController" customModule="AceSATWatch_Extension">
+                <controller title="AceSAT" hidesWhenLoading="NO" id="hwT-gv-SyH">
                     <items>
-                        <label alignment="left" text="Word" minimumScaleFactor="0.5" id="ZwV-v4-Ano">
+                        <label alignment="center" text="ACESAT" id="PXv-vo-GBq">
                             <fontDescription key="font" type="system" pointSize="30"/>
                         </label>
-                        <group width="1" alignment="left" layout="vertical" id="4Mk-89-Hzu">
-                            <items>
-                                <button alignment="left" id="fCO-mu-Rh0">
-                                    <group key="contentGroup" width="1" alignment="left" spacing="8" id="4Nq-eu-cXA">
-                                        <items>
-                                            <imageView width="24" height="24" alignment="left" verticalAlignment="center" image="TestSelectedButton" id="5aN-5y-Xy4"/>
-                                            <label alignment="left" verticalAlignment="center" text="Definition" numberOfLines="0" id="j3M-6d-ZoJ"/>
-                                        </items>
-                                        <color key="backgroundColor" red="0.13333333333333333" green="0.13333333333333333" blue="0.13333333333333333" alpha="1" colorSpace="calibratedRGB"/>
-                                        <edgeInsets key="margins" left="4" right="4" top="4" bottom="4"/>
-                                    </group>
-                                    <connections>
-                                        <action selector="definition1ButtonTapped" destination="bDG-xR-Yly" id="RVp-ft-blg"/>
-                                    </connections>
-                                </button>
-                                <button alignment="left" id="UeP-ql-xcC">
-                                    <group key="contentGroup" width="1" alignment="left" spacing="8" id="8bn-hw-rRI">
-                                        <items>
-                                            <imageView width="24" height="24" alignment="left" verticalAlignment="center" image="TestSelectedButton" id="Gys-8l-G4z"/>
-                                            <label alignment="left" verticalAlignment="center" text="Definition" numberOfLines="0" id="yOr-bv-qP4"/>
-                                        </items>
-                                        <color key="backgroundColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
-                                        <edgeInsets key="margins" left="4" right="4" top="4" bottom="4"/>
-                                    </group>
-                                    <connections>
-                                        <action selector="definition2ButtonTapped" destination="bDG-xR-Yly" id="beS-ig-Mia"/>
-                                    </connections>
-                                </button>
-                                <button alignment="left" id="dmf-4z-U3H">
-                                    <group key="contentGroup" width="1" alignment="left" spacing="8" id="I4r-Er-Gwi">
-                                        <items>
-                                            <imageView width="24" height="24" alignment="left" verticalAlignment="center" image="TestSelectedButton" id="rHW-wU-cXk"/>
-                                            <label alignment="left" verticalAlignment="center" text="Definition" numberOfLines="0" id="QWt-za-1wc"/>
-                                        </items>
-                                        <color key="backgroundColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
-                                        <edgeInsets key="margins" left="4" right="4" top="4" bottom="4"/>
-                                    </group>
-                                    <connections>
-                                        <action selector="definition3ButtonTapped" destination="bDG-xR-Yly" id="D5y-xR-uJK"/>
-                                    </connections>
-                                </button>
-                                <button alignment="left" id="gWK-VM-LbV">
-                                    <group key="contentGroup" width="1" alignment="left" spacing="8" id="Ia3-ct-ODL">
-                                        <items>
-                                            <imageView width="24" height="24" alignment="left" verticalAlignment="center" image="TestSelectedButton" id="Z6j-B4-lQY"/>
-                                            <label alignment="left" verticalAlignment="center" text="Definition" numberOfLines="0" id="Xla-0p-npm"/>
-                                        </items>
-                                        <color key="backgroundColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
-                                        <edgeInsets key="margins" left="4" right="4" top="4" bottom="4"/>
-                                    </group>
-                                    <connections>
-                                        <action selector="definition4ButtonTapped" destination="bDG-xR-Yly" id="SsR-LU-yYp"/>
-                                    </connections>
-                                </button>
-                            </items>
-                        </group>
-                    </items>
-                    <connections>
-                        <outlet property="definition1Button" destination="fCO-mu-Rh0" id="OC1-pY-V0x"/>
-                        <outlet property="definition1Label" destination="j3M-6d-ZoJ" id="ZHh-ey-oFH"/>
-                        <outlet property="definition1SelectedImage" destination="5aN-5y-Xy4" id="3hb-hk-EXo"/>
-                        <outlet property="definition2Button" destination="UeP-ql-xcC" id="gUD-ZY-qaP"/>
-                        <outlet property="definition2Label" destination="yOr-bv-qP4" id="rqm-eM-ZDg"/>
-                        <outlet property="definition2SelectedImage" destination="Gys-8l-G4z" id="9UH-r6-wOb"/>
-                        <outlet property="definition3Button" destination="dmf-4z-U3H" id="Jo0-qL-ois"/>
-                        <outlet property="definition3Label" destination="QWt-za-1wc" id="DfZ-vS-b94"/>
-                        <outlet property="definition3SelectedImage" destination="rHW-wU-cXk" id="36d-8C-nja"/>
-                        <outlet property="definition4Button" destination="gWK-VM-LbV" id="uCJ-I6-0yo"/>
-                        <outlet property="definition4Label" destination="Xla-0p-npm" id="A1u-Zd-CTn"/>
-                        <outlet property="definition4SelectedImage" destination="Z6j-B4-lQY" id="Mvs-Xf-YMo"/>
-                        <outlet property="wordLabel" destination="ZwV-v4-Ano" id="73z-cv-Twm"/>
-                    </connections>
-                </controller>
-            </objects>
-            <point key="canvasLocation" x="745" y="512"/>
-        </scene>
-        <!--DoneController-->
-        <scene sceneID="xVF-bh-pQh">
-            <objects>
-                <controller identifier="DoneController" hidesWhenLoading="NO" id="D3g-UV-3E9" customClass="TestDoneInterfaceController" customModule="AceSATWatch_Extension">
-                    <items>
-                        <button width="1" alignment="left" title="Done" id="J0f-JO-yaw">
-                            <connections>
-                                <action selector="testButtonPressed" destination="D3g-UV-3E9" id="mNl-jR-0hS"/>
-                            </connections>
-                        </button>
+                        <picker width="1" height="100" alignment="left" id="MK3-dG-fwA"/>
                     </items>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="930" y="503"/>
-        </scene>
-        <!--TestResultsControllerIdentifier-->
-        <scene sceneID="sYF-wE-XVd">
-            <objects>
-                <controller identifier="TestResultsControllerIdentifier" hidesWhenLoading="NO" id="Bkn-en-gGT" customClass="TestResultsInterfaceController" customModule="AceSATWatch_Extension">
-                    <items>
-                        <imageView alignment="left" image="ring0.png" id="glC-tY-IT3"/>
-                        <table alignment="left" id="shW-2Y-auv">
-                            <items>
-                                <tableRow identifier="TestResultsRowIdentifier" id="CfE-Uk-LjE" customClass="TestResultsTableRow" customModule="AceSATWatch_Extension">
-                                    <group key="rootItem" width="1" height="0.0" alignment="left" layout="vertical" id="UHf-XB-fz4">
-                                        <items>
-                                            <label alignment="left" text="Label" id="y3e-3z-d5u">
-                                                <fontDescription key="font" type="system" pointSize="24"/>
-                                            </label>
-                                            <group width="1" alignment="left" spacing="3" id="vct-VR-WUK">
-                                                <items>
-                                                    <imageView alignment="left" image="Checkmark" id="B5S-fl-f2T"/>
-                                                    <label alignment="left" text="Correct Definition" numberOfLines="0" id="Bs3-ei-VLe"/>
-                                                </items>
-                                            </group>
-                                            <group width="1" alignment="left" spacing="3" id="LlG-2t-bhA">
-                                                <items>
-                                                    <imageView alignment="left" image="Cross@1x" id="aZG-Wv-4SJ"/>
-                                                    <label alignment="left" text="Incorrect Definition" numberOfLines="0" id="SVa-ex-kk0"/>
-                                                </items>
-                                            </group>
-                                        </items>
-                                    </group>
-                                    <connections>
-                                        <outlet property="correctDefinitionLabel" destination="Bs3-ei-VLe" id="TP5-Av-Miz"/>
-                                        <outlet property="incorrectDefinitionGroup" destination="LlG-2t-bhA" id="6ar-TV-MVb"/>
-                                        <outlet property="incorrectDefinitionlabel" destination="SVa-ex-kk0" id="nv9-QE-qxq"/>
-                                        <outlet property="wordLabel" destination="y3e-3z-d5u" id="4nS-1M-z4c"/>
-                                    </connections>
-                                </tableRow>
-                            </items>
-                        </table>
-                    </items>
-                    <connections>
-                        <outlet property="ringImage" destination="glC-tY-IT3" id="tKz-o6-jkL"/>
-                        <outlet property="testReviewTable" destination="shW-2Y-auv" id="sKN-Y6-Ihh"/>
-                    </connections>
-                </controller>
-            </objects>
-            <point key="canvasLocation" x="1124" y="512"/>
-        </scene>
-        <!--AceSAT-->
-        <scene sceneID="nZb-gy-b20">
-            <objects>
-                <controller title="AceSAT" hidesWhenLoading="NO" id="lbZ-MX-hRl" customClass="ModePickerInterfaceController" customModule="AceSATWatch_Extension">
-                    <items>
-                        <button width="1" height="0.33000000000000002" alignment="left" title="Review" backgroundImage="ReviewButton" id="uBa-LD-Fls">
-                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                            <fontDescription key="font" type="system" pointSize="24"/>
-                            <connections>
-                                <action selector="reviewButtonPressed" destination="lbZ-MX-hRl" id="Oth-FZ-Zmd"/>
-                            </connections>
-                        </button>
-                        <button width="1" height="0.33000000000000002" alignment="left" title="Practice" backgroundImage="PracticeButton" id="VKX-62-UA4">
-                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                            <fontDescription key="font" type="system" pointSize="24"/>
-                            <connections>
-                                <action selector="practiceButtonPressed" destination="lbZ-MX-hRl" id="Omo-ph-NAw"/>
-                            </connections>
-                        </button>
-                        <button width="1" height="0.33000000000000002" alignment="left" title="Test" backgroundImage="TestButton" id="a4e-rf-x89">
-                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                            <fontDescription key="font" type="system" pointSize="24"/>
-                            <connections>
-                                <action selector="testButtonPressed" destination="lbZ-MX-hRl" id="WdD-Q2-ci1"/>
-                            </connections>
-                        </button>
-                    </items>
-                    <menu key="menu" id="qVY-o7-2Qg">
-                        <items>
-                            <menuItem title="Choose list" icon="more" id="s8u-IG-CQr">
-                                <connections>
-                                    <action selector="chooseListButtonPressed" destination="lbZ-MX-hRl" id="nq6-9V-5Ub"/>
-                                </connections>
-                            </menuItem>
-                        </items>
-                    </menu>
-                </controller>
-            </objects>
-            <point key="canvasLocation" x="113" y="809"/>
+            <point key="canvasLocation" x="88" y="567"/>
         </scene>
     </scenes>
     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
