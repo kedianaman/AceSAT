@@ -17,7 +17,6 @@
 		ED1C89CF1B5985EF00DCF0EB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED1C89CD1B5985EF00DCF0EB /* LaunchScreen.storyboard */; };
 		ED3322541B61B99000E3F624 /* ReviewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3322531B61B99000E3F624 /* ReviewTableViewController.swift */; };
 		ED403E961BB81E5400BC3E58 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED403E941BB81E5400BC3E58 /* Interface.storyboard */; };
-		ED403E981BB81E5400BC3E58 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED403E971BB81E5400BC3E58 /* Assets.xcassets */; };
 		ED403E9F1BB81E5500BC3E58 /* AceSATWatch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = ED403E9E1BB81E5500BC3E58 /* AceSATWatch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		ED403EA61BB81E5500BC3E58 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED403EA51BB81E5500BC3E58 /* ExtensionDelegate.swift */; };
 		ED403EA81BB81E5500BC3E58 /* GlanceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED403EA71BB81E5500BC3E58 /* GlanceController.swift */; };
@@ -50,6 +49,7 @@
 		EDC573171B69624D001B1E9C /* TestReviewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC573161B69624D001B1E9C /* TestReviewTableViewController.swift */; };
 		EDC573191B696869001B1E9C /* TestReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC573181B696869001B1E9C /* TestReviewTableViewCell.swift */; };
 		EDCD69191BB8EE01008D19F9 /* PracticeInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCD69181BB8EE01008D19F9 /* PracticeInterfaceController.swift */; settings = {ASSET_TAGS = (); }; };
+		EDD17AD01C340EF000E8F509 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDD17ACF1C340EF000E8F509 /* Assets.xcassets */; settings = {ASSET_TAGS = (); }; };
 		EDD3AD4A1B6D689500494618 /* TestPercentageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD3AD491B6D689500494618 /* TestPercentageView.swift */; };
 		EDF48E361B64507A0090C6F3 /* WordList.json in Resources */ = {isa = PBXBuildFile; fileRef = EDF48E351B64507A0090C6F3 /* WordList.json */; };
 		EDFE7D0B1B67490F00168A7A /* WordListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFE7D0A1B67490F00168A7A /* WordListManager.swift */; };
@@ -113,7 +113,6 @@
 		ED3322531B61B99000E3F624 /* ReviewTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewTableViewController.swift; sourceTree = "<group>"; };
 		ED403E921BB81E5400BC3E58 /* AceSATWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AceSATWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED403E951BB81E5400BC3E58 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
-		ED403E971BB81E5400BC3E58 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ED403E991BB81E5400BC3E58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ED403E9E1BB81E5500BC3E58 /* AceSATWatch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "AceSATWatch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED403EA51BB81E5500BC3E58 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
@@ -142,6 +141,7 @@
 		EDC573161B69624D001B1E9C /* TestReviewTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestReviewTableViewController.swift; sourceTree = "<group>"; };
 		EDC573181B696869001B1E9C /* TestReviewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestReviewTableViewCell.swift; sourceTree = "<group>"; };
 		EDCD69181BB8EE01008D19F9 /* PracticeInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PracticeInterfaceController.swift; sourceTree = "<group>"; };
+		EDD17ACF1C340EF000E8F509 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EDD3AD491B6D689500494618 /* TestPercentageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestPercentageView.swift; sourceTree = "<group>"; };
 		EDF48E351B64507A0090C6F3 /* WordList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = WordList.json; sourceTree = "<group>"; };
 		EDFE7D0A1B67490F00168A7A /* WordListManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordListManager.swift; sourceTree = "<group>"; };
@@ -241,20 +241,12 @@
 			path = AceSAT;
 			sourceTree = "<group>";
 		};
-		ED264F431BDF30470077B0C9 /* Practice */ = {
-			isa = PBXGroup;
-			children = (
-				EDCD69181BB8EE01008D19F9 /* PracticeInterfaceController.swift */,
-			);
-			name = Practice;
-			sourceTree = "<group>";
-		};
 		ED403E931BB81E5400BC3E58 /* AceSATWatch */ = {
 			isa = PBXGroup;
 			children = (
+				EDD17ACF1C340EF000E8F509 /* Assets.xcassets */,
 				ED403E941BB81E5400BC3E58 /* Interface.storyboard */,
 				ED9D59961BE239BC00BDBD44 /* RingImages */,
-				ED403E971BB81E5400BC3E58 /* Assets.xcassets */,
 				ED403E991BB81E5400BC3E58 /* Info.plist */,
 			);
 			path = AceSATWatch;
@@ -264,7 +256,7 @@
 			isa = PBXGroup;
 			children = (
 				EDAF68C71BC01DE6001E862D /* ModePickerInterfaceController.swift */,
-				ED264F431BDF30470077B0C9 /* Practice */,
+				EDCD69181BB8EE01008D19F9 /* PracticeInterfaceController.swift */,
 				ED403EA51BB81E5500BC3E58 /* ExtensionDelegate.swift */,
 				ED403EA71BB81E5500BC3E58 /* GlanceController.swift */,
 				EDA24DAF1BC12A3D00B0D608 /* ComplicationController.swift */,
@@ -429,10 +421,10 @@
 				ED9D59911BE239B800BDBD44 /* ring6.png in Resources */,
 				ED9D598C1BE239B800BDBD44 /* ring1.png in Resources */,
 				ED9D59951BE239B800BDBD44 /* ring10.png in Resources */,
+				EDD17AD01C340EF000E8F509 /* Assets.xcassets in Resources */,
 				ED9D598D1BE239B800BDBD44 /* ring2.png in Resources */,
 				ED9D598E1BE239B800BDBD44 /* ring3.png in Resources */,
 				ED9D59921BE239B800BDBD44 /* ring7.png in Resources */,
-				ED403E981BB81E5400BC3E58 /* Assets.xcassets in Resources */,
 				ED9D59941BE239B800BDBD44 /* ring9.png in Resources */,
 				ED403E961BB81E5400BC3E58 /* Interface.storyboard in Resources */,
 				ED9D59931BE239B800BDBD44 /* ring8.png in Resources */,

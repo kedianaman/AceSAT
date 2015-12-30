@@ -11,9 +11,7 @@ import Foundation
 import WatchConnectivity
 
 struct ControllerIdentifier {
-    static let ReviewIdentifier = "ReviewIdentifier"
     static let PracticeIdentifier = "PracticeIdentifier"
-    static let TestIdentifier = "TestIdentifier"
 }
 
 class ModePickerInterfaceController: WKInterfaceController, WCSessionDelegate {
@@ -21,6 +19,7 @@ class ModePickerInterfaceController: WKInterfaceController, WCSessionDelegate {
     var session: WCSession!
     @IBOutlet var titleLabel: WKInterfaceLabel!
     @IBOutlet var listPicker: WKInterfacePicker!
+    @IBOutlet var practiceButton: WKInterfaceButton!
     
     var currentlySelectedList: Int {
         set {
@@ -58,7 +57,6 @@ class ModePickerInterfaceController: WKInterfaceController, WCSessionDelegate {
         let pickerItems = getPickerItemsArray()
         listPicker.setItems(pickerItems)
         listPicker.setSelectedItemIndex(currentlySelectedList)
-        
     }
 
     override func willActivate() {
@@ -98,11 +96,11 @@ class ModePickerInterfaceController: WKInterfaceController, WCSessionDelegate {
 
     }
     private func updateTitleFont() {
-        let thinFont = UIFont.systemFontOfSize(40, weight: UIFontWeightUltraLight)
-        let lightFont = UIFont.systemFontOfSize(40, weight: UIFontWeightLight)
+        let thinFont = UIFont.systemFontOfSize(40, weight: UIFontWeightLight)
+        let lightFont = UIFont.systemFontOfSize(40, weight: UIFontWeightRegular)
         
         let mainTitle = NSMutableAttributedString(string: "A", attributes: [NSFontAttributeName : thinFont, NSForegroundColorAttributeName : UIColor.whiteColor()])
-        mainTitle.appendAttributedString(NSMutableAttributedString(string: "CE", attributes: [NSFontAttributeName : UIFont.systemFontOfSize(32, weight: UIFontWeightUltraLight), NSForegroundColorAttributeName : UIColor.whiteColor()]))
+        mainTitle.appendAttributedString(NSMutableAttributedString(string: "CE", attributes: [NSFontAttributeName : UIFont.systemFontOfSize(32, weight: UIFontWeightLight), NSForegroundColorAttributeName : UIColor.whiteColor()]))
         mainTitle.appendAttributedString(NSMutableAttributedString(string: "S", attributes: [NSFontAttributeName : lightFont, NSForegroundColorAttributeName : UIColor.ace_greenColor()]))
         mainTitle.appendAttributedString(NSMutableAttributedString(string: "A", attributes: [NSFontAttributeName : lightFont, NSForegroundColorAttributeName : UIColor.ace_blueColor()]))
         mainTitle.appendAttributedString(NSMutableAttributedString(string: "T", attributes: [NSFontAttributeName : lightFont, NSForegroundColorAttributeName : UIColor.ace_redColor()]))

@@ -10,18 +10,14 @@
             <objects>
                 <glanceController spacing="0.0" bottomTemplateType="largeBody4Footer" id="Sv0-Ai-Zie" customClass="GlanceController" customModule="AceSATWatch" customModuleProvider="target">
                     <items>
-                        <group alignment="left" id="VR8-kq-Wtw">
-                            <items>
-                                <imageView width="1" height="1" alignment="left" id="lYP-RB-dEk"/>
-                            </items>
-                        </group>
+                        <group alignment="left" backgroundImage="Icon-40" contentMode="left" id="VR8-kq-Wtw"/>
                         <label alignment="left" text="Bigot" minimumScaleFactor="0.25" id="BY9-in-cTH">
                             <color key="textColor" red="1" green="0.0" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
                         </label>
                         <label alignment="left" text="  Narrow minded prejudiced person" id="oxw-YT-nQc">
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </label>
-                        <label alignment="left" text="Footer" id="TdB-X2-9tr"/>
+                        <label alignment="left" id="TdB-X2-9tr"/>
                     </items>
                     <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="14"/>
                     <connections>
@@ -32,22 +28,24 @@
             </objects>
             <point key="canvasLocation" x="431" y="826"/>
         </scene>
-        <!--AceSAT-->
+        <!--Mode Picker Interface Controller-->
         <scene sceneID="aB3-ux-a2W">
             <objects>
-                <controller title="AceSAT" hidesWhenLoading="NO" id="GVQ-Xe-tXp" customClass="ModePickerInterfaceController" customModule="AceSATWatch_Extension">
+                <controller hidesWhenLoading="NO" id="GVQ-Xe-tXp" customClass="ModePickerInterfaceController" customModule="AceSATWatch_Extension">
                     <items>
-                        <label alignment="center" text="ACESAT" id="Oln-u0-OO4">
+                        <label height="0.25" alignment="center" text="ACESAT" id="Oln-u0-OO4">
                             <fontDescription key="font" type="system" pointSize="30"/>
                         </label>
-                        <picker width="1" height="0.40000000000000002" alignment="left" id="HYo-4E-yIR">
+                        <label height="0.14999999999999999" alignment="center" text="Choose a List:" textAlignment="center" numberOfLines="0" id="Tsy-Fd-DDB">
+                            <accessibilityTraits key="accessibilityTraits" staticText="YES" notEnabled="YES"/>
+                        </label>
+                        <picker width="1" height="0.34000000000000002" alignment="left" verticalAlignment="center" id="HYo-4E-yIR">
                             <connections>
                                 <action selector="listSelected:" destination="GVQ-Xe-tXp" id="MBS-ct-Seo"/>
                             </connections>
                         </picker>
-                        <button width="1" alignment="left" title="Practice" backgroundImage="PracticeButton" id="4fe-V9-ncX">
-                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                            <fontDescription key="font" type="system" pointSize="24"/>
+                        <button width="1" height="0.26000000000000001" alignment="left" verticalAlignment="bottom" title="Practice" id="4fe-V9-ncX">
+                            <fontDescription key="font" type="system" pointSize="15"/>
                             <connections>
                                 <action selector="practiceButtonPressed" destination="GVQ-Xe-tXp" id="MP8-8E-SW7"/>
                             </connections>
@@ -55,11 +53,12 @@
                     </items>
                     <connections>
                         <outlet property="listPicker" destination="HYo-4E-yIR" id="Lwm-JU-CCR"/>
+                        <outlet property="practiceButton" destination="4fe-V9-ncX" id="OvI-jO-kys"/>
                         <outlet property="titleLabel" destination="Oln-u0-OO4" id="sYN-Im-Icg"/>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="279" y="562"/>
+            <point key="canvasLocation" x="279" y="552.5"/>
         </scene>
         <!--PracticeIdentifier-->
         <scene sceneID="UVG-Z9-l7E">
@@ -92,20 +91,6 @@
                 </controller>
             </objects>
             <point key="canvasLocation" x="567" y="512"/>
-        </scene>
-        <!--AceSAT-->
-        <scene sceneID="qKJ-Vq-tw7">
-            <objects>
-                <controller title="AceSAT" hidesWhenLoading="NO" id="hwT-gv-SyH">
-                    <items>
-                        <label alignment="center" text="ACESAT" id="PXv-vo-GBq">
-                            <fontDescription key="font" type="system" pointSize="30"/>
-                        </label>
-                        <picker width="1" height="100" alignment="left" id="MK3-dG-fwA"/>
-                    </items>
-                </controller>
-            </objects>
-            <point key="canvasLocation" x="88" y="567"/>
         </scene>
     </scenes>
     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>

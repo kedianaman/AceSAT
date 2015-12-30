@@ -17,16 +17,17 @@ class GlanceController: WKInterfaceController {
     
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
-        var word = getRandomWord()
+        let word = getWordForDate(NSDate())
         wordLabel.setText(word.word)
         definitionLabel.setText(word.definition)
         // Configure interface objects here.
     }
-    func getRandomWord() -> Word {
-        let randomListIndex = random() % 100
-        let randomWordIndex = random() % 10
-        let wordList = WordListManager.sharedManager.wordListAtIndex(randomListIndex)
-        let word = wordList[randomWordIndex]
+    
+    func getWordForDate(date: NSDate) -> Word {
+        let seconds = date.timeIntervalSinceReferenceDate
+        let hours = Int(seconds/3600)
+        let wordIndex = hours % 1000
+        let word = WordListManager.sharedManager.allWords[wordIndex]
         return word
         
     }
