@@ -10,7 +10,7 @@
             <objects>
                 <glanceController spacing="0.0" bottomTemplateType="largeBody4Footer" id="Sv0-Ai-Zie" customClass="GlanceController" customModule="AceSATWatch" customModuleProvider="target">
                     <items>
-                        <group alignment="left" backgroundImage="Icon-40" contentMode="left" id="VR8-kq-Wtw"/>
+                        <group alignment="left" backgroundImage="GlanceIcon" contentMode="left" id="VR8-kq-Wtw"/>
                         <label alignment="left" text="Bigot" minimumScaleFactor="0.25" id="BY9-in-cTH">
                             <color key="textColor" red="1" green="0.0" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
                         </label>
