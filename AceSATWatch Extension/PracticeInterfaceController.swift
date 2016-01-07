@@ -29,24 +29,29 @@ class PracticeInterfaceController: WKInterfaceController {
             else {
                 self.definitionLabel.setVerticalAlignment(WKInterfaceObjectVerticalAlignment.Bottom)
                 self.definitionLabel.setAlpha(0.0)
+                self.definitionLabel.setHeight(0)
                 self.definitionShowing = false
-
             }
         })
-       
     }
+    
+
     
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
         
         let word = context as! Word
-        wordLabel.setTextColor(UIColor.ace_blueColor())
-        self.definitionLabel.setVerticalAlignment(WKInterfaceObjectVerticalAlignment.Bottom)
-        definitionLabel.setAlpha(0.0)
-        definitionLabel.setHeight(0.0)
         
+        wordLabel.setTextColor(UIColor.ace_blueColor())
         wordLabel.setText(word.word)
-        definitionLabel.setText(word.definition)
         wordLabel.setVerticalAlignment(WKInterfaceObjectVerticalAlignment.Center)
+        wordLabel.setAlpha(1)
+
+        definitionLabel.setText(word.definition)
+        definitionLabel.setHeight(0)
+        definitionLabel.setVerticalAlignment(WKInterfaceObjectVerticalAlignment.Bottom)
+        definitionLabel.setAlpha(1)
+
+        self.setTitle("Done")
     }
 }

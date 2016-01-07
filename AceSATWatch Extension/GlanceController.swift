@@ -15,14 +15,7 @@ class GlanceController: WKInterfaceController {
     @IBOutlet var wordLabel: WKInterfaceLabel!
     @IBOutlet var definitionLabel: WKInterfaceLabel!
     
-    override func awakeWithContext(context: AnyObject?) {
-        super.awakeWithContext(context)
-        let word = getWordForDate(NSDate())
-        wordLabel.setText(word.word)
-        definitionLabel.setText(word.definition)
-        // Configure interface objects here.
-    }
-    
+
     func getWordForDate(date: NSDate) -> Word {
         let seconds = date.timeIntervalSinceReferenceDate
         let hours = Int(seconds/3600)
@@ -30,6 +23,12 @@ class GlanceController: WKInterfaceController {
         let word = WordListManager.sharedManager.allWords[wordIndex]
         return word
         
+    }
+    
+    override func willActivate() {
+        let word = getWordForDate(NSDate())
+        wordLabel.setText(word.word)
+        definitionLabel.setText(word.definition)
     }
 
 }
