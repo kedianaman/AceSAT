@@ -90,15 +90,17 @@ class WordListManager: NSObject, WCSessionDelegate {
     }
     
     func updateApplicationContext() {
-        var acedLists =  NSMutableArray()
-        if let acedWordLists = NSUserDefaults.standardUserDefaults().objectForKey(DefaultsKey.AcedWordListKey) as? NSMutableArray {
-            acedLists = acedWordLists
-        }
-        do {
-            let applicationDict = ["AcedLists": acedLists]
-            try session.updateApplicationContext(applicationDict)
-        } catch {
-            print("error")
+        if session != nil {
+            var acedLists =  NSMutableArray()
+            if let acedWordLists = NSUserDefaults.standardUserDefaults().objectForKey(DefaultsKey.AcedWordListKey) as? NSMutableArray {
+                acedLists = acedWordLists
+            }
+            do {
+                let applicationDict = ["AcedLists": acedLists]
+                try session.updateApplicationContext(applicationDict)
+            } catch {
+                print("error")
+            }
         }
     }
     
