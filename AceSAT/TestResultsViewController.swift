@@ -29,14 +29,14 @@ class TestResultsViewController: UIViewController {
             WordListManager.sharedManager.setAced(wordList!)
             WordListManager.sharedManager.updateApplicationContext()
         }
-        navigationController?.navigationBarHidden = false
+        navigationController?.isNavigationBarHidden = false
         navigationItem.setHidesBackButton(true, animated: false)
-        let completeButton : UIBarButtonItem = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.Plain, target: self, action: "endButtonPressed:")
+        let completeButton : UIBarButtonItem = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.plain, target: self, action: #selector(TestResultsViewController.endButtonPressed(_:)))
         navigationItem.rightBarButtonItem = completeButton
     }
     
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         updateAxisForTraitCollection(traitCollection)
         testPercentageView.animate()
@@ -48,51 +48,51 @@ class TestResultsViewController: UIViewController {
     }
 
     
-    func endButtonPressed(sender: UIBarButtonItem) {
-        dismissViewControllerAnimated(true, completion: nil)
+    func endButtonPressed(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
     }
     
  
     
     // MARK:- Trait Collection Changes
     
-    override func willTransitionToTraitCollection(newCollection: UITraitCollection, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
-        super.willTransitionToTraitCollection(newCollection, withTransitionCoordinator: coordinator)
+    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.willTransition(to: newCollection, with: coordinator)
         updateAxisForTraitCollection(newCollection)
     }
     
-    override func traitCollectionDidChange(previousTraitCollection: UITraitCollection?) {
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
         updateAxisForTraitCollection(self.view.traitCollection)
     }
     
-    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
-        super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
         updateAxisForBoundsChange(size)
     }
 
 
 // MARK - Stack view orientation 
-    func updateAxisForTraitCollection(traitCollection: UITraitCollection) {
-        if traitCollection.verticalSizeClass == UIUserInterfaceSizeClass.Compact {
-            resultsStackview.axis = UILayoutConstraintAxis.Horizontal
+    func updateAxisForTraitCollection(_ traitCollection: UITraitCollection) {
+        if traitCollection.verticalSizeClass == UIUserInterfaceSizeClass.compact {
+            resultsStackview.axis = UILayoutConstraintAxis.horizontal
         }
-        else if traitCollection.horizontalSizeClass == .Regular && traitCollection.verticalSizeClass == .Regular {
+        else if traitCollection.horizontalSizeClass == .regular && traitCollection.verticalSizeClass == .regular {
             updateAxisForBoundsChange(view.bounds.size)
         }
         else {
-             resultsStackview.axis = UILayoutConstraintAxis.Vertical
+             resultsStackview.axis = UILayoutConstraintAxis.vertical
         }
     }
     
-    func updateAxisForBoundsChange(size: CGSize) {
-        if traitCollection.horizontalSizeClass == .Regular && traitCollection.verticalSizeClass == .Regular {
+    func updateAxisForBoundsChange(_ size: CGSize) {
+        if traitCollection.horizontalSizeClass == .regular && traitCollection.verticalSizeClass == .regular {
             // iPad - check orientation in this case.
             if size.width > size.height {
-                 resultsStackview.axis = UILayoutConstraintAxis.Horizontal
+                 resultsStackview.axis = UILayoutConstraintAxis.horizontal
             }
             else {
-                 resultsStackview.axis = UILayoutConstraintAxis.Vertical
+                 resultsStackview.axis = UILayoutConstraintAxis.vertical
             }
         }
     }
@@ -103,20 +103,20 @@ class TestResultsViewController: UIViewController {
         for index in 0...test!.numberOfQuestions - 1 {
             let testQuestion = test?.questionAtIndex(index)
             if testQuestion?.userSelectedDefinition == testQuestion?.word.definition {
-                correctAnswers++
+                correctAnswers += 1
             }
         }
         return correctAnswers
     }
     
     
-    @IBAction func finishButtonPressed(sender: AnyObject) {
-        dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func finishButtonPressed(_ sender: AnyObject) {
+        dismiss(animated: true, completion: nil)
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ShowReviewTableView" {
-            if let testReviewTVC = segue.destinationViewController as? TestReviewTableViewController {
+            if let testReviewTVC = segue.destination as? TestReviewTableViewController {
                 testReviewTVC.test = self.test
                 testReviewTVC.correctAnswers = calculateCorrectAnswers()
             }

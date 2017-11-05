@@ -9,7 +9,7 @@
 import Foundation
 
 class Test: CustomStringConvertible {
-    private var testQuestions: [TestQuestion]
+    fileprivate var testQuestions: [TestQuestion]
     
     init(wordList: WordList) {
         self.testQuestions = [TestQuestion]()
@@ -19,8 +19,8 @@ class Test: CustomStringConvertible {
             let wordListManager = WordListManager.sharedManager
             let numberOfWordLists = wordListManager.numberOfWordLists
             while possibleDefinitions.count < 3 {
-                let randomWordList = wordListManager.wordListAtIndex(random()%numberOfWordLists)
-                let randomWord = randomWordList[random()%randomWordList.count]
+                let randomWordList = wordListManager.wordListAtIndex(Int(arc4random())%numberOfWordLists)
+                let randomWord = randomWordList[Int(arc4random())%randomWordList.count]
                 if (wordList.hasWord(randomWord) == false && possibleDefinitions.contains(randomWord.definition) == false) {
                     possibleDefinitions.append(randomWord.definition)
                 }
@@ -29,12 +29,12 @@ class Test: CustomStringConvertible {
         }
     }
     
-    func questionAtIndex(index: Int) -> TestQuestion {
+    func questionAtIndex(_ index: Int) -> TestQuestion {
         return testQuestions[index];
     }
     
-    func indexOfQuestion(question: TestQuestion) -> Int? {
-        return self.testQuestions.indexOf(question)
+    func indexOfQuestion(_ question: TestQuestion) -> Int? {
+        return self.testQuestions.index(of: question)
     }
     
     var numberOfQuestions: Int {
@@ -75,26 +75,25 @@ func ==(lhs: TestQuestion, rhs: TestQuestion) -> Bool {
     return lhs.word == rhs.word && lhs.possibleDefinitions == rhs.possibleDefinitions
 }
 
-extension CollectionType where Index == Int {
+extension Collection where Index == Int {
     /// Return a copy of `self` with its elements shuffled
-    func shuffle() -> [Generator.Element] {
+    func shuffle() -> [Iterator.Element] {
         var list = Array(self)
         list.shuffleInPlace()
         return list
     }
 }
 
-extension MutableCollectionType where Index == Int {
+extension MutableCollection where Index == Int {
     /// Shuffle the elements of `self` in-place.
     mutating func shuffleInPlace() {
         // empty and single-element collections don't shuffle
+        if count < 2 { return }
         
-        if count > 1 {
-            for i in 0..<count - 1 {
-                let j = Int(arc4random_uniform(UInt32(count - i))) + i
-                if i != j {
-                    swap(&self[i], &self[j])
-                }
+        for i in startIndex ..< endIndex - 1 {
+            let j = Int(arc4random_uniform(UInt32(endIndex - i))) + i
+            if i != j {
+                swap(&self[i], &self[j])
             }
         }
     }

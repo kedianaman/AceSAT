@@ -10,19 +10,19 @@ import UIKit
 
 class PracticePageViewController: UIViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
     
-    private var pageViewController: UIPageViewController!
+    fileprivate var pageViewController: UIPageViewController!
     var wordList = WordList()
     
     // MARK:- View Controller Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Done, target: self, action: "doneButtonPressed:")
+        let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target: self, action: #selector(PracticePageViewController.doneButtonPressed(_:)))
         navigationItem.rightBarButtonItem = doneButton
         
-        navigationController?.navigationBar.setBackgroundImage(UIImage(named: "NavBarBG"), forBarMetrics: .Default)
+        navigationController?.navigationBar.setBackgroundImage(UIImage(named: "NavBarBG"), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage(named: "NavBarBG")
-        navigationController?.navigationBar.barStyle = UIBarStyle.Black
+        navigationController?.navigationBar.barStyle = UIBarStyle.black
         navigationController?.view.tintColor = UIColor.ace_blueColor()
     }
 
@@ -32,14 +32,14 @@ class PracticePageViewController: UIViewController, UIPageViewControllerDataSour
         super.loadView()
         setUpPageViewController()
         setUpPageControlAppearance()
-        self.view.backgroundColor = UIColor.blackColor()
+        self.view.backgroundColor = UIColor.black
     }
     
     // MARK:- Motion
     
-    override func motionBegan(motion: UIEventSubtype, withEvent event: UIEvent?) {
-        super.motionBegan(motion, withEvent: event)
-        if motion == .MotionShake {
+    override func motionBegan(_ motion: UIEventSubtype, with event: UIEvent?) {
+        super.motionBegan(motion, with: event)
+        if motion == .motionShake {
             let viewController = pageViewController.viewControllers?.first as! PracticeFlashcardViewController
             viewController.speakWord()
         }
@@ -47,34 +47,34 @@ class PracticePageViewController: UIViewController, UIPageViewControllerDataSour
     
     // MARK:- IB Action
     
-    func doneButtonPressed(sender: UIBarButtonItem) {
-        dismissViewControllerAnimated(true, completion: nil)
+    func doneButtonPressed(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
     }
     
     func setUpPageViewController() {
-        pageViewController = UIPageViewController(transitionStyle: UIPageViewControllerTransitionStyle.Scroll, navigationOrientation: UIPageViewControllerNavigationOrientation.Horizontal, options: nil)
+        pageViewController = UIPageViewController(transitionStyle: UIPageViewControllerTransitionStyle.scroll, navigationOrientation: UIPageViewControllerNavigationOrientation.horizontal, options: nil)
         pageViewController.delegate = self
         pageViewController.dataSource = self
         
         let startViewController = flashCardViewControllerAtIndex(0) as PracticeFlashcardViewController
         let viewControllers = [startViewController]
-        pageViewController.setViewControllers(viewControllers, direction: .Forward, animated: true, completion: nil)
+        pageViewController.setViewControllers(viewControllers, direction: .forward, animated: true, completion: nil)
         pageViewController.view.frame = self.view.frame
         
         self.addChildViewController(pageViewController)
         self.view.addSubview(pageViewController.view)
-        pageViewController.didMoveToParentViewController(self)
+        pageViewController.didMove(toParentViewController: self)
     }
     
-    private func setUpPageControlAppearance() {
+    fileprivate func setUpPageControlAppearance() {
         let appearance = UIPageControl.appearance()
         appearance.currentPageIndicatorTintColor = UIColor.ace_blueColor()
     }
 
     
-    private func flashCardViewControllerAtIndex(index: Int) -> PracticeFlashcardViewController {
+    fileprivate func flashCardViewControllerAtIndex(_ index: Int) -> PracticeFlashcardViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let flashCardViewController = storyboard.instantiateViewControllerWithIdentifier("PracticeFlashcardViewController") as! PracticeFlashcardViewController
+        let flashCardViewController = storyboard.instantiateViewController(withIdentifier: "PracticeFlashcardViewController") as! PracticeFlashcardViewController
         let vocabWord = wordList[index]
         flashCardViewController.vocabWordText = vocabWord.word
         flashCardViewController.definitionWordText = vocabWord.definition
@@ -84,28 +84,28 @@ class PracticePageViewController: UIViewController, UIPageViewControllerDataSour
     
     // MARK: Page View Controller Data Source 
     
-    func pageViewController(pageViewController: UIPageViewController, willTransitionToViewControllers pendingViewControllers: [UIViewController]) {
+    func pageViewController(_ pageViewController: UIPageViewController, willTransitionTo pendingViewControllers: [UIViewController]) {
         let newViewController = pendingViewControllers.first as! PracticeFlashcardViewController
         let oldViewController = pageViewController.viewControllers?.first as! PracticeFlashcardViewController
         newViewController.showingDefinition = oldViewController.showingDefinition
     }
     
-    func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         let practiceViewController = viewController as! PracticeFlashcardViewController
         if var index = practiceViewController.indexOfView {
             if index == 0 || index == NSNotFound {
                 return nil
             }
-            index--
+            index -= 1
             return self.flashCardViewControllerAtIndex(index)
         }
         return nil
     }
     
-    func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         let practiceViewController = viewController as! PracticeFlashcardViewController
         if var index = practiceViewController.indexOfView {
-            index++
+            index += 1
             if index == wordList.count {
                 return nil
             }
@@ -114,11 +114,11 @@ class PracticePageViewController: UIViewController, UIPageViewControllerDataSour
         return nil
     }
     
-    func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int {
+    func presentationCount(for pageViewController: UIPageViewController) -> Int {
         return wordList.count
     }
     
-    func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int {
+    func presentationIndex(for pageViewController: UIPageViewController) -> Int {
         return 0
     }
 

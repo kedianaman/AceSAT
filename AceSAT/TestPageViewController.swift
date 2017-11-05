@@ -17,17 +17,17 @@ class TestPageViewController: UIViewController, UIPageViewControllerDelegate, UI
             }
         }
     }
-    private var test: Test!
-    private var pageViewController: UIPageViewController!
+    fileprivate var test: Test!
+    fileprivate var pageViewController: UIPageViewController!
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.setBackgroundImage(UIImage(named: "NavBarBG"), forBarMetrics: .Default)
+        navigationController?.navigationBar.setBackgroundImage(UIImage(named: "NavBarBG"), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage(named: "NavBarBG")
-        navigationController?.navigationBar.barStyle = UIBarStyle.Black
+        navigationController?.navigationBar.barStyle = UIBarStyle.black
         navigationController?.view.tintColor = UIColor.ace_redColor()
-        let cancelButton : UIBarButtonItem = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.Plain, target: self, action: "cancelButtonPressed:")
+        let cancelButton : UIBarButtonItem = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.plain, target: self, action: #selector(TestPageViewController.cancelButtonPressed(_:)))
         navigationItem.leftBarButtonItem = cancelButton
     }
     
@@ -35,59 +35,59 @@ class TestPageViewController: UIViewController, UIPageViewControllerDelegate, UI
         super.loadView()
         setUpPageViewController()
         setUpPageControlAppearance()
-        self.view.backgroundColor = UIColor.blackColor()
+        self.view.backgroundColor = UIColor.black
     }
     
-    func completeButtonPressed(sender: UIBarButtonItem) {
+    func completeButtonPressed(_ sender: UIBarButtonItem) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let testResultsViewController = storyboard.instantiateViewControllerWithIdentifier("TestResultsViewController") as! TestResultsViewController
+        let testResultsViewController = storyboard.instantiateViewController(withIdentifier: "TestResultsViewController") as! TestResultsViewController
         testResultsViewController.test = self.test
         testResultsViewController.wordList = self.wordList
         navigationController?.pushViewController(testResultsViewController, animated: true)
         
     }
     
-    func cancelButtonPressed(sender: UIBarButtonItem) {
-        dismissViewControllerAnimated(true, completion: nil)
+    func cancelButtonPressed(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
     }
     
-    private func setUpPageViewController() {
-        pageViewController = UIPageViewController(transitionStyle: UIPageViewControllerTransitionStyle.Scroll, navigationOrientation: UIPageViewControllerNavigationOrientation.Horizontal, options: nil)
+    fileprivate func setUpPageViewController() {
+        pageViewController = UIPageViewController(transitionStyle: UIPageViewControllerTransitionStyle.scroll, navigationOrientation: UIPageViewControllerNavigationOrientation.horizontal, options: nil)
         self.pageViewController.dataSource = self
         
         let startViewController = testViewControllerAtIndex(0) as TestViewController
-        pageViewController.setViewControllers([startViewController], direction: .Forward, animated: true, completion: nil)
+        pageViewController.setViewControllers([startViewController], direction: .forward, animated: true, completion: nil)
         pageViewController.view.frame = self.view.frame
         
-        pageViewController.willMoveToParentViewController(self)
+        pageViewController.willMove(toParentViewController: self)
         self.addChildViewController(pageViewController)
         self.view.addSubview(pageViewController.view)
-        pageViewController.didMoveToParentViewController(self)
+        pageViewController.didMove(toParentViewController: self)
         
     }
     
-    private func setUpPageControlAppearance() {
+    fileprivate func setUpPageControlAppearance() {
         let appearance = UIPageControl.appearance()
         appearance.currentPageIndicatorTintColor = UIColor.ace_redColor()
     }
     
-    private func testViewControllerAtIndex(index: Int) -> TestViewController {
+    fileprivate func testViewControllerAtIndex(_ index: Int) -> TestViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let testViewController = storyboard.instantiateViewControllerWithIdentifier("TestViewController") as! TestViewController
+        let testViewController = storyboard.instantiateViewController(withIdentifier: "TestViewController") as! TestViewController
         testViewController.delegate = self
         testViewController.testQuestion = test.questionAtIndex(index) // make random
         return testViewController
     }
     
-    private func indexOfViewController(viewController: TestViewController) -> Int? {
+    fileprivate func indexOfViewController(_ viewController: TestViewController) -> Int? {
         let question = viewController.testQuestion!
         return test.indexOfQuestion(question)
     }
     
-    func addCompleteButton(testViewController: TestViewController) {
+    func addCompleteButton(_ testViewController: TestViewController) {
         let index = indexOfViewController(testViewController)
         if index == test.numberOfQuestions - 1 {
-            let completeButton : UIBarButtonItem = UIBarButtonItem(title: "Complete", style: UIBarButtonItemStyle.Plain, target: self, action: "completeButtonPressed:")
+            let completeButton : UIBarButtonItem = UIBarButtonItem(title: "Complete", style: UIBarButtonItemStyle.plain, target: self, action: #selector(TestPageViewController.completeButtonPressed(_:)))
             navigationItem.rightBarButtonItem = completeButton
 
         }
@@ -95,7 +95,7 @@ class TestPageViewController: UIViewController, UIPageViewControllerDelegate, UI
     
     // MARK: Page View Controller Data Source
     
-    func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         let testViewController = viewController as! TestViewController
         if let index = indexOfViewController(testViewController) {
             if index == 0 {
@@ -106,7 +106,7 @@ class TestPageViewController: UIViewController, UIPageViewControllerDelegate, UI
         return nil
     }
     
-    func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         let testViewController = viewController as! TestViewController
         if let index = indexOfViewController(testViewController) {
             if index >= test.numberOfQuestions-1 {
@@ -117,11 +117,11 @@ class TestPageViewController: UIViewController, UIPageViewControllerDelegate, UI
         return nil
     }
     
-    func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int {
+    func presentationCount(for pageViewController: UIPageViewController) -> Int {
         return test.numberOfQuestions
     }
     
-    func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int {
+    func presentationIndex(for pageViewController: UIPageViewController) -> Int {
         let testViewController = pageViewController.viewControllers?.first as! TestViewController
         return indexOfViewController(testViewController)!
     }

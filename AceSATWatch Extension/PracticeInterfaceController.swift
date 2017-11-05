@@ -19,15 +19,15 @@ class PracticeInterfaceController: WKInterfaceController {
     
     @IBAction func seeDefinitionPressed() {
        
-        animateWithDuration(0.2, animations: { () -> Void in
+        animate(withDuration: 0.2, animations: { () -> Void in
             if self.definitionShowing == false {
                 self.definitionLabel.sizeToFitHeight()
-                self.definitionLabel.setVerticalAlignment(WKInterfaceObjectVerticalAlignment.Center)
+                self.definitionLabel.setVerticalAlignment(WKInterfaceObjectVerticalAlignment.center)
                 self.definitionLabel.setAlpha(1.0)
                 self.definitionShowing = true
             }
             else {
-                self.definitionLabel.setVerticalAlignment(WKInterfaceObjectVerticalAlignment.Bottom)
+                self.definitionLabel.setVerticalAlignment(WKInterfaceObjectVerticalAlignment.bottom)
                 self.definitionLabel.setAlpha(0.0)
                 self.definitionLabel.setHeight(0)
                 self.definitionShowing = false
@@ -37,19 +37,19 @@ class PracticeInterfaceController: WKInterfaceController {
     
 
     
-    override func awakeWithContext(context: AnyObject?) {
-        super.awakeWithContext(context)
+    override func awake(withContext context: Any?) {
+        super.awake(withContext: context)
         
         let word = context as! Word
         
         wordLabel.setTextColor(UIColor.ace_blueColor())
         wordLabel.setText(word.word)
-        wordLabel.setVerticalAlignment(WKInterfaceObjectVerticalAlignment.Center)
+        wordLabel.setVerticalAlignment(WKInterfaceObjectVerticalAlignment.center)
         wordLabel.setAlpha(1)
 
         definitionLabel.setText(word.definition)
         definitionLabel.setHeight(0)
-        definitionLabel.setVerticalAlignment(WKInterfaceObjectVerticalAlignment.Bottom)
+        definitionLabel.setVerticalAlignment(WKInterfaceObjectVerticalAlignment.bottom)
         definitionLabel.setAlpha(1)
 
         self.setTitle("Done")

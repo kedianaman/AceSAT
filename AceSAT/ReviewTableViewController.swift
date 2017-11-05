@@ -17,49 +17,49 @@ class ReviewTableViewController: UITableViewController {
         tableView.estimatedRowHeight = 96
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.separatorColor = UIColor(white: 1.0, alpha: 0.3)
-        tableView.backgroundColor = UIColor.blackColor()
+        tableView.backgroundColor = UIColor.black
         
         navigationController?.view.tintColor = UIColor.ace_greenColor()
         navigationController?.hidesBarsOnSwipe = true
         
-        navigationController?.barHideOnSwipeGestureRecognizer.addTarget(self, action: "hideBarOnSwipe:")
+        navigationController?.barHideOnSwipeGestureRecognizer.addTarget(self, action: #selector(ReviewTableViewController.hideBarOnSwipe(_:)))
         
-        navigationController?.navigationBar.barTintColor = UIColor.blackColor()
-        navigationController?.navigationBar.translucent = false
-        navigationController?.navigationBar.barStyle = UIBarStyle.Black
+        navigationController?.navigationBar.barTintColor = UIColor.black
+        navigationController?.navigationBar.isTranslucent = false
+        navigationController?.navigationBar.barStyle = UIBarStyle.black
     }
     
-    @IBAction func doneButtonPressed(sender: UIBarButtonItem) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func doneButtonPressed(_ sender: UIBarButtonItem) {
+        self.dismiss(animated: true, completion: nil)
     }
     
-    func hideBarOnSwipe(gesture: UIPanGestureRecognizer) {
-        if gesture.state == .Ended {
-            UIView.animateWithDuration(0.2, animations: { () -> Void in
+    func hideBarOnSwipe(_ gesture: UIPanGestureRecognizer) {
+        if gesture.state == .ended {
+            UIView.animate(withDuration: 0.2, animations: { () -> Void in
                 self.setNeedsStatusBarAppearanceUpdate()
             })
         }
     }
     
-    override func prefersStatusBarHidden() -> Bool {
+    override var prefersStatusBarHidden : Bool {
         if let navigationController = navigationController {
-            return navigationController.navigationBarHidden || super.prefersStatusBarHidden()
+            return navigationController.isNavigationBarHidden || super.prefersStatusBarHidden
         }
-        return super.prefersStatusBarHidden()
+        return super.prefersStatusBarHidden
     }
     
     // MARK: - Table view data source
  
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return wordList.count
     }
    
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCellWithIdentifier("ReviewVocabWordCell", forIndexPath: indexPath) as?ReviewTableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "ReviewVocabWordCell", for: indexPath) as?ReviewTableViewCell {
             let vocabWord = wordList[indexPath.row]
             cell.wordTitle.text = vocabWord.word
             cell.wordDefinition.text = vocabWord.definition
-            cell.backgroundColor = UIColor.blackColor()
+            cell.backgroundColor = UIColor.black
             
             return cell
 

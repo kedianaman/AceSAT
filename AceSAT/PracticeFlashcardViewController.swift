@@ -39,22 +39,22 @@ class PracticeFlashcardViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let tapGesture = UITapGestureRecognizer(target: self, action: "viewTapped:")
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(PracticeFlashcardViewController.viewTapped(_:)))
         view.addGestureRecognizer(tapGesture)
         definitionWordLabel.text = definitionWordText
         vocabWordLabel.text = vocabWordText
         definitionWordLabel.alpha = 0
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         updateConstraintsAndLabelAlpha()
     }
     
-    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
-        super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
         
-        coordinator.animateAlongsideTransition({ context -> Void in
+        coordinator.animate(alongsideTransition: { context -> Void in
             self.updateConstraintsAndLabelAlpha()
             self.view.layoutIfNeeded()
             }, completion: nil)
@@ -62,12 +62,12 @@ class PracticeFlashcardViewController: UIViewController {
     
     func speakWord() {
         let speechUtterance = AVSpeechUtterance(string: vocabWordText)
-        speechSynthesizer.speakUtterance(speechUtterance)
+        speechSynthesizer.speak(speechUtterance)
     }
         
-    func viewTapped(gesture: UIGestureRecognizer) {
-        if gesture.state == .Recognized {
-            UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0, options: UIViewAnimationOptions.CurveEaseOut.union(.AllowUserInteraction), animations: { () -> Void in
+    func viewTapped(_ gesture: UIGestureRecognizer) {
+        if gesture.state == .recognized {
+            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0, options: UIViewAnimationOptions.curveEaseOut.union(.allowUserInteraction), animations: { () -> Void in
                 self.showingDefinition = !self.showingDefinition
                 self.view.layoutIfNeeded()
                 }, completion: nil)
@@ -79,12 +79,12 @@ class PracticeFlashcardViewController: UIViewController {
         let hideDefinitionConstraints: [NSLayoutConstraint] = [ wordZeroBottomSpaceConstraint, containerViewTopSpaceConstraint, containerViewBottomSpaceConstraint ]
         
         if showingDefinition {
-            NSLayoutConstraint.deactivateConstraints(hideDefinitionConstraints)
-            NSLayoutConstraint.activateConstraints(showDefinitionConstraints)
+            NSLayoutConstraint.deactivate(hideDefinitionConstraints)
+            NSLayoutConstraint.activate(showDefinitionConstraints)
         }
         else {
-            NSLayoutConstraint.deactivateConstraints(showDefinitionConstraints)
-            NSLayoutConstraint.activateConstraints(hideDefinitionConstraints)
+            NSLayoutConstraint.deactivate(showDefinitionConstraints)
+            NSLayoutConstraint.activate(hideDefinitionConstraints)
         }
 
         definitionWordLabel.alpha = showingDefinition ? 1 : 0

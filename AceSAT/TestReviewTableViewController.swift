@@ -20,22 +20,22 @@ class TestReviewTableViewController: UITableViewController {
         tableView.estimatedRowHeight = 250
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.separatorColor = UIColor(white: 1.0, alpha: 0.3)
-        tableView.backgroundColor = UIColor.blackColor()
-        navigationController?.navigationBarHidden = false
-        navigationController?.navigationBar.translucent = false
+        tableView.backgroundColor = UIColor.black
+        navigationController?.isNavigationBarHidden = false
+        navigationController?.navigationBar.isTranslucent = false
         navigationItem.setHidesBackButton(true, animated: false)
-        let completeButton : UIBarButtonItem = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.Plain, target: self, action: "endButtonPressed:")
+        let completeButton : UIBarButtonItem = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.plain, target: self, action: #selector(TestReviewTableViewController.endButtonPressed(_:)))
         navigationItem.rightBarButtonItem = completeButton
 
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         tableView.reloadData()
     }
     
-    func endButtonPressed(sender: UIBarButtonItem) {
-        dismissViewControllerAnimated(true, completion: nil)
+    func endButtonPressed(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
     }
    
     func collectDataFromTest() -> [TestQuestion]? {
@@ -56,16 +56,16 @@ class TestReviewTableViewController: UITableViewController {
     }
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return wrongOrUnansweredQuestions!.count
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("TestReviewTableViewCell", forIndexPath: indexPath) as! TestReviewTableViewCell
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TestReviewTableViewCell", for: indexPath) as! TestReviewTableViewCell
         let testQuestion = wrongOrUnansweredQuestions![indexPath.row]
         cell.wordLabel.text = testQuestion.word.word
         cell.correctDefinitionLabel.text = testQuestion.word.definition
@@ -74,7 +74,7 @@ class TestReviewTableViewController: UITableViewController {
         } else {
             cell.setUserSelectedDefinitionText(nil)
         }
-        cell.backgroundColor = UIColor.blackColor()
+        cell.backgroundColor = UIColor.black
 
         return cell
     }

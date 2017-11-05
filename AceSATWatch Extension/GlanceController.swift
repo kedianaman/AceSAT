@@ -16,7 +16,7 @@ class GlanceController: WKInterfaceController {
     @IBOutlet var definitionLabel: WKInterfaceLabel!
     
 
-    func getWordForDate(date: NSDate) -> Word {
+    func getWordForDate(_ date: Date) -> Word {
         let seconds = date.timeIntervalSinceReferenceDate
         let hours = Int(seconds/3600)
         let wordIndex = hours % 1000
@@ -26,7 +26,7 @@ class GlanceController: WKInterfaceController {
     }
     
     override func willActivate() {
-        let word = getWordForDate(NSDate())
+        let word = getWordForDate(Date())
         wordLabel.setText(word.word)
         definitionLabel.setText(word.definition)
     }

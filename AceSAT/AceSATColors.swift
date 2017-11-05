@@ -31,27 +31,27 @@ extension UIColor {
     }
 }
 
-extension CGGradientRef {
+extension CGGradient {
     
-    class func ace_greenGradient() -> CGGradientRef {
+    class func ace_greenGradient() -> CGGradient {
         let startColor = UIColor(red: (183/255.0), green: 1.0, blue: 0.0, alpha: 1.0)
         let endColor = UIColor(red: (47/255.0), green: (187/255.0), blue: 0.0, alpha: 1.0)
-        let colors = [startColor.CGColor, endColor.CGColor]
-        return CGGradientCreateWithColors(nil, colors as CFArray, nil)!
+        let colors = [startColor.cgColor, endColor.cgColor]
+        return CGGradient(colorsSpace: nil, colors: colors as CFArray, locations: nil)!
     }
     
-    class func ace_blueGradient() -> CGGradientRef {
+    class func ace_blueGradient() -> CGGradient {
         let startColor = UIColor(red: 0.0, green: (250/255.0), blue: (208/255.0), alpha: 1.0)
         let endColor = UIColor(red: 0.0, green: (182/255.0), blue: (219/255.0), alpha: 1.0)
-        let colors = [startColor.CGColor, endColor.CGColor]
-        return CGGradientCreateWithColors(nil, colors as CFArray, nil)!
+        let colors = [startColor.cgColor, endColor.cgColor]
+        return CGGradient(colorsSpace: nil, colors: colors as CFArray, locations: nil)!
     }
     
-    class func ace_redGradient() -> CGGradientRef {
+    class func ace_redGradient() -> CGGradient {
         let startColor = UIColor(red: 1.0, green: (50/255.0), blue: (135/255.0), alpha: 1.0)
         let endColor = UIColor(red: (225/255.0), green: 0.0, blue: (20/255.0), alpha: 1.0)
-        let colors = [startColor.CGColor, endColor.CGColor]
-        return CGGradientCreateWithColors(nil, colors as CFArray, nil)!
+        let colors = [startColor.cgColor, endColor.cgColor]
+        return CGGradient(colorsSpace: nil, colors: colors as CFArray, locations: nil)!
     }
     
 }

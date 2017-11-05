@@ -9,8 +9,8 @@
 import UIKit
 
 class TestButton: UIButton {
-    override func intrinsicContentSize() -> CGSize {
-        var size = self.titleLabel!.intrinsicContentSize()
+    override var intrinsicContentSize : CGSize {
+        var size = self.titleLabel!.intrinsicContentSize
         size.width += self.imageView!.bounds.size.width
         size.height = floor(size.height * 1.2)
         return size
@@ -18,7 +18,7 @@ class TestButton: UIButton {
 }
 
 protocol TestViewControllerDelegate: class {
-    func addCompleteButton(testViewController: TestViewController)
+    func addCompleteButton(_ testViewController: TestViewController)
 }
 
 class TestViewController: UIViewController {
@@ -36,26 +36,26 @@ class TestViewController: UIViewController {
         vocabWordTitle.text = testQuestion!.word.word
         
         var definitions = testQuestion!.possibleDefinitions
-        definitions.insert(testQuestion!.word.definition, atIndex: random()%definitions.count+1)
+        definitions.insert(testQuestion!.word.definition, at: Int(arc4random())%definitions.count+1)
         
         for i in 0..<definitions.count {
             let button = definitionButtons[i]
             let definition = definitions[i]
             
             if definition == testQuestion?.userSelectedDefinition {
-                button.setImage(UIImage(named: "SelectedButton"), forState: UIControlState.Normal)
-                button.setTitleColor(UIColor.ace_redColor(), forState: UIControlState.Normal)
+                button.setImage(UIImage(named: "SelectedButton"), for: UIControlState())
+                button.setTitleColor(UIColor.ace_redColor(), for: UIControlState())
             }
             else {
-                button.setImage(UIImage(named: "DeselectedButton"), forState: UIControlState.Normal)
-                button.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+                button.setImage(UIImage(named: "DeselectedButton"), for: UIControlState())
+                button.setTitleColor(UIColor.white, for: UIControlState())
 
             }
             
-            button.setTitle(definitions[i], forState: UIControlState.Normal)
+            button.setTitle(definitions[i], for: UIControlState())
         }
     }
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         delegate?.addCompleteButton(self)
     }
@@ -65,17 +65,17 @@ class TestViewController: UIViewController {
         updateButtonPreferredMaxLayoutWidth(view.bounds.size)
     }
     
-    @IBAction func buttonTapped(sender: UIButton) {
+    @IBAction func buttonTapped(_ sender: UIButton) {
         for button in definitionButtons {
             if button == sender {
-                sender.setImage(UIImage(named: "SelectedButton"), forState: UIControlState.Normal)
-                sender.setTitleColor(UIColor.ace_redColor(), forState: UIControlState.Normal)
+                sender.setImage(UIImage(named: "SelectedButton"), for: UIControlState())
+                sender.setTitleColor(UIColor.ace_redColor(), for: UIControlState())
                 
                 testQuestion?.userSelectedDefinition = sender.titleLabel?.text
             }
             else {
-                button.setImage(UIImage(named: "DeselectedButton"), forState: UIControlState.Normal)
-                button.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+                button.setImage(UIImage(named: "DeselectedButton"), for: UIControlState())
+                button.setTitleColor(UIColor.white, for: UIControlState())
             }
         }
     }
@@ -83,24 +83,24 @@ class TestViewController: UIViewController {
     // MARK:- 
     
     func updateFonts() {
-        if traitCollection.verticalSizeClass == .Compact || traitCollection.horizontalSizeClass == .Compact {
-            let screenSize = UIScreen.mainScreen().bounds.size
+        if traitCollection.verticalSizeClass == .compact || traitCollection.horizontalSizeClass == .compact {
+            let screenSize = UIScreen.main.bounds.size
             let titleFontSize = 44.0 / 375 * min(screenSize.width, screenSize.height)
-            vocabWordTitle.font = UIFont.systemFontOfSize(titleFontSize, weight: UIFontWeightLight)
+            vocabWordTitle.font = UIFont.systemFont(ofSize: titleFontSize, weight: UIFontWeightLight)
             let buttonFontSize = 24.0 / 375 * min(screenSize.width, screenSize.height)
             for button in definitionButtons {
-                button.titleLabel?.font = UIFont.systemFontOfSize(buttonFontSize, weight: UIFontWeightLight)
+                button.titleLabel?.font = UIFont.systemFont(ofSize: buttonFontSize, weight: UIFontWeightLight)
             }
         }
     }
     
-    func updateButtonPreferredMaxLayoutWidth(size: CGSize) {
+    func updateButtonPreferredMaxLayoutWidth(_ size: CGSize) {
         for button in definitionButtons {
             button.titleLabel?.preferredMaxLayoutWidth = size.width - button.imageView!.image!.size.width - view.layoutMargins.left*2 - 20*2 - button.titleEdgeInsets.left - button.titleEdgeInsets.right - button.imageEdgeInsets.left - button.imageEdgeInsets.right
         }
     }
     
-    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         updateButtonPreferredMaxLayoutWidth(size)
     }
 }

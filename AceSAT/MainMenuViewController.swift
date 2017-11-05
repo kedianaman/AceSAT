@@ -9,7 +9,7 @@
 import UIKit
 import WatchConnectivity
 
-class MainMenuViewController: UIViewController, WCSessionDelegate {
+class MainMenuViewController: UIViewController {
 
     var session: WCSession!
     @IBOutlet weak var titleText: UILabel!
@@ -24,7 +24,7 @@ class MainMenuViewController: UIViewController, WCSessionDelegate {
     @IBOutlet weak var wordListPickerView: WordListPickerView!
     
     var currentlySelectedWordList: WordList {
-        if let index = NSUserDefaults.standardUserDefaults().valueForKey("SelectedWordListKey") as? Int {
+        if let index = UserDefaults.standard.value(forKey: "SelectedWordListKey") as? Int {
             return WordListManager.sharedManager.wordListAtIndex(index)
         } else {
             return WordListManager.sharedManager.wordListAtIndex(0)
@@ -33,10 +33,10 @@ class MainMenuViewController: UIViewController, WCSessionDelegate {
     
     var currentlySelectedIndex: Int {
         set {
-            NSUserDefaults.standardUserDefaults().setValue(newValue, forKey: "SelectedWordListKey")
+            UserDefaults.standard.setValue(newValue, forKey: "SelectedWordListKey")
         }
         get {
-            if let index = NSUserDefaults.standardUserDefaults().valueForKey("SelectedWordListKey") as? Int {
+            if let index = UserDefaults.standard.value(forKey: "SelectedWordListKey") as? Int {
                 return index
             } else {
                 return 0
@@ -45,8 +45,8 @@ class MainMenuViewController: UIViewController, WCSessionDelegate {
         }
     }
     
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return UIStatusBarStyle.LightContent
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return UIStatusBarStyle.lightContent
     }
     
     // MARK:- View Controller Lifecycle
@@ -55,14 +55,14 @@ class MainMenuViewController: UIViewController, WCSessionDelegate {
         super.viewDidLoad()
         updateWatchData()
         self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBarHidden = true
+        self.navigationController?.isNavigationBarHidden = true
         self.navigationController?.navigationBar.shadowImage = UIImage()
         wordListStackView.alpha = 0
         wordListPickerView.numberOfLists = WordListManager.sharedManager.numberOfWordLists
-        wordListStackView.transform = CGAffineTransformMakeTranslation(0, -wordListStackView.bounds.size.height/4.0)
+        wordListStackView.transform = CGAffineTransform(translationX: 0, y: -wordListStackView.bounds.size.height/4.0)
         
-        listChooserButton.tintColor = UIColor.whiteColor()
-        listChooserButton.setTitle(String(currentlySelectedIndex+1), forState: .Normal)
+        listChooserButton.tintColor = UIColor.white
+        listChooserButton.setTitle(String(currentlySelectedIndex+1), for: UIControlState())
         
         updateGradientButtonColors()
     
@@ -70,16 +70,15 @@ class MainMenuViewController: UIViewController, WCSessionDelegate {
     
     func updateWatchData() {
         if WCSession.isSupported() {
-            session = WCSession.defaultSession()
-            session.delegate = self
-            session.activateSession()
+            session = WCSession.default()
+            session.activate()
         }
         WordListManager.sharedManager.updateApplicationContext()
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if (self.navigationController?.navigationBarHidden == false) {
+        if (self.navigationController?.isNavigationBarHidden == false) {
             self.navigationController?.setNavigationBarHidden(true, animated: animated)
         }
         
@@ -95,26 +94,26 @@ class MainMenuViewController: UIViewController, WCSessionDelegate {
     
     // MARK:- View Setup
     
-    private func updateGradientButtonColors() {
-        reviewButton.gradient = CGGradientRef.ace_greenGradient()
-        practiceButton.gradient = CGGradientRef.ace_blueGradient()
-        testButton.gradient = CGGradientRef.ace_redGradient()
+    fileprivate func updateGradientButtonColors() {
+        reviewButton.gradient = CGGradient.ace_greenGradient()
+        practiceButton.gradient = CGGradient.ace_blueGradient()
+        testButton.gradient = CGGradient.ace_redGradient()
     }
     
-    private func updateTitleFontAndListChooserButton() {
+    fileprivate func updateTitleFontAndListChooserButton() {
         let dimension = min(view.bounds.size.height, view.bounds.size.width)
-        let thinFont = UIFont.systemFontOfSize(floor(dimension * 0.2), weight: UIFontWeightUltraLight)
-        let lightFont = UIFont.systemFontOfSize(floor(dimension * 0.2), weight: UIFontWeightLight)
+        let thinFont = UIFont.systemFont(ofSize: floor(dimension * 0.2), weight: UIFontWeightUltraLight)
+        let lightFont = UIFont.systemFont(ofSize: floor(dimension * 0.2), weight: UIFontWeightLight)
         
-        let mainTitle = NSMutableAttributedString(string: "A", attributes: [NSFontAttributeName : thinFont, NSForegroundColorAttributeName : UIColor.whiteColor()])
-        mainTitle.appendAttributedString(NSMutableAttributedString(string: "CE", attributes: [NSFontAttributeName : UIFont.systemFontOfSize(floor(dimension * 0.15), weight: UIFontWeightUltraLight), NSForegroundColorAttributeName : UIColor.whiteColor()]))
-        mainTitle.appendAttributedString(NSMutableAttributedString(string: "S", attributes: [NSFontAttributeName : lightFont, NSForegroundColorAttributeName : UIColor.ace_greenColor()]))
-        mainTitle.appendAttributedString(NSMutableAttributedString(string: "A", attributes: [NSFontAttributeName : lightFont, NSForegroundColorAttributeName : UIColor.ace_blueColor()]))
-        mainTitle.appendAttributedString(NSMutableAttributedString(string: "T", attributes: [NSFontAttributeName : lightFont, NSForegroundColorAttributeName : UIColor.ace_redColor()]))
+        let mainTitle = NSMutableAttributedString(string: "A", attributes: [NSFontAttributeName : thinFont, NSForegroundColorAttributeName : UIColor.white])
+        mainTitle.append(NSMutableAttributedString(string: "CE", attributes: [NSFontAttributeName : UIFont.systemFont(ofSize: floor(dimension * 0.15), weight: UIFontWeightUltraLight), NSForegroundColorAttributeName : UIColor.white]))
+        mainTitle.append(NSMutableAttributedString(string: "S", attributes: [NSFontAttributeName : lightFont, NSForegroundColorAttributeName : UIColor.ace_greenColor()]))
+        mainTitle.append(NSMutableAttributedString(string: "A", attributes: [NSFontAttributeName : lightFont, NSForegroundColorAttributeName : UIColor.ace_blueColor()]))
+        mainTitle.append(NSMutableAttributedString(string: "T", attributes: [NSFontAttributeName : lightFont, NSForegroundColorAttributeName : UIColor.ace_redColor()]))
         
         titleText.attributedText = mainTitle
 
-        listChooserButton.titleLabel?.font = UIFont.systemFontOfSize(floor(dimension * 0.1), weight: UIFontWeightLight)
+        listChooserButton.titleLabel?.font = UIFont.systemFont(ofSize: floor(dimension * 0.1), weight: UIFontWeightLight)
         listChooserButton.layer.cornerRadius = listChooserButton.bounds.size.height/2
         listChooserButton.layer.masksToBounds = true
 
@@ -122,47 +121,47 @@ class MainMenuViewController: UIViewController, WCSessionDelegate {
     
     // MARK:- Trait Collection Changes
     
-    override func willTransitionToTraitCollection(newCollection: UITraitCollection, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
-        super.willTransitionToTraitCollection(newCollection, withTransitionCoordinator: coordinator)
+    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.willTransition(to: newCollection, with: coordinator)
         updateAxisForTraitCollection(newCollection)
     }
     
-    override func traitCollectionDidChange(previousTraitCollection: UITraitCollection?) {
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
         updateAxisForTraitCollection(self.view.traitCollection)
     }
     
-    func updateAxisForTraitCollection(traitCollection: UITraitCollection) {
-        if traitCollection.verticalSizeClass == UIUserInterfaceSizeClass.Compact {
-            self.stackView.axis = UILayoutConstraintAxis.Horizontal
+    func updateAxisForTraitCollection(_ traitCollection: UITraitCollection) {
+        if traitCollection.verticalSizeClass == UIUserInterfaceSizeClass.compact {
+            self.stackView.axis = UILayoutConstraintAxis.horizontal
         }
-        else if traitCollection.horizontalSizeClass == .Regular && traitCollection.verticalSizeClass == .Regular {
+        else if traitCollection.horizontalSizeClass == .regular && traitCollection.verticalSizeClass == .regular {
             updateAxisForBoundsChange(view.bounds.size)
         }
         else {
-            self.stackView.axis = UILayoutConstraintAxis.Vertical
+            self.stackView.axis = UILayoutConstraintAxis.vertical
         }
     }
     
-    func updateAxisForBoundsChange(size: CGSize) {
-        if traitCollection.horizontalSizeClass == .Regular && traitCollection.verticalSizeClass == .Regular {
+    func updateAxisForBoundsChange(_ size: CGSize) {
+        if traitCollection.horizontalSizeClass == .regular && traitCollection.verticalSizeClass == .regular {
             // iPad - check orientation in this case.
             if size.width > size.height {
-                self.stackView.axis = UILayoutConstraintAxis.Horizontal
+                self.stackView.axis = UILayoutConstraintAxis.horizontal
             }
             else {
-                self.stackView.axis = UILayoutConstraintAxis.Vertical
+                self.stackView.axis = UILayoutConstraintAxis.vertical
             }
         }
     }
     
-    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
-        super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
         updateAxisForBoundsChange(size)
     }
     
     // MARK:- Actions
-    @IBAction func listChooserButtonPressed(sender: AnyObject) {
+    @IBAction func listChooserButtonPressed(_ sender: AnyObject) {
         wordListPickerView.reloadComponents()
         let showWordListChooser = self.wordListStackView.alpha == 0
         if showWordListChooser == true {
@@ -170,52 +169,52 @@ class MainMenuViewController: UIViewController, WCSessionDelegate {
         }
         let buttons = [reviewButton, practiceButton, testButton]
         for button in buttons {
-            let randomDuration = Double(random()%30)/50.0 + 0.4
-            UIView.animateWithDuration(randomDuration, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.0, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
-                button.transform = showWordListChooser ? CGAffineTransformMakeTranslation(0, self.wordListStackView.bounds.size.height + 20) : CGAffineTransformIdentity
-                button.enabled = !showWordListChooser
+            let randomDuration = Double(Int(arc4random())%30)/50.0 + 0.4
+            UIView.animate(withDuration: randomDuration, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.0, options: UIViewAnimationOptions.curveEaseOut, animations: { () -> Void in
+                button?.transform = showWordListChooser ? CGAffineTransform(translationX: 0, y: self.wordListStackView.bounds.size.height + 20) : CGAffineTransform.identity
+                button?.isEnabled = !showWordListChooser
             }, completion: nil)
         }
         
-        UIView.animateWithDuration(0.5, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.0, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
+        UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.0, options: UIViewAnimationOptions.curveEaseOut, animations: { () -> Void in
             
             self.stackView.alpha = showWordListChooser ? 0.25 : 1.0
             self.wordListStackView.alpha = showWordListChooser ? 1.0 : 0.0
             
-            self.wordListStackView.transform = showWordListChooser ? CGAffineTransformIdentity : CGAffineTransformMakeTranslation(0, -self.wordListStackView.bounds.size.height/4.0)
+            self.wordListStackView.transform = showWordListChooser ? CGAffineTransform.identity : CGAffineTransform(translationX: 0, y: -self.wordListStackView.bounds.size.height/4.0)
 
             if showWordListChooser {
-                self.listChooserButton.setImage(UIImage(named: "Checkmark"), forState: .Normal)
-                self.listChooserButton.setTitle("", forState: .Normal)
+                self.listChooserButton.setImage(UIImage(named: "Checkmark"), for: UIControlState())
+                self.listChooserButton.setTitle("", for: UIControlState())
                 self.wordListPickerView.reloadInputViews()
             }
             else {
-                self.listChooserButton.setImage(nil, forState: .Normal)
-                self.listChooserButton.setTitle(String(self.wordListPickerView.selectedNumberList+1), forState: .Normal)
+                self.listChooserButton.setImage(nil, for: UIControlState())
+                self.listChooserButton.setTitle(String(self.wordListPickerView.selectedNumberList+1), for: UIControlState())
                 self.currentlySelectedIndex = self.wordListPickerView.selectedNumberList
             }
             
             }, completion: nil)
     }
     
-    @IBAction func practiceButtonPressed(sender: UIButton) {
+    @IBAction func practiceButtonPressed(_ sender: UIButton) {
         let practicePageViewController = PracticePageViewController()
         currentlySelectedWordList.randomize()
         practicePageViewController.wordList = currentlySelectedWordList
         let practiceNavigationController = UINavigationController(rootViewController: practicePageViewController)
-        presentViewController(practiceNavigationController, animated: true, completion: nil)
+        present(practiceNavigationController, animated: true, completion: nil)
     }
     
-    @IBAction func testButtonPressed(sender: UIButton) {
+    @IBAction func testButtonPressed(_ sender: UIButton) {
         let testPageViewController = TestPageViewController()
         testPageViewController.wordList = currentlySelectedWordList
         let testNavigationController = UINavigationController(rootViewController: testPageViewController)
-        self.presentViewController(testNavigationController, animated: true, completion: nil)
+        self.present(testNavigationController, animated: true, completion: nil)
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ShowReview" {
-            let navigationController = segue.destinationViewController as! UINavigationController
+            let navigationController = segue.destination as! UINavigationController
             let reviewViewController = navigationController.visibleViewController as! ReviewTableViewController
             reviewViewController.wordList = currentlySelectedWordList
         }

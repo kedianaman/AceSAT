@@ -10,8 +10,8 @@ import UIKit
 
 class TestReviewCellLabel: UILabel {
 
-    override func textRectForBounds(bounds: CGRect, limitedToNumberOfLines numberOfLines: Int) -> CGRect {
-        var bounds = super.textRectForBounds(bounds, limitedToNumberOfLines: numberOfLines)
+    override func textRect(forBounds bounds: CGRect, limitedToNumberOfLines numberOfLines: Int) -> CGRect {
+        var bounds = super.textRect(forBounds: bounds, limitedToNumberOfLines: numberOfLines)
         if bounds.size.height != 0 {
             bounds.size.height += 4.0
         }
@@ -33,9 +33,9 @@ class TestReviewTableViewCell: UITableViewCell {
         wordLabel.textColor = UIColor.ace_redColor()
     }
     
-    func setUserSelectedDefinitionText(text:String?) {
+    func setUserSelectedDefinitionText(_ text:String?) {
         userSelectedDefinitionLabel.text = text
-        userSelectedCellZeroHeightConstraint.active = (text == nil)
+        userSelectedCellZeroHeightConstraint.isActive = (text == nil)
         if text == nil {
             crossImage.image = nil
         } else {

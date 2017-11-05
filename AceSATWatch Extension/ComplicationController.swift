@@ -17,22 +17,22 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     
     // MARK: - Timeline Population
     
-    func getCurrentTimelineEntryForComplication(complication: CLKComplication, withHandler handler: ((CLKComplicationTimelineEntry?) -> Void)) {
+    func getCurrentTimelineEntry(for complication: CLKComplication, withHandler handler: (@escaping (CLKComplicationTimelineEntry?) -> Void)) {
         var entry: CLKComplicationTimelineEntry?
-        if complication.family == .ModularLarge {
-            entry = getEntryForDate(NSDate())
+        if complication.family == .modularLarge {
+            entry = getEntryForDate(Date())
         }
         handler(entry)
         
     }
     
-    func getTimelineEntriesForComplication(complication: CLKComplication, beforeDate date: NSDate, limit: Int, withHandler handler: (([CLKComplicationTimelineEntry]?) -> Void)) {
+    func getTimelineEntries(for complication: CLKComplication, before date: Date, limit: Int, withHandler handler: (@escaping ([CLKComplicationTimelineEntry]?) -> Void)) {
         var entries = [CLKComplicationTimelineEntry]()
         switch complication.family {
-        case .ModularLarge:
+        case .modularLarge:
             var timeInterval = date.timeIntervalSinceReferenceDate
             while entries.count < limit {
-                let currentDate = NSDate(timeIntervalSinceReferenceDate: timeInterval)
+                let currentDate = Date(timeIntervalSinceReferenceDate: timeInterval)
                 let entry = getEntryForDate(currentDate)
                 if entry.date.timeIntervalSince1970 < date.timeIntervalSince1970 {
                     entries.append(entry)
@@ -50,13 +50,13 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         
     }
     
-    func getTimelineEntriesForComplication(complication: CLKComplication, afterDate date: NSDate, limit: Int, withHandler handler: (([CLKComplicationTimelineEntry]?) -> Void)) {
+    func getTimelineEntries(for complication: CLKComplication, after date: Date, limit: Int, withHandler handler: (@escaping ([CLKComplicationTimelineEntry]?) -> Void)) {
         var entries = [CLKComplicationTimelineEntry]()
         switch complication.family {
-        case .ModularLarge:
+        case .modularLarge:
             var timeInterval = date.timeIntervalSinceReferenceDate
             while entries.count < limit {
-                let currentDate = NSDate(timeIntervalSinceReferenceDate: timeInterval)
+                let currentDate = Date(timeIntervalSinceReferenceDate: timeInterval)
                 let entry = getEntryForDate(currentDate)
                 if entry.date.timeIntervalSince1970 > date.timeIntervalSince1970 {
                     entries.append(entry)
@@ -72,22 +72,22 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         
     }
     
-    func getTimelineAnimationBehaviorForComplication(complication: CLKComplication, withHandler handler: (CLKComplicationTimelineAnimationBehavior) -> Void) {
-        handler(CLKComplicationTimelineAnimationBehavior.Always)
+    func getTimelineAnimationBehavior(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTimelineAnimationBehavior) -> Void) {
+        handler(CLKComplicationTimelineAnimationBehavior.always)
         
     }
     
     // MARK: - Update Scheduling
     
-    func getNextRequestedUpdateDateWithHandler(handler: (NSDate?) -> Void) {
+    func getNextRequestedUpdateDate(handler: @escaping (Date?) -> Void) {
         handler(nil)
     }
     
     // MARK: - Placeholder Templates
     
-    func getPlaceholderTemplateForComplication(complication: CLKComplication, withHandler handler: (CLKComplicationTemplate?) -> Void) {
+    func getPlaceholderTemplate(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTemplate?) -> Void) {
         var template: CLKComplicationTemplate?
-        if complication.family == .ModularLarge {
+        if complication.family == .modularLarge {
             let modularTemplate = CLKComplicationTemplateModularLargeStandardBody()
             let textProdivder = CLKSimpleTextProvider(text: "Sample word")
             textProdivder.tintColor = UIColor.ace_redColor()
@@ -98,18 +98,18 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         handler(template)
     }
     
-    func getEntryForDate(date: NSDate) -> CLKComplicationTimelineEntry {
+    func getEntryForDate(_ date: Date) -> CLKComplicationTimelineEntry {
         let seconds = date.timeIntervalSinceReferenceDate
-        let secondsRoundedToHour = seconds - (seconds % 3600)
+        let secondsRoundedToHour = seconds - (seconds.truncatingRemainder(dividingBy: 3600))
         let hours = Int(seconds/3600)
         let wordIndex = hours % 1000
         let word = WordListManager.sharedManager.allWords[wordIndex]
-        let date = NSDate(timeIntervalSinceReferenceDate: secondsRoundedToHour)
+        let date = Date(timeIntervalSinceReferenceDate: secondsRoundedToHour)
         let template = templateForWord(word)
         return CLKComplicationTimelineEntry(date: date, complicationTemplate: template)
     }
     
-    func templateForWord(word: Word) -> CLKComplicationTemplate {
+    func templateForWord(_ word: Word) -> CLKComplicationTemplate {
         let template = CLKComplicationTemplateModularLargeStandardBody()
         template.tintColor = UIColor(white: 0.99, alpha: 1.0)
         let headerText = CLKSimpleTextProvider(text: word.word)
@@ -123,20 +123,20 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     
     // MARK: - Timeline Configuration
     
-    func getSupportedTimeTravelDirectionsForComplication(complication: CLKComplication, withHandler handler: (CLKComplicationTimeTravelDirections) -> Void) {
+    func getSupportedTimeTravelDirections(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTimeTravelDirections) -> Void) {
         switch complication.family {
-        case .ModularLarge:
-            handler([.Backward, .Forward])
+        case .modularLarge:
+            handler([.backward, .forward])
         default:
-            handler([.None])
+            handler(CLKComplicationTimeTravelDirections())
         }
         
     }
     
-    func getTimelineStartDateForComplication(complication: CLKComplication, withHandler handler: (NSDate?) -> Void) {
+    func getTimelineStartDate(for complication: CLKComplication, withHandler handler: @escaping (Date?) -> Void) {
         switch complication.family {
-        case .ModularLarge:
-            let startDate = NSDate.distantPast()
+        case .modularLarge:
+            let startDate = Date.distantPast
             handler(startDate)
         default:
             handler(nil)
@@ -145,10 +145,10 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         
     }
     
-    func getTimelineEndDateForComplication(complication: CLKComplication, withHandler handler: (NSDate?) -> Void) {
+    func getTimelineEndDate(for complication: CLKComplication, withHandler handler: @escaping (Date?) -> Void) {
         switch complication.family {
-        case .ModularLarge:
-            let startDate = NSDate.distantFuture()
+        case .modularLarge:
+            let startDate = Date.distantFuture
             handler(startDate)
         default:
             handler(nil)
@@ -156,8 +156,8 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         
     }
     
-    func getPrivacyBehaviorForComplication(complication: CLKComplication, withHandler handler: (CLKComplicationPrivacyBehavior) -> Void) {
-        handler(.ShowOnLockScreen)
+    func getPrivacyBehavior(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationPrivacyBehavior) -> Void) {
+        handler(.showOnLockScreen)
     }
     
 }

@@ -9,9 +9,9 @@
 import Foundation
 import WatchConnectivity
 
-class WordListManager: NSObject, WCSessionDelegate {
+class WordListManager: NSObject {
     
-    private var wordLists = [WordList]()
+    fileprivate var wordLists = [WordList]()
     
     var allWords = [Word]()
     
@@ -21,21 +21,17 @@ class WordListManager: NSObject, WCSessionDelegate {
     
     class var sharedManager: WordListManager {
         struct Static {
-            static var onceToken: dispatch_once_t = 0
-            static var instance: WordListManager? = nil
+            static let instance = WordListManager()
         }
-        dispatch_once(&Static.onceToken) {
-            Static.instance = WordListManager()
-        }
-        return Static.instance!
+        return Static.instance
     }
     
     override init() {
         super.init()
-        let wordListPath = NSBundle.mainBundle().pathForResource("WordList", ofType: "json")!
-        let wordListData = NSData(contentsOfFile: wordListPath)
+        let wordListPath = Bundle.main.path(forResource: "WordList", ofType: "json")!
+        let wordListData = try? Data(contentsOf: URL(fileURLWithPath: wordListPath))
         do {
-            let wordListsArray = try NSJSONSerialization.JSONObjectWithData(wordListData!, options: NSJSONReadingOptions.AllowFragments) as! [[String: String]]
+            let wordListsArray = try JSONSerialization.jsonObject(with: wordListData!, options: JSONSerialization.ReadingOptions.allowFragments) as! [[String: String]]
             
             for list in wordListsArray {
                 let wordList = WordList()
@@ -51,9 +47,8 @@ class WordListManager: NSObject, WCSessionDelegate {
         }
         
         if WCSession.isSupported() {
-            session = WCSession.defaultSession()
-            session.delegate = self
-            session.activateSession()
+            session = WCSession.default()
+            session.activate()
         }
     }
     
@@ -63,28 +58,28 @@ class WordListManager: NSObject, WCSessionDelegate {
         static let AcedWordListKey = "AcedWordLists"
     }
     
-    func setAced(wordList: WordList) {
-        let defaults = NSUserDefaults.standardUserDefaults()
+    func setAced(_ wordList: WordList) {
+        let defaults = UserDefaults.standard
         let acedWordLists: NSMutableArray
-        if let lists = defaults.objectForKey(DefaultsKey.AcedWordListKey) {
-            acedWordLists = lists.mutableCopy() as! NSMutableArray
+        if let lists = defaults.object(forKey: DefaultsKey.AcedWordListKey) {
+            acedWordLists = (lists as AnyObject).mutableCopy() as! NSMutableArray
         }
         else {
             acedWordLists = NSMutableArray()
         }
         
-        let index = wordLists.indexOf(wordList)!
-        if acedWordLists.containsObject(index) == false {
-            acedWordLists.addObject(index)
+        let index = wordLists.index(of: wordList)!
+        if acedWordLists.contains(index) == false {
+            acedWordLists.add(index)
         }
         
-        defaults.setObject(acedWordLists, forKey: DefaultsKey.AcedWordListKey)
+        defaults.set(acedWordLists, forKey: DefaultsKey.AcedWordListKey)
     }
     
-    func getAced(wordList: WordList) -> Bool {
-        let index = wordLists.indexOf(wordList)!
-        if let acedWordLists = NSUserDefaults.standardUserDefaults().objectForKey(DefaultsKey.AcedWordListKey) {
-            return acedWordLists.containsObject(index)
+    func getAced(_ wordList: WordList) -> Bool {
+        let index = wordLists.index(of: wordList)!
+        if let acedWordLists = UserDefaults.standard.object(forKey: DefaultsKey.AcedWordListKey) {
+            return (acedWordLists as AnyObject).contains(index)
         }
         return false
     }
@@ -92,7 +87,7 @@ class WordListManager: NSObject, WCSessionDelegate {
     func updateApplicationContext() {
         if session != nil {
             var acedLists =  NSMutableArray()
-            if let acedWordLists = NSUserDefaults.standardUserDefaults().objectForKey(DefaultsKey.AcedWordListKey) as? NSMutableArray {
+            if let acedWordLists = UserDefaults.standard.object(forKey: DefaultsKey.AcedWordListKey) as? NSMutableArray {
                 acedLists = acedWordLists
             }
             do {
@@ -105,7 +100,7 @@ class WordListManager: NSObject, WCSessionDelegate {
     }
     
     func getAcedLists() -> NSMutableArray {
-        if let acedWordLists = NSUserDefaults.standardUserDefaults().objectForKey(DefaultsKey.AcedWordListKey) as? NSMutableArray {
+        if let acedWordLists = UserDefaults.standard.object(forKey: DefaultsKey.AcedWordListKey) as? NSMutableArray {
             return acedWordLists
         }
         return NSMutableArray()
@@ -117,18 +112,19 @@ class WordListManager: NSObject, WCSessionDelegate {
         return wordLists.count
     }
     
-    func wordListAtIndex(index: Int) -> WordList {
+    func wordListAtIndex(_ index: Int) -> WordList {
         return wordLists[index];
     }
     
 }
 
 
-class WordList : CustomStringConvertible, CollectionType, Equatable {
-    typealias Generator = IndexingGenerator<[Word]>
+class WordList : CustomStringConvertible, Collection, Equatable {
+    
+    typealias Iterator = IndexingIterator<[Word]>
     typealias _Element = Word
 
-    private var words = [Word]()
+    fileprivate var words = [Word]()
     
     typealias Element = Word
     
@@ -152,15 +148,19 @@ class WordList : CustomStringConvertible, CollectionType, Equatable {
         return words.endIndex
     }
     
-    func generate() -> Generator {
-        return words.generate()
+    func index(after i: Int) -> Int {
+        return i + 1
+    }
+
+    func makeIterator() -> Iterator {
+        return words.makeIterator()
     }
     
     subscript(i: Int) -> Word {
         return words[i]
     }
     
-    func hasWord(word: Word) -> Bool {
+    func hasWord(_ word: Word) -> Bool {
         return contains { (aWord) -> Bool in
             return word == aWord
         }

@@ -23,10 +23,10 @@ class ModePickerInterfaceController: WKInterfaceController, WCSessionDelegate {
     
     var currentlySelectedList: Int {
         set {
-            NSUserDefaults.standardUserDefaults().setValue(newValue, forKey: "SelectedWordListKey")
+            UserDefaults.standard.setValue(newValue, forKey: "SelectedWordListKey")
         }
         get {
-            if let index = NSUserDefaults.standardUserDefaults().valueForKey("SelectedWordListKey") as? Int {
+            if let index = UserDefaults.standard.value(forKey: "SelectedWordListKey") as? Int {
                 return index
             } else {
                 return 0
@@ -37,10 +37,10 @@ class ModePickerInterfaceController: WKInterfaceController, WCSessionDelegate {
     
     var acedLists: NSMutableArray {
         set {
-            NSUserDefaults.standardUserDefaults().setValue(newValue, forKey: "AcedWordListsKey")
+            UserDefaults.standard.setValue(newValue, forKey: "AcedWordListsKey")
         }
         get {
-            if let acedLists = NSUserDefaults.standardUserDefaults().valueForKey("AcedWordListsKey") as? NSMutableArray {
+            if let acedLists = UserDefaults.standard.value(forKey: "AcedWordListsKey") as? NSMutableArray {
                 return acedLists
             } else {
                 return NSMutableArray()
@@ -51,8 +51,8 @@ class ModePickerInterfaceController: WKInterfaceController, WCSessionDelegate {
     }
 
     
-    override func awakeWithContext(context: AnyObject?) {
-        super.awakeWithContext(context)
+    override func awake(withContext context: Any?) {
+        super.awake(withContext: context)
         updateTitleFont()
         let pickerItems = getPickerItemsArray()
         listPicker.setItems(pickerItems)
@@ -62,27 +62,30 @@ class ModePickerInterfaceController: WKInterfaceController, WCSessionDelegate {
     override func willActivate() {
         super.willActivate()
         if WCSession.isSupported() {
-            session = WCSession.defaultSession()
+            session = WCSession.default()
             session.delegate = self
-            session.activateSession()
+            session.activate()
         }
     }
     
-    func session(session: WCSession, didReceiveApplicationContext applicationContext: [String : AnyObject]) {
+    func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]) {
         if let acedLists = applicationContext["AcedLists"] as? NSMutableArray {
-            NSUserDefaults.standardUserDefaults().setValue(acedLists, forKey: "AcedWordListsKey")
+            UserDefaults.standard.setValue(acedLists, forKey: "AcedWordListsKey")
         }
     }
     
+    @available(watchOS 2.2, *)
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+    }
+
     //* Setup methods
  
-    private func getPickerItemsArray() -> [WKPickerItem] {
+    fileprivate func getPickerItemsArray() -> [WKPickerItem] {
         var pickerArray = [WKPickerItem]()
         
-        for (var i = 0; i < 100
-            ; i++) {
+        for i in 0 ..< 100 {
                 let pickerItem = WKPickerItem()
-                if acedLists.containsObject(i) {
+                if acedLists.contains(i) {
                     pickerItem.title = "\(i+1) ★"
                 } else {
                     pickerItem.title = "\(i+1)"
@@ -95,15 +98,15 @@ class ModePickerInterfaceController: WKInterfaceController, WCSessionDelegate {
         
 
     }
-    private func updateTitleFont() {
-        let thinFont = UIFont.systemFontOfSize(40, weight: UIFontWeightLight)
-        let lightFont = UIFont.systemFontOfSize(40, weight: UIFontWeightRegular)
+    fileprivate func updateTitleFont() {
+        let thinFont = UIFont.systemFont(ofSize: 40, weight: UIFontWeightLight)
+        let lightFont = UIFont.systemFont(ofSize: 40, weight: UIFontWeightRegular)
         
-        let mainTitle = NSMutableAttributedString(string: "A", attributes: [NSFontAttributeName : thinFont, NSForegroundColorAttributeName : UIColor.whiteColor()])
-        mainTitle.appendAttributedString(NSMutableAttributedString(string: "CE", attributes: [NSFontAttributeName : UIFont.systemFontOfSize(32, weight: UIFontWeightLight), NSForegroundColorAttributeName : UIColor.whiteColor()]))
-        mainTitle.appendAttributedString(NSMutableAttributedString(string: "S", attributes: [NSFontAttributeName : lightFont, NSForegroundColorAttributeName : UIColor.ace_greenColor()]))
-        mainTitle.appendAttributedString(NSMutableAttributedString(string: "A", attributes: [NSFontAttributeName : lightFont, NSForegroundColorAttributeName : UIColor.ace_blueColor()]))
-        mainTitle.appendAttributedString(NSMutableAttributedString(string: "T", attributes: [NSFontAttributeName : lightFont, NSForegroundColorAttributeName : UIColor.ace_redColor()]))
+        let mainTitle = NSMutableAttributedString(string: "A", attributes: [NSFontAttributeName : thinFont, NSForegroundColorAttributeName : UIColor.white])
+        mainTitle.append(NSMutableAttributedString(string: "CE", attributes: [NSFontAttributeName : UIFont.systemFont(ofSize: 32, weight: UIFontWeightLight), NSForegroundColorAttributeName : UIColor.white]))
+        mainTitle.append(NSMutableAttributedString(string: "S", attributes: [NSFontAttributeName : lightFont, NSForegroundColorAttributeName : UIColor.ace_greenColor()]))
+        mainTitle.append(NSMutableAttributedString(string: "A", attributes: [NSFontAttributeName : lightFont, NSForegroundColorAttributeName : UIColor.ace_blueColor()]))
+        mainTitle.append(NSMutableAttributedString(string: "T", attributes: [NSFontAttributeName : lightFont, NSForegroundColorAttributeName : UIColor.ace_redColor()]))
         
         titleLabel.setAttributedText(mainTitle)
         
@@ -112,7 +115,7 @@ class ModePickerInterfaceController: WKInterfaceController, WCSessionDelegate {
 
 
   
-    @IBAction func listSelected(value: Int) {
+    @IBAction func listSelected(_ value: Int) {
         currentlySelectedList = value
     }
     
@@ -125,7 +128,7 @@ class ModePickerInterfaceController: WKInterfaceController, WCSessionDelegate {
             identifiers.append(ControllerIdentifier.PracticeIdentifier)
         }
         
-        presentControllerWithNames(identifiers, contexts: contexts)
+        presentController(withNames: identifiers, contexts: contexts)
     }
     
    }
