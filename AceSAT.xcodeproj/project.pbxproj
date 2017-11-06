@@ -310,7 +310,7 @@
 				TargetAttributes = {
 					ED1C89C01B5985EF00DCF0EB = {
 						CreatedOnToolsVersion = 7.0;
-						DevelopmentTeam = R8VRS65L49;
+						DevelopmentTeam = T252EPP745;
 						LastSwiftMigration = 0830;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
@@ -326,12 +326,12 @@
 					};
 					ED403E911BB81E5400BC3E58 = {
 						CreatedOnToolsVersion = 7.0;
-						DevelopmentTeam = R8VRS65L49;
+						DevelopmentTeam = T252EPP745;
 						LastSwiftMigration = 0830;
 					};
 					ED403E9D1BB81E5500BC3E58 = {
 						CreatedOnToolsVersion = 7.0;
-						DevelopmentTeam = R8VRS65L49;
+						DevelopmentTeam = T252EPP745;
 						LastSwiftMigration = 0830;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
@@ -567,6 +567,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = T252EPP745;
 				INFOPLIST_FILE = AceSAT/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.namankedia.AceSATApp;
@@ -582,6 +583,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = T252EPP745;
 				INFOPLIST_FILE = AceSAT/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.namankedia.AceSATApp;
@@ -597,6 +599,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = T252EPP745;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				IBSC_MODULE = AceSATWatch_Extension;
 				INFOPLIST_FILE = AceSATWatch/Info.plist;
@@ -616,6 +619,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = T252EPP745;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				IBSC_MODULE = AceSATWatch_Extension;
 				INFOPLIST_FILE = AceSATWatch/Info.plist;
@@ -635,6 +639,7 @@
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = T252EPP745;
 				INFOPLIST_FILE = "AceSATWatch Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.namankedia.AceSATApp.watchkitapp.watchkitextension;
@@ -654,6 +659,7 @@
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = T252EPP745;
 				INFOPLIST_FILE = "AceSATWatch Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.namankedia.AceSATApp.watchkitapp.watchkitextension;
