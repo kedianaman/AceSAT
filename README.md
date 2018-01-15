@@ -1,8 +1,7 @@
 # AceSAT
 An SAT Vocabulary Application 
 
-<img src='http://is4.mzstatic.com/image/thumb/Purple49/v4/cf/d6/d9/cfd6d900-4631-d312-4be4-8213fc9b736a/source/1200x630bb.jpg' title='AceSAT logo' width='200' alt='Video Walkthrough' />
-
+<img src='http://is4.mzstatic.com/image/thumb/Purple49/v4/cf/d6/d9/cfd6d900-4631-d312-4be4-8213fc9b736a/source/1200x630bb.jpg' title='AceSAT logo' width='200' alt='AceSAT logo' />
 
 ## App Store
 
