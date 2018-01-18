@@ -18,3 +18,10 @@ An SAT Vocabulary Application
 
 [Here is a walkthrough of the app.](https://www.youtube.com/watch?v=avam1ybdAhg)
 
+## Credits
+Words taken from majortests.com 
+
+## Version
+* Swift 3.0 
+* iOS 9 or higher
+* watchOS 2 or higher
