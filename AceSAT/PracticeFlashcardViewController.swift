@@ -65,9 +65,9 @@ class PracticeFlashcardViewController: UIViewController {
         speechSynthesizer.speak(speechUtterance)
     }
         
-    func viewTapped(_ gesture: UIGestureRecognizer) {
+    @objc func viewTapped(_ gesture: UIGestureRecognizer) {
         if gesture.state == .recognized {
-            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0, options: UIViewAnimationOptions.curveEaseOut.union(.allowUserInteraction), animations: { () -> Void in
+            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0, options: UIView.AnimationOptions.curveEaseOut.union(.allowUserInteraction), animations: { () -> Void in
                 self.showingDefinition = !self.showingDefinition
                 self.view.layoutIfNeeded()
                 }, completion: nil)

@@ -32,7 +32,7 @@ class TestPercentageView: UIView {
         lineWidth = floor(Double(ringSize) * 0.08)
         
         percentageLabel.frame = ringBounds
-        percentageLabel.font = UIFont.systemFont(ofSize: CGFloat(ringSize * 0.3), weight: UIFontWeightUltraLight)
+        percentageLabel.font = UIFont.systemFont(ofSize: CGFloat(ringSize * 0.3), weight: UIFont.Weight.ultraLight)
         percentageLabel.numberOfLines = 0
         percentageLabel.textColor = UIColor.white
         percentageLabel.textAlignment = NSTextAlignment.center
@@ -58,12 +58,12 @@ class TestPercentageView: UIView {
             ringLayer.fillColor = nil
             ringLayer.strokeColor = UIColor.ace_redColor().cgColor
             ringLayer.anchorPoint = CGPoint(x: CGFloat(0.5), y: CGFloat(0.5))
-            ringLayer.transform = CATransform3DRotate(ringLayer.transform, CGFloat(-M_PI / 2), CGFloat(0), CGFloat(0), CGFloat(1))
+            ringLayer.transform = CATransform3DRotate(ringLayer.transform, CGFloat(-Double.pi / 2), CGFloat(0), CGFloat(0), CGFloat(1))
             ringLayer.strokeEnd = 0.0
             layer.addSublayer(ringLayer)
             
-            ringLayer.lineCap = kCALineCapRound
-            ringLayer.lineJoin = kCALineJoinRound
+            ringLayer.lineCap = CAShapeLayerLineCap.round
+            ringLayer.lineJoin = CAShapeLayerLineJoin.round
         }
 
         let innerRingBounds = CGRect(origin: CGPoint.zero, size: ringBounds.size)
@@ -92,9 +92,9 @@ class TestPercentageView: UIView {
         pathAnimation.duration = 2.0
         pathAnimation.damping = 16.0
         
-        pathAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
-        pathAnimation.fromValue = NSValue(ringLayer.strokeEnd = 0.0)
-        pathAnimation.toValue = NSValue(ringLayer.strokeEnd = CGFloat(Double(correctAnswers) / 10.0))
+        pathAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
+        pathAnimation.fromValue = NSValue(nonretainedObject: ringLayer.strokeEnd = 0.0)
+        pathAnimation.toValue = NSValue(nonretainedObject: ringLayer.strokeEnd = CGFloat(Double(correctAnswers) / 10.0))
 
         ringLayer.add(pathAnimation, forKey: "strokeEnd")
         
@@ -103,11 +103,11 @@ class TestPercentageView: UIView {
 
     fileprivate func updateLayerProperties() {
         let ringSize = min(bounds.width, bounds.height) - 40
-        let thinFont = UIFont.systemFont(ofSize: ringSize * 0.4, weight: UIFontWeightLight)
-        let lightFont = UIFont.systemFont(ofSize: ringSize * 0.1, weight: UIFontWeightLight)
+        let thinFont = UIFont.systemFont(ofSize: ringSize * 0.4, weight: UIFont.Weight.light)
+        let lightFont = UIFont.systemFont(ofSize: ringSize * 0.1, weight: UIFont.Weight.light)
         
-        let attributedText = NSMutableAttributedString(string: String(correctAnswers), attributes: [NSFontAttributeName : thinFont, NSForegroundColorAttributeName : UIColor.white])
-        attributedText.append(NSAttributedString(string: "\n of \(numberOfQuestions!)", attributes: [NSFontAttributeName: lightFont, NSForegroundColorAttributeName:UIColor(white: CGFloat(1.0), alpha: CGFloat(0.5)) ]))
+        let attributedText = NSMutableAttributedString(string: String(correctAnswers), attributes: [NSAttributedString.Key.font : thinFont, NSAttributedString.Key.foregroundColor : UIColor.white])
+        attributedText.append(NSAttributedString(string: "\n of \(numberOfQuestions!)", attributes: [NSAttributedString.Key.font: lightFont, NSAttributedString.Key.foregroundColor:UIColor(white: CGFloat(1.0), alpha: CGFloat(0.5)) ]))
         percentageLabel.attributedText = attributedText
     }
 

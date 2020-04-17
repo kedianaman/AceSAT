@@ -18,13 +18,13 @@ class TestReviewTableViewController: UITableViewController {
         super.viewDidLoad()
         wrongOrUnansweredQuestions = collectDataFromTest()
         tableView.estimatedRowHeight = 250
-        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
         tableView.separatorColor = UIColor(white: 1.0, alpha: 0.3)
         tableView.backgroundColor = UIColor.black
         navigationController?.isNavigationBarHidden = false
         navigationController?.navigationBar.isTranslucent = false
         navigationItem.setHidesBackButton(true, animated: false)
-        let completeButton : UIBarButtonItem = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.plain, target: self, action: #selector(TestReviewTableViewController.endButtonPressed(_:)))
+        let completeButton : UIBarButtonItem = UIBarButtonItem(title: "Done", style: UIBarButtonItem.Style.plain, target: self, action: #selector(TestReviewTableViewController.endButtonPressed(_:)))
         navigationItem.rightBarButtonItem = completeButton
 
     }
@@ -34,7 +34,7 @@ class TestReviewTableViewController: UITableViewController {
         tableView.reloadData()
     }
     
-    func endButtonPressed(_ sender: UIBarButtonItem) {
+    @objc func endButtonPressed(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }
    

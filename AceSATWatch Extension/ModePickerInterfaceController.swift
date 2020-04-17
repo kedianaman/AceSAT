@@ -62,7 +62,7 @@ class ModePickerInterfaceController: WKInterfaceController, WCSessionDelegate {
     override func willActivate() {
         super.willActivate()
         if WCSession.isSupported() {
-            session = WCSession.default()
+            session = WCSession.default
             session.delegate = self
             session.activate()
         }
@@ -99,14 +99,14 @@ class ModePickerInterfaceController: WKInterfaceController, WCSessionDelegate {
 
     }
     fileprivate func updateTitleFont() {
-        let thinFont = UIFont.systemFont(ofSize: 40, weight: UIFontWeightLight)
-        let lightFont = UIFont.systemFont(ofSize: 40, weight: UIFontWeightRegular)
+        let thinFont = UIFont.systemFont(ofSize: 40, weight: UIFont.Weight.light)
+        let lightFont = UIFont.systemFont(ofSize: 40, weight: UIFont.Weight.regular)
         
-        let mainTitle = NSMutableAttributedString(string: "A", attributes: [NSFontAttributeName : thinFont, NSForegroundColorAttributeName : UIColor.white])
-        mainTitle.append(NSMutableAttributedString(string: "CE", attributes: [NSFontAttributeName : UIFont.systemFont(ofSize: 32, weight: UIFontWeightLight), NSForegroundColorAttributeName : UIColor.white]))
-        mainTitle.append(NSMutableAttributedString(string: "S", attributes: [NSFontAttributeName : lightFont, NSForegroundColorAttributeName : UIColor.ace_greenColor()]))
-        mainTitle.append(NSMutableAttributedString(string: "A", attributes: [NSFontAttributeName : lightFont, NSForegroundColorAttributeName : UIColor.ace_blueColor()]))
-        mainTitle.append(NSMutableAttributedString(string: "T", attributes: [NSFontAttributeName : lightFont, NSForegroundColorAttributeName : UIColor.ace_redColor()]))
+        let mainTitle = NSMutableAttributedString(string: "A", attributes: [NSAttributedString.Key.font : thinFont, NSAttributedString.Key.foregroundColor : UIColor.white])
+        mainTitle.append(NSMutableAttributedString(string: "CE", attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 32, weight: UIFont.Weight.light), NSAttributedString.Key.foregroundColor : UIColor.white]))
+        mainTitle.append(NSMutableAttributedString(string: "S", attributes: [NSAttributedString.Key.font : lightFont, NSAttributedString.Key.foregroundColor : UIColor.ace_greenColor()]))
+        mainTitle.append(NSMutableAttributedString(string: "A", attributes: [NSAttributedString.Key.font : lightFont, NSAttributedString.Key.foregroundColor : UIColor.ace_blueColor()]))
+        mainTitle.append(NSMutableAttributedString(string: "T", attributes: [NSAttributedString.Key.font : lightFont, NSAttributedString.Key.foregroundColor : UIColor.ace_redColor()]))
         
         titleLabel.setAttributedText(mainTitle)
         

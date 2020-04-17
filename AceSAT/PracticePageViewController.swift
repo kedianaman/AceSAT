@@ -17,7 +17,7 @@ class PracticePageViewController: UIViewController, UIPageViewControllerDataSour
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target: self, action: #selector(PracticePageViewController.doneButtonPressed(_:)))
+        let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.done, target: self, action: #selector(PracticePageViewController.doneButtonPressed(_:)))
         navigationItem.rightBarButtonItem = doneButton
         
         navigationController?.navigationBar.setBackgroundImage(UIImage(named: "NavBarBG"), for: .default)
@@ -37,7 +37,7 @@ class PracticePageViewController: UIViewController, UIPageViewControllerDataSour
     
     // MARK:- Motion
     
-    override func motionBegan(_ motion: UIEventSubtype, with event: UIEvent?) {
+    override func motionBegan(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
         super.motionBegan(motion, with: event)
         if motion == .motionShake {
             let viewController = pageViewController.viewControllers?.first as! PracticeFlashcardViewController
@@ -47,12 +47,12 @@ class PracticePageViewController: UIViewController, UIPageViewControllerDataSour
     
     // MARK:- IB Action
     
-    func doneButtonPressed(_ sender: UIBarButtonItem) {
+    @objc func doneButtonPressed(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }
     
     func setUpPageViewController() {
-        pageViewController = UIPageViewController(transitionStyle: UIPageViewControllerTransitionStyle.scroll, navigationOrientation: UIPageViewControllerNavigationOrientation.horizontal, options: nil)
+        pageViewController = UIPageViewController(transitionStyle: UIPageViewController.TransitionStyle.scroll, navigationOrientation: UIPageViewController.NavigationOrientation.horizontal, options: nil)
         pageViewController.delegate = self
         pageViewController.dataSource = self
         
@@ -61,9 +61,9 @@ class PracticePageViewController: UIViewController, UIPageViewControllerDataSour
         pageViewController.setViewControllers(viewControllers, direction: .forward, animated: true, completion: nil)
         pageViewController.view.frame = self.view.frame
         
-        self.addChildViewController(pageViewController)
+        self.addChild(pageViewController)
         self.view.addSubview(pageViewController.view)
-        pageViewController.didMove(toParentViewController: self)
+        pageViewController.didMove(toParent: self)
     }
     
     fileprivate func setUpPageControlAppearance() {

@@ -47,7 +47,7 @@ class WordListManager: NSObject {
         }
         
         if WCSession.isSupported() {
-            session = WCSession.default()
+            session = WCSession.default
             session.activate()
         }
     }
@@ -60,34 +60,34 @@ class WordListManager: NSObject {
     
     func setAced(_ wordList: WordList) {
         let defaults = UserDefaults.standard
-        let acedWordLists: NSMutableArray
-        if let lists = defaults.object(forKey: DefaultsKey.AcedWordListKey) {
-            acedWordLists = (lists as AnyObject).mutableCopy() as! NSMutableArray
+        var acedWordLists: [Int]
+        if let lists = defaults.object(forKey: DefaultsKey.AcedWordListKey) as? [Int] {
+            acedWordLists = lists
         }
         else {
-            acedWordLists = NSMutableArray()
+            acedWordLists = [Int]()
         }
         
-        let index = wordLists.index(of: wordList)!
+        guard let index = wordLists.firstIndex(of: wordList) else { return }
         if acedWordLists.contains(index) == false {
-            acedWordLists.add(index)
+            acedWordLists.append(index)
         }
         
         defaults.set(acedWordLists, forKey: DefaultsKey.AcedWordListKey)
     }
     
     func getAced(_ wordList: WordList) -> Bool {
-        let index = wordLists.index(of: wordList)!
-        if let acedWordLists = UserDefaults.standard.object(forKey: DefaultsKey.AcedWordListKey) {
-            return (acedWordLists as AnyObject).contains(index)
+        guard let index = wordLists.firstIndex(of: wordList) else { return false }
+        if let acedWordLists = UserDefaults.standard.object(forKey: DefaultsKey.AcedWordListKey) as? [Int] {
+            return (acedWordLists).contains(index)
         }
         return false
     }
     
     func updateApplicationContext() {
         if session != nil {
-            var acedLists =  NSMutableArray()
-            if let acedWordLists = UserDefaults.standard.object(forKey: DefaultsKey.AcedWordListKey) as? NSMutableArray {
+            var acedLists =  [Int]()
+            if let acedWordLists = UserDefaults.standard.object(forKey: DefaultsKey.AcedWordListKey) as? [Int] {
                 acedLists = acedWordLists
             }
             do {
@@ -99,11 +99,11 @@ class WordListManager: NSObject {
         }
     }
     
-    func getAcedLists() -> NSMutableArray {
-        if let acedWordLists = UserDefaults.standard.object(forKey: DefaultsKey.AcedWordListKey) as? NSMutableArray {
+    func getAcedLists() -> [Int] {
+        if let acedWordLists = UserDefaults.standard.object(forKey: DefaultsKey.AcedWordListKey) as? [Int] {
             return acedWordLists
         }
-        return NSMutableArray()
+        return [Int]()
     }
     
     // MARK:- Word List Access

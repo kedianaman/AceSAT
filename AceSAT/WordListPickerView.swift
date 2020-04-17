@@ -58,7 +58,7 @@ class WordListPickerView: UIView, UIPickerViewDataSource, UIPickerViewDelegate {
         
         pickerView.transform = CGAffineTransform.identity
         pickerView.frame = CGRect(x: 0, y: 0, width: bounds.size.height, height: bounds.size.width)
-        pickerView.transform = CGAffineTransform(rotationAngle: CGFloat(-M_PI_2))
+        pickerView.transform = CGAffineTransform(rotationAngle: CGFloat(-Double.pi/2))
         pickerView.center = CGPoint(x: bounds.size.width/2.0, y: bounds.size.height/2.0)
         
         pickerView.layer.borderColor = UIColor(white: 1.0, alpha: 0.1).cgColor
@@ -107,9 +107,9 @@ class WordListPickerView: UIView, UIPickerViewDataSource, UIPickerViewDelegate {
         let starFont = UIFont.systemFont(ofSize: fontSize * 0.75)
         
         if WordListManager.sharedManager.getAced(wordList) == true {
-            let attributedText = NSMutableAttributedString(string: "\n", attributes: [NSFontAttributeName : starFont])
-            attributedText.append(NSAttributedString(string: "\(row+1)\n", attributes: [NSFontAttributeName: listFont, NSForegroundColorAttributeName:UIColor.white ]))
-            attributedText.append(NSAttributedString(string: "★", attributes: [NSFontAttributeName: starFont, NSForegroundColorAttributeName:UIColor.orange ]))
+            let attributedText = NSMutableAttributedString(string: "\n", attributes: [NSAttributedString.Key.font : starFont])
+            attributedText.append(NSAttributedString(string: "\(row+1)\n", attributes: [NSAttributedString.Key.font: listFont, NSAttributedString.Key.foregroundColor:UIColor.white ]))
+            attributedText.append(NSAttributedString(string: "★", attributes: [NSAttributedString.Key.font: starFont, NSAttributedString.Key.foregroundColor:UIColor.orange ]))
             viewForRow!.attributedText = attributedText
         }
         else {
@@ -118,7 +118,7 @@ class WordListPickerView: UIView, UIPickerViewDataSource, UIPickerViewDelegate {
         }
         
         
-        viewForRow!.transform = CGAffineTransform(rotationAngle: CGFloat(M_PI_2))
+        viewForRow!.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi/2))
         viewForRow!.sizeToFit()
         
         return viewForRow!

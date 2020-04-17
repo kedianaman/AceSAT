@@ -9,7 +9,22 @@
 import UIKit
 import WatchConnectivity
 
-class MainMenuViewController: UIViewController {
+class MainMenuViewController: UIViewController, WCSessionDelegate {
+    
+    func sessionDidBecomeInactive(_ session: WCSession) {
+        print("session inactive")
+    }
+    
+    func sessionDidDeactivate(_ session: WCSession) {
+        print("session active")
+    }
+    
+    @available(iOS 9.3, *)
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+        print(activationState)
+    }
+    
+
 
     var session: WCSession!
     @IBOutlet weak var titleText: UILabel!
@@ -62,7 +77,7 @@ class MainMenuViewController: UIViewController {
         wordListStackView.transform = CGAffineTransform(translationX: 0, y: -wordListStackView.bounds.size.height/4.0)
         
         listChooserButton.tintColor = UIColor.white
-        listChooserButton.setTitle(String(currentlySelectedIndex+1), for: UIControlState())
+        listChooserButton.setTitle(String(currentlySelectedIndex+1), for: UIControl.State())
         
         updateGradientButtonColors()
     
@@ -70,7 +85,8 @@ class MainMenuViewController: UIViewController {
     
     func updateWatchData() {
         if WCSession.isSupported() {
-            session = WCSession.default()
+            session = WCSession.default
+            session.delegate = self
             session.activate()
         }
         WordListManager.sharedManager.updateApplicationContext()
@@ -102,18 +118,18 @@ class MainMenuViewController: UIViewController {
     
     fileprivate func updateTitleFontAndListChooserButton() {
         let dimension = min(view.bounds.size.height, view.bounds.size.width)
-        let thinFont = UIFont.systemFont(ofSize: floor(dimension * 0.2), weight: UIFontWeightUltraLight)
-        let lightFont = UIFont.systemFont(ofSize: floor(dimension * 0.2), weight: UIFontWeightLight)
+        let thinFont = UIFont.systemFont(ofSize: floor(dimension * 0.2), weight: UIFont.Weight.ultraLight)
+        let lightFont = UIFont.systemFont(ofSize: floor(dimension * 0.2), weight: UIFont.Weight.light)
         
-        let mainTitle = NSMutableAttributedString(string: "A", attributes: [NSFontAttributeName : thinFont, NSForegroundColorAttributeName : UIColor.white])
-        mainTitle.append(NSMutableAttributedString(string: "CE", attributes: [NSFontAttributeName : UIFont.systemFont(ofSize: floor(dimension * 0.15), weight: UIFontWeightUltraLight), NSForegroundColorAttributeName : UIColor.white]))
-        mainTitle.append(NSMutableAttributedString(string: "S", attributes: [NSFontAttributeName : lightFont, NSForegroundColorAttributeName : UIColor.ace_greenColor()]))
-        mainTitle.append(NSMutableAttributedString(string: "A", attributes: [NSFontAttributeName : lightFont, NSForegroundColorAttributeName : UIColor.ace_blueColor()]))
-        mainTitle.append(NSMutableAttributedString(string: "T", attributes: [NSFontAttributeName : lightFont, NSForegroundColorAttributeName : UIColor.ace_redColor()]))
+        let mainTitle = NSMutableAttributedString(string: "A", attributes: [NSAttributedString.Key.font : thinFont, NSAttributedString.Key.foregroundColor : UIColor.white])
+        mainTitle.append(NSMutableAttributedString(string: "CE", attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: floor(dimension * 0.15), weight: UIFont.Weight.ultraLight), NSAttributedString.Key.foregroundColor : UIColor.white]))
+        mainTitle.append(NSMutableAttributedString(string: "S", attributes: [NSAttributedString.Key.font : lightFont, NSAttributedString.Key.foregroundColor : UIColor.ace_greenColor()]))
+        mainTitle.append(NSMutableAttributedString(string: "A", attributes: [NSAttributedString.Key.font : lightFont, NSAttributedString.Key.foregroundColor : UIColor.ace_blueColor()]))
+        mainTitle.append(NSMutableAttributedString(string: "T", attributes: [NSAttributedString.Key.font : lightFont, NSAttributedString.Key.foregroundColor : UIColor.ace_redColor()]))
         
         titleText.attributedText = mainTitle
 
-        listChooserButton.titleLabel?.font = UIFont.systemFont(ofSize: floor(dimension * 0.1), weight: UIFontWeightLight)
+        listChooserButton.titleLabel?.font = UIFont.systemFont(ofSize: floor(dimension * 0.1), weight: UIFont.Weight.light)
         listChooserButton.layer.cornerRadius = listChooserButton.bounds.size.height/2
         listChooserButton.layer.masksToBounds = true
 
@@ -133,13 +149,13 @@ class MainMenuViewController: UIViewController {
     
     func updateAxisForTraitCollection(_ traitCollection: UITraitCollection) {
         if traitCollection.verticalSizeClass == UIUserInterfaceSizeClass.compact {
-            self.stackView.axis = UILayoutConstraintAxis.horizontal
+            self.stackView.axis = NSLayoutConstraint.Axis.horizontal
         }
         else if traitCollection.horizontalSizeClass == .regular && traitCollection.verticalSizeClass == .regular {
             updateAxisForBoundsChange(view.bounds.size)
         }
         else {
-            self.stackView.axis = UILayoutConstraintAxis.vertical
+            self.stackView.axis = NSLayoutConstraint.Axis.vertical
         }
     }
     
@@ -147,10 +163,10 @@ class MainMenuViewController: UIViewController {
         if traitCollection.horizontalSizeClass == .regular && traitCollection.verticalSizeClass == .regular {
             // iPad - check orientation in this case.
             if size.width > size.height {
-                self.stackView.axis = UILayoutConstraintAxis.horizontal
+                self.stackView.axis = NSLayoutConstraint.Axis.horizontal
             }
             else {
-                self.stackView.axis = UILayoutConstraintAxis.vertical
+                self.stackView.axis = NSLayoutConstraint.Axis.vertical
             }
         }
     }
@@ -170,13 +186,13 @@ class MainMenuViewController: UIViewController {
         let buttons = [reviewButton, practiceButton, testButton]
         for button in buttons {
             let randomDuration = Double(Int(arc4random())%30)/50.0 + 0.4
-            UIView.animate(withDuration: randomDuration, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.0, options: UIViewAnimationOptions.curveEaseOut, animations: { () -> Void in
+            UIView.animate(withDuration: randomDuration, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.0, options: UIView.AnimationOptions.curveEaseOut, animations: { () -> Void in
                 button?.transform = showWordListChooser ? CGAffineTransform(translationX: 0, y: self.wordListStackView.bounds.size.height + 20) : CGAffineTransform.identity
                 button?.isEnabled = !showWordListChooser
             }, completion: nil)
         }
         
-        UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.0, options: UIViewAnimationOptions.curveEaseOut, animations: { () -> Void in
+        UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.0, options: UIView.AnimationOptions.curveEaseOut, animations: { () -> Void in
             
             self.stackView.alpha = showWordListChooser ? 0.25 : 1.0
             self.wordListStackView.alpha = showWordListChooser ? 1.0 : 0.0
@@ -184,13 +200,13 @@ class MainMenuViewController: UIViewController {
             self.wordListStackView.transform = showWordListChooser ? CGAffineTransform.identity : CGAffineTransform(translationX: 0, y: -self.wordListStackView.bounds.size.height/4.0)
 
             if showWordListChooser {
-                self.listChooserButton.setImage(UIImage(named: "Checkmark"), for: UIControlState())
-                self.listChooserButton.setTitle("", for: UIControlState())
+                self.listChooserButton.setImage(UIImage(named: "Checkmark"), for: UIControl.State())
+                self.listChooserButton.setTitle("", for: UIControl.State())
                 self.wordListPickerView.reloadInputViews()
             }
             else {
-                self.listChooserButton.setImage(nil, for: UIControlState())
-                self.listChooserButton.setTitle(String(self.wordListPickerView.selectedNumberList+1), for: UIControlState())
+                self.listChooserButton.setImage(nil, for: UIControl.State())
+                self.listChooserButton.setTitle(String(self.wordListPickerView.selectedNumberList+1), for: UIControl.State())
                 self.currentlySelectedIndex = self.wordListPickerView.selectedNumberList
             }
             

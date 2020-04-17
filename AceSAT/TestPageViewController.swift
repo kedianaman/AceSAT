@@ -27,7 +27,7 @@ class TestPageViewController: UIViewController, UIPageViewControllerDelegate, UI
         navigationController?.navigationBar.shadowImage = UIImage(named: "NavBarBG")
         navigationController?.navigationBar.barStyle = UIBarStyle.black
         navigationController?.view.tintColor = UIColor.ace_redColor()
-        let cancelButton : UIBarButtonItem = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.plain, target: self, action: #selector(TestPageViewController.cancelButtonPressed(_:)))
+        let cancelButton : UIBarButtonItem = UIBarButtonItem(title: "Cancel", style: UIBarButtonItem.Style.plain, target: self, action: #selector(TestPageViewController.cancelButtonPressed(_:)))
         navigationItem.leftBarButtonItem = cancelButton
     }
     
@@ -38,7 +38,7 @@ class TestPageViewController: UIViewController, UIPageViewControllerDelegate, UI
         self.view.backgroundColor = UIColor.black
     }
     
-    func completeButtonPressed(_ sender: UIBarButtonItem) {
+    @objc func completeButtonPressed(_ sender: UIBarButtonItem) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let testResultsViewController = storyboard.instantiateViewController(withIdentifier: "TestResultsViewController") as! TestResultsViewController
         testResultsViewController.test = self.test
@@ -47,22 +47,22 @@ class TestPageViewController: UIViewController, UIPageViewControllerDelegate, UI
         
     }
     
-    func cancelButtonPressed(_ sender: UIBarButtonItem) {
+    @objc func cancelButtonPressed(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }
     
     fileprivate func setUpPageViewController() {
-        pageViewController = UIPageViewController(transitionStyle: UIPageViewControllerTransitionStyle.scroll, navigationOrientation: UIPageViewControllerNavigationOrientation.horizontal, options: nil)
+        pageViewController = UIPageViewController(transitionStyle: UIPageViewController.TransitionStyle.scroll, navigationOrientation: UIPageViewController.NavigationOrientation.horizontal, options: nil)
         self.pageViewController.dataSource = self
         
         let startViewController = testViewControllerAtIndex(0) as TestViewController
         pageViewController.setViewControllers([startViewController], direction: .forward, animated: true, completion: nil)
         pageViewController.view.frame = self.view.frame
         
-        pageViewController.willMove(toParentViewController: self)
-        self.addChildViewController(pageViewController)
+        pageViewController.willMove(toParent: self)
+        self.addChild(pageViewController)
         self.view.addSubview(pageViewController.view)
-        pageViewController.didMove(toParentViewController: self)
+        pageViewController.didMove(toParent: self)
         
     }
     
@@ -87,7 +87,7 @@ class TestPageViewController: UIViewController, UIPageViewControllerDelegate, UI
     func addCompleteButton(_ testViewController: TestViewController) {
         let index = indexOfViewController(testViewController)
         if index == test.numberOfQuestions - 1 {
-            let completeButton : UIBarButtonItem = UIBarButtonItem(title: "Complete", style: UIBarButtonItemStyle.plain, target: self, action: #selector(TestPageViewController.completeButtonPressed(_:)))
+            let completeButton : UIBarButtonItem = UIBarButtonItem(title: "Complete", style: UIBarButtonItem.Style.plain, target: self, action: #selector(TestPageViewController.completeButtonPressed(_:)))
             navigationItem.rightBarButtonItem = completeButton
 
         }

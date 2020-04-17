@@ -15,7 +15,7 @@ class ReviewTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.estimatedRowHeight = 96
-        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
         tableView.separatorColor = UIColor(white: 1.0, alpha: 0.3)
         tableView.backgroundColor = UIColor.black
         
@@ -33,7 +33,7 @@ class ReviewTableViewController: UITableViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
-    func hideBarOnSwipe(_ gesture: UIPanGestureRecognizer) {
+    @objc func hideBarOnSwipe(_ gesture: UIPanGestureRecognizer) {
         if gesture.state == .ended {
             UIView.animate(withDuration: 0.2, animations: { () -> Void in
                 self.setNeedsStatusBarAppearanceUpdate()

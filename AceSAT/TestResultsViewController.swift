@@ -31,7 +31,7 @@ class TestResultsViewController: UIViewController {
         }
         navigationController?.isNavigationBarHidden = false
         navigationItem.setHidesBackButton(true, animated: false)
-        let completeButton : UIBarButtonItem = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.plain, target: self, action: #selector(TestResultsViewController.endButtonPressed(_:)))
+        let completeButton : UIBarButtonItem = UIBarButtonItem(title: "Done", style: UIBarButtonItem.Style.plain, target: self, action: #selector(TestResultsViewController.endButtonPressed(_:)))
         navigationItem.rightBarButtonItem = completeButton
     }
     
@@ -48,7 +48,7 @@ class TestResultsViewController: UIViewController {
     }
 
     
-    func endButtonPressed(_ sender: UIBarButtonItem) {
+    @objc func endButtonPressed(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }
     
@@ -75,13 +75,13 @@ class TestResultsViewController: UIViewController {
 // MARK - Stack view orientation 
     func updateAxisForTraitCollection(_ traitCollection: UITraitCollection) {
         if traitCollection.verticalSizeClass == UIUserInterfaceSizeClass.compact {
-            resultsStackview.axis = UILayoutConstraintAxis.horizontal
+            resultsStackview.axis = NSLayoutConstraint.Axis.horizontal
         }
         else if traitCollection.horizontalSizeClass == .regular && traitCollection.verticalSizeClass == .regular {
             updateAxisForBoundsChange(view.bounds.size)
         }
         else {
-             resultsStackview.axis = UILayoutConstraintAxis.vertical
+            resultsStackview.axis = NSLayoutConstraint.Axis.vertical
         }
     }
     
@@ -89,10 +89,10 @@ class TestResultsViewController: UIViewController {
         if traitCollection.horizontalSizeClass == .regular && traitCollection.verticalSizeClass == .regular {
             // iPad - check orientation in this case.
             if size.width > size.height {
-                 resultsStackview.axis = UILayoutConstraintAxis.horizontal
+                resultsStackview.axis = NSLayoutConstraint.Axis.horizontal
             }
             else {
-                 resultsStackview.axis = UILayoutConstraintAxis.vertical
+                resultsStackview.axis = NSLayoutConstraint.Axis.vertical
             }
         }
     }

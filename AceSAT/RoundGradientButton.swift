@@ -15,8 +15,8 @@ class RoundGradientButton: UIButton {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        self.setTitleColor(UIColor.black, for: UIControlState())
-        self.setTitleShadowColor(UIColor(white: 1.0, alpha: 0.2), for: UIControlState())
+        self.setTitleColor(UIColor.black, for: UIControl.State())
+        self.setTitleShadowColor(UIColor(white: 1.0, alpha: 0.2), for: UIControl.State())
         self.titleLabel?.shadowOffset = CGSize(width: 0, height: 2)
     }
     
@@ -24,7 +24,7 @@ class RoundGradientButton: UIButton {
         super.layoutSubviews()
         self.updateBackgroundImage()
         
-        self.titleLabel?.font = UIFont.systemFont(ofSize: bounds.size.height * 0.225, weight: UIFontWeightLight)
+        self.titleLabel?.font = UIFont.systemFont(ofSize: bounds.size.height * 0.225, weight: UIFont.Weight.light)
     }
  
     fileprivate func updateBackgroundImage() {
@@ -34,7 +34,7 @@ class RoundGradientButton: UIButton {
         
         let size = CGSize(width: round(bounds.size.width), height: round(bounds.size.height))
         
-        let currentImage = self.backgroundImage(for: UIControlState())
+        let currentImage = self.backgroundImage(for: UIControl.State())
         if currentImage?.size == size {
             return
         }
@@ -56,7 +56,7 @@ class RoundGradientButton: UIButton {
         let selectedBackgroundImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
-        self.setBackgroundImage(backgroundImage, for: UIControlState())
+        self.setBackgroundImage(backgroundImage, for: UIControl.State())
         self.setBackgroundImage(selectedBackgroundImage, for: .highlighted)
         self.setBackgroundImage(selectedBackgroundImage, for: .selected)
     }
@@ -64,14 +64,14 @@ class RoundGradientButton: UIButton {
     fileprivate func updateScaleForHighlightedState() {
         if self.isHighlighted {
             if (self.transform.isIdentity) {
-                UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.0, options: UIViewAnimationOptions.beginFromCurrentState, animations: { () -> Void in
+                UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.0, options: UIView.AnimationOptions.beginFromCurrentState, animations: { () -> Void in
                     self.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
                     }, completion: nil)
             }
         }
         else {
             if (self.transform.isIdentity == false) {
-                UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.0, options: UIViewAnimationOptions.beginFromCurrentState, animations: { () -> Void in
+                UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.0, options: UIView.AnimationOptions.beginFromCurrentState, animations: { () -> Void in
                     self.transform = CGAffineTransform.identity
                     }, completion: nil)
             }
