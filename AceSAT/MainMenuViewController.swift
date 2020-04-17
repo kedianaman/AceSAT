@@ -218,6 +218,7 @@ class MainMenuViewController: UIViewController, WCSessionDelegate {
         currentlySelectedWordList.randomize()
         practicePageViewController.wordList = currentlySelectedWordList
         let practiceNavigationController = UINavigationController(rootViewController: practicePageViewController)
+        practiceNavigationController.modalPresentationStyle = .fullScreen
         present(practiceNavigationController, animated: true, completion: nil)
     }
     
@@ -225,6 +226,7 @@ class MainMenuViewController: UIViewController, WCSessionDelegate {
         let testPageViewController = TestPageViewController()
         testPageViewController.wordList = currentlySelectedWordList
         let testNavigationController = UINavigationController(rootViewController: testPageViewController)
+        testNavigationController.modalPresentationStyle = .fullScreen
         self.present(testNavigationController, animated: true, completion: nil)
     }
     
